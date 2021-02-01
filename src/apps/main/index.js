@@ -1,11 +1,11 @@
 const BaseApp = require('@apps/base')
 
-class MainApp extends BaseApp {
-    constructor() {
-        super()
-
-        this.name = 'main'
+class Main extends BaseApp {
+    constructor(props) {
+        super(props)
     }
 }
 
-module.exports = new MainApp
+module.exports = new Main({
+    routePrefix: '/'
+})

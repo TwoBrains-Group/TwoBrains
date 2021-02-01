@@ -1,40 +1,47 @@
 const fs = require('fs')
 const config = require('@utils/config')
+const storage = require('@utils/storage')
+const express = require('express')
 
 /**
  * BaseApp
  * Base for all applications
  */
 class BaseApp {
-    constructor() {
-        this.name = '_base'
+    constructor(props) {
+        this.name = props.name || this.constructor.name.toLowerCase()
+        this.routePrefix = props.routePrefix || '/'
     }
 
     init(app) {
+        // Conditions for app to run
+        let startErrors = ''
+        if (typeof this.name !== 'string') {
+            startErrors += 'App name must be a string\n'
+        }
+        if (typeof this.routePrefix !== 'string') {
+            startErrors += 'appPrefix must be a string\n'
+        }
+
+        if (startErrors.length) {
+            throw new Error(startErrors)
+        }
+
         this.initRoutes(app)
     }
 
     initRoutes(app) {
-        const routesFilePath = `@apps/${this.name}/routes.js`
+        const pagesPath = `@apps/${this.name}/pages`
 
-        const routes = require(routesFilePath)
-        for (const [routeKey, value] of Object.entries(routes)) {
-            const routeParts = routeKey.split(';')
-            const httpMethod = routeParts[0].toLowerCase()
-            const routePath = routeParts[1]
+        const router = express.Router()
+        const pages = require(pagesPath)
 
-            if (!['post', 'get'].includes(httpMethod)) {
-                throw new Error(`HTTP method of route ${routeKey} is invalid or no supported (only 'GET' and 'POST')`)
-            }
-
-            if (typeof value === 'function') {
-                app[httpMethod](routePath, value)
-            } else if (typeof value === 'string') {
-                app[httpMethod](routePath, (req, res) => {
-                    res.render(value)
-                })
-            }
+        for (const [pageName, page] of Object.entries(pages)) {
+            page.init(this)
+            router[page.method](page.route, (req, res, next) => page.routeFunc.call(page, req, res, next))
         }
+
+        app.use(this.routePrefix, router)
     }
 }
 

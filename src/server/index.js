@@ -1,23 +1,24 @@
 const express = require('express')
 const path = require('path')
+const appRootPath = require('app-root-path')
 const config = require('@utils/config')
-const expressHandlebars = require('express-handlebars')
+const renderEngine = require('./RenderEngine')
 
 class Server {
     constructor() {
-        this.app = express()
+        this.expApp = express()
     }
 
     init() {
-        const app = this.app
+        const expApp = this.expApp
 
-        app.use('/static', express.static(path.join(__dirname, 'public')))
-        app.engine('.hbs', expressHandlebars({extname: '.hbs'}))
-        app.set('view engine', '.hbs')
+        expApp.use('/static', express.static(appRootPath + '/static'))
+        expApp.engine(renderEngine.name, renderEngine.engine)
+        expApp.set('view engine', renderEngine.name)
 
         this.initApps()
 
-        app.listen(3000, () => {
+        expApp.listen(3000, () => {
             console.log('Server is listening on port 3000')
         })
     }
@@ -30,7 +31,7 @@ class Server {
         for (const appName of config.apps) {
             const app = require(`@apps/${appName}`)
             if (app) {
-                app.init(this.app)
+                app.init(this.expApp)
             } else {
                 console.log(`App ${app} does not exist`)
             }

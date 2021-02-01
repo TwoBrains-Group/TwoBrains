@@ -2,8 +2,11 @@
     <head>
         <meta charset="utf-8">
         <title>TwoBrains</title>
+        <link rel="stylesheet" href="{{concat '/static/css/pages/' info.path '.css'}}">
     </head>
     <body>
+        {{>common/header}}
+
         {{{body}}}
     </body>
 </html>

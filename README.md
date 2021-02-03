@@ -22,14 +22,11 @@ const templateObject = {
     info: {
         // Some kind of meta-data about page, but not for head
     },
-    data: {
-        // Content-like data goes here
-        page: {
-            // Here comes data for the rendered page
-        },
-        common: {
-            // Here's data that belongs not to the rendered page
-        }
+    page: {
+        // Here comes data for the rendered page
+    },
+    common: {
+        // Here's data that belongs not to the rendered page (logged in user, etc.)
     },
     settings: {
         // Non-content data (metadata and etc.)
@@ -39,3 +36,16 @@ const templateObject = {
     }
 }
 ```
+
+## Structure
+
+### Apps
+The main reason to divide everything to applications is ease of use.
+Each app contains some count of pages and methods.
+
+### Pages
+Page is entity for `GET` requests. By name, they are obviously just real pages.
+Pages use RESTful API.
+
+### Methods
+Beside pages, methods are for `POST` requests.

@@ -54,10 +54,98 @@ table {
   border-spacing: 0;
 }
 
-.ui-soar-back {
-  width: 100%;
+.main-header {
+  display: flex;
+  width: 100vw;
+  height: 40px;
+  flex-direction: row;
+  z-index: 100;
+}
+
+.main-header__back {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 40px;
+  box-shadow: 0 3px 5px -1px #f0f0f0;
+  z-index: -1;
+}
+
+.main-header__menu-btn {
+  display: block;
+  position: relative;
+  left: -5px;
+  width: 20px;
+  height: 20px;
+  padding: 10px 10px 10px 0;
+  line-height: 20px;
+  font-size: 20px;
+}
+.main-header__menu-btn:hover {
+  left: 0;
+}
+
+.main-header__logo {
+  width: max-content;
+  height: 30px;
+  padding: 5px 10px;
+}
+
+.main-header__logo__img {
   height: 100%;
-  box-shadow: 0 3px 5px -1px #ddd;
+}
+
+.main-header__user-btn {
+  display: flex;
+  width: 200px;
+  height: 40px;
+  margin-left: auto;
+  flex-direction: row;
+}
+.main-header__user-btn:hover .main-header__user-btn__avatar img {
+  box-shadow: 0 4px 10px #ddd;
+}
+
+.main-header__user-btn__avatar {
+  width: 40px;
+  height: 40px;
+}
+.main-header__user-btn__avatar img {
+  height: 30px;
+  margin: 5px;
+  border-radius: 50%;
+  box-shadow: 0 4px 5px #f0f0f0;
+}
+
+.main-header__user-btn__nickname {
+  width: max-content;
+  height: 40px;
+  line-height: 40px;
+}
+
+.btn {
+  background: #fff;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.btn:hover {
+  background: #f0f0f0;
+}
+.btn:active {
+  background: #ddd;
+}
+
+body {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  color: #333;
+}
+body * {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 
 /*# sourceMappingURL=home.css.map */

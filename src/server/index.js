@@ -3,6 +3,7 @@ const path = require('path')
 const appRootPath = require('app-root-path')
 const config = require('@utils/config')
 const renderEngine = require('./RenderEngine')
+const apps = require('@apps')
 
 class Server {
     constructor() {
@@ -24,17 +25,8 @@ class Server {
     }
 
     initApps() {
-        if (!Array.isArray(config.apps)) {
-            throw new Error('Config must contain \'apps\' array')
-        }
-
-        for (const appName of config.apps) {
-            const app = require(`@apps/${appName}`)
-            if (app) {
-                app.init(this.expApp)
-            } else {
-                console.log(`App ${app} does not exist`)
-            }
+        for (const app of Object.values(apps)) {
+            app.init(this.expApp)
         }
     }
 }

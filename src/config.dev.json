@@ -1,5 +1,11 @@
 {
-    "apps": [
-        "main"
-    ]
+    "db": {
+        "connection": {
+            "host": "localhost",
+            "db_name": "tb",
+            "user": "postgres",
+            "password": "1",
+            "port": 5432
+        }
+    }
 }

@@ -27,18 +27,20 @@ class BaseApp {
             throw new Error(startErrors)
         }
 
-        this.initRoutes(app)
+        this.initPages(app)
+        // TODO!: initMethods
     }
 
-    initRoutes(app) {
+    initPages(app) {
         const pagesPath = `@apps/${this.name}/pages`
 
         const router = express.Router()
+        // FIXME: Dynamic require????!!!
         const pages = require(pagesPath)
 
         for (const [pageName, page] of Object.entries(pages)) {
             page.init(this)
-            router[page.method](page.route, (req, res, next) => page.routeFunc.call(page, req, res, next))
+            router.get(page.route, (req, res, next) => page.processHttp.call(page, req, res, next))
         }
 
         app.use(this.routePrefix, router)

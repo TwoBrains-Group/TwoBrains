@@ -1,46 +1,68 @@
 const storage = require('@utils/storage')
+const Route = require('@apps/base/Route')
+const {MustBeOverridden} = require('@utils/errors')
+const DB = require('@modules/db')
 
 /**
  * Page is single unit for one route
  */
-class Page {
+class Page extends Route {
     constructor(props = {}) {
-        this.method = props.method || null
+        super(props)
+
+        this.data = {}
         this.route = props.route || null
         this.appName = null
-
-        // Data to join with storage
-        this.data = storage.get()
+        this.useDB = props.useDB || false
     }
 
-    init(app) {
+    async _init() {
         if (!this.route) {
-            throw new Error('Page route is not specified')
-        }
-        if (!this.method || !['get', 'post'].includes(this.method)) {
-            throw new Error(`Page method is not specified or is invalid (${this.method} given)`)
+            throw new Error(`Route is not specified for page ${this.getName()}`)
         }
 
-        this.appName = app.name
+        // Get data template
+        this.data = storage.get()
 
-        this.data.info.path = this.getPath()
+        // Set page path for static data (css, js)
+        this.data.info.path = this.getName()
+
+        if (this.useDB) {
+            this.db = await DB.getPool()
+            await this.db.init()
+        }
     }
 
-    routeFunc(req, res, next) {
-        this.defaultFunc(req, res, next)
-        // throw new Error(`routeFunc must be overridden (${this.appName}.[${this.method}]${this.route})`)
-    }
-
-    defaultFunc(req, res, next) {
-        res.render(this.data.info.path, storage.get(this.data))
+    run() {
+        throw new MustBeOverridden('run', this.getName())
     }
 
     /**
-     * getPath
-     * Returns path to static data (html/js/css) as appName + pageName
+     * processHttp
+     * @param {Object} req Request
+     * @param {Object} res Response
+     * @param {Function} next Next bypass function
      */
-    getPath() {
-        return this.appName + '/' + this.constructor.name.toLowerCase()
+    processHttp(req, res, next) {
+        let result = {}
+
+        // FIXME: Circular
+        // this.log.debug(`Get page message: ${JSON.stringify(req, null, 2)}`)
+
+        try {
+            result = this.run(req, res)
+        } catch (error) {
+            this.log.error()
+        }
+
+        let responseData = storage.get({
+            ...this.data,
+            page: result,
+        })
+
+        // this.log.debug(`Render page with data: ${responseData}`)
+
+        res.render(this.data.info.path, responseData)
     }
 }
 

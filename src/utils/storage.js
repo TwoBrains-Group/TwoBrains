@@ -10,17 +10,15 @@ class Storage {
             info: {
                 name: 'unknown'
             },
-            data: {
-                page: {},
-                common: {}
-            },
+            page: {},
+            common: {},
             settings: {},
             styles: {}
         }
     }
 
-    get(additional = {}) {
-        return Object.assign(this.data, additional)
+    get(additional) {
+        return {...this.data, ...additional}
     }
 
     set(data) {

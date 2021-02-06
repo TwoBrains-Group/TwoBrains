@@ -1,0 +1,6 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.config = void 0;
+const configFilePath = `@root/config.${process.env.ENV}.json`;
+exports.config = require(configFilePath);
+//# sourceMappingURL=config.js.map

@@ -1,13 +1,10 @@
 import express from 'express'
 import {storage, StorageData} from '@utils/storage'
-import Route from '@apps/base/Route'
+import {Route, RouteProps} from '@apps/base/Route'
 import {MustBeOverridden} from '@utils/errors'
-import {Pool} from '@modules/db'
-import DB from '@modules/db'
 
-export type PageProps = {
-    route: string,
-    useDB?: boolean
+export type PageProps = RouteProps & {
+    route: string
 }
 
 /**
@@ -16,14 +13,11 @@ export type PageProps = {
 export class Page extends Route {
     data: StorageData
     route: string
-    useDB: boolean
-    db: Pool
 
     constructor(props: PageProps) {
         super(props)
 
         this.route = props.route
-        this.useDB = props.useDB || true
     }
 
     _init(): void {
@@ -55,15 +49,7 @@ export class Page extends Route {
         // this.log.debug(`Get page message: ${JSON.stringify(req, null, 2)}`)
 
         try {
-            if (this.useDB) {
-                this.db = await DB.getPool()
-            }
-
             result = this.run(req, res)
-
-            if (this.useDB) {
-                await DB.close(this.db)
-            }
         } catch (error) {
             this.log.error()
         }

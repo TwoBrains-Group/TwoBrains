@@ -1,6 +1,7 @@
+import 'module-alias/register'
 import * as dotenv from 'dotenv'
-require('module-alias/register')
+dotenv.config()
+
 import server from './server'
 
-dotenv.config()
 server.init()

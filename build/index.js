@@ -22,9 +22,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+require("module-alias/register");
 const dotenv = __importStar(require("dotenv"));
-require('module-alias/register');
-const server_1 = __importDefault(require("./server"));
 dotenv.config();
+const server_1 = __importDefault(require("./server"));
 server_1.default.init();
 //# sourceMappingURL=index.js.map

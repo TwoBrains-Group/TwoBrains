@@ -1,5 +1,6 @@
 import express from 'express'
 import {Page} from '@apps/base/Page'
+import DB from '@modules/db'
 
 export type AppProps = {
     name?: string,
@@ -19,7 +20,7 @@ export class BaseApp {
         this.routePrefix = props.routePrefix || '/'
     }
 
-    init(expApp: express.Application): void {
+    async init(expApp: express.Application): Promise<void> {
         // Conditions for app to run
         let startErrors = ''
 
@@ -27,7 +28,7 @@ export class BaseApp {
             throw new Error(startErrors)
         }
 
-        this.initPages(expApp)
+        await this.initPages(expApp)
         // TODO!: initMethods
     }
 
@@ -36,11 +37,21 @@ export class BaseApp {
 
         const router = express.Router()
         // FIXME: Dynamic require????!!!
-        const pages: Page = require(pagesPath)
+        const pages: Map<string, Page> = require(pagesPath)
 
         for (const [pageName, page] of Object.entries(pages)) {
             page.init(this.name)
-            router.get(page.route, (req, res, next) => page.processHttp.call(page, req, res, next))
+            router.get(page.route, async (req, res, next) => {
+                if (page.useDB) {
+                    page.db = await DB.getPool()
+                }
+
+                page.processHttp.call(page, req, res, next)
+
+                if (page.useDB) {
+                    await DB.close(page.db)
+                }
+            })
         }
 
         expApp.use(this.routePrefix, router)

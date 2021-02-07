@@ -5,17 +5,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BaseApp = void 0;
 const express_1 = __importDefault(require("express"));
+const db_1 = __importDefault(require("@modules/db"));
 class BaseApp {
     constructor(props) {
         this.name = props.name || this.constructor.name.toLowerCase();
         this.routePrefix = props.routePrefix || '/';
     }
-    init(expApp) {
+    async init(expApp) {
         let startErrors = '';
         if (startErrors.length) {
             throw new Error(startErrors);
         }
-        this.initPages(expApp);
+        await this.initPages(expApp);
     }
     initPages(expApp) {
         const pagesPath = `@apps/${this.name}/pages`;
@@ -23,7 +24,15 @@ class BaseApp {
         const pages = require(pagesPath);
         for (const [pageName, page] of Object.entries(pages)) {
             page.init(this.name);
-            router.get(page.route, (req, res, next) => page.processHttp.call(page, req, res, next));
+            router.get(page.route, async (req, res, next) => {
+                if (page.useDB) {
+                    page.db = await db_1.default.getPool();
+                }
+                page.processHttp.call(page, req, res, next);
+                if (page.useDB) {
+                    await db_1.default.close(page.db);
+                }
+            });
         }
         expApp.use(this.routePrefix, router);
     }

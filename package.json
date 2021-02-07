@@ -9,8 +9,9 @@
         "dev": "npm run build && npm run start"
     },
     "_moduleAliases": {
+        "@root": ".",
+        "@approot": "build/",
         "@server": "build/server/",
-        "@root": "build/",
         "@apps": "build/apps/",
         "@utils": "build/utils/",
         "@modules": "build/modules/"

@@ -1,5 +1,4 @@
 import express from 'express'
-
 import {storage, StorageData} from '@utils/storage'
 import Route from '@apps/base/Route'
 import {MustBeOverridden} from '@utils/errors'

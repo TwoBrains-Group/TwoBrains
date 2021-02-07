@@ -22,12 +22,11 @@ class BaseApp {
         const router = express_1.default.Router();
         const pages = require(pagesPath);
         for (const [pageName, page] of Object.entries(pages)) {
-            page.init(this);
+            page.init(this.name);
             router.get(page.route, (req, res, next) => page.processHttp.call(page, req, res, next));
         }
         expApp.use(this.routePrefix, router);
     }
 }
 exports.BaseApp = BaseApp;
-module.exports = BaseApp;
 //# sourceMappingURL=index.js.map

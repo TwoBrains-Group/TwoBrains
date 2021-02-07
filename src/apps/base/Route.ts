@@ -1,5 +1,4 @@
 import express from 'express'
-import {BaseApp} from '@apps/base'
 import {MustBeOverridden} from '@utils/errors'
 import Logger from '@modules/logger'
 
@@ -14,8 +13,8 @@ export default class Route {
         })
     }
 
-    async init(app: BaseApp) {
-        this.appName = app.name
+    async init(appName: string) {
+        this.appName = appName
         await this._init()
     }
 
@@ -40,5 +39,3 @@ export default class Route {
         throw new MustBeOverridden('_init', 'Route class')
     }
 }
-
-module.exports = Route

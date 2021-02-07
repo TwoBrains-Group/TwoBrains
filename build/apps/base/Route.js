@@ -12,8 +12,8 @@ class Route {
             owner: this.constructor.name.toLowerCase()
         });
     }
-    async init(app) {
-        this.appName = app.name;
+    async init(appName) {
+        this.appName = appName;
         await this._init();
     }
     processHttp(req, res, next) {
@@ -27,5 +27,4 @@ class Route {
     }
 }
 exports.default = Route;
-module.exports = Route;
 //# sourceMappingURL=Route.js.map

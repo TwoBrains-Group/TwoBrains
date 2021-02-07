@@ -1,4 +1,4 @@
-import {BaseApp, AppProps} from '@apps/base/index'
+import {BaseApp, AppProps} from '@apps/base'
 
 class Main extends BaseApp {
     constructor(props: AppProps) {

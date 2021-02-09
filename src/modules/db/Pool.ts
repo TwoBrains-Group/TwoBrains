@@ -1,6 +1,9 @@
 import {Client, QueryConfig, QueryResultRow} from 'pg'
 import PgPool from 'pg-pool'
 import {nanoid} from 'nanoid'
+import {UnusedQueryParams} from '@utils/errors'
+
+const strict: boolean = process.env.ENV.toLowerCase() === 'prod'
 
 export enum QueryReturnType {
     ROW,
@@ -23,14 +26,20 @@ export type QueryParams = {
 export const prepareQuery = (queryString: string, params: QueryParams = {}) => {
     let paramIndex: number = 0
     const values: any[] = []
+    const unusedVariables: string[] = []
     const text = queryString.replace(/:(\w+)/g, (text, variable) => {
         if (variable in params) {
             ++paramIndex
             values.push(params[variable])
             return `$${paramIndex}`
         }
+        unusedVariables.push(variable)
         return text
     }).trim()
+
+    if (unusedVariables.length > 0 && strict) {
+        throw new UnusedQueryParams(unusedVariables)
+    }
 
     return {
         text,

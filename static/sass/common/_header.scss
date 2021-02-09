@@ -1,5 +1,8 @@
 .main-header {
     display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100vw;
     height: 40px;
     flex-direction: row;
@@ -12,7 +15,8 @@
     left: 0;
     width: 100vw;
     height: 40px;
-    box-shadow: 0 3px 5px -1px #f0f0f0;
+    background: #fff;
+    box-shadow: 0 3px 5px -2px #ddd;
     z-index: -1;
 }
 

@@ -13,8 +13,8 @@ class DB extends BaseModule_1.BaseModule {
     }
     async getPool() {
         const instance = new Pool_1.Pool(connection);
-        const { host, db_name, port } = connection;
-        const dbUrl = `${host}:${port}/${db_name}`;
+        const { host, db, port } = connection;
+        const dbUrl = `${host}:${port}/${db}`;
         instance.on('connect', async (client) => {
             this.log.debug(`Connection to ${dbUrl} established:${this.getInstanceInfo(instance)}`);
         });

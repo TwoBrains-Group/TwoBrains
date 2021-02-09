@@ -56,6 +56,9 @@ table {
 
 .main-header {
   display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 40px;
   flex-direction: row;
@@ -68,7 +71,8 @@ table {
   left: 0;
   width: 100vw;
   height: 40px;
-  box-shadow: 0 3px 5px -1px #f0f0f0;
+  background: #fff;
+  box-shadow: 0 3px 5px -2px #ddd;
   z-index: -1;
 }
 
@@ -124,6 +128,34 @@ table {
   line-height: 40px;
 }
 
+.main-menu {
+  display: block;
+  position: fixed;
+  top: 40px;
+  left: -200px;
+  width: 200px;
+  height: calc(100vh - 40px);
+  background: #fff;
+  z-index: 2;
+  transition: left 0.15s ease-in, box-shadow 0.75s ease-out 0.15s;
+}
+.main-menu.show {
+  left: 0;
+  box-shadow: 2px 0 5px -2px #ddd;
+}
+
+.main-menu__btn {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 35px;
+  padding: 5px;
+  box-sizing: border-box;
+  line-height: 25px;
+  font-size: 18px;
+  text-align: center;
+}
+
 .btn {
   background: #fff;
   cursor: pointer;
@@ -146,6 +178,16 @@ body * {
   -moz-user-select: none;
   -o-user-select: none;
   user-select: none;
+}
+
+#page {
+  display: block;
+  position: relative;
+  left: 50vw;
+  top: 40px;
+  width: 50vw;
+  padding: 0 25px;
+  margin-left: calc(-25vw - 25px);
 }
 
 /*# sourceMappingURL=common.css.map */

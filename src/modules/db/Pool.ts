@@ -1,6 +1,42 @@
-import {Client, QueryResultBase} from 'pg'
+import {Client, QueryConfig, QueryResultRow} from 'pg'
 import PgPool from 'pg-pool'
 import {nanoid} from 'nanoid'
+
+export enum QueryReturnType {
+    ROW,
+    ROWS,
+}
+
+export type QueryOptions = {
+    returnType?: QueryReturnType,
+    returnField?: string
+}
+
+export const queryDefaultOptions: QueryOptions = {
+    returnType: QueryReturnType.ROWS,
+}
+
+export type QueryParams = {
+    [key: string]: any
+}
+
+export const prepareQuery = (queryString: string, params: QueryParams = {}) => {
+    let paramIndex: number = 0
+    const values: any[] = []
+    const text = queryString.replace(/:(\w+)/g, (text, variable) => {
+        if (variable in params) {
+            ++paramIndex
+            values.push(params[variable])
+            return `$${paramIndex}`
+        }
+        return text
+    }).trim()
+
+    return {
+        text,
+        values,
+    }
+}
 
 export class Pool extends PgPool<Client> {
     id: string
@@ -10,7 +46,7 @@ export class Pool extends PgPool<Client> {
         this.id = nanoid(16)
     }
 
-    async exec(queryString: string, values: string[]): Promise<QueryResultBase> {
-        return super.query(queryString, values);
+    exec(queryObject: QueryConfig): Promise<QueryResultRow> {
+        return super.query(queryObject)
     }
 }

@@ -43,24 +43,12 @@ export class Page extends Route {
      * @param {Function} next Next bypass function
      */
     async processHttp(req: express.Request, res: express.Response, next: express.NextFunction): Promise<void> {
-        let result = {}
-
-        // FIXME: Circular
-        // this.log.debug(`Get page message: ${JSON.stringify(req, null, 2)}`)
-
         try {
-            result = this.run(req, res)
+            const responseData = await this.run(req, res)
+
+            res.render(this.data.info.path, responseData)
         } catch (error) {
-            this.log.error()
+            this.log.error(`Error on processing page ${this.getName()}: error`)
         }
-
-        let responseData = storage.get({
-            ...this.data,
-            page: result,
-        })
-
-        // this.log.debug(`Render page with data: ${responseData}`)
-
-        res.render(this.data.info.path, responseData)
     }
 }

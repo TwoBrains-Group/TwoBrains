@@ -8,7 +8,12 @@
     </head>
     <body>
         {{>common/header}}
+        {{>common/menu}}
 
-        {{{body}}}
+        <div id="page">
+            {{{body}}}
+        </div>
+
+        <script type="module" src="{{concat '/static/js/pages/' info.path '.js'}}"></script>
     </body>
 </html>

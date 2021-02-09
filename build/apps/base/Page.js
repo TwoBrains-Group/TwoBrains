@@ -20,18 +20,13 @@ class Page extends Route_1.Route {
         throw new errors_1.MustBeOverridden('run', super.getName());
     }
     async processHttp(req, res, next) {
-        let result = {};
         try {
-            result = this.run(req, res);
+            const responseData = await this.run(req, res);
+            res.render(this.data.info.path, responseData);
         }
         catch (error) {
-            this.log.error();
+            this.log.error(`Error on processing page ${this.getName()}: error`);
         }
-        let responseData = storage_1.storage.get({
-            ...this.data,
-            page: result,
-        });
-        res.render(this.data.info.path, responseData);
     }
 }
 exports.Page = Page;

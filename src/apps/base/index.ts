@@ -28,11 +28,18 @@ export class BaseApp {
             throw new Error(startErrors)
         }
 
-        await this.initPages(expApp)
-        // TODO!: initMethods
+        await this.initRoutes(expApp)
     }
 
-    initPages(expApp: express.Application): void {
+    initRoutes(expApp: express.Application): void {
+        const appData: {
+            queries?: Map<string, string>
+        } = {}
+
+        // Collect db queries
+        const queriesPath = `@apps/${this.name}/queries.js`
+        appData.queries = new Map(Object.entries(require(queriesPath).default))
+
         const pagesPath = `@apps/${this.name}/pages`
 
         const router = express.Router()
@@ -40,7 +47,7 @@ export class BaseApp {
         const pages: Map<string, Page> = require(pagesPath)
 
         for (const [pageName, page] of Object.entries(pages)) {
-            page.init(this.name)
+            page.init(this.name, appData)
             router.get(page.route, async (req, res, next) => {
                 if (page.useDB) {
                     page.db = await DB.getPool()

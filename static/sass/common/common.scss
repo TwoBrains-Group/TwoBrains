@@ -1,5 +1,6 @@
 @import 'reset';
 @import 'header';
+@import 'menu';
 @import '../ui/common';
 
 body {
@@ -13,4 +14,13 @@ body {
         -o-user-select: none;
         user-select: none;
     }
+}
+
+#page {
+    display: block;
+    position: relative;
+    left: 50vw; top: 40px;
+    width: 50vw;
+    padding: 0 25px;
+    margin-left: calc(-25vw - 25px);
 }

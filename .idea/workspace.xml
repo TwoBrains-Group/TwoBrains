@@ -13,26 +13,45 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="edaaf9c1-6c17-4647-aa91-a795e595d129" name="Default Changelist" comment=":alien: Fix circular import">
+    <list default="true" id="edaaf9c1-6c17-4647-aa91-a795e595d129" name="Default Changelist" comment=":sparkles: Beautify">
+      <change afterPath="$PROJECT_DIR$/src/apps/main/queries.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/common.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/pages/main/home.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/sass/common/_menu.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/partials/common/menu.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/apps/base/Method.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/apps/base/Method.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/apps/base/Method.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/apps/base/Method.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/apps/base/Page.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/apps/base/Page.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/apps/base/Page.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/apps/base/Page.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/apps/base/Route.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/apps/base/Route.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/apps/base/Route.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/apps/base/Route.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/apps/base/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/apps/base/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/apps/base/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/apps/base/index.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/utils/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/utils/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/apps/main/pages/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/apps/main/pages/home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/apps/main/pages/home.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/apps/main/pages/home.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/modules/db/Pool.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/modules/db/Pool.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/modules/db/Pool.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/modules/db/Pool.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/modules/db/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/modules/db/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/modules/db/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/modules/db/index.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/modules/logger/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/modules/logger/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/modules/logger/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/modules/logger/index.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/utils/config.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/utils/config.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apps/base/Method.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/base/Method.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.dev.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.dev.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/apps/base/Page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/base/Page.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/apps/base/Route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/base/Route.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/apps/base/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/base/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/main/pages/home.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/main/pages/home.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/db/Pool.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/db/Pool.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/db/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/db/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/logger/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/logger/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/common/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/common/common.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/common/common.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/common/common.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/pages/main/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/pages/main/home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/pages/main/home.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/pages/main/home.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sass/common/_header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/static/sass/common/_header.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sass/common/common.scss" beforeDir="false" afterPath="$PROJECT_DIR$/static/sass/common/common.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layouts/main.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/main.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/main/home.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/main/home.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,6 +106,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Projects\TwoBrains\static\js\pages\main" />
       <recent name="F:\Projects\TwoBrains" />
       <recent name="F:\Projects\TwoBrains\src\modules\logger" />
       <recent name="F:\Projects\TwoBrains\src\modules" />
@@ -114,7 +134,10 @@
       <workItem from="1612549588165" duration="3464000" />
       <workItem from="1612560532941" duration="5338000" />
       <workItem from="1612619226285" duration="20958000" />
-      <workItem from="1612663164712" duration="4759000" />
+      <workItem from="1612663164712" duration="15827000" />
+      <workItem from="1612698160948" duration="4578000" />
+      <workItem from="1612761282833" duration="8030000" />
+      <workItem from="1612874083148" duration="3194000" />
     </task>
     <task id="LOCAL-00001" summary=":bulb: Meow">
       <created>1612391364993</created>
@@ -137,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612674850387</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary=":sparkles: Beautify">
+      <created>1612675976269</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1612675976269</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,7 +190,8 @@
     <MESSAGE value=":bulb: Meow" />
     <MESSAGE value=":package: pzdz" />
     <MESSAGE value=":alien: Fix circular import" />
-    <option name="LAST_COMMIT_MESSAGE" value=":alien: Fix circular import" />
+    <MESSAGE value=":sparkles: Beautify" />
+    <option name="LAST_COMMIT_MESSAGE" value=":sparkles: Beautify" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1168" y="364" width="223" height="326" key="#File_Watchers" timestamp="1612140945966">
@@ -176,9 +207,10 @@
       <screen x="0" y="0" width="2560" height="1052" />
     </state>
     <state x="995" y="314" width="563" height="426" key="#Node.js_and_NPM/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612125491088" />
-    <state x="1039" y="191" key="#SCSS" timestamp="1612140125968">
-      <screen x="0" y="0" width="2560" height="1052" />
+    <state x="1039" y="191" key="#SCSS" timestamp="1612766833538">
+      <screen x="0" y="0" width="2560" height="1050" />
     </state>
+    <state x="1039" y="191" key="#SCSS/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1612766833538" />
     <state x="1039" y="191" key="#SCSS/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612140125968" />
     <state x="738" y="185" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1612125479031">
       <screen x="0" y="0" width="2560" height="1052" />
@@ -205,6 +237,10 @@
     </state>
     <state x="784" y="162" key="SettingsEditor/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1612675709982" />
     <state x="784" y="162" key="SettingsEditor/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612147345234" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1612675894670">
+      <screen x="0" y="0" width="2560" height="1050" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1612675894670" />
     <state x="872" y="254" key="Vcs.Push.Dialog.v2" timestamp="1612653479413">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
@@ -213,15 +249,15 @@
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state x="0" y="0" width="2166" height="1032" key="dock-window-1/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1612652780293" />
-    <state x="987" y="260" width="585" height="624" key="find.popup" timestamp="1612675343685">
+    <state x="987" y="260" width="585" height="624" key="find.popup" timestamp="1612875957221">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state x="987" y="260" width="585" height="624" key="find.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1612675343685" />
+    <state x="987" y="260" width="585" height="624" key="find.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1612875957221" />
     <state x="987" y="260" width="585" height="534" key="find.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612145569091" />
-    <state x="942" y="240" width="672" height="677" key="run.anything.popup" timestamp="1612653365302">
+    <state x="942" y="240" width="672" height="677" key="run.anything.popup" timestamp="1612876214142">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state x="942" y="240" width="672" height="677" key="run.anything.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1612653365302" />
+    <state x="942" y="240" width="672" height="677" key="run.anything.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1612876214142" />
     <state x="942" y="240" key="run.anything.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612128644928" />
     <state x="943" y="232" width="672" height="677" key="search.everywhere.popup" timestamp="1612644850200">
       <screen x="0" y="0" width="2560" height="1050" />

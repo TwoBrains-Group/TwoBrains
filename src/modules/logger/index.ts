@@ -1,7 +1,11 @@
-import {config} from '@utils/config'
-import 'chalk'
+import {config, Config} from '@utils/config'
+import chalk from 'chalk'
 
-const loggerConfig = config.logger
+const defaultConfig: Config['log'] = {
+    level: 'debug'
+}
+
+const loggerConfig: Config['log'] = {...defaultConfig, ...config.log}
 
 /**
  * TODO:
@@ -24,18 +28,29 @@ interface ILogger {
     error: LogFunction
 }
 
-const LOG_SETTINGS = {
+interface LogSetting {
+    [key: string]: {
+        color: string,
+        priority: number
+    }
+}
+
+const LOG_SETTINGS: LogSetting = {
     debug: {
         color: 'cyan',
+        priority: 4
     },
     info: {
         color: 'green',
+        priority: 3
     },
     warn: {
         color: 'yellow',
+        priority: 2
     },
     error: {
         color: 'red',
+        priority: 1
     }
 }
 
@@ -56,15 +71,15 @@ export default class Logger implements ILogger {
         let prefix = ''
 
         const time = (new Date()).toISOString().replace('T', ' ').replace('Z', '')
-        prefix += time
+        prefix += `${time} `
 
         if (this.options.owner) {
-            prefix += '[' + this.options.owner + '] '
+            prefix += `[${this.options.owner}] `
         }
 
         // FIXME: Blah-blah types
         // @ts-ignore
-        prefix += chalk[levelOptions.color](level) + ': '
+        prefix += `${chalk[levelOptions.color](level)}: `
 
         return prefix
     }
@@ -72,7 +87,12 @@ export default class Logger implements ILogger {
     _log(level: string, ...args: string[]) {
         // @ts-ignore
         const levelOptions = LOG_SETTINGS[level]
-        process.stdout.write(this.getMessagePrefix(level, levelOptions) + args.join(' ') + '\n')
+
+        if (levelOptions.priority > LOG_SETTINGS[loggerConfig.level].priority) {
+            return
+        }
+
+        process.stdout.write(`${this.getMessagePrefix(level, levelOptions) + args.join(' ')}\n`)
     }
 
     debug(...args: string[]) {

@@ -1,15 +1,24 @@
+export type PageData = {
+    [x: string]: any
+}
+
 export type StorageData = {
-    head?: object,
+    head?: object
     info?: {
-        path: string,
-        name: string
+        path?: string
+        name?: string
     }
-    page?: {
-        [x: string]: any
-    },
-    common?: object,
-    settings?: object,
+    page?: PageData
+    common?: object
+    settings?: object
     styles?: object
+    auth?: {
+        user: {
+            userId?: number
+            nickname?: string
+            userUid?: string
+        }
+    }
 }
 
 /**
@@ -21,16 +30,27 @@ class Storage {
     constructor() {
         this.data = {
             head: {
-                title: 'untitled'
+                title: 'untitled',
             },
             info: {
                 path: '',
-                name: 'unknown'
+                name: 'unknown',
             },
             page: {},
             common: {},
-            settings: {},
-            styles: {}
+            auth: {
+                user: {
+                    userId: 1,
+                    userUid: 'hazer-hazer',
+                    nickname: 'hazer-hazer'
+                }
+            },
+            settings: {
+                debug: {
+                    dump: false, // FIXME: DEV-ONLY
+                }
+            },
+            styles: {},
         }
     }
 

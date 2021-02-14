@@ -1,1 +1,2 @@
-export {main} from '@apps/main'
+export * as main from './main'
+export * as user from './user'

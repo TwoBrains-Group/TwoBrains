@@ -9,12 +9,32 @@ body {
 
     * {
         -webkit-user-select: none;
-        -khtml-user-select: none;
         -moz-user-select: none;
-        -o-user-select: none;
         user-select: none;
     }
 }
+
+// Debug //
+._debug.data-dump {
+    display: block;
+    position: absolute;
+    top: 100px;
+    left: -500px;
+    width: 550px;
+    height: 550px;
+    padding: 10px 0;
+    overflow-y: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px #f0f0f0;
+
+    transition: left .5s ease;
+    transition-delay: .5s;
+    &:hover {
+        transition-delay: 0s;
+        left: 0;
+    }
+}
+
 
 #page {
     display: block;
@@ -24,3 +44,5 @@ body {
     padding: 0 25px;
     margin-left: calc(-25vw - 25px);
 }
+
+

@@ -3,6 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.lf = void 0;
 const config_1 = require("@utils/config");
 const chalk_1 = __importDefault(require("chalk"));
 const defaultConfig = {
@@ -27,6 +28,25 @@ const LOG_SETTINGS = {
         priority: 1
     }
 };
+const lf = (strings, ...ipValues) => {
+    return strings.reduce((total, current, index) => {
+        total += current;
+        if (ipValues.hasOwnProperty(index)) {
+            const value = ipValues[index];
+            if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
+                total += JSON.stringify(value, null, 2);
+            }
+            else if (Array.isArray(value)) {
+                total += value.join(', ');
+            }
+            else {
+                total += String(value);
+            }
+        }
+        return total;
+    }, '');
+};
+exports.lf = lf;
 class Logger {
     constructor(options) {
         this.options = options;

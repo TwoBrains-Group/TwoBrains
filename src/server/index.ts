@@ -3,6 +3,7 @@ import 'path'
 import appRootPath from 'app-root-path'
 import renderEngine from './RenderEngine'
 import * as apps from '@apps/index'
+import {jwtMw} from './mws'
 
 class Server {
     expApp: express.Application
@@ -18,6 +19,8 @@ class Server {
         expApp.engine(renderEngine.name, renderEngine.engine)
         expApp.set('view engine', renderEngine.name)
 
+        // expApp.use(jwtMw)
+
         this.initApps()
 
         expApp.listen(3000, () => {
@@ -27,7 +30,7 @@ class Server {
 
     initApps() {
         for (const app of Object.values(apps)) {
-            app.init(this.expApp)
+            app.default.init(this.expApp)
         }
     }
 }

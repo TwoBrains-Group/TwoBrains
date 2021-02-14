@@ -54,6 +54,24 @@ const LOG_SETTINGS: LogSetting = {
     }
 }
 
+// Log format template literal
+export const lf = (strings: TemplateStringsArray, ...ipValues: any) => {
+    return strings.reduce((total: string, current: string, index: any) => {
+        total += current
+        if (ipValues.hasOwnProperty(index)) {
+            const value = ipValues[index]
+            if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
+                total += JSON.stringify(value, null, 2)
+            } else if (Array.isArray(value)) {
+                total += value.join(', ')
+            } else {
+                total += String(value)
+            }
+        }
+        return total
+    }, '')
+}
+
 /**
  * Logger
  * Universal logger for apps, pages and methods
@@ -84,7 +102,7 @@ export default class Logger implements ILogger {
         return prefix
     }
 
-    _log(level: string, ...args: string[]) {
+    _log(level: string, ...args: any[]) {
         // @ts-ignore
         const levelOptions = LOG_SETTINGS[level]
 
@@ -95,19 +113,19 @@ export default class Logger implements ILogger {
         process.stdout.write(`${this.getMessagePrefix(level, levelOptions) + args.join(' ')}\n`)
     }
 
-    debug(...args: string[]) {
+    debug(...args: any[]) {
         this._log('debug', ...args)
     }
 
-    info(...args: string[]) {
+    info(...args: any[]) {
         this._log('info', ...args)
     }
 
-    warn(...args: string[]) {
+    warn(...args: any[]) {
         this._log('warn', ...args)
     }
 
-    error(...args: string[]) {
+    error(...args: any[]) {
         this._log('error', ...args)
     }
 }

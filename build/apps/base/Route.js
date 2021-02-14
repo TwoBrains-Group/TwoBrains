@@ -11,7 +11,7 @@ class Route {
     constructor(props) {
         this.appName = '';
         this.log = new logger_1.default({
-            owner: this.constructor.name.toLowerCase()
+            owner: this.getName()
         });
         this.useDB = props.useDB || true;
     }
@@ -42,6 +42,7 @@ class Route {
             this.log.error(`No query found by name '${queryName}' in route ${this.getName()}`);
         }
         try {
+            await this.db.exec({ text: 'SET search_path TO \'main\';' });
             const preparedQuery = Pool_1.prepareQuery(query, params);
             const result = await this.db.exec(preparedQuery);
             options = { ...Pool_1.queryDefaultOptions, ...options };
@@ -51,7 +52,7 @@ class Route {
             return result.rows;
         }
         catch (error) {
-            this.log.error(`DB Error ${error}`);
+            this.log.error(`[DB Error] ${error}`);
         }
     }
 }

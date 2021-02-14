@@ -5,16 +5,27 @@ class Storage {
     constructor() {
         this.data = {
             head: {
-                title: 'untitled'
+                title: 'untitled',
             },
             info: {
                 path: '',
-                name: 'unknown'
+                name: 'unknown',
             },
             page: {},
             common: {},
-            settings: {},
-            styles: {}
+            auth: {
+                user: {
+                    userId: 1,
+                    userUid: 'hazer-hazer',
+                    nickname: 'hazer-hazer'
+                }
+            },
+            settings: {
+                debug: {
+                    dump: false,
+                }
+            },
+            styles: {},
         };
     }
     get(additional) {

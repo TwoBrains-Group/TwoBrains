@@ -2,8 +2,8 @@
     "db": {
         "connection": {
             "host": "localhost",
-            "db": "tb",
             "user": "postgres",
+            "database": "tb",
             "password": "agvin",
             "port": 5432
         }

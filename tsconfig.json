@@ -9,7 +9,8 @@
         "noImplicitAny": true,
         "removeComments": true,
         "moduleResolution": "node",
-//        "skipLibCheck": true,
+        "skipLibCheck": true,
+        "incremental": true,
         "lib": [
             "es2016",
             "es5"

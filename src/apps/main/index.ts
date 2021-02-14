@@ -6,6 +6,6 @@ class Main extends BaseApp {
     }
 }
 
-export const main = new Main({
+export default new Main({
     routePrefix: '/'
 })

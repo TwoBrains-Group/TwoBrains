@@ -43,7 +43,7 @@ class Server {
     }
     initApps() {
         for (const app of Object.values(apps)) {
-            app.init(this.expApp);
+            app.default.init(this.expApp);
         }
     }
 }

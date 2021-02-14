@@ -22,7 +22,17 @@ class RenderEngine {
 
     _getHelpers() {
         return {
-            concat: (...args: string[]) => args.slice(0, -1).join('')
+            concat: (...args: string[]) => args.slice(0, -1).join(''),
+            json: (...args: string[]) => {
+                return args.map((str, i) => {
+                    if (i < args.length - 1) {
+                        return JSON.stringify(str || 'undefined', null, 2).trim()
+                    } else {
+                        return ''
+                    }
+                }).join('\n').trim()
+            },
+            coalesce: (...args: any[]) => args.find(arg => arg)
         }
     }
 }

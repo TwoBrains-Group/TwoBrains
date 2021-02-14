@@ -1,5 +1,1 @@
-import home from '@apps/main/pages/home'
-
-export {
-    home
-}
+export * as home from './home'

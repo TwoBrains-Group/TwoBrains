@@ -1,25 +1,25 @@
 import express from 'express'
 import {MustBeOverridden} from '@utils/errors'
-import Logger from '@modules/logger'
+import Logger, {lf} from '@modules/logger'
 import {Pool} from '@modules/db'
-import {QueryResultBase} from "pg";
-import {prepareQuery, queryDefaultOptions, QueryOptions, QueryParams, QueryReturnType} from "@modules/db/Pool";
+import {QueryResultBase} from 'pg'
+import {prepareQuery, queryDefaultOptions, QueryOptions, QueryParams, QueryReturnType} from '@modules/db/Pool'
 
 export type RouteProps = {
     useDB?: boolean
 }
 
-export class Route {
+export abstract class Route {
     appName: string
     log: Logger
     db?: Pool
     useDB: boolean
     private queries?: Map<string, string>
 
-    constructor(props: RouteProps) {
+    protected constructor(props: RouteProps) {
         this.appName = ''
         this.log = new Logger({
-            owner: this.constructor.name.toLowerCase()
+            owner: this.getName()
         })
 
         this.useDB = props.useDB || true
@@ -68,6 +68,7 @@ export class Route {
         }
 
         try {
+            await this.db.exec({text: 'SET search_path TO \'main\';'})
             const preparedQuery = prepareQuery(query, params)
             const result = await this.db.exec(preparedQuery)
 
@@ -79,7 +80,7 @@ export class Route {
 
             return result.rows
         } catch (error) {
-            this.log.error(`DB Error ${error}`)
+            this.log.error(`[DB Error] ${error}`)
         }
     }
 }

@@ -13,13 +13,84 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="edaaf9c1-6c17-4647-aa91-a795e595d129" name="Default Changelist" comment=":sparkles: Query params and more">
+    <list default="true" id="edaaf9c1-6c17-4647-aa91-a795e595d129" name="Default Changelist" comment=":sparkles: DB strict mode">
+      <change afterPath="$PROJECT_DIR$/db/init/tb-0000.extensions.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/init/tb-0001.types.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/init/tb-0100.users.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/test-data.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/apps/user/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/apps/user/pages/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/apps/user/pages/profile.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/apps/user/queries.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/db/errors.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/mws/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/mws/jwt.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/pretty-time.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/apps/main/home.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/apps/main/home.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/apps/user/profile.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/apps/user/profile.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/apps/main/home.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/sass/apps/user/profile.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/apps/user/profile.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/apps/base/Page.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/apps/base/Page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/apps/base/Page.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/apps/base/Page.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/apps/base/Route.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/apps/base/Route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/apps/base/Route.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/apps/base/Route.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/apps/base/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/apps/base/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/apps/base/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/apps/base/index.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/apps/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/apps/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/apps/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/apps/index.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/apps/main/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/apps/main/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/apps/main/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/apps/main/index.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/apps/main/pages/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/apps/main/pages/home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/apps/main/pages/home.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/apps/main/pages/home.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/apps/main/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/apps/main/pages/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/apps/main/pages/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/apps/main/pages/index.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/modules/db/Pool.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/modules/db/Pool.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/modules/db/Pool.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/modules/db/Pool.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/utils/errors.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/utils/errors.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/utils/errors.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/utils/errors.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/db/Pool.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/db/Pool.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/errors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/errors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/modules/db/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/modules/db/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/modules/db/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/modules/db/index.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/modules/logger/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/modules/logger/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/modules/logger/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/modules/logger/index.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/server/RenderEngine.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/server/RenderEngine.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/server/RenderEngine.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/server/RenderEngine.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/server/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/server/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/server/index.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/utils/storage.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/utils/storage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/utils/storage.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/utils/storage.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.dev.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.dev.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/base/Page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/base/Page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/base/Route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/base/Route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/base/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/base/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/main/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/main/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/main/pages/home.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/main/pages/home.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/main/pages/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/main/pages/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/db/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/db/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/logger/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/logger/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/RenderEngine.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/RenderEngine.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/storage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/storage.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/common/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/common/common.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/common/common.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/common/common.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/pages/main/home.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/pages/main/home.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/pages/main/home.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/pages/main/home.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sass/common/_header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/static/sass/common/_header.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sass/common/_reset.scss" beforeDir="false" afterPath="$PROJECT_DIR$/static/sass/common/_reset.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sass/common/common.scss" beforeDir="false" afterPath="$PROJECT_DIR$/static/sass/common/common.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sass/pages/main/home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/static/sass/apps/main/home.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sass/ui/_common.scss" beforeDir="false" afterPath="$PROJECT_DIR$/static/sass/ui/_common.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layouts/main.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/main.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/main/home.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/apps/main/home.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/partials/common/menu.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/common/menu.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,17 +139,17 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="reference.idesettings.emmet.xml" />
     <property name="ts.external.directory.path" value="C:\Users\PYJOHN\AppData\Local\JetBrains\Toolbox\apps\WebStorm\ch-0\202.7660.23\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\Projects\TwoBrains\static\js\pages\main" />
-      <recent name="F:\Projects\TwoBrains" />
-      <recent name="F:\Projects\TwoBrains\src\modules\logger" />
-      <recent name="F:\Projects\TwoBrains\src\modules" />
-      <recent name="$PROJECT_DIR$/src" />
+      <recent name="F:\Projects\TwoBrains\src\server" />
+      <recent name="F:\Projects\TwoBrains\static\js\apps" />
+      <recent name="F:\Projects\TwoBrains\static\sass\apps" />
+      <recent name="F:\Projects\TwoBrains\views\apps" />
+      <recent name="F:\Projects\TwoBrains\db\init" />
     </key>
   </component>
   <component name="RunManager">
@@ -105,7 +176,16 @@
       <workItem from="1612663164712" duration="15827000" />
       <workItem from="1612698160948" duration="4578000" />
       <workItem from="1612761282833" duration="8030000" />
-      <workItem from="1612874083148" duration="3574000" />
+      <workItem from="1612874083148" duration="15156000" />
+      <workItem from="1612981374117" duration="8331000" />
+      <workItem from="1613052329145" duration="11702000" />
+      <workItem from="1613076894209" duration="139000" />
+      <workItem from="1613077034533" duration="14000" />
+      <workItem from="1613077066071" duration="1346000" />
+      <workItem from="1613154899323" duration="7689000" />
+      <workItem from="1613212872331" duration="21666000" />
+      <workItem from="1613251218687" duration="3450000" />
+      <workItem from="1613304780776" duration="2897000" />
     </task>
     <task id="LOCAL-00001" summary=":bulb: Meow">
       <created>1612391364993</created>
@@ -142,7 +222,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612877309163</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary=":sparkles: DB strict mode">
+      <created>1612877741630</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1612877741630</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,7 +254,8 @@
     <MESSAGE value=":alien: Fix circular import" />
     <MESSAGE value=":sparkles: Beautify" />
     <MESSAGE value=":sparkles: Query params and more" />
-    <option name="LAST_COMMIT_MESSAGE" value=":sparkles: Query params and more" />
+    <MESSAGE value=":sparkles: DB strict mode" />
+    <option name="LAST_COMMIT_MESSAGE" value=":sparkles: DB strict mode" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1168" y="364" width="223" height="326" key="#File_Watchers" timestamp="1612140945966">
@@ -200,18 +288,19 @@
       <screen x="0" y="0" width="2560" height="1052" />
     </state>
     <state x="935" y="308" width="683" height="683" key="EditFileWatcherDialog/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612141018555" />
-    <state x="1063" y="285" width="428" height="484" key="FileChooserDialogImpl" timestamp="1612140942406">
-      <screen x="0" y="0" width="2560" height="1052" />
+    <state x="1063" y="284" width="428" height="484" key="FileChooserDialogImpl" timestamp="1613077031201">
+      <screen x="0" y="0" width="2560" height="1050" />
     </state>
+    <state x="1063" y="284" key="FileChooserDialogImpl/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1613077031201" />
     <state x="1063" y="285" width="428" height="484" key="FileChooserDialogImpl/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612140942406" />
     <state x="860" y="260" key="IDE.errors.dialog" timestamp="1612634278579">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state x="860" y="260" key="IDE.errors.dialog/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1612634278579" />
-    <state x="784" y="162" key="SettingsEditor" timestamp="1612675709982">
+    <state x="784" y="162" key="SettingsEditor" timestamp="1613072465110">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state x="784" y="162" key="SettingsEditor/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1612675709982" />
+    <state x="784" y="162" key="SettingsEditor/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1613072465110" />
     <state x="784" y="162" key="SettingsEditor/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612147345234" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1612675894670">
       <screen x="0" y="0" width="2560" height="1050" />
@@ -225,20 +314,20 @@
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state x="0" y="0" width="2166" height="1032" key="dock-window-1/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1612652780293" />
-    <state x="987" y="260" width="585" height="624" key="find.popup" timestamp="1612875957221">
+    <state x="987" y="260" width="585" height="624" key="find.popup" timestamp="1613250535870">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state x="987" y="260" width="585" height="624" key="find.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1612875957221" />
+    <state x="987" y="260" width="585" height="624" key="find.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1613250535870" />
     <state x="987" y="260" width="585" height="534" key="find.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612145569091" />
-    <state x="942" y="240" width="672" height="677" key="run.anything.popup" timestamp="1612877384429">
+    <state x="942" y="240" width="672" height="677" key="run.anything.popup" timestamp="1613217767516">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state x="942" y="240" width="672" height="677" key="run.anything.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1612877384429" />
+    <state x="942" y="240" width="672" height="677" key="run.anything.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1613217767516" />
     <state x="942" y="240" key="run.anything.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612128644928" />
-    <state x="943" y="232" width="672" height="677" key="search.everywhere.popup" timestamp="1612644850200">
+    <state x="943" y="232" width="672" height="677" key="search.everywhere.popup" timestamp="1612986688370">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state x="943" y="232" width="672" height="677" key="search.everywhere.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1612644850200" />
+    <state x="943" y="232" width="672" height="677" key="search.everywhere.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1612986688370" />
     <state x="943" y="232" width="672" height="678" key="search.everywhere.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612131512848" />
   </component>
 </project>

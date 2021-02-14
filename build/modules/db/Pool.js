@@ -17,7 +17,7 @@ var QueryReturnType;
 exports.queryDefaultOptions = {
     returnType: QueryReturnType.ROWS,
 };
-exports.prepareQuery = (queryString, params = {}) => {
+const prepareQuery = (queryString, params = {}) => {
     let paramIndex = 0;
     const values = [];
     const unusedVariables = [];
@@ -38,6 +38,7 @@ exports.prepareQuery = (queryString, params = {}) => {
         values,
     };
 };
+exports.prepareQuery = prepareQuery;
 class Pool extends pg_pool_1.default {
     constructor(options) {
         super({ Client: pg_1.Client, ...options });

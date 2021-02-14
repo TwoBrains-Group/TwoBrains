@@ -1,38 +1,33 @@
 import express from 'express'
-import {storage, StorageData} from '@utils/storage'
+import {PageData, storage} from '@utils/storage'
 import {Route, RouteProps} from '@apps/base/Route'
 import {MustBeOverridden} from '@utils/errors'
+import {lf} from "@modules/logger";
 
 export type PageProps = RouteProps & {
     route: string
 }
 
+export type Request = express.Request
+export type Response = express.Response
+export type NextFunction = express.NextFunction
+
 /**
  * Page is single unit for one route
  */
-export class Page extends Route {
-    data: StorageData
+export abstract class Page extends Route {
     route: string
 
-    constructor(props: PageProps) {
+    protected constructor(props: PageProps) {
         super(props)
 
-        this.route = props.route
+        this.route = props.route.replace(/\/{2,}/g, '/')
     }
 
     _init(): void {
-        if (!this.route) {
-            throw new Error(`Route is not specified for page ${super.getName()}`)
-        }
-
-        // Get data template
-        this.data = storage.get()
-
-        // Set page path for static data (css, js)
-        this.data.info.path = super.getName()
     }
 
-    async run(req: express.Request, res: express.Response, next?: express.NextFunction): Promise<StorageData> {
+    async run(req: express.Request, res: express.Response, next?: express.NextFunction): Promise<PageData> {
         throw new MustBeOverridden('run', super.getName())
     }
 
@@ -44,11 +39,21 @@ export class Page extends Route {
      */
     async processHttp(req: express.Request, res: express.Response, next: express.NextFunction): Promise<void> {
         try {
-            const responseData = await this.run(req, res)
+            const pageData = await this.run(req, res)
 
-            res.render(this.data.info.path, responseData)
+            const data = storage.get({
+                page: pageData,
+                info: {
+                    path: this.getName(),
+                },
+            })
+
+            this.log.info(lf`Render page with data: ${data}`)
+
+            // TODO: Move 'pages' to constant
+            res.render(`apps/${this.getName()}`, data)
         } catch (error) {
-            this.log.error(`Error on processing page ${this.getName()}: error`)
+            this.log.error(`Error on processing page ${this.getName()}: ${error}`)
         }
     }
 }

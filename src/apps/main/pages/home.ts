@@ -1,7 +1,5 @@
-import express from 'express'
-
-import {Page, PageProps} from '@apps/base/Page'
-import {storage, StorageData} from '@utils/storage'
+import {Page, PageProps, Request, Response} from '@apps/base/Page'
+import {PageData} from '@utils/storage'
 import {QueryReturnType} from "@modules/db/Pool";
 
 class Home extends Page {
@@ -9,7 +7,7 @@ class Home extends Page {
         super(props)
     }
 
-    async run(req: express.Request, res: express.Response): Promise<StorageData> {
+    async run(req: Request, res: Response): Promise<PageData> {
         const result = await this.query('kek', {param: 'kek'}, {
             returnType: QueryReturnType.ROW,
             returnField: 'kek'
@@ -17,11 +15,9 @@ class Home extends Page {
 
         this.log.info(`result: ${JSON.stringify(result, null, 2)}`)
 
-        return storage.get({
-            page: {
-                kek: result,
-            },
-        })
+        return {
+            kek: result,
+        }
     }
 }
 

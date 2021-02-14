@@ -6,10 +6,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.BaseApp = void 0;
 const express_1 = __importDefault(require("express"));
 const db_1 = __importDefault(require("@modules/db"));
+const logger_1 = __importDefault(require("@modules/logger"));
 class BaseApp {
     constructor(props) {
         this.name = props.name || this.constructor.name.toLowerCase();
-        this.routePrefix = props.routePrefix || '/';
+        this.routePrefix = props.routePrefix;
+        this.log = new logger_1.default({
+            owner: this.name,
+        });
     }
     async init(expApp) {
         let startErrors = '';
@@ -21,17 +25,23 @@ class BaseApp {
     initRoutes(expApp) {
         const appData = {};
         const queriesPath = `@apps/${this.name}/queries.js`;
-        appData.queries = new Map(Object.entries(require(queriesPath).default));
+        try {
+            appData.queries = new Map(Object.entries(require(queriesPath).default));
+        }
+        catch (error) {
+            this.log.debug(`No queries found for app [${this.name}]`);
+        }
         const pagesPath = `@apps/${this.name}/pages`;
-        const router = express_1.default.Router();
         const pages = require(pagesPath);
-        for (const [pageName, page] of Object.entries(pages)) {
+        const router = express_1.default.Router();
+        for (const [pageName, { default: page }] of Object.entries(pages)) {
             page.init(this.name, appData);
             router.get(page.route, async (req, res, next) => {
                 if (page.useDB) {
                     page.db = await db_1.default.getPool();
                 }
-                page.processHttp.call(page, req, res, next);
+                this.log.info(`Get request to route: ${(this.routePrefix + page.route).replace(/\/{2,}/g, '/')}, load page [${pageName}]`);
+                await page.processHttp.call(page, req, res, next);
                 if (page.useDB) {
                     await db_1.default.close(page.db);
                 }

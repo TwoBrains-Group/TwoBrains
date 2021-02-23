@@ -1,0 +1,98 @@
+@import '../../common/common';
+
+.auth-window {
+    display: block;
+    position: relative;
+    width: 500px;
+    height: max-content;
+    padding: 10px;
+    margin: 10px auto;
+
+    background: #fff;
+    box-shadow: 0 3px 5px -1px #f0f0f0;
+    border-radius: 10px;
+}
+
+.auth-window__header {
+    display: block;
+    position: relative;
+    width: max-content;
+    height: 35px;
+    margin: 0 auto;
+
+    .auth-window__header_h--login {
+        left: -25%;
+
+        &.chosen {
+            left: 25%;
+        }
+    }
+
+    .auth-window__header_h--signup {
+        right: -25%;
+
+        &.chosen {
+            right: 25%;
+        }
+    }
+
+    .auth-window__header_h {
+        display: inline-block;
+        position: relative;
+        text-align: center;
+        font-size: 16px;
+        margin: 0 auto;
+
+        transition: font-size .1s, left .25s, right .25s;
+        opacity: 0.6;
+        &.chosen {
+            font-size: 24px;
+            opacity: 1;
+        }
+    }
+}
+
+.auth-window__body {
+    margin: 5px auto;
+
+    label {
+        display: none;
+    }
+
+    .auth-window__body__accept {
+        font-size: 17px;
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+}
+
+.auth-window__footer {
+    padding-top: 5px;
+    h6 {
+        text-align: center;
+    }
+}
+
+.auth-window__footer__services-buttons {}
+
+.auth-window__footer__services-buttons__btn {
+    display: block;
+    position: relative;
+    width: 175px;
+    margin: 5px auto;
+
+    transition: opacity .1s;
+    &:hover {
+        opacity: 0.9;
+    }
+
+    &:active {
+        opacity: 0.75;
+    }
+
+    img {
+        width: 175px;
+    }
+}
+
+

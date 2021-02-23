@@ -1,0 +1,36 @@
+@import 'reset';
+@import 'header';
+@import 'menu';
+@import '../ui/common';
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #333;
+
+    * {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+    }
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+#layout {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: max-content;
+}
+
+#page {
+    display: block;
+    position: relative;
+    left: 50vw; top: 40px;
+    width: 50vw;
+    padding: 0 25px;
+    margin-left: calc(-25vw - 25px);
+}

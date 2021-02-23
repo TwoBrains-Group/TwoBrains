@@ -1,0 +1,144 @@
+.main-header {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 40px;
+    flex-direction: row;
+    z-index: 100;
+}
+
+.main-header__back {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 40px;
+    background: #fff;
+    box-shadow: 0 3px 5px -2px #ddd;
+    z-index: -1;
+}
+
+.main-header__menu-btn {
+    display: block;
+    position: relative;
+    left: -5px;
+    width: 10px;
+    height: 20px;
+    padding: 10px 12px 10px 0;
+    line-height: 20px;
+    font-size: 18px;
+
+    &:hover {
+        left: 0;
+    }
+}
+
+.main-header__logo {
+    width: max-content;
+    height: 30px;
+    padding: 5px 10px;
+}
+
+.main-header__logo__img {
+    height: 100%;
+}
+
+// User
+.main-header__user-btn {
+    display: flex;
+    width: 200px;
+    height: 40px;
+    margin-left: auto;
+    flex-direction: row;
+
+    &:hover {
+        .main-header__user-btn__avatar {
+            img {
+                box-shadow: 0 4px 10px #ddd;
+            }
+        }
+    }
+}
+
+.main-header__user-btn__avatar {
+    width: 40px;
+    height: 40px;
+    img {
+        height: 30px;
+        margin: 5px;
+        border-radius: 50%;
+        box-shadow: 0 4px 5px #f0f0f0;
+    }
+}
+
+.main-header__user-btn__nickname {
+    width: max-content;
+    height: 40px;
+    line-height: 40px;
+}
+
+.main-header__user-menu {
+    display: block;
+    position: fixed;
+    top: 45px;
+    right: -250px;
+    width: 180px;
+    height: max-content;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px -1px #dfdfdf;
+    background: #ffffff;
+    overflow: hidden;
+    font-size: 16px;
+
+    transition: right .1s;
+    z-index: -10;
+
+    &.show {
+        z-index: 10;
+        right: 10px;
+    }
+}
+
+.main-header__user-menu__btn {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 20px;
+    padding: 6px 0;
+    line-height: 20px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+
+}
+
+.main-header__user-menu__btn--log-out {
+    letter-spacing: 1px;
+    & > i.fa-skull {
+        display: none;
+        position: absolute;
+        top: 8px;
+        color: #555;
+
+        &.first {
+            left: 10px;
+        }
+        &.second {
+            right: 10px;
+        }
+    }
+    &:hover {
+        color: #f25959;
+        font-weight: bold;
+        & > i.fa-skull {
+            display: inline-block;
+        }
+    }
+
+    &:active {
+        background: #f25959 !important;
+    }
+}

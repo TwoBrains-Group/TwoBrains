@@ -1,11 +1,5 @@
-export default (ctx) => {
-    if (!ctx.hasOwnProperty('$auth')) {
-        ctx.$auth = {
-            user: null,
-        }
-    }
-
-    if (!ctx.$auth.user) {
-        ctx.redirect(process.env.AUTH_REDIRECT)
+export default ({store, redirect}) => {
+    if (!store.state.auth.auth) {
+        return redirect('/auth')
     }
 }

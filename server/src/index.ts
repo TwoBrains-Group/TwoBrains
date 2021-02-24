@@ -4,4 +4,6 @@ dotenv.config()
 
 import server from './server'
 
-server.init()
+(async () => {
+    await server.init()
+})()

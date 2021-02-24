@@ -12,10 +12,10 @@
 
         <div class="main-header__user-btn btn" @click="toggleUserMenu()">
             <div class="main-header__user-btn__avatar">
-                <img src="~static/img/avatar.png" alt="avatar">
+                <img :src="'/static/img/user/' + loggedInUser.avatar" alt="avatar">
             </div>
             <div class="main-header__user-btn__nickname">
-                mr.kek
+                {{loggedInUser.nickname}}
             </div>
         </div>
 
@@ -23,13 +23,14 @@
             <nuxt-link to="/profile" class="btn main-header__user-menu__btn">Profile</nuxt-link>
             <div class="btn main-header__user-menu__btn">Settings</div>
             <hr>
-            <div class="btn main-header__user-menu__btn main-header__user-menu__btn--log-out">Log out</div>
+            <div class="btn main-header__user-menu__btn main-header__user-menu__btn--log-out" @click="logout()">Log out</div>
         </div>
     </header>
 </template>
 
 <script>
-import {mapMutations} from 'vuex'
+const cookie = process.client ? require('js-cookie') : undefined
+import {mapMutations, mapGetters} from 'vuex'
 
 export default {
     data() {
@@ -37,13 +38,27 @@ export default {
             showUserMenu: false
         }
     },
+
+    computed: {
+        ...mapGetters('auth', [
+            'loggedInUser',
+        ])
+    },
+
     methods: {
         ...mapMutations({
-            toggleMainMenu: 'common.js/toggleMainMenu'
+            toggleMainMenu: 'common/toggleMainMenu',
         }),
+
         toggleUserMenu() {
             this.showUserMenu = !this.showUserMenu
-        }
+        },
+
+        async logout() {
+            cookie.remove('auth')
+            this.$store.commit('auth/setAuth', null)
+            await this.$router.push('/auth')
+        },
     }
 }
 </script>

@@ -1,7 +1,6 @@
 import {AppProps, BaseApp} from '@apps/base'
-import express from 'express'
+import express, {NextFunction, Request, Response, Errback} from 'express'
 import jwt from 'express-jwt'
-// import jsonwebtoken from 'jsonwebtoken'
 
 class Auth extends BaseApp {
     constructor(props: AppProps) {
@@ -9,17 +8,32 @@ class Auth extends BaseApp {
     }
 
     async _init(expApp: express.Application): Promise<void> {
-        expApp.get('/auth/google/callback', (req, res) => {
-            this.log.info(`Data: ${JSON.stringify(req.query)}`)
-
-            res.json(req.query)
+        expApp.use((err: any, req: Request, res: Response, next: NextFunction) => {
+            if (err.name === 'UnauthorizedError') {
+                return res.status(403).send({
+                    success: false,
+                    message: 'No token provided.'
+                })
+            }
         })
 
         // expApp.use(jwt({
-        //     secret: process.env.JWT_SECRET,
         //     algorithms: ['HS256'],
+        //     secret: Buffer.from(process.env.JWT_SECRET, 'base64'),
+        //     getToken: req => {
+        //         if (req.headers.authorization && req.headers.authorization.split(' ')[0] === 'Bearer') {
+        //             return req.headers.authorization.split(' ')[1]
+        //         } else if (req.query && req.query.token) {
+        //             return req.query.token
+        //         } else if (req.cookies && req.cookies.token) {
+        //             return req.cookies.token
+        //         }
+        //         return null
+        //     },
         // }).unless({
-        //     path: ['/auth/login']
+        //     path: [
+        //         /.*\/auth.*/g
+        //     ]
         // }))
     }
 }

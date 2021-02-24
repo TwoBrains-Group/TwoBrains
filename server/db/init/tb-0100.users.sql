@@ -3,7 +3,7 @@ SET search_path TO main;
 
 -- User.status --
 CREATE TYPE main.user_status
-AS ENUM ('unverified', 'verified', 'deleted', 'blocked');
+AS ENUM ('active', 'deleted', 'blocked');
 
 -- Users --
 CREATE SEQUENCE main.users_user_id_seq;
@@ -15,12 +15,13 @@ CREATE TABLE main.users (
     nickname VARCHAR NOT NULL,
     avatar VARCHAR NOT NULL,
     email VARCHAR(254) NOT NULL,
-    email_verification TIMESTAMP WITH TIME ZONE DEFAULT NULL,
+    email_verified TIMESTAMP WITH TIME ZONE DEFAULT NULL,
     password VARCHAR NOT NULL,
     status main.user_status DEFAULT 'unverified'::main.user_status NOT NULL,
     online TIMESTAMP WITH TIME ZONE DEFAULT current_timestamp,
     CONSTRAINT users_user_id_pkey PRIMARY KEY (user_id),
-    CONSTRAINT users_user_uid_ukey UNIQUE (user_uid)
+    CONSTRAINT users_user_uid_ukey UNIQUE (user_uid),
+    CONSTRAINT users_email_ukey UNIQUE (email)
 );
 
 COMMENT ON TABLE main.users IS 'Users table';

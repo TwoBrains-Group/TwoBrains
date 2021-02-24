@@ -6,8 +6,9 @@ import {UnusedQueryParams} from '@utils/errors'
 const strict: boolean = process.env.ENV.toLowerCase() === 'prod'
 
 export enum QueryReturnType {
-    ROW,
-    ROWS,
+    Row,
+    Rows,
+    None,
 }
 
 export type QueryOptions = {
@@ -16,7 +17,7 @@ export type QueryOptions = {
 }
 
 export const queryDefaultOptions: QueryOptions = {
-    returnType: QueryReturnType.ROWS,
+    returnType: QueryReturnType.Rows,
 }
 
 export type QueryParams = {

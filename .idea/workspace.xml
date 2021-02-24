@@ -14,171 +14,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="edaaf9c1-6c17-4647-aa91-a795e595d129" name="Default Changelist" comment=":poop: Save before move to Vue">
-      <change afterPath="$PROJECT_DIR$/client/assets/css/apps/main/home.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/assets/css/apps/main/home.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/assets/css/apps/user/profile.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/assets/css/apps/user/profile.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/assets/css/common/common.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/assets/css/common/common.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/assets/css/common/header.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/assets/css/pages/main/home.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/assets/sass/apps/auth/auth.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/assets/sass/apps/main/home.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/assets/sass/apps/user/profile.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/assets/sass/common/_header.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/assets/sass/common/_menu.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/assets/sass/common/_reset.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/assets/sass/common/common.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/assets/sass/ui/_common.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/common/Header.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/common/MainMenu.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/common/SimpleHeader.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/layouts/auth.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/middleware/auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/auth/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/user/_uid.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/user/profile.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/plugins/api.client.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/schemes/auth/local.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/btn_google_signin_dark_disabled_web@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/btn_google_signin_dark_focus_web@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/btn_google_signin_dark_normal_web@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/btn_google_signin_dark_pressed_web@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/btn_google_signin_light_disabled_web@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/btn_google_signin_light_focus_web@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/btn_google_signin_light_normal_web@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/btn_google_signin_light_pressed_web@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/avatar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/store/common.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/config.dev.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/db/init/tb-0000.extensions.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/db/init/tb-0001.types.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/db/init/tb-0100.users.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/db/test-data.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/auth/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/auth/methods/google.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/auth/methods/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/auth/methods/login.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/base/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/base/templates.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/main/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/main/queries.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/user/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/user/queries.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/modules/BaseModule.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/modules/db/Pool.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/modules/db/errors.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/modules/db/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/modules/logger/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/server/RenderEngine.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/server/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/server/mws/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/server/mws/jwt.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/utils/config.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/utils/errors.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/utils/pretty-time.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/utils/storage.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/server/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/middleware/nonAuth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/store/auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/store/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/nodemon.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/auth/api/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/auth/api/v1/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/auth/api/v1/methods/base-auth.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/auth/api/v1/methods/google.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/auth/api/v1/methods/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/auth/api/v1/methods/login.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/auth/api/v1/methods/signup.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/auth/api/v1/queries.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/base/errors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/TwoBrains.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TwoBrains.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/apps/base/Method.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/apps/base/Method.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/apps/base/Page.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/apps/base/Page.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/apps/base/Route.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/apps/base/Route.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/apps/base/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/apps/base/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/apps/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/apps/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/apps/main/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/apps/main/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/apps/main/pages/home.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/apps/main/pages/home.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/apps/main/pages/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/apps/main/pages/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/modules/BaseModule.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/modules/BaseModule.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/modules/db/Pool.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/modules/db/Pool.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/modules/db/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/modules/db/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/modules/logger/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/modules/logger/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/server/RenderEngine.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/server/RenderEngine.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/server/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/server/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/utils/config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/utils/config.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/utils/errors.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/utils/errors.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/utils/storage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/utils/storage.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.dev.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/init/tb-0000.extensions.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/init/tb-0001.types.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/init/tb-0100.users.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/test-data.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apps/base/Method.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apps/base/Page.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apps/base/Route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/base/Method.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apps/base/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apps/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apps/main/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apps/main/pages/home.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apps/main/pages/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apps/main/queries.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apps/user/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apps/user/pages/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apps/user/pages/profile.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apps/user/queries.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/BaseModule.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/db/Pool.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/db/errors.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/db/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/logger/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/RenderEngine.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/mws/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/mws/jwt.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/config.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/errors.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/pretty-time.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/storage.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/apps/main/home.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/apps/main/home.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/apps/user/profile.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/apps/user/profile.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/common/common.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/common/common.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/common/header.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/pages/main/home.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/avatar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/apps/main/home.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/common.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/sass/apps/main/home.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/sass/apps/user/profile.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/sass/common/_header.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/sass/common/_menu.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/sass/common/_reset.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/sass/common/common.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/sass/ui/_common.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/apps/main/home.hbs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/apps/user/profile.hbs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/main.hbs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/partials/common/header.hbs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/partials/common/menu.hbs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/common/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/common/Header.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/layouts/auth.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/layouts/auth.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/middleware/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/middleware/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/auth/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/auth/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/plugins/api.client.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/plugins/api.client.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/static/img/avatar.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/static/img/user/default.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/store/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/store/common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/.env" beforeDir="false" afterPath="$PROJECT_DIR$/server/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/db/init/tb-0100.users.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/init/tb-0100.users.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/auth/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/auth/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/auth/methods/google.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/auth/methods/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/auth/methods/login.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/base/Method.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/base/Method.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/base/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/base/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/base/templates.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/base/templates.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/main/queries.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/modules/db/Pool.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/modules/db/Pool.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/server/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/server/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,14 +112,15 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="C:\Users\PYJOHN\AppData\Local\JetBrains\Toolbox\apps\WebStorm\ch-0\202.7660.23\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
+    <property name="vuejs.nuxt.types-notification-shown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\Projects\TwoBrains\client\components\common" />
-      <recent name="F:\Projects\TwoBrains\client\components" />
-      <recent name="F:\Projects\TwoBrains\client\pages" />
-      <recent name="F:\Projects\TwoBrains\client\pages\main" />
-      <recent name="F:\Projects\TwoBrains\client\assets" />
+      <recent name="F:\Projects\TwoBrains\client\static\img\user" />
+      <recent name="F:\Projects\TwoBrains\server\src\apps\auth\api" />
+      <recent name="F:\Projects\TwoBrains\server\src\apps\auth\v1" />
+      <recent name="F:\Projects\TwoBrains\server\src\apps\auth\v1\methods" />
+      <recent name="F:\Projects\TwoBrains\server\src\apps\auth\methods" />
     </key>
   </component>
   <component name="RunManager">
@@ -293,6 +167,7 @@
       <workItem from="1613903863438" duration="17867000" />
       <workItem from="1613956029914" duration="1388000" />
       <workItem from="1614001669387" duration="14622000" />
+      <workItem from="1614083169677" duration="43137000" />
     </task>
     <task id="LOCAL-00001" summary=":bulb: Meow">
       <created>1612391364993</created>
@@ -348,6 +223,13 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/server/src/index.js" />
+        <option value="$PROJECT_DIR$/server/src/server/RenderEngine.js" />
+        <option value="$PROJECT_DIR$/server/src/server/index.js" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -434,24 +316,28 @@
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state x="872" y="254" key="Vcs.Push.Dialog.v2/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1613310099906" />
+    <state x="880" y="135" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1614106952315">
+      <screen x="0" y="0" width="2560" height="1050" />
+    </state>
+    <state x="880" y="135" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614106952315" />
     <state x="0" y="0" width="2166" height="1032" key="dock-window-1" timestamp="1612652780293">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state x="0" y="0" width="2166" height="1032" key="dock-window-1/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1612652780293" />
-    <state x="987" y="260" width="585" height="624" key="find.popup" timestamp="1613859332893">
+    <state x="987" y="260" width="585" height="624" key="find.popup" timestamp="1614141052192">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state x="987" y="260" width="585" height="624" key="find.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1613859332893" />
+    <state x="987" y="260" width="585" height="624" key="find.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614141052192" />
     <state x="987" y="260" width="585" height="534" key="find.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612145569091" />
-    <state x="942" y="240" width="672" height="677" key="run.anything.popup" timestamp="1613919251135">
+    <state x="942" y="240" width="672" height="677" key="run.anything.popup" timestamp="1614139329892">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state x="942" y="240" width="672" height="677" key="run.anything.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1613919251135" />
+    <state x="942" y="240" width="672" height="677" key="run.anything.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614139329892" />
     <state x="942" y="240" key="run.anything.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612128644928" />
-    <state x="943" y="232" width="672" height="677" key="search.everywhere.popup" timestamp="1613918561503">
+    <state x="943" y="232" width="672" height="677" key="search.everywhere.popup" timestamp="1614139203764">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state x="943" y="232" width="672" height="677" key="search.everywhere.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1613918561503" />
+    <state x="943" y="232" width="672" height="677" key="search.everywhere.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614139203764" />
     <state x="943" y="232" width="672" height="678" key="search.everywhere.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612131512848" />
   </component>
 </project>

@@ -2,9 +2,10 @@ import express from 'express'
 import 'path'
 import appRootPath from 'app-root-path'
 import renderEngine from './RenderEngine'
-import * as apps from '@apps/index'
+import apps from '@apps/index'
 import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
+import cors from 'cors'
 
 class Server {
     expApp: express.Application
@@ -13,25 +14,26 @@ class Server {
         this.expApp = express()
     }
 
-    init() {
+    async init() {
         const expApp = this.expApp
 
         expApp.use('/static', express.static(appRootPath + '/static'))
         expApp.use(bodyParser.json())
         expApp.use(cookieParser())
+        expApp.use(cors())
         expApp.engine(renderEngine.name, renderEngine.engine)
         expApp.set('view engine', renderEngine.name)
 
-        this.initApps()
+        await this.initApps()
 
         expApp.listen(3000, () => {
             console.log('Server is listening on port 3000')
         })
     }
 
-    initApps() {
+    async initApps() {
         for (const app of Object.values(apps)) {
-            app.default.init(this.expApp)
+            await app.init(this.expApp)
         }
     }
 }

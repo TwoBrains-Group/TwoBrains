@@ -41,14 +41,11 @@
 </template>
 
 <script>
+import {mapMutations} from 'vuex'
+const cookie = process.client ? require('js-cookie') : undefined
+
 export default {
     layout: 'auth',
-
-    asyncData({query, app}) {
-        if (query.logging_in) {
-            console.log('logging in')
-        }
-    },
 
     data() {
         return {
@@ -64,25 +61,53 @@ export default {
     },
 
     methods: {
-        loginWithGoogle() {
-            // this.$auth.loginWith('google', { params: { prompt: 'consent' } })
-        },
+        loginWithGoogle() {},
 
         switchAuthType() {
             this.login = !this.login
         },
 
-        loginLocal() {
-            const data = {
+        async auth(method, params) {
+            try {
+                const {result: {userData}, token} = await this.$api.send({
+                    app: 'auth',
+                    method,
+                    params,
+                    v: 1,
+                })
+
+                const authData = {
+                    userData,
+                    token,
+                }
+
+                this.$store.commit('auth/setAuth', authData)
+                cookie.set('auth', authData)
+                await this.$router.push('/')
+            } catch (error) {
+                console.log(`Error: ${error.stack}`)
+
+                this.$toast.error(error.message, {
+                    duration: 7500,
+                })
+            }
+        },
+
+        async loginLocal() {
+            const params = {
                 email: this.fields.loginEmail,
                 password: this.fields.loginPassword,
             }
-
-
+            await this.auth('login', params)
         },
 
-        signup() {
-
+        async signup() {
+            const params = {
+                email: this.fields.signupEmail,
+                password: this.fields.signupPassword,
+                repeatPassword: this.fields.signupRepeatPassword,
+            }
+            await this.auth('signup', params)
         },
     },
 }

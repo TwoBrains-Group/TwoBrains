@@ -1,10 +1,11 @@
 export type ReqRes = {
     app?: string
     method?: string
+    token?: string
 }
 
 export type Req = ReqRes & {
-    params: object
+    params: any
 }
 
 export type Res = ReqRes & {
@@ -16,9 +17,8 @@ export const template: ReqRes = {
     method: null,
 }
 
-
 export const getRes = (res: Res | any): Res => {
-    if (res.hasOwnProperty('data')) {
+    if (res.hasOwnProperty('result')) {
         return res
     }
     return {

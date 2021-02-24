@@ -2,7 +2,8 @@ import express from 'express'
 import DB from '@modules/db'
 import Logger, {lf} from '@modules/logger'
 import {AppData, Method} from '@apps/base/Method'
-import {getRes} from '@apps/base/templates'
+import {getRes, Req} from '@apps/base/templates'
+import {MethodError} from "@apps/base/errors";
 
 const mainLayout = 'layouts/main'
 
@@ -10,6 +11,8 @@ export type AppProps = {
     name?: string,
     routePrefix: string,
 }
+
+type ApiDir = Record<string, {queries: Record<string, string>, methods: Record<string, Method>}>
 
 /**
  * BaseApp
@@ -35,56 +38,67 @@ export class BaseApp {
 
     protected async _init(expApp: express.Application): Promise<void> {}
 
-    initRoutes(expApp: express.Application): void {
+    async initRoutes(expApp: express.Application): Promise<void> {
         const appData: AppData = {
             appName: this.name
         }
 
-        // Collect db queries
-        const queriesPath = `@apps/${this.name}/queries.js`
-        try {
-            appData.queries = new Map(Object.entries(require(queriesPath).default))
-        } catch (error) {
-            this.log.debug(`No queries found for app [${this.name}]`)
-        }
-
         // FIXME: Dynamic require????!!!
-        const methodsPath = `@apps/${this.name}/methods`
-        let methods: Map<string, Method>
 
+        let api: ApiDir = null
         try {
-            methods = require(methodsPath).default
+            api = require(`@apps/${this.name}/api`).default
         } catch (error) {
-            this.log.warn(`No methods found for app ${this.name}`)
-        }
-
-        if (!methods) {
+            this.log.warn(`No api directory found for app ${this.name}`)
             return
         }
 
-        this.log.debug(lf`${methods}`)
-
         const router = express.Router()
-        for (const [methodName, method] of Object.entries(methods)) {
-            this.log.info(`Initialize method ${methodName} with route '${this.name}/${method.route}'`)
+        for (const [version, entities] of Object.entries(api)) {
+            appData.queries = new Map(Object.entries(entities.queries))
 
-            method.init(appData)
+            if (!appData.queries) {
+                this.log.warn(`No queries found for app ${this.name}`)
+            }
 
-            router.get(method.route, async (req, res) => {
-                let result = {}
-                try {
-                    result = await method.run(req)
-                    result = getRes(result)
+            // Init methods
+            for (const [methodName, method] of Object.entries(entities.methods)) {
+                await method.init(appData)
 
-                    res.json(result)
-                } catch (error) {
-                    res.json({
-                        error
-                    })
-                }
-            })
+                router.post(method.route, async (req, res) => {
+                    try {
+                        this.log.info(lf`Got request: ${req.body}, ${req.params}`)
+
+                        const requestObject: Req = {
+                            app: this.name,
+                            method: methodName,
+                            params: req.body,
+                        }
+
+                        let result = await method.run(requestObject)
+                        result = getRes(result)
+
+                        res.json(result)
+                    } catch (error) {
+                        if (!(error instanceof MethodError)) {
+                            this.log.warn(`Errors thrown from method must be instances of 'MethodError'`)
+                        }
+
+                        this.log.error(`Got error on running method [${methodName}]: ${error.message}`)
+
+                        res.json({
+                            error: {
+                                message: error.message
+                            },
+                        })
+                    }
+                })
+            }
+
+            const route = `${process.env.URI}/${version}/${this.routePrefix}`.replace(/\/{2,}/g, '/')
+            expApp.use(route, router)
         }
 
-        expApp.use(this.routePrefix, router)
+        this.log.info(`Registered routes: ${JSON.stringify(router.stack.map((r: any) => r.route ? r.route.path : ''), null, 2)}`)
     }
 }

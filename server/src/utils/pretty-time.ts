@@ -28,7 +28,7 @@ type TimeAndRange = {
 }
 
 class PrettyTime {
-    getSec(date: Date = null) {
+    getSec(date?: Date) {
         return Math.floor((date || new Date()).getTime() / 1000)
     }
 
@@ -38,14 +38,14 @@ class PrettyTime {
      * @param {Date} end End time in ms
      * @return {number} seconds
      */
-    diffSec(start: Date, end: Date = null) {
+    diffSec(start: Date, end?: Date) {
         end = end || new Date()
         return Math.floor(Math.abs((end.getTime() - start.getTime()) / 1000))
     }
 
-    diffTimeRange(start: Date, end: Date = null): TimeAndRange {
+    diffTimeRange(start: Date, end?: Date): TimeAndRange {
         const diff = this.diffSec(start, end)
-        let range: string = null
+        let range: string = 's'
         let time: number = diff
         for (const [r, div] of Object.entries(dividers)) {
             time = diff / div
@@ -62,7 +62,7 @@ class PrettyTime {
         }
     }
 
-    prettyDiff(start: Date, end: Date = null): string {
+    prettyDiff(start: Date, end?: Date): string {
         const {range, time} = this.diffTimeRange(start, end)
         const rangeString = time > 1 ? `${rangeNames[range]}s` : rangeNames[range]
 

@@ -5,6 +5,6 @@
     "ignore": [
         "src/**/*.spec.ts"
     ],
-    "ext": "ts,json",
+    "ext": "ts,json,env",
     "exec": "tsc && npm run start"
 }

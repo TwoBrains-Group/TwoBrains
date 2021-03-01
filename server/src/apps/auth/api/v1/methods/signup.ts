@@ -1,17 +1,15 @@
-import {MethodProps, Req, Res} from '@apps/base/Method'
+import {MethodProps, MethodRes, Req, Res} from '@apps/base/Method'
 import {QueryReturnType} from "@modules/db/Pool";
 import {InvalidParams, MethodError} from "@apps/base/errors";
 import {nanoid} from 'nanoid'
 import BaseAuth from './base-auth'
+import {passwordPattern, passwordSpecialChars} from "@utils/data";
 
 type Schema = {
     email: string
     password: string
     repeatPassword: string
 }
-
-const specialChars = '@#$%^&+=~'
-const checkPassword = (pwd: string) => pwd.match(/^(?=.{8,128})(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=~]).*$/g)
 
 const defaultAvatar = 'default.png'
 
@@ -20,21 +18,13 @@ class Signup extends BaseAuth {
         super(props)
     }
 
-    async run(req: Req): Promise<Res> {
+    async run(req: Req): Promise<MethodRes> {
         let {email, password, repeatPassword}: Schema = req.params
 
         email = email.toLowerCase()
 
-        if (email.length > 320) {
-            throw new InvalidParams('email must be less than 320 characters long')
-        }
-
         if (password !== repeatPassword) {
             throw new InvalidParams('passwords does not match')
-        }
-
-        if (!checkPassword(password)) {
-            throw new InvalidParams(`password must be more than 8 characters long, contain at least one lowercase and uppercase letter, and at least one of special characters: ${specialChars.split('').join(', ')}. For your security 😄`)
         }
 
         const userExists = await this.query('getUserByEmail', {email}, {

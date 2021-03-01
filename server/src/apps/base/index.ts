@@ -1,18 +1,20 @@
 import express from 'express'
-import DB from '@modules/db'
 import Logger, {lf} from '@modules/logger'
-import {AppData, Method} from '@apps/base/Method'
+import {MethodInitData, Method} from '@apps/base/Method'
 import {getRes, Req} from '@apps/base/templates'
-import {MethodError} from "@apps/base/errors";
-
-const mainLayout = 'layouts/main'
+import {InvalidParams, MethodError} from "@apps/base/errors";
+import Ajv, {DefinedError, JSONSchemaType} from "ajv";
 
 export type AppProps = {
     name?: string,
     routePrefix: string,
 }
 
-type ApiDir = Record<string, {queries: Record<string, string>, methods: Record<string, Method>}>
+type ApiDir = Record<string, {
+    queries: Record<string, string>,
+    methods: Record<string, Method>,
+    schemas: Record<string, JSONSchemaType<any>>
+}>
 
 /**
  * BaseApp
@@ -38,14 +40,11 @@ export class BaseApp {
 
     protected async _init(expApp: express.Application): Promise<void> {}
 
-    async initRoutes(expApp: express.Application): Promise<void> {
-        const appData: AppData = {
-            appName: this.name
-        }
+    private async initRoutes(expApp: express.Application): Promise<void> {
 
         // FIXME: Dynamic require????!!!
 
-        let api: ApiDir = null
+        let api: ApiDir
         try {
             api = require(`@apps/${this.name}/api`).default
         } catch (error) {
@@ -53,21 +52,56 @@ export class BaseApp {
             return
         }
 
+        const ajv = new Ajv({
+            allErrors: true,
+        })
+
         const router = express.Router()
         for (const [version, entities] of Object.entries(api)) {
-            appData.queries = new Map(Object.entries(entities.queries))
+            let queries: Record<string, string> = {}
+            let schemas: Record<string, JSONSchemaType<any>> = {}
 
-            if (!appData.queries) {
+            if (!entities.queries) {
                 this.log.warn(`No queries found for app ${this.name}`)
+            } else {
+                queries = entities.queries
+            }
+
+            if (!entities.schemas) {
+                this.log.warn(`No schemas found for app ${this.name}`)
+            } else {
+                schemas = entities.schemas
             }
 
             // Init methods
             for (const [methodName, method] of Object.entries(entities.methods)) {
-                await method.init(appData)
+                const schema = schemas[method.getName()]
+                if (!schema) {
+                    throw new Error(`Cannot find schema for method: ${this.name}/${method.getName()}`)
+                }
 
-                router.post(method.route, async (req, res) => {
+                const validateSchema = ajv.compile(schema)
+
+                const methodInitData: MethodInitData = {
+                    appName: this.name,
+                    schema,
+                    queries,
+                }
+
+                await method.init(methodInitData)
+
+                router.post(method.route, async (req: any, res) => {
                     try {
-                        this.log.info(lf`Got request: ${req.body}, ${req.params}`)
+                        const valid = await validateSchema(req.body)
+
+                        if (!valid) {
+                            console.log(`Invalid params: ${JSON.stringify(validateSchema.errors, null, 2)}`)
+                            if (validateSchema.errors) {
+                                throw new InvalidParams(...validateSchema.errors.map((el: DefinedError) => el.message as string))
+                            } else {
+                                throw new InvalidParams('Invalid params')
+                            }
+                        }
 
                         const requestObject: Req = {
                             app: this.name,
@@ -75,7 +109,7 @@ export class BaseApp {
                             params: req.body,
                         }
 
-                        let result = await method.run(requestObject)
+                        let result = await method.run(requestObject, req.user && req.user.userData)
                         result = getRes(result)
 
                         res.json(result)
@@ -98,7 +132,5 @@ export class BaseApp {
             const route = `${process.env.URI}/${version}/${this.routePrefix}`.replace(/\/{2,}/g, '/')
             expApp.use(route, router)
         }
-
-        this.log.info(`Registered routes: ${JSON.stringify(router.stack.map((r: any) => r.route ? r.route.path : ''), null, 2)}`)
     }
 }

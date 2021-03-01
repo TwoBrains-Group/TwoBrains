@@ -1,0 +1,42 @@
+.base-btn {
+    background: #fff;
+    cursor: pointer;
+}
+
+.btn {
+    @extend .base-btn;
+
+    transition: background .15s;
+    &:hover {
+        background: #f0f0f0;
+    }
+    &:active {
+        background: #ddd;
+    }
+}
+
+.material-btn {
+    @extend .btn;
+
+    width: max-content;
+    height: max-content;
+    border-radius: 5px;
+    padding: 5px 15px;
+    margin: 5px auto;
+
+    transition: box-shadow .15s;
+
+    box-shadow: 0 2px 4px 1px #f0f0f0;
+
+    &.anti {
+        box-shadow: none;
+    }
+
+    &:hover {
+        box-shadow: 0 3px 8px -1px #ddd;
+    }
+
+    &:active {
+        box-shadow: 0 3px 10px -3px #ddd;
+    }
+}

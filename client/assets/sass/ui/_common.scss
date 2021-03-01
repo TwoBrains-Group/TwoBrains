@@ -1,44 +1,7 @@
-.base-btn {
-    background: #fff;
-    cursor: pointer;
-}
-
-.btn {
-    @extend .base-btn;
-
-    transition: background .15s;
-    &:hover {
-        background: #f0f0f0;
-    }
-    &:active {
-        background: #ddd;
-    }
-}
-
-.material-btn {
-    @extend .btn;
-
-    width: max-content;
-    height: max-content;
-    border-radius: 5px;
-    padding: 5px 15px;
-    margin: 5px auto;
-
-    box-shadow: 0 2px 4px 1px #f0f0f0;
-
-    &:hover {
-        box-shadow: 0 3px 8px -1px #f0f0f0;
-    }
-
-    &:active {
-        box-shadow: 0 3px 10px -3px #ddd;
-    }
-}
-
 hr {
     width: 100%;
     height: 2px;
-    margin: 4px 0;
+    margin: 4px auto;
     box-shadow: inset 0 0 0 1px #f0f0f0;
 }
 

@@ -1,0 +1,13 @@
+.toasted.ui-toast {
+    border-radius: 15px;
+    background: #fff;
+    box-shadow: 0 4px 10px -1px #ddd;
+    color: #333;
+    font-size: 16px;
+
+    &.error {
+        color: #fff;
+        background: #f25959;
+        box-shadow: 0 4px 10px -1px #ccc;
+    }
+}

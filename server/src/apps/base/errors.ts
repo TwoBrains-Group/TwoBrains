@@ -1,11 +1,11 @@
 export class MethodError extends Error {
-    constructor(message: string) {
-        super(message)
+    constructor(...messages: string[]) {
+        super(messages.join('\n'))
     }
 }
 
 export class InvalidParams extends MethodError {
-    constructor(message: string) {
-        super(message)
+    constructor(...messages: string[]) {
+        super(...messages)
     }
 }

@@ -6,24 +6,19 @@
         </header>
 
         <div class="auth-window__body auth-window__body--login" v-if="login">
-            <label for="auth-window-email--login">email</label>
-            <input id="auth-window-email--login" type="email" placeholder="email" v-model="fields.loginEmail">
+            <input type="email" placeholder="email" v-model="fields.loginEmail">
 
-            <label for="auth-window-password--login">password</label>
-            <input id="auth-window-password--login" type="password" placeholder="password" v-model="fields.loginPassword">
+            <input type="password" placeholder="password" v-model="fields.loginPassword">
 
             <div class="material-btn auth-window__body__accept" @click="loginLocal()">Login</div>
         </div>
 
         <div class="auth-window__body auth-window__body--signup" v-if="!login">
-            <label for="auth-window-email--signup">email</label>
-            <input id="auth-window-email--signup" type="email" placeholder="email" v-model="fields.signupEmail">
+            <input type="email" placeholder="email" v-model="fields.signupEmail">
 
-            <label for="auth-window-password--signup">password</label>
-            <input id="auth-window-password--signup" type="password" placeholder="password" v-model="fields.signupPassword">
+            <input type="password" placeholder="password" v-model="fields.signupPassword">
 
-            <label for="auth-window-password-repeat--signup">repeat password</label>
-            <input id="auth-window-password-repeat--signup" type="password" placeholder="repeat password" v-model="fields.signupRepeatPassword">
+            <input type="password" placeholder="repeat password" v-model="fields.signupRepeatPassword">
 
             <div class="material-btn auth-window__body__accept" @click="signup()">Sign up</div>
         </div>
@@ -33,7 +28,7 @@
 
             <div class="auth-window__footer__services-buttons">
                 <div @click="loginWithGoogle()" class="base-btn auth-window__footer__services-buttons__btn auth-window__footer__services-buttons--google">
-                    <img src="~static/img/auth/google/btn_google_signin_dark_normal_web@2x.png" alt="Sign in with Google">
+                    <img src="/img/auth/google/btn_google_signin_dark_normal_web@2x.png" alt="Sign in with Google">
                 </div>
             </div>
         </footer>
@@ -41,7 +36,6 @@
 </template>
 
 <script>
-import {mapMutations} from 'vuex'
 const cookie = process.client ? require('js-cookie') : undefined
 
 export default {
@@ -74,7 +68,7 @@ export default {
                     method,
                     params,
                     v: 1,
-                })
+                }, false)
 
                 const authData = {
                     userData,
@@ -114,5 +108,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../assets/sass/apps/auth/auth';
+@import '~assets/sass/apps/auth/auth';
 </style>

@@ -6,17 +6,16 @@ class RequestError {
     }
 }
 
-export class Api {
+class Api {
     constructor(ctx) {
         this.ctx = ctx
     }
 
-    async send(req) {
+    async send(req, getRes = true) {
         const headers = {}
 
-        if (req.token) {
-            headers.Authorization = `Bearer ${req.token}`
-        }
+        // TODO!: Think about non-auth requested
+        headers.Authorization = `Bearer ${this.ctx.store.state.auth.token}`
 
         const url = `http://${process.env.API_URI}/v${req.v}/${req.app}/${req.method}`
 
@@ -34,11 +33,10 @@ export class Api {
             throw new RequestError({message: 'Invalid response data'})
         }
 
-        return data
+        return getRes ? data.result : data
     }
 
     async redirect(to) {
-        console.log(`redirect: ${to}`)
         await this.ctx.redirect(to)
     }
 }

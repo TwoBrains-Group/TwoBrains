@@ -1,4 +1,4 @@
-import {Method, MethodProps} from '@apps/base/Method'
+import {Method, MethodProps, MethodRes} from '@apps/base/Method'
 import {Req, Res} from '@apps/base/templates'
 
 class Google extends Method {
@@ -6,7 +6,7 @@ class Google extends Method {
         super(props)
     }
 
-    async run(req: Req): Promise<Res> {
+    async run(req: Req): Promise<MethodRes> {
         this.log.info(`Request: ${JSON.stringify(req, null, 2)}`)
 
         return {

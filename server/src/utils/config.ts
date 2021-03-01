@@ -5,7 +5,7 @@ export type Config = {
         connection: {
             host: string,
             port: number,
-            db: string,
+            database: string,
             password: string
         }
     },

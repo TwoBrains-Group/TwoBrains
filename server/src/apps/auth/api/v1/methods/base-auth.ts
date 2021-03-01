@@ -27,7 +27,7 @@ class BaseAuth extends Method {
             throw new MethodError('This user is deleted')
         }
 
-        const token = jwt.sign({userData}, process.env.JWT_SECRET, {algorithm: 'HS256'})
+        const token = jwt.sign({userData}, Buffer.from(process.env.JWT_SECRET!, 'base64'), {algorithm: 'HS256'})
 
         return {
             token,

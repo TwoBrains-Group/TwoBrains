@@ -1,7 +1,11 @@
 @import 'reset';
-@import 'header';
-@import 'menu';
+@import '../components/common/header';
+@import '../components/common/menu';
+@import '../components/common/spinner';
 @import '../ui/common';
+@import '../ui/toast';
+@import '../ui/basics';
+@import '../ui/btn';
 
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;

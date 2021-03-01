@@ -6,6 +6,7 @@ import apps from '@apps/index'
 import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
 import cors from 'cors'
+import mws from './mws'
 
 class Server {
     expApp: express.Application
@@ -20,9 +21,16 @@ class Server {
         expApp.use('/static', express.static(appRootPath + '/static'))
         expApp.use(bodyParser.json())
         expApp.use(cookieParser())
-        expApp.use(cors())
+        expApp.use(cors({
+            origin: process.env.CORS_URL,
+            optionsSuccessStatus: 200
+        }))
         expApp.engine(renderEngine.name, renderEngine.engine)
         expApp.set('view engine', renderEngine.name)
+
+        for (const mw of Object.values(mws)) {
+            expApp.use(mw)
+        }
 
         await this.initApps()
 

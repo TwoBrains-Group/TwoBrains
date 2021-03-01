@@ -1,0 +1,118 @@
+.idea {
+    display: grid;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    height: max-content;
+
+    grid-template-rows: 55px max-content 40px;
+    grid-template-columns: 100%;
+
+    border-radius: 10px;
+    box-shadow: 0 3px 6px -1px #f0f0f0;
+
+    overflow: hidden;
+
+    .idea__header {
+        display: grid;
+        grid-template-columns: max-content auto;
+        grid-template-rows: 100%;
+        position: relative;
+        width: 100%;
+        height: 45px;
+        padding: 5px;
+
+        .idea__header__user {
+            display: grid;
+            grid-template-columns: 35px auto;
+            grid-template-rows: 35px;
+            padding: 5px;
+            border-radius: 10px;
+
+            &:hover {
+                .idea__header__user__avatar {
+                    box-shadow: 0 3px 5px #ccc;
+                }
+            }
+
+            .idea__header__user__avatar {
+                box-shadow: 0 2px 5px #ddd;
+                border-radius: 50%;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                }
+            }
+
+            .idea__header__user__nickname {
+                max-width: 200px;
+                padding: 5px;
+                line-height: 25px;
+                vertical-align: middle;
+                overflow-x: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+
+    .idea-body {
+        padding: 0 10px;
+
+        .idea-body__name {
+            padding: 0;
+        }
+
+        .idea-body__text {
+            padding: 5px 10px 10px;
+        }
+    }
+
+    .idea-footer {
+        display: flex;
+
+        box-shadow: 0 -1px 2px -1px #f0f0f0;
+
+        //.idea-footer__btn:last-child {
+        //    box-shadow: none;
+        //}
+
+        .idea-footer__btn {
+            width: max-content;
+            padding: 10px 15px;
+            line-height: 20px;
+            vertical-align: middle;
+            transition: color .15s ease;
+            box-shadow: 1px 0 1px -1px #ddd;
+        }
+
+        .idea-footer__btn--like {
+            background: #fff;
+
+            &:hover {
+                color: #f25959cc;
+                text-shadow: 0 1px 5px -1px #f0f0f0;
+            }
+
+            &:active {
+                i {
+                    transform: scale(1.2);
+                }
+            }
+
+            &.liked {
+                color: #f25959cc;
+
+                &:hover {
+                    color: #333;
+                }
+
+                &:active {
+                    i {
+                        transform: rotate(15deg);
+                    }
+                }
+            }
+        }
+    }
+}

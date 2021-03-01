@@ -1,4 +1,4 @@
-import {BaseModule, ModuleProps} from '@modules/BaseModule'
+import {BaseModule} from '@modules/BaseModule'
 import {Pool} from './Pool'
 import {config} from '@utils/config'
 
@@ -10,15 +10,11 @@ const {db: {connection}} = config
 export {Pool} from './Pool'
 
 class DB extends BaseModule {
-    constructor(props: ModuleProps = {}) {
-        super(props)
-    }
-
     async getPool(): Promise<Pool> {
         const instance = new Pool(connection)
 
-        const {host, db, port} = connection
-        const dbUrl = `${host}:${port}/${db}`
+        const {host, database, port} = connection
+        const dbUrl = `${host}:${port}/${database}`
 
         instance.on('connect', async client => {
             // FIXME: Move to config

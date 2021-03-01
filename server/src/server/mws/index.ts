@@ -1,1 +1,5 @@
-export {jwtMw} from './jwt'
+import jwt from './jwt'
+
+export default {
+    jwt,
+}

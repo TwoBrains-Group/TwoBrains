@@ -13,45 +13,94 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="edaaf9c1-6c17-4647-aa91-a795e595d129" name="Default Changelist" comment=":poop: Save before move to Vue">
-      <change afterPath="$PROJECT_DIR$/client/middleware/nonAuth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/store/auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/store/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/nodemon.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/auth/api/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/auth/api/v1/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/auth/api/v1/methods/base-auth.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/auth/api/v1/methods/google.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/auth/api/v1/methods/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/auth/api/v1/methods/login.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/auth/api/v1/methods/signup.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/auth/api/v1/queries.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/base/errors.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/TwoBrains.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TwoBrains.iml" afterDir="false" />
+    <list default="true" id="edaaf9c1-6c17-4647-aa91-a795e595d129" name="Default Changelist" comment="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa">
+      <change afterPath="$PROJECT_DIR$/client/assets/sass/apps/info/about.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/assets/sass/apps/user/ideas.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/assets/sass/apps/user/settings.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/assets/sass/components/common/_menu.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/assets/sass/components/common/_spinner.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/assets/sass/components/idea/idea.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/assets/sass/ui/_basics.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/assets/sass/ui/_btn.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/assets/sass/ui/_toast.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/common/Spinner.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/idea/Idea.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/middleware/profile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/pages/info/about.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/pages/user/_uid/ideas.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/pages/user/_uid/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/pages/user/settings.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/plugins/lsStates.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/db/init/tb-0200.ideas.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/auth/api/v1/schemas/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/auth/api/v1/schemas/login.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/auth/api/v1/schemas/signup.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/idea/api/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/create.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-by-id.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-list.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/like.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/queries.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/schemas/get-by-id.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/schemas/get-list.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/schemas/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/schemas/like.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/idea/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/user/api/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/user/api/v1/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/user/api/v1/methods/get-by-uid.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/user/api/v1/methods/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/user/api/v1/methods/save-settings.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/user/api/v1/schemas/get-by-uid.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/user/api/v1/schemas/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/user/api/v1/schemas/save-settings.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/utils/data.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/utils/dotenv.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/sass/common/_header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/components/common/_header.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/sass/common/_menu.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/sass/common/common.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/common/common.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/sass/ui/_common.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/ui/_common.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/components/common/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/common/Header.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/layouts/auth.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/layouts/auth.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/common/MainMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/common/MainMenu.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/middleware/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/middleware/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/middleware/nonAuth.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/middleware/nonAuth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/pages/auth/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/auth/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/user/_uid.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/user/profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/profile.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/plugins/api.client.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/plugins/api.client.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/static/img/avatar.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/static/img/user/default.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/store/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/store/common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/store/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/store/auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/.env" beforeDir="false" afterPath="$PROJECT_DIR$/server/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/db/init/tb-0100.users.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/init/tb-0100.users.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/nodemon.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/nodemon.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/auth/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/auth/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/auth/methods/google.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/auth/methods/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/auth/methods/login.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/auth/api/v1/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/auth/api/v1/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/auth/api/v1/methods/base-auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/auth/api/v1/methods/base-auth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/auth/api/v1/methods/google.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/auth/api/v1/methods/google.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/auth/api/v1/methods/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/auth/api/v1/methods/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/auth/api/v1/methods/login.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/auth/api/v1/methods/login.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/auth/api/v1/methods/signup.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/auth/api/v1/methods/signup.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/auth/api/v1/queries.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/auth/api/v1/queries.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/apps/base/Method.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/base/Method.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/base/errors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/base/errors.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/apps/base/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/base/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/apps/base/templates.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/base/templates.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/apps/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/main/queries.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/user/queries.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/user/api/v1/queries.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/modules/BaseModule.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/modules/BaseModule.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/modules/db/Pool.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/modules/db/Pool.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/modules/db/errors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/modules/db/errors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/modules/db/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/modules/db/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/server/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/server/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/server/mws/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/server/mws/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/server/mws/jwt.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/server/mws/jwt.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/utils/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/utils/errors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/errors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/utils/pretty-time.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/pretty-time.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,11 +165,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\Projects\TwoBrains\client\static\img\user" />
-      <recent name="F:\Projects\TwoBrains\server\src\apps\auth\api" />
-      <recent name="F:\Projects\TwoBrains\server\src\apps\auth\v1" />
-      <recent name="F:\Projects\TwoBrains\server\src\apps\auth\v1\methods" />
-      <recent name="F:\Projects\TwoBrains\server\src\apps\auth\methods" />
+      <recent name="F:\Projects\TwoBrains\client\assets\sass\common" />
+      <recent name="F:\Projects\TwoBrains\client\assets\sass\components\common" />
+      <recent name="F:\Projects\TwoBrains\client\assets\sass\components" />
+      <recent name="F:\Projects\TwoBrains\client\pages\user\_uid" />
+      <recent name="F:\Projects\TwoBrains\client\components\idea" />
     </key>
   </component>
   <component name="RunManager">
@@ -167,7 +216,11 @@
       <workItem from="1613903863438" duration="17867000" />
       <workItem from="1613956029914" duration="1388000" />
       <workItem from="1614001669387" duration="14622000" />
-      <workItem from="1614083169677" duration="43137000" />
+      <workItem from="1614083169677" duration="48389000" />
+      <workItem from="1614236371628" duration="3549000" />
+      <workItem from="1614246654200" duration="15937000" />
+      <workItem from="1614360304425" duration="35605000" />
+      <workItem from="1614544271526" duration="21973000" />
     </task>
     <task id="LOCAL-00001" summary=":bulb: Meow">
       <created>1612391364993</created>
@@ -218,7 +271,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613310094421</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa">
+      <created>1614142294406</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1614142294406</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -252,7 +312,8 @@
     <MESSAGE value=":sparkles: Query params and more" />
     <MESSAGE value=":sparkles: DB strict mode" />
     <MESSAGE value=":poop: Save before move to Vue" />
-    <option name="LAST_COMMIT_MESSAGE" value=":poop: Save before move to Vue" />
+    <MESSAGE value="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" />
+    <option name="LAST_COMMIT_MESSAGE" value="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1009" y="236" key="#ESLint" timestamp="1613363007273">
@@ -285,10 +346,10 @@
       <screen x="0" y="0" width="2560" height="1052" />
     </state>
     <state x="738" y="185" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612125479031" />
-    <state x="1034" y="319" width="508" height="414" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1613904613472">
+    <state x="1034" y="319" width="508" height="414" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1614449626705">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state x="1034" y="319" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1613904613472" />
+    <state x="1034" y="319" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614449626705" />
     <state x="1034" y="320" width="508" height="414" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612140347437" />
     <state x="935" y="308" width="683" height="683" key="EditFileWatcherDialog" timestamp="1612141018555">
       <screen x="0" y="0" width="2560" height="1052" />
@@ -299,14 +360,14 @@
     </state>
     <state x="1063" y="284" key="FileChooserDialogImpl/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1613768351449" />
     <state x="1063" y="285" width="428" height="484" key="FileChooserDialogImpl/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612140942406" />
-    <state x="860" y="260" key="IDE.errors.dialog" timestamp="1612634278579">
+    <state x="860" y="260" key="IDE.errors.dialog" timestamp="1614281611294">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state x="860" y="260" key="IDE.errors.dialog/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1612634278579" />
-    <state x="784" y="162" key="SettingsEditor" timestamp="1613904570136">
+    <state x="860" y="260" key="IDE.errors.dialog/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614281611294" />
+    <state x="784" y="162" key="SettingsEditor" timestamp="1614449682503">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state x="784" y="162" key="SettingsEditor/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1613904570136" />
+    <state x="784" y="162" key="SettingsEditor/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614449682503" />
     <state x="784" y="162" key="SettingsEditor/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612147345234" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1612675894670">
       <screen x="0" y="0" width="2560" height="1050" />
@@ -324,20 +385,24 @@
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state x="0" y="0" width="2166" height="1032" key="dock-window-1/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1612652780293" />
-    <state x="987" y="260" width="585" height="624" key="find.popup" timestamp="1614141052192">
+    <state x="987" y="260" width="585" height="656" key="find.popup" timestamp="1614563738802">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state x="987" y="260" width="585" height="624" key="find.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614141052192" />
+    <state x="987" y="260" width="585" height="656" key="find.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614563738802" />
     <state x="987" y="260" width="585" height="534" key="find.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612145569091" />
-    <state x="942" y="240" width="672" height="677" key="run.anything.popup" timestamp="1614139329892">
+    <state width="600" height="440" key="javadoc.popup" timestamp="1614281174337">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state x="942" y="240" width="672" height="677" key="run.anything.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614139329892" />
+    <state width="600" height="440" key="javadoc.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614281174337" />
+    <state x="942" y="240" width="672" height="677" key="run.anything.popup" timestamp="1614565755220">
+      <screen x="0" y="0" width="2560" height="1050" />
+    </state>
+    <state x="942" y="240" width="672" height="677" key="run.anything.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614565755220" />
     <state x="942" y="240" key="run.anything.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612128644928" />
-    <state x="943" y="232" width="672" height="677" key="search.everywhere.popup" timestamp="1614139203764">
+    <state x="943" y="232" width="672" height="677" key="search.everywhere.popup" timestamp="1614574124548">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state x="943" y="232" width="672" height="677" key="search.everywhere.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614139203764" />
+    <state x="943" y="232" width="672" height="677" key="search.everywhere.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614574124548" />
     <state x="943" y="232" width="672" height="678" key="search.everywhere.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612131512848" />
   </component>
 </project>

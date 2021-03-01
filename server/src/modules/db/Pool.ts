@@ -1,9 +1,9 @@
-import {Client, QueryConfig, QueryResultRow} from 'pg'
+import {Client, QueryConfig, QueryResultRow, types} from 'pg'
 import PgPool from 'pg-pool'
 import {nanoid} from 'nanoid'
-import {UnusedQueryParams} from '@utils/errors'
+import {UnusedQueryParams} from './errors'
 
-const strict: boolean = process.env.ENV.toLowerCase() === 'prod'
+// const strict: boolean = process.env.ENV.toLowerCase() === 'prod' || true
 
 export enum QueryReturnType {
     Row,
@@ -12,33 +12,42 @@ export enum QueryReturnType {
 }
 
 export type QueryOptions = {
-    returnType?: QueryReturnType,
+    returnType?: QueryReturnType
     returnField?: string
+    unusedToNull?: Array<string>
+    queryDebugLog?: boolean
 }
 
 export const queryDefaultOptions: QueryOptions = {
-    returnType: QueryReturnType.Rows,
+    returnType: QueryReturnType.None,
+    returnField: undefined,
+    queryDebugLog: false,
+    unusedToNull: [],
 }
 
 export type QueryParams = {
     [key: string]: any
 }
 
-export const prepareQuery = (queryString: string, params: QueryParams = {}) => {
+export const prepareQuery = (queryString: string, params: QueryParams = {}, options: QueryOptions = {}) => {
     let paramIndex: number = 0
     const values: any[] = []
     const unusedVariables: string[] = []
-    const text = queryString.replace(/:(\w+)/g, (text, variable) => {
+
+    let text = queryString.replace(/(?<!:):(\w+)/g, (text, variable) => {
         if (variable in params) {
             ++paramIndex
             values.push(params[variable])
             return `$${paramIndex}`
+        } else if (options.unusedToNull?.includes(variable)) {
+            return 'null'
+        } else {
+            unusedVariables.push(variable)
         }
-        unusedVariables.push(variable)
         return text
     }).trim()
 
-    if (unusedVariables.length > 0 && strict) {
+    if (unusedVariables.length) {
         throw new UnusedQueryParams(unusedVariables)
     }
 

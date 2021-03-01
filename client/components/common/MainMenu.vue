@@ -7,6 +7,15 @@
 <!--        <a class="btn main-menu__btn" href="/">-->
 <!--            Profile-->
 <!--        </a>-->
+
+        <div class="main-menu__bottom">
+            <nuxt-link to="/info/about" class="material-btn anti main-menu__bottom__about">
+                About
+            </nuxt-link>
+            <h6 class="main-menu__bottom__copyright">
+                <i class="far fa-copyright"></i> TwoBrains 2021
+            </h6>
+        </div>
     </div>
 </template>
 

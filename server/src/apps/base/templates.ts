@@ -12,14 +12,19 @@ export type Res = ReqRes & {
     result: object
 }
 
+export type MethodRes = Res | object | never
+
 export const template: ReqRes = {
-    app: null,
-    method: null,
+    app: undefined,
+    method: undefined,
 }
 
-export const getRes = (res: Res | any): Res => {
+export const getRes = (res: MethodRes): Res => {
+    if (!res) {
+        throw new Error('Result is null')
+    }
     if (res.hasOwnProperty('result')) {
-        return res
+        return res as Res
     }
     return {
         ...template,

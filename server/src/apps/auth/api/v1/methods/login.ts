@@ -1,4 +1,4 @@
-import {Method, MethodProps} from '@apps/base/Method'
+import {Method, MethodProps, MethodRes} from '@apps/base/Method'
 import {Req, Res} from '@apps/base/templates'
 import {InvalidParams, MethodError} from '@apps/base/errors'
 import {QueryReturnType} from '@modules/db/Pool'
@@ -15,7 +15,7 @@ class Login extends BaseAuth {
         super(props)
     }
 
-    async run(req: Req): Promise<Res> {
+    async run(req: Req): Promise<MethodRes> {
         this.log.warn(`Got request: ${JSON.stringify(req, null, 2)}`)
 
         let {email, password}: Schema = req.params

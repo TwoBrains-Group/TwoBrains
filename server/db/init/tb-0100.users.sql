@@ -31,7 +31,7 @@ COMMENT ON COLUMN main.users.nickname IS 'User nickname';
 COMMENT ON COLUMN main.users.email IS 'User email';
 COMMENT ON COLUMN main.users.email_verification IS 'Email verification timestamp';
 COMMENT ON COLUMN main.users.password IS 'User password';
-COMMENT ON COLUMN main.users.status IS 'Gambler status';
+COMMENT ON COLUMN main.users.status IS 'User status';
 COMMENT ON COLUMN main.users.online IS 'Last online-status update timestamp';
 
 COMMIT;

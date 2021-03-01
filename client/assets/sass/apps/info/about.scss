@@ -1,0 +1,21 @@
+@import '../../common/common';
+
+.about {
+    display: block;
+    position: relative;
+    padding: 10px 0;
+
+    p {
+        padding: 10px 0;
+        font-size: 17px;
+        line-height: 1.1;
+    }
+
+    hr {
+        margin-bottom: 15px;
+
+        &.strong {
+            margin-top: 25px;
+        }
+    }
+}

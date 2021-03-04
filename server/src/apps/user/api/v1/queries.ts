@@ -14,12 +14,16 @@ export default {
 
     updateUser: `
         UPDATE
-            main.users
+            main.users AS u
         SET
-             user_uid = COALESCE(:uid, user_uid)
-            ,nickname = COALESCE(:nickname, nickname)
-            ,avatar = COALESCE(:avatar, avatar)
-            ,password = COALESCE(main.crypt(:password, main.gen_salt('bf')), password)
+             user_uid = COALESCE(:uid, u.user_uid)
+            ,nickname = COALESCE(:nickname, u.nickname)
+            ,avatar = COALESCE(:avatar, u.avatar)
+            ,password = COALESCE(main.crypt(:password, main.gen_salt('bf')), u.password)
         WHERE
-            user_id = :id;`,
+            user_id = :id::int8
+        RETURNING
+             user_uid AS "uid"
+            ,nickname AS "nickname"
+            ,avatar AS "avatar";`,
 }

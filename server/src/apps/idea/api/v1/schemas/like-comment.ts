@@ -1,12 +1,10 @@
 export default {
     type: 'object',
     additionalProperties: false,
-    required: [
-        'id'
-    ],
+    required: ['id'],
     properties: {
         id: {
             type: 'string',
-        }
-    }
+        },
+    },
 }

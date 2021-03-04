@@ -6,7 +6,7 @@
 .btn {
     @extend .base-btn;
 
-    transition: background .15s;
+    transition: background .15s ease;
     &:hover {
         background: #f0f0f0;
     }
@@ -24,7 +24,7 @@
     padding: 5px 15px;
     margin: 5px auto;
 
-    transition: box-shadow .15s;
+    transition: box-shadow .15s, background .15s;
 
     box-shadow: 0 2px 4px 1px #f0f0f0;
 

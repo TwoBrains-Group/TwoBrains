@@ -7,7 +7,19 @@
                         Change nickname
                     </h3>
                     <div class="user-settings__block__element__body">
-                        <input v-model="fields.nickname">
+                        <input v-model="fields.nickname" minlength="1" maxlength="64">
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="user-settings__block__element">
+                    <h3 class="user-settings__block__element__name">
+                        Change unique identifier
+                    </h3>
+                    <span class="user-settings__block__element__descr">This identifier will be your url - /user/{{fields.uid}}</span>
+                    <div class="user-settings__block__element__body">
+                        <input v-model="fields.uid" type="text" placeholder="new unique identifier" minlength="6" maxlength="32">
                     </div>
                 </div>
 
@@ -18,7 +30,7 @@
                         Update password
                     </h3>
                     <div class="user-settings__block__element__body">
-                        <input v-model="fields.password" type="password" placeholder="new password">
+                        <input v-model="fields.password" type="password" placeholder="new password" minlength="8" maxlength="64">
                     </div>
                 </div>
             </div>
@@ -26,12 +38,15 @@
 
         <div class="user-settings__changed">
             <div class="user-settings__changed__changelist" v-if="">
-<!--                <h4>Changed:</h4>-->
                 <div class="user-settings__changed__changelist__list">
-                    <div v-for="[name, value] of Object.entries(fields)" class="user-settings__changed__changelist__list__el" v-show="fields[name] !== initial[name]">
-                        <div class="user-settings__changed__changelist__list__el__name">{{name}}: </div>
-                        <div class="user-settings__changed__changelist__list__el__value">{{getField(name)}}</div>
-                        <div class="user-settings__changed__changelist__list__el__warning" v-show="typeof value === 'string' && !fields[name].length">Cannot be empty</div>
+                    <div v-for="[name, value] of Object.entries(fields)"
+                         class="user-settings__changed__changelist__list__el"
+                         v-show="fields[name] !== initial[name] && fields[name].length">
+
+                        <span class="user-settings__changed__changelist__list__el__name">{{name}}: </span>
+                        <span class="user-settings__changed__changelist__list__el__value">{{getField(name)}}</span>
+                        <span class="user-settings__changed__changelist__list__el__warning" v-show="warn(name)">Cannot be empty</span>
+
                     </div>
                 </div>
             </div>
@@ -50,14 +65,14 @@ export default {
     data() {
         return {
             changed: false,
-            fields: {
-                nickname: null,
-                password: '',
-            },
+            fields: {},
+            initial: {},
             hidden: [
                 'password',
             ],
-            initial: {},
+            ignoreEmpty: [
+                'password',
+            ],
         }
     },
 
@@ -69,7 +84,6 @@ export default {
     updated() {
         for (const [name, value] of Object.entries(this.fields)) {
             if (value !== this.initial[name]) {
-                console.log(`${name}: ${JSON.stringify(this.initial[name])} -> ${JSON.stringify(value)}`)
                 this.changed = true
             }
         }
@@ -96,6 +110,10 @@ export default {
             return value
         },
 
+        warn(name) {
+            return typeof value === 'string' && !this.fields[name].length && !this.ignoreEmpty[name]
+        },
+
         async save() {
             try {
                 if (!this.changed) {
@@ -103,19 +121,22 @@ export default {
                     return
                 }
 
-                const params = {
-                    nickname: this.fields.nickname,
-                    password: this.fields.password,
+                const params = {}
+
+                for (const [name, value] of Object.entries(this.fields)) {
+                    if (this.initial[name] !== value) {
+                        params[name] = value
+                    }
                 }
 
-                await this.$api.send({
+                const updatedData = await this.$api.send({
                     app: 'user',
                     method: 'saveSettings',
                     v: 1,
                     params,
                 })
 
-                this.$store.commit('auth/setUserData', {...params})
+                this.$store.commit('auth/setUserData', updatedData)
 
                 this.$toast.show('Settings saved successfully')
             } catch (error) {

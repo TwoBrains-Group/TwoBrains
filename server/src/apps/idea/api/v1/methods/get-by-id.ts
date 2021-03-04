@@ -6,10 +6,11 @@ class GetById extends Method {
         super(props)
     }
 
-    async run(req: Req) : Promise<MethodRes> {
+    async run(req: Req, user?: any) : Promise<MethodRes> {
         const {params: {id}} = req
+        const {id: loggedInUserId} = user
 
-        const idea = await this.query('getById', {id}, {
+        const idea = await this.query('getById', {id, loggedInUserId}, {
             returnType: QueryReturnType.Row,
         })
 

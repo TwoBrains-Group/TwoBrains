@@ -63,6 +63,6 @@ export default {
 }
 </script>
 
-<style>
-@import 'assets/sass/components/common/_header.scss';
+<style lang="scss">
+@import '~assets/sass/components/common/header';
 </style>

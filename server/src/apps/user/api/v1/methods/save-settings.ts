@@ -1,9 +1,5 @@
 import {Method, MethodProps, MethodRes, Req, Res} from '@apps/base/Method'
 import {QueryReturnType} from "@modules/db/Pool";
-import {InvalidParams} from '@apps/base/errors'
-
-const specialChars = '@#$%^&+=~'
-const checkPassword = (pwd: string) => pwd.match(/^(?=.{8,128})(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=~]).*$/g)
 
 class SaveSettings extends Method {
     constructor(props: MethodProps) {
@@ -12,25 +8,22 @@ class SaveSettings extends Method {
 
     async run(req: Req, user: any): Promise<MethodRes> {
         const {params} = req
-        const {nickname, password} = params
         const {id} = user
+        const {nickname, password} = params
+        let {uid} = params
 
-        if ('nickname' in params && (nickname.length > 64 || nickname.length === 0)) {
-            throw new InvalidParams('Nickname must be less than 64 characters long and not empty')
+        if (uid) {
+            uid = uid.replace(/ /, '')
         }
 
-        if ('password' in params && !checkPassword(password)) {
-            throw new InvalidParams(`password must be more than 8 characters long, contain at least one lowercase and uppercase letter, and at least one of special characters: ${specialChars.split('').join(', ')}. For your security 😄`)
-        }
-
-        await this.query('updateUser', {id, nickname, password}, {
-            returnType: QueryReturnType.None,
+        const updatedData = await this.query('updateUser', {id, nickname, password, uid}, {
+            returnType: QueryReturnType.Row,
             unusedToNull: ['uid', 'nickname', 'avatar', 'password'],
             queryDebugLog: true,
         })
 
         return {
-            result: {},
+            result: updatedData,
         }
     }
 }

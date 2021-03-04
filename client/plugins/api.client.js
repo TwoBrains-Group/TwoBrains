@@ -23,9 +23,10 @@ class Api {
             headers,
         })
 
-        console.log(`Response: ${JSON.stringify(data, null, 2)}`)
+        // console.log(`Response: ${JSON.stringify(data, null, 2)}`)
 
         if (data.error) {
+            console.log(`Request error: ${JSON.stringify(data.error)}`)
             throw new RequestError(data.error)
         }
 

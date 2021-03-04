@@ -34,8 +34,10 @@ class Server {
 
         await this.initApps()
 
-        expApp.listen(3000, () => {
-            console.log('Server is listening on port 3000')
+        const port = process.env.PORT!
+        // const url = `http://localhost:${process.env.PORT!}`
+        expApp.listen(port, () => {
+            console.log(`Server is listening on port ${port}`)
         })
     }
 

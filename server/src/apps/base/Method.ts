@@ -6,6 +6,7 @@ import {prepareQuery, queryDefaultOptions, QueryOptions, QueryParams, QueryRetur
 import {Req, Res, MethodRes} from '@apps/base/templates'
 import {DBError} from '@modules/db/errors'
 import {JSONSchemaType} from 'ajv'
+import {format as formatSql} from 'sql-formatter'
 
 export type MethodProps = {
     useDB?: boolean,
@@ -81,7 +82,7 @@ export abstract class Method {
         return this.constructor.name[0].toLowerCase() + this.constructor.name.slice(1)
     }
 
-    async query(queryName: string, params: QueryParams = {}, options: QueryOptions = {}): Promise<QueryResultBase | any> {
+    async query(queryName: string, params: QueryParams = {}, options: QueryOptions = {}): Promise<any> {
         if (!this.useDB) {
             throw new Error(`Attempt to use DB in route with disabled DB (${this.getPath()})`)
         }
@@ -104,13 +105,18 @@ export abstract class Method {
             const preparedQuery = prepareQuery(query, params, options)
 
             if (queryDebugLog) {
-                this.log.debug(`(query debug log) Query ${queryName}:\n${preparedQuery.text}\nParams: ${JSON.stringify(params, null, 2)}`)
+                const beautifulSql = formatSql(preparedQuery.text, {
+                    language: 'postgresql',
+                    indent: '    ',
+                    uppercase: true,
+                })
+                this.log.debug(`(query debug log) ${queryName}:\n${beautifulSql}\nParams: ${JSON.stringify(params, null, 2)}`)
             }
 
             const result = await this.db.exec(preparedQuery)
             const {rows} = result
 
-            this.log.debug(`DB result: ${JSON.stringify(result.rows, null, 2)}`)
+            this.log.debug(`DB result: ${JSON.stringify(rows, null, 2)}`)
 
             if (!rows && returnType !== QueryReturnType.None) {
                 throw new DBError(`Got no rows when expected`)
@@ -120,12 +126,24 @@ export abstract class Method {
                 if (!rows.length) {
                     return null
                 }
-                return returnField ? rows[0][returnField] : rows[0]
+                const result = rows[0]
+                if (!rows[0]) {
+                    return null
+                }
+
+                if (returnField) {
+                    return rows[0][returnField]
+                }
+                return rows[0]
+
+                // return returnField ? rows[0][returnField] : rows[0]
             }
 
             return rows
         } catch (error) {
-            if (!(error instanceof DBError))
+            if (!(error instanceof DBError)) {
+                this.log.warn(`All errors thrown from DB module must be instances DBError`)
+            }
 
             this.log.error(`[DB Error] ${error}`)
 

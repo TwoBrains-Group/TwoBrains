@@ -10,18 +10,19 @@
 
 .spinner {
     display: block;
-    position: absolute;
-    width: 50px;
-    height: 50px;
+    position: relative;
+    width: 30px;
+    height: 30px;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    margin: 100px auto;
+    margin: 50px auto;
     //box-shadow: 3px 0 5px 10px #9aa6ceaa,
     //            0 3px 5px 10px #9aa6ceaa,
     //            -3px 0 5px 10px #f25959aa,
     //            0 -3px 5px 10px #f25959aa;
+    box-shadow: 0 0 15px #ddd;
     border-radius: 50%;
 
     background: linear-gradient(180deg, #f2595966 0%, #f2595966 25%, #C6809466 50%, #9aa6ce66 75%, #9aa6ce66 100%);

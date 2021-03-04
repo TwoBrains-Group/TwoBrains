@@ -19,6 +19,7 @@
 
 <script>
 import Spinner from "@/components/common/Spinner";
+
 export default {
     components: {Spinner},
     fetchOnServer: false,
@@ -31,7 +32,9 @@ export default {
     },
 
     async fetch() {
-        const params = this.$route.params
+        const params = {
+            uid: this.$route.params.uid,
+        }
 
         try {
             const {user} = await this.$api.send({
@@ -43,7 +46,7 @@ export default {
 
             this.user = user
         } catch (error) {
-            this.$toast.error(error.message)
+            this.$toast.error('Failed to load user')
         }
     },
 }

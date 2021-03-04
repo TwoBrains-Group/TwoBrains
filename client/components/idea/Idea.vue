@@ -1,48 +1,70 @@
 <template>
-    <div class="idea">
-        <header class="idea__header">
-            <nuxt-link :to="'/user/' + user.uid" class="btn idea__header__user">
-                <div class="idea__header__user__avatar">
-                    <img :src="user.avatar" alt="avatar">
-                </div>
-                <span class="idea__header__user__nickname">
-                    {{user.nickname}}
-                </span>
-            </nuxt-link>
-        </header>
+    <div class="idea"
+         :class="[showComments ? 'comments-open' : '', isPage ? 'page' : '']">
 
-        <div class="idea-body">
-            <h3 class="idea-body__name">
-                {{name}}
-            </h3>
-            <p class="idea-body__text">
-                {{text}}
-            </p>
+        <div class="idea__block">
+            <header class="idea__block__header">
+                <nuxt-link :to="'/user/' + user.uid" class="btn idea__block__header__user">
+                    <div class="idea__block__header__user__avatar">
+                        <img :src="user.avatar" alt="avatar">
+                    </div>
+                    <span class="idea__block__header__user__nickname">{{ user.nickname }}</span>
+                </nuxt-link>
+            </header>
+
+            <nuxt-link :to="'/idea/' + id" class="idea__block__body">
+                <h3 class="idea__block__body__name">
+                    {{ name }}
+                </h3>
+                <p class="idea__block__body__text">
+                    {{ text }}
+                </p>
+            </nuxt-link>
+
+            <footer class="idea__block__footer">
+                <div class="base-btn idea__block__footer__btn idea__block__footer__btn--like"
+                     :class="likedByUser ? 'liked' : ''"
+                     @click="like">
+                    <i :class="likedByUser ? 'fas' : 'far'" class="fa-heart"></i>
+                </div>
+
+                <div class="base-btn idea__block__footer__btn idea__block__footer__btn--comments"
+                     @click="toggleComments">
+                    <i class="fas fa-comment-dots"></i>
+                </div>
+            </footer>
         </div>
 
-        <footer class="idea-footer">
-            <div class="base-btn idea-footer__btn idea-footer__btn--like" :class="likedByUser ? 'liked' : ''" @click="like">
-                <i :class="likedByUser ? 'fas' : 'far'" class="fa-heart"></i>
-            </div>
-        </footer>
+        <div class="sb idea__comments" v-show="showComments">
+            <IdeaComment v-for="cmt of comments" :key="cmt.id" v-bind="cmt" :is-reply="false"/>
+
+            <InfiniteScroll @fetch="fetchComments"/>
+        </div>
     </div>
 </template>
 
 <script>
+import InfiniteScroll from "@/components/tools/InfiniteScroll";
+import IdeaComment from "@/components/idea/IdeaComment";
+
 export default {
     name: 'Idea',
-
+    components: {IdeaComment, InfiniteScroll},
     props: [
         'id',
         'name',
         'text',
         'liked',
         'user',
+        'isPage',
     ],
 
     data() {
         return {
+            comments: [],
+            showComments: false,
             likedByUser: this.liked,
+            fetchingComments: false,
         }
     },
 
@@ -60,13 +82,56 @@ export default {
 
                 this.likedByUser = liked
             } catch (error) {
-                this.$toast.show(error.message)
+                this.$toast.error(error.message)
             }
+        },
+
+        async fetchComments($state) {
+            if (this.fetchingComments) {
+                return
+            }
+
+            this.fetchingComments = true
+
+            try {
+                const {comments} = await this.$api.send({
+                    app: 'idea',
+                    method: 'getComments',
+                    params: {
+                        id: this.id,
+                        offset: this.comments.length,
+                    },
+                    v: 1,
+                })
+
+                console.log(`Comments: ${JSON.stringify(comments, null, 2)}`)
+
+                this.comments.push(...comments)
+
+                if (!comments.length) {
+                    $state && $state.complete()
+                } else {
+                    $state && $state.loaded()
+                }
+            } catch (error) {
+                this.$toast.error('Failed to load comments')
+            } finally {
+                this.fetchingComments = false
+            }
+        },
+
+        async toggleComments() {
+            this.showComments = !this.showComments
+            if (!this.showComments) {
+                return
+            }
+
+            await this.fetchComments()
         }
     }
 }
 </script>
 
 <style lang="scss">
-@import '~assets/sass/components/idea/idea.scss';
+@import '~assets/sass/components/idea/Idea.scss';
 </style>

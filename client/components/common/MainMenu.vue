@@ -1,12 +1,12 @@
 <template>
     <div class="main-menu" :class="show ? 'show' : ''" ref="main-menu">
-        <nuxt-link to="/" class="btn main-menu__btn" href="/">
+        <nuxt-link to="/" class="btn main-menu__btn">
             Home
         </nuxt-link>
         <hr>
-<!--        <a class="btn main-menu__btn" href="/">-->
-<!--            Profile-->
-<!--        </a>-->
+        <nuxt-link to="/idea" class="btn main-menu__btn">
+            Ideas
+        </nuxt-link>
 
         <div class="main-menu__bottom">
             <nuxt-link to="/info/about" class="material-btn anti main-menu__bottom__about">
@@ -34,3 +34,7 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+@import '~assets/sass/components/common/menu';
+</style>

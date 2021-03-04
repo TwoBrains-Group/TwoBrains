@@ -21,9 +21,7 @@ class Like extends Method {
 
         const queryName = liked ? 'unlike' : 'like'
 
-        await this.query(queryName, {ideaId, userId}, {
-            returnType: QueryReturnType.None,
-        })
+        await this.query(queryName, {ideaId, userId})
 
         return {
             liked: !liked,

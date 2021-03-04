@@ -6,8 +6,14 @@ hr {
 }
 
 // Scrollbar
+.sb {
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    overflow-y: overlay;
+}
+
 .sb::-webkit-scrollbar {
-    width: 6px;
+    width: 10px;
+    height: 10px;
 }
 
 .sb::-webkit-scrollbar-track {
@@ -16,11 +22,14 @@ hr {
 
 .sb::-webkit-scrollbar-thumb {
     background: #ccc;
-}
 
+    &:hover {
+        background: #aaa;
+    }
 
-.sb::-webkit-scrollbar-thumb:hover {
-    background: #aaa;
+    &:active {
+        background: #666;
+    }
 }
 
 label {

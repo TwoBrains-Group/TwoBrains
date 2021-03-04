@@ -1,5 +1,20 @@
 // TODO: Localization
 
+const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+]
+
 const rangeNames: {
     [key: string]: string
 } = {
@@ -39,6 +54,10 @@ class PrettyTime {
      * @return {number} seconds
      */
     diffSec(start: Date, end?: Date) {
+        if (!start) {
+            throw new Error(`Start date must be specified`)
+        }
+
         end = end || new Date()
         return Math.floor(Math.abs((end.getTime() - start.getTime()) / 1000))
     }
@@ -67,6 +86,15 @@ class PrettyTime {
         const rangeString = time > 1 ? `${rangeNames[range]}s` : rangeNames[range]
 
         return `${time} ${rangeString} ago`
+    }
+
+    prettyDate(date: Date): string {
+        const y = date.getFullYear()
+        const m = date.getMonth()
+        const d = date.getDay()
+
+        const month = months[m]
+        return `${d} ${month}, ${y}`
     }
 }
 

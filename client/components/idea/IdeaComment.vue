@@ -8,12 +8,10 @@
             <span class="idea__comments__comment__date"> - {{ creationDatetime }}</span>
         </nuxt-link>
 
-        <div class="idea__comments__comment__content">
+        <p class="idea__comments__comment__content">
             <nuxt-link v-if="isReply"
                        :to="'/user/' + rootCommentUserUid"
-                       class="idea__comments__comment__content__reply-to">@{{rootCommentUserNickname}},</nuxt-link>
-            {{ text }}
-        </div>
+                       class="idea__comments__comment__content__reply-to">@{{rootCommentUserNickname}}, </nuxt-link>{{ text }}</p>
 
         <footer class="idea__comments__comment__footer">
             <div class="base-btn idea__comments__comment__footer__btn idea__comments__comment__footer__btn--like"

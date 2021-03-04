@@ -14,54 +14,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="edaaf9c1-6c17-4647-aa91-a795e595d129" name="Default Changelist" comment="IDEAS">
-      <change afterPath="$PROJECT_DIR$/client/assets/sass/apps/idea/_id.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/assets/sass/apps/idea/index.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/assets/sass/components/idea/IdeaComment.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/assets/sass/ui/_tools.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/assets/sass/ui/ui.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/idea/IdeaComment.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/tools/InfiniteScroll.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/idea/_id.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/idea/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/favicon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-comments.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-user-ideas.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/like-comment.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/schemas/get-comments.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/schemas/get-user-ideas.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/schemas/like-comment.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/assets/sass/components/ui/InputFile.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/ui/InputFile.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/plugins/tooltip.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/modules/prepare-ideas.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/user/api/v1/methods/update-avatar.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/css/apps/user/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/css/apps/user/profile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/sass/apps/user/profile.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/apps/user/profile.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/sass/apps/user/settings.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/apps/user/settings.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/sass/common/common.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/common/common.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/sass/components/common/_spinner.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/components/common/_spinner.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/sass/components/idea/idea.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/components/idea/Idea.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/sass/ui/_btn.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/ui/_btn.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/sass/apps/idea/_id.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/apps/idea/single.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/sass/components/idea/Idea.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/components/idea/Idea.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/assets/sass/ui/_common.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/ui/_common.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/common/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/common/Header.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/common/MainMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/common/MainMenu.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/sass/ui/_tools.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/ui/_tools.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/components/idea/Idea.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/idea/Idea.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/user/_uid/ideas.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/user/_uid/ideas/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/user/_uid/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/user/_uid/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/idea/IdeaComment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/idea/IdeaComment.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/idea/_id.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/idea/_id.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/pages/user/settings.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/user/settings.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/plugins/api.client.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/plugins/api.client.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.env" beforeDir="false" afterPath="$PROJECT_DIR$/server/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/db/init/tb-0200.ideas.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/init/tb-0200.ideas.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/apps/base/Method.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/base/Method.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/base/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/base/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-by-id.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-by-id.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-comments.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-comments.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-list.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-list.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/like.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/like.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-user-ideas.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-user-ideas.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/queries.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/queries.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/schemas/get-by-id.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/schemas/get-by-id.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/schemas/get-list.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/schemas/get-list.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/schemas/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/schemas/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/user/api/v1/methods/save-settings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/user/api/v1/methods/save-settings.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/user/api/v1/queries.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/user/api/v1/queries.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/user/api/v1/schemas/save-settings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/user/api/v1/schemas/save-settings.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/server/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/server/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/utils/pretty-time.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/modules/pretty-time/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,11 +102,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Projects\TwoBrains\client\components\ui" />
+      <recent name="F:\Projects\TwoBrains\client\components\common" />
+      <recent name="F:\Projects\TwoBrains\server\src\modules\pretty-time" />
       <recent name="F:\Projects\TwoBrains\client\pages\user\_uid\ideas" />
       <recent name="F:\Projects\TwoBrains\client\assets\sass\apps\idea" />
-      <recent name="F:\Projects\TwoBrains\client\pages\idea" />
-      <recent name="F:\Projects\TwoBrains\client\components" />
-      <recent name="F:\Projects\TwoBrains\client\assets\sass\common" />
     </key>
   </component>
   <component name="RunManager">
@@ -186,6 +162,7 @@
       <workItem from="1614849754124" duration="412000" />
       <workItem from="1614850188762" duration="440000" />
       <workItem from="1614855047490" duration="6855000" />
+      <workItem from="1614866254637" duration="12496000" />
     </task>
     <task id="LOCAL-00001" summary=":bulb: Meow">
       <created>1612391364993</created>
@@ -358,10 +335,10 @@
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state x="0" y="0" width="2166" height="1032" key="dock-window-1/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1612652780293" />
-    <state x="987" y="260" width="585" height="656" key="find.popup" timestamp="1614871286450">
+    <state x="987" y="260" width="585" height="656" key="find.popup" timestamp="1614893624178">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state x="987" y="260" width="585" height="656" key="find.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614871286450" />
+    <state x="987" y="260" width="585" height="656" key="find.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614893624178" />
     <state x="987" y="260" width="585" height="534" key="find.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612145569091" />
     <state width="600" height="440" key="javadoc.popup" timestamp="1614281174337">
       <screen x="0" y="0" width="2560" height="1050" />
@@ -372,10 +349,10 @@
     </state>
     <state x="942" y="240" width="672" height="677" key="run.anything.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614725552560" />
     <state x="942" y="240" key="run.anything.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612128644928" />
-    <state x="943" y="232" width="672" height="677" key="search.everywhere.popup" timestamp="1614723236264">
+    <state x="943" y="232" width="672" height="677" key="search.everywhere.popup" timestamp="1614893174401">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state x="943" y="232" width="672" height="677" key="search.everywhere.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614723236264" />
+    <state x="943" y="232" width="672" height="677" key="search.everywhere.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614893174401" />
     <state x="943" y="232" width="672" height="678" key="search.everywhere.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612131512848" />
   </component>
 </project>

@@ -1,6 +1,6 @@
 import {Method, MethodRes, Req} from "@apps/base/Method";
 import {QueryReturnType} from "@modules/db/Pool";
-import prettyTime from '@utils/pretty-time'
+import prettyTime from '@modules/pretty-time'
 
 const DEFAULT_LIMIT = 25
 

@@ -1,6 +1,10 @@
 <template>
     <div class="idea"
-         :class="[showComments ? 'comments-open' : '', isPage ? 'page' : '']">
+         :class="{
+            'comments-open': showComments,
+            page: isPage,
+            hover,
+         }">
 
         <div class="idea__block">
             <header class="idea__block__header">
@@ -10,9 +14,19 @@
                     </div>
                     <span class="idea__block__header__user__nickname">{{ user.nickname }}</span>
                 </nuxt-link>
+
+                <nuxt-link :to="'/idea/' + id" class="idea__block__creation-datetime" v-tooltip="{
+                    content: creationDatetime,
+                    offset: 0,
+                }">
+                    {{ prettyCreationDatetime }}
+                </nuxt-link>
             </header>
 
-            <nuxt-link :to="'/idea/' + id" class="idea__block__body">
+            <nuxt-link :to="'/idea/' + id" class="idea__block__body"
+                       @mouseover.native="hover = true"
+                       @mouseleave.native="hover = false">
+
                 <h3 class="idea__block__body__name">
                     {{ name }}
                 </h3>
@@ -56,6 +70,8 @@ export default {
         'text',
         'liked',
         'user',
+        'creationDatetime',
+        'prettyCreationDatetime',
         'isPage',
     ],
 
@@ -65,6 +81,7 @@ export default {
             showComments: false,
             likedByUser: this.liked,
             fetchingComments: false,
+            hover: false,
         }
     },
 

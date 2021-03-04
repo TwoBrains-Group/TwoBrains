@@ -4,6 +4,7 @@ import {MethodInitData, Method} from '@apps/base/Method'
 import {getRes, Req} from '@apps/base/templates'
 import {InvalidParams, MethodError} from "@apps/base/errors";
 import Ajv, {DefinedError, JSONSchemaType} from "ajv";
+import {formidable, Fields, Files} from 'formidable'
 
 export type AppProps = {
     name?: string,
@@ -90,7 +91,22 @@ export class BaseApp {
 
                 await method.init(methodInitData)
 
-                router.post(method.route, async (req: any, res) => {
+                router.post(method.route, async (req: any, res, next) => {
+                    if (method.formData) {
+                        const form = formidable({
+                            multiples: method.formDataMult,
+                        })
+
+                        form.parse(req, (err: Error, fields: Fields, files: Files) => {
+                            if (err) {
+                                next(err)
+                                return
+                            }
+
+
+                        })
+                    }
+
                     try {
                         const valid = await validateSchema(req.body)
 

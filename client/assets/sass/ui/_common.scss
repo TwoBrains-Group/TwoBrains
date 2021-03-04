@@ -37,7 +37,7 @@ label {
     margin: 5px auto;
 }
 
-input {
+input:not([type='file']):not([type='checkbox']) {
     display: block;
     position: relative;
     width: 225px;
@@ -45,7 +45,6 @@ input {
     padding: 3px;
     margin: 8px auto;
 
-    font-size: 16px;
     text-align: center;
     border-radius: 5px;
     box-shadow: 0 0 0 1px #f0f0f0;
@@ -55,6 +54,28 @@ input {
     }
 
     &:focus {
-        box-shadow: 0 5px 10px -1px #f0f0f0;
+        box-shadow: 0 4px 10px -1px #f0f0f0;
     }
 }
+
+//input[type='file'] {
+//    display: block;
+//    position: relative;
+//    width: 200px;
+//    height: 25px;
+//    padding: 5px;
+//    margin: 10px auto;
+//
+//    text-align: center;
+//    border-radius: 5px;
+//    box-shadow: 0 3px 5px -1px #f0f0f0;
+//    transition: .2s ease;
+//
+//    &:hover {
+//        box-shadow: 0 3px 5px -1px #ddd;
+//    }
+//
+//    &:active {
+//        box-shadow: ;
+//    }
+//}

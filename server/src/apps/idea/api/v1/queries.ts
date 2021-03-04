@@ -4,7 +4,7 @@ export default {
              i.idea_id AS "id"
             ,i.name AS "name"
             ,i.text AS "text"
-            ,i.creation_datetime
+            ,i.creation_datetime AS "creationDatetime"
             ,json_build_object(
                 'id', u.user_id,
                 'uid', u.user_uid,
@@ -143,7 +143,7 @@ export default {
              i.idea_id AS "id"
             ,i.name AS "name"
             ,i.text AS "text"
-            ,i.creation_datetime
+            ,i.creation_datetime AS "creationDatetime"
             ,json_build_object(
                 'id', u.user_id,
                 'uid', u.user_uid,
@@ -159,7 +159,7 @@ export default {
         WHERE
             i.user_id = u.user_id
             AND u.user_uid = :uid
-        ORDER BY i.creation_datetime
+        ORDER BY i.creation_datetime DESC
         LIMIT :limit
         OFFSET :offset;`,
 }

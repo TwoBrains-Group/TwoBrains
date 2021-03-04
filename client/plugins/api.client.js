@@ -17,9 +17,15 @@ class Api {
         // TODO!: Think about non-auth requested
         headers.Authorization = `Bearer ${this.ctx.store.state.auth.token}`
 
+        if (req.formData) {
+            headers['Content-Type'] = 'multipart/form-data'
+        } else {
+            headers['Content-Type'] = 'application/json'
+        }
+
         const url = `http://${process.env.API_URI}/v${req.v}/${req.app}/${req.method}`
 
-        const {data} = await this.ctx.$axios.post(url, req.params, {
+        const {data} = await this.ctx.$axios.post(url, req.params || req.formData, {
             headers,
         })
 

@@ -42,5 +42,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~assets/sass/apps/idea/_id';
+@import '~assets/sass/apps/idea/single.scss';
 </style>

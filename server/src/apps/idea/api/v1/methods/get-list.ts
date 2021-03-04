@@ -1,5 +1,6 @@
 import {Method, MethodRes, Req} from "@apps/base/Method";
 import {QueryReturnType} from "@modules/db/Pool";
+import {prepareIdeas} from "@apps/idea/api/v1/modules/prepare-ideas";
 
 const DEFAULT_LIMIT = 10
 
@@ -12,9 +13,11 @@ class GetList extends Method {
 
         const {id: loggedInUserId} = user
 
-        const ideas = await this.query('getList', {offset, limit, loggedInUserId}, {
+        let ideas = await this.query('getList', {offset, limit, loggedInUserId}, {
             returnType: QueryReturnType.Rows,
         })
+
+        ideas = prepareIdeas(ideas)
 
         return {ideas}
     }

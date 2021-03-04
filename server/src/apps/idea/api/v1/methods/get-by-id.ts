@@ -1,5 +1,6 @@
 import {Method, MethodProps, MethodRes, Req} from '@apps/base/Method'
 import {QueryReturnType} from '@modules/db/Pool'
+import {prepareIdea} from "../modules/prepare-ideas";
 
 class GetById extends Method {
     constructor(props: MethodProps) {
@@ -10,9 +11,11 @@ class GetById extends Method {
         const {params: {id}} = req
         const {id: loggedInUserId} = user
 
-        const idea = await this.query('getById', {id, loggedInUserId}, {
+        let idea = await this.query('getById', {id, loggedInUserId}, {
             returnType: QueryReturnType.Row,
         })
+
+        idea = prepareIdea(idea)
 
         return {idea}
     }

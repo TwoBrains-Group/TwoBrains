@@ -7,10 +7,13 @@ import {Req, Res, MethodRes} from '@apps/base/templates'
 import {DBError} from '@modules/db/errors'
 import {JSONSchemaType} from 'ajv'
 import {format as formatSql} from 'sql-formatter'
+import {Fields, Files} from 'formidable'
 
 export type MethodProps = {
     useDB?: boolean,
-    route: string
+    route: string,
+    formData?: boolean
+    formDataMult?: boolean
 }
 
 export type MethodInitData = {
@@ -25,6 +28,8 @@ export abstract class Method {
     db?: Pool
     useDB: boolean
     route: string
+    formData?: boolean
+    formDataMult?: boolean
     private queries?: Record<string, string>
     private schema: JSONSchemaType<any>
 
@@ -32,6 +37,8 @@ export abstract class Method {
         this.appName = ''
         this.route = `/${props.route}`.replace(/\/{2,}/g, '/')
         this.useDB = props.useDB || true
+        this.formData = props.formData
+        this.formDataMult = props.formDataMult
     }
 
     async init(appData: MethodInitData) {
@@ -53,12 +60,12 @@ export abstract class Method {
 
     protected _init() {}
 
-    async validateReq(req: Req): Promise<void | never> {
-
-    }
-
     async run(req: Req, user?: any): Promise<MethodRes> {
         throw new MustBeOverridden('run', `method ${this.getPath()}`)
+    }
+
+    async runFormData(fields: Fields, files: Files): Promise<MethodRes> {
+        throw new MustBeOverridden('runFormData', `method ${this.getPath()}`)
     }
 
     // /**

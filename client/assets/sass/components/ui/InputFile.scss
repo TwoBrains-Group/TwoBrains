@@ -1,0 +1,51 @@
+.ui-input-file {
+    display: flex;
+    position: relative;
+    width: max-content;
+    margin: 10px auto;
+
+    border-radius: 5px;
+    box-shadow: 0 0 2px -1px #666;
+    overflow: hidden;
+
+    .ui-input-file__container {
+        padding: 5px 15px;
+
+        input[type='file'] {
+            display: none;
+        }
+
+        .ui-input-file__container__text,
+        .ui-input-file__container__chosen {
+            display: inline-block;
+            height: 25px;
+
+            text-align: center;
+            line-height: 25px;
+            vertical-align: middle;
+        }
+
+        .ui-input-file__container__text {
+            padding-right: 10px;
+        }
+
+        .ui-input-file__container__chosen {
+            padding-left: 10px;
+            max-width: 200px;
+
+            box-shadow: -1px 0 1px -1px #888;
+            overflow-x: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+
+    .ui-input-file__remove {
+        height: 25px;
+        padding: 5px;
+        line-height: 25px;
+        vertical-align: middle;
+        font-size: 18px;
+        box-shadow: -1px 0 1px -1px #888;
+    }
+}

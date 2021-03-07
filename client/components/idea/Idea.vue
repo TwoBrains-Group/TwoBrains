@@ -79,6 +79,7 @@ export default {
         return {
             comments: [],
             showComments: false,
+            limit: 10,
             likedByUser: this.liked,
             fetchingComments: false,
             hover: false,
@@ -116,12 +117,11 @@ export default {
                     method: 'getComments',
                     params: {
                         id: this.id,
+                        limit: this.limit,
                         offset: this.comments.length,
                     },
                     v: 1,
                 })
-
-                console.log(`Comments: ${JSON.stringify(comments, null, 2)}`)
 
                 this.comments.push(...comments)
 

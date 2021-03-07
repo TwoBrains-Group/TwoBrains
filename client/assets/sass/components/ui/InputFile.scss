@@ -1,12 +1,16 @@
 .ui-input-file {
-    display: flex;
+    display: grid;
     position: relative;
     width: max-content;
     margin: 10px auto;
 
+    grid-template-columns: max-content max-content;
+    grid-template-rows: 35px minmax(0, auto);
+
     border-radius: 5px;
     box-shadow: 0 0 2px -1px #666;
     overflow: hidden;
+    font-size: 15px;
 
     .ui-input-file__container {
         padding: 5px 15px;
@@ -42,10 +46,25 @@
 
     .ui-input-file__remove {
         height: 25px;
-        padding: 5px;
+        padding: 5px 10px;
         line-height: 25px;
         vertical-align: middle;
-        font-size: 18px;
+        font-size: 16px;
         box-shadow: -1px 0 1px -1px #888;
+    }
+
+    .ui-input-file__preview {
+        grid-column: 1 / 3;
+
+        img {
+            display: block;
+            position: relative;
+            height: 250px;
+            margin: 0 auto;
+
+            &[src=""] {
+                display: none;
+            }
+        }
     }
 }

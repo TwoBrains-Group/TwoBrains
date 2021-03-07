@@ -1,0 +1,25 @@
+.sb {
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    overflow-y: overlay;
+}
+
+.sb::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.sb::-webkit-scrollbar-track {
+    background: #f0f0f0;
+}
+
+.sb::-webkit-scrollbar-thumb {
+    background: #ccc;
+
+    &:hover {
+        background: #aaa;
+    }
+
+    &:active {
+        background: #666;
+    }
+}

@@ -2,11 +2,9 @@ BEGIN TRANSACTION;
 SET search_path TO main;
 
 -- ideas --
-CREATE SEQUENCE main.ideas_idea_id_seq;
-
 DROP TABLE IF EXISTS main.ideas;
 CREATE TABLE main.ideas (
-    idea_id INT8 DEFAULT nextval('main.users_user_id_seq'::regclass) NOT NULL,
+    idea_id BIGSERIAL NOT NULL,
     user_id INT8 NOT NULL,
     name TEXT NOT NULL,
     "text" TEXT NOT NULL,
@@ -37,10 +35,8 @@ COMMENT ON COLUMN main.ideas_likes.idea_id IS 'Idea id foreign key';
 COMMENT ON COLUMN main.ideas_likes.creation_datetime IS 'Creation timestamp';
 
 -- ideas_comments --
-CREATE SEQUENCE IF NOT EXISTS main.ideas_comments_idea_comment_id_seq;
-
 CREATE TABLE main.ideas_comments (
-    idea_comment_id INT8 DEFAULT nextval('main.ideas_idea_id_seq'::regclass) NOT NULL,
+    idea_comment_id BIGSERIAL NOT NULL,
     idea_id INT8 NOT NULL,
     user_id INT8 NOT NULL,
     text TEXT NOT NULL,

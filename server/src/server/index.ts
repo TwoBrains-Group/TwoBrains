@@ -18,7 +18,7 @@ class Server {
     async init() {
         const expApp = this.expApp
 
-        expApp.use('/static', express.static(appRootPath + '/static'))
+        expApp.use('/public', express.static(appRootPath + '/public'))
         expApp.use(bodyParser.json())
         expApp.use(cookieParser())
         expApp.use(cors({

@@ -1,14 +1,16 @@
 export default {
     getUserByUid: `
         SELECT
-            u.user_id AS "id",
-            u.user_uid AS "uid",
-            u.nickname AS "nickname",
-            u.avatar AS "avatar",
-            u.online AS "online",
-            u.status AS "status"
+             u.user_id AS "id"
+            ,u.user_uid AS "uid"
+            ,u.nickname AS "nickname"
+            ,u.avatar AS "avatar"
+            ,u.online AS "online"
+            ,u.status AS "status"
+            ,l.code
         FROM
             main.users AS u
+            INNER JOIN main.locales AS l ON l.locale_id = u.locale_id
         WHERE
             u.user_uid = :uid;`,
 
@@ -21,9 +23,22 @@ export default {
             ,avatar = COALESCE(:avatar, u.avatar)
             ,password = COALESCE(main.crypt(:password, main.gen_salt('bf')), u.password)
         WHERE
-            user_id = :id::int8
+            u.user_id = :id::int8
         RETURNING
-             user_uid AS "uid"
-            ,nickname AS "nickname"
-            ,avatar AS "avatar";`,
+             u.user_uid AS "uid"
+            ,u.nickname AS "nickname"
+            ,u.avatar AS "avatar";`,
+
+    changeLang: `
+        UPDATE
+            main.users
+        SET
+            locale_id = l.locale_id
+        FROM
+            main.locales AS l
+        WHERE
+            l.code = :locale
+            AND user_id = :id
+        RETURNING
+            l.code AS "locale"`,
 }

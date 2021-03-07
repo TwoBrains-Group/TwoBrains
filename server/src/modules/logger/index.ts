@@ -110,6 +110,7 @@ export default class Logger implements ILogger {
             return
         }
 
+        // FIXME: JSON.stringify |--__--|
         process.stdout.write(`${this.getMessagePrefix(level, levelOptions) + args.join(' ')}\n`)
     }
 

@@ -1,0 +1,22 @@
+@keyframes skeleton {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 150px 0;
+    }
+}
+
+.skeleton {
+    display: block;
+    position: relative;
+    width: 150px;
+    height: 20px;
+    padding: 0;
+    margin: 0 auto;
+    border-radius: 6px;
+    animation: skeleton 1s infinite;
+    background-size: 100% 100%;
+    background-image: linear-gradient(150deg, #fafafa, #c0c0c0);
+}

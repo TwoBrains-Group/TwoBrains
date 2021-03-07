@@ -53,6 +53,13 @@
     margin-left: auto;
     flex-direction: row;
 
+    .main-header__user-btn__avatar {
+        img {
+            width: 30px;
+            height: 30px;
+        }
+    }
+
     &:hover {
         .main-header__user-btn__avatar {
             img {

@@ -37,6 +37,14 @@
         input {
             width: 300px;
         }
+
+        .hor-list {
+            width: 400px;
+
+            .hor-list__el {
+                font-size: 18px;
+            }
+        }
     }
 
     .user-settings__block__element__descr {

@@ -6,7 +6,7 @@ class RequestError {
     }
 }
 
-class Api {
+export class Api {
     constructor(ctx) {
         this.ctx = ctx
     }
@@ -25,11 +25,13 @@ class Api {
 
         const url = `http://${process.env.API_URI}/v${req.v}/${req.app}/${req.method}`
 
+        if (process.env.NODE_ENV === 'development') {
+            console.log(`Send request:`, req)
+        }
+
         const {data} = await this.ctx.$axios.post(url, req.params || req.formData, {
             headers,
         })
-
-        // console.log(`Response: ${JSON.stringify(data, null, 2)}`)
 
         if (data.error) {
             console.log(`Request error: ${JSON.stringify(data.error)}`)

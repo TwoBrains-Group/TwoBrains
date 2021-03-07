@@ -1,11 +1,9 @@
 import {MustBeOverridden} from '@utils/errors'
-import Logger, {lf} from '@modules/logger'
+import Logger from '@modules/logger'
 import {default as DB, Pool} from '@modules/db'
-import {QueryResultBase} from 'pg'
 import {prepareQuery, queryDefaultOptions, QueryOptions, QueryParams, QueryReturnType} from '@modules/db/Pool'
-import {Req, Res, MethodRes} from '@apps/base/templates'
+import {Req, Res, MethodRes, FormDataReq} from '@apps/base/templates'
 import {DBError} from '@modules/db/errors'
-import {JSONSchemaType} from 'ajv'
 import {format as formatSql} from 'sql-formatter'
 import {Fields, Files} from 'formidable'
 
@@ -18,8 +16,7 @@ export type MethodProps = {
 
 export type MethodInitData = {
     queries?: Record<string, string>
-    appName: string,
-    schema: JSONSchemaType<any>
+    appName: string
 }
 
 export abstract class Method {
@@ -31,7 +28,6 @@ export abstract class Method {
     formData?: boolean
     formDataMult?: boolean
     private queries?: Record<string, string>
-    private schema: JSONSchemaType<any>
 
     constructor(props: MethodProps) {
         this.appName = ''
@@ -51,8 +47,6 @@ export abstract class Method {
 
         this.db = await DB.getPool()
 
-        this.schema = appData.schema
-
         await this._init()
 
         this.log.info(`Route ${this.getPath()} inited`)
@@ -64,7 +58,7 @@ export abstract class Method {
         throw new MustBeOverridden('run', `method ${this.getPath()}`)
     }
 
-    async runFormData(fields: Fields, files: Files): Promise<MethodRes> {
+    async runFormData(req: FormDataReq, user?: any): Promise<MethodRes> {
         throw new MustBeOverridden('runFormData', `method ${this.getPath()}`)
     }
 
@@ -117,7 +111,7 @@ export abstract class Method {
                     indent: '    ',
                     uppercase: true,
                 })
-                this.log.debug(`(query debug log) ${queryName}:\n${beautifulSql}\nParams: ${JSON.stringify(params, null, 2)}`)
+                this.log.debug(`(query debug log) ${queryName}:\n${beautifulSql}\nValues: ${JSON.stringify(preparedQuery.values, null, 2)}`)
             }
 
             const result = await this.db.exec(preparedQuery)
@@ -161,4 +155,4 @@ export abstract class Method {
     }
 }
 
-export {Req, Res, MethodRes} from '@apps/base/templates'
+export {Req, FormDataReq, Res, MethodRes} from '@apps/base/templates'

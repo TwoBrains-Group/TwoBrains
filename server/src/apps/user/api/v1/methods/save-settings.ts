@@ -1,4 +1,4 @@
-import {Method, MethodProps, MethodRes, Req, Res} from '@apps/base/Method'
+import {Method, MethodProps, MethodRes, Req} from '@apps/base/Method'
 import {QueryReturnType} from "@modules/db/Pool";
 
 class SaveSettings extends Method {
@@ -18,12 +18,12 @@ class SaveSettings extends Method {
 
         const updatedData = await this.query('updateUser', {id, nickname, password, uid}, {
             returnType: QueryReturnType.Row,
-            unusedToNull: ['uid', 'nickname', 'avatar', 'password'],
+            unusedToNull: ['uid', 'nickname', 'avatar', 'password', 'locale'],
             queryDebugLog: true,
         })
 
         return {
-            result: updatedData,
+            updatedData,
         }
     }
 }

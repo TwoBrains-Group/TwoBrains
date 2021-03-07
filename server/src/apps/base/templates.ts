@@ -1,3 +1,5 @@
+import {Fields, Files} from "formidable";
+
 export type ReqRes = {
     app?: string
     method?: string
@@ -6,6 +8,13 @@ export type ReqRes = {
 
 export type Req = ReqRes & {
     params: any
+}
+
+export type FormDataReq = ReqRes & {
+    formData: {
+        fields: Fields
+        files: Files
+    }
 }
 
 export type Res = ReqRes & {
@@ -21,10 +30,10 @@ export const template: ReqRes = {
 
 export const getRes = (res: MethodRes): Res => {
     if (!res) {
-        throw new Error('Result is null')
+        throw new Error('Result is null or undefined')
     }
     if (res.hasOwnProperty('result')) {
-        return res as Res
+        return {...template, ...res} as Res
     }
     return {
         ...template,

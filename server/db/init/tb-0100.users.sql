@@ -6,17 +6,16 @@ CREATE TYPE main.user_status
 AS ENUM ('active', 'deleted', 'blocked');
 
 -- Users --
-CREATE SEQUENCE main.users_user_id_seq;
-
 DROP TABLE IF EXISTS main.users;
 CREATE TABLE main.users (
-    user_id INT8 DEFAULT nextval('main.users_user_id_seq'::regclass) NOT NULL,
+    user_id BIGSERIAL NOT NULL,
     user_uid VARCHAR NOT NULL,
     nickname VARCHAR NOT NULL,
     avatar VARCHAR NOT NULL,
     email VARCHAR(254) NOT NULL,
     email_verified TIMESTAMP WITH TIME ZONE DEFAULT NULL,
     password VARCHAR NOT NULL,
+    locale_id INT2 NOT NULL DEFAULT 38,
     status main.user_status DEFAULT 'unverified'::main.user_status NOT NULL,
     online TIMESTAMP WITH TIME ZONE DEFAULT current_timestamp,
     CONSTRAINT users_user_id_pkey PRIMARY KEY (user_id),

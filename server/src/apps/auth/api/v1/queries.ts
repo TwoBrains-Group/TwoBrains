@@ -22,12 +22,10 @@ export default {
             ,u.avatar AS "avatar"
             ,u.nickname AS "nickname"
             ,u.email AS "email"
-            ,(u.email_verified IS NOT NULL)::bool AS "emailVerified"
-            ,(u.status = 'blocked'::main.user_status)::bool AS "blocked"
-            ,(u.status = 'deleted'::main.user_status)::bool AS "deleted"
-            ,(u.status = 'active'::main.user_status)::bool AS "active"
+            ,l.code AS "locale"
         FROM
             main.users AS u
+            INNER JOIN main.locales AS l ON l.locale_id = u.locale_id
         WHERE
             u.user_id = :userId;`,
 

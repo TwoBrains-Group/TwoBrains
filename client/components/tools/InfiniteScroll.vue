@@ -1,5 +1,5 @@
 <template>
-    <no-ssr>
+    <client-only>
         <!-- TODO: Add distance -->
         <infinite-loading @infinite="fetch">
             <div slot="spinner">
@@ -8,7 +8,7 @@
             <h5 slot="no-more" :class="!noMore ? 'hide-no-more' : ''">No more :(</h5>
             <h5 slot="no-results" :class="!noResult ? 'hide-no-result' : ''">Nothing here...</h5>
         </infinite-loading>
-    </no-ssr>
+    </client-only>
 </template>
 
 <script>

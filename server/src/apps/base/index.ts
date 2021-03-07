@@ -3,8 +3,8 @@ import Logger, {lf} from '@modules/logger'
 import {MethodInitData, Method} from '@apps/base/Method'
 import {getRes, Req} from '@apps/base/templates'
 import {InvalidParams, MethodError} from "@apps/base/errors";
-import Ajv, {DefinedError, JSONSchemaType} from "ajv";
-import {formidable, Fields, Files} from 'formidable'
+import Ajv, {DefinedError, JSONSchemaType, ValidateFunction} from "ajv";
+import formidable, {Fields, Files, IncomingForm} from 'formidable'
 
 export type AppProps = {
     name?: string,
@@ -76,35 +76,51 @@ export class BaseApp {
 
             // Init methods
             for (const [methodName, method] of Object.entries(entities.methods)) {
-                const schema = schemas[method.getName()]
-                if (!schema) {
-                    throw new Error(`Cannot find schema for method: ${this.name}/${method.getName()}`)
-                }
-
-                const validateSchema = ajv.compile(schema)
 
                 const methodInitData: MethodInitData = {
                     appName: this.name,
-                    schema,
                     queries,
                 }
 
                 await method.init(methodInitData)
 
-                router.post(method.route, async (req: any, res, next) => {
-                    if (method.formData) {
-                        const form = formidable({
-                            multiples: method.formDataMult,
-                        })
+                // FIXME
+                const schema = schemas[method.getName()] || {}
+                if (!schema && !method.formData) {
+                    throw new Error(`Cannot find schema for method: ${this.name}/${method.getName()}`)
+                }
 
-                        form.parse(req, (err: Error, fields: Fields, files: Files) => {
+                const validateSchema = ajv.compile(schema)
+
+                router.post(method.route, async (req: any, res, next) => {
+                    const reqBase = {
+                        app: this.name,
+                        method: methodName,
+                    }
+
+                    if (method.formData) {
+                        const form = new formidable.IncomingForm()
+
+                        form.parse(req, async (err: Error, fields: Fields, files: Files) => {
                             if (err) {
                                 next(err)
                                 return
                             }
 
+                            let result = await method.runFormData({
+                                ...reqBase,
+                                formData: {
+                                    fields,
+                                    files,
+                                }
+                            }, req.user && req.user.userData)
 
+                            result = getRes(result)
+
+                            res.json(result)
                         })
+
+                        return
                     }
 
                     try {
@@ -120,8 +136,7 @@ export class BaseApp {
                         }
 
                         const requestObject: Req = {
-                            app: this.name,
-                            method: methodName,
+                            ...reqBase,
                             params: req.body,
                         }
 
@@ -134,7 +149,7 @@ export class BaseApp {
                             this.log.warn(`Errors thrown from method must be instances of 'MethodError'`)
                         }
 
-                        this.log.error(`Got error on running method [${methodName}]: ${error.message}`)
+                        this.log.error(`Got error on running method [${method.getPath()}]: ${error.message}`)
 
                         res.json({
                             error: {

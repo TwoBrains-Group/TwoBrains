@@ -1,16 +1,18 @@
 <template>
     <div class="main-menu" :class="show ? 'show' : ''" ref="main-menu">
         <nuxt-link to="/" class="btn main-menu__btn">
-            Home
+            {{ l10n.home }}
         </nuxt-link>
+
         <hr>
+
         <nuxt-link to="/idea" class="btn main-menu__btn">
-            Ideas
+            {{ l10n.ideas }}
         </nuxt-link>
 
         <div class="main-menu__bottom">
             <nuxt-link to="/info/about" class="material-btn anti main-menu__bottom__about">
-                About
+                {{ l10n.about }}
             </nuxt-link>
             <h6 class="main-menu__bottom__copyright">
                 <i class="far fa-copyright"></i> TwoBrains 2021
@@ -22,8 +24,23 @@
 <script>
 export default {
     name: 'MainMenu',
+    fetchOnServer: false,
+
+    created() {
+        if (process.client) {
+            this.$l10n.component(this)
+        }
+    },
+
     data() {
         return {
+            app: '*',
+            page: '*',
+            l10n: {
+                home: '',
+                ideas: '',
+                about: '',
+            },
         }
     },
 
@@ -31,7 +48,7 @@ export default {
         show() {
             return this.$store.state.common.showMainMenu
         }
-    }
+    },
 }
 </script>
 

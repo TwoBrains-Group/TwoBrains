@@ -14,30 +14,98 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="edaaf9c1-6c17-4647-aa91-a795e595d129" name="Default Changelist" comment="IDEAS">
-      <change afterPath="$PROJECT_DIR$/client/assets/sass/components/ui/InputFile.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/ui/InputFile.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/plugins/tooltip.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/modules/prepare-ideas.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/user/api/v1/methods/update-avatar.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/assets/sass/apps/project/list.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/assets/sass/ui/_list.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/assets/sass/ui/_scrollbar.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/assets/sass/ui/_skeleton.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/pages/project/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/plugins/l10n.client.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/plugins/vuex-persistedstate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/db/init/tb-0002.locales.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/db/init/tb-0010.apps.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/db/init/tb-0011.pages.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/db/init/tb-0012.components.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/db/scripts/locales.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/db/scripts/locales.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/db/test-data/tb-td-0000-prepare.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/db/test-data/tb-td-0002.localization.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/db/test-data/tb-td-0020.ideas.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/db/test-data/tb-td-0021.idea_comments.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/db/test-data/tb-td-0022.ideas_comments-replies.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/public/uploads/user/avatar/029a9626-58d0-483c-b796-dd990fa0075e.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/public/uploads/user/avatar/15e68f87-eded-472f-9275-a3ee41f733c3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/public/uploads/user/avatar/233b812c-4c66-4913-9af1-5b7fe1c86fdf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/public/uploads/user/avatar/2bb25a17-5295-45ad-855c-75c8301cb743.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/public/uploads/user/avatar/2d7ec357-59f5-49c3-99da-f94d7df425a3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/public/uploads/user/avatar/2f83e959-bf90-4c95-911d-02ecd33cb86a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/public/uploads/user/avatar/36a37c3d-2c23-4e18-ad0d-ce26f8d6fb08.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/public/uploads/user/avatar/481b3ae7-d440-4fc3-adac-c1986079e3a5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/public/uploads/user/avatar/4f279722-ee22-424c-add4-5962cd4d17c2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/public/uploads/user/avatar/51c8a174-aba8-4dbd-8894-a3a634a21b4d.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/public/uploads/user/avatar/52b35f93-f465-47bf-ba86-d18ceaada218.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/public/uploads/user/avatar/73e8a4ac-8ef2-45e3-bb04-a082ee63e791.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/public/uploads/user/avatar/78509828-4346-45a2-9ca0-fe52f4156fc6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/public/uploads/user/avatar/7b88d406-3797-49d7-b3ab-d10207313b1a.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/public/uploads/user/avatar/8dd82657-e1c4-47cb-a4f0-ef1bdec2eda0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/public/uploads/user/avatar/935ed7bb-dd3a-446b-93c0-3ace13fe4eaf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/public/uploads/user/avatar/9e399111-6488-42fb-a9f8-d8c67def2b42.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/public/uploads/user/avatar/b552bf74-101b-449f-9977-b44280707d7b.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/public/uploads/user/avatar/ba1a0d30-6a67-4934-8741-55bac434a429.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/public/uploads/user/avatar/bc75611c-6b48-44b2-a5fb-956ee6a66053.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/public/uploads/user/avatar/c0c73ebb-0252-4c9d-a558-3252bf5f7e16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/public/uploads/user/avatar/c5569c5e-06ba-45c3-a0c5-cd94bc8a462a.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/public/uploads/user/avatar/caeea34d-bfdb-4df8-a3c4-213da0690372.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/public/uploads/user/avatar/e51043da-712f-42f8-ba8f-39c4e4e37470.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/public/uploads/user/avatar/ee474898-2838-4e11-b6e3-f6a06df4d6f9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/public/uploads/user/avatar/ef03c856-4e57-4d0b-b153-2d08173bfc72.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/l10n/api/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/l10n/api/v1/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/l10n/api/v1/methods/component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/l10n/api/v1/methods/get-locales.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/l10n/api/v1/methods/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/l10n/api/v1/methods/load.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/l10n/api/v1/queries.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/l10n/api/v1/schemas/component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/l10n/api/v1/schemas/get-locales.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/l10n/api/v1/schemas/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/l10n/api/v1/schemas/load.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/l10n/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/user/api/v1/methods/change-lang.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/user/api/v1/schemas/change-lang.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/sass/apps/idea/_id.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/apps/idea/single.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/sass/components/idea/Idea.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/components/idea/Idea.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/sass/apps/user/settings.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/apps/user/settings.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/sass/components/common/_header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/components/common/_header.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/sass/components/ui/InputFile.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/components/ui/InputFile.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/assets/sass/ui/_common.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/ui/_common.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/sass/ui/_tools.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/ui/_tools.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/sass/ui/ui.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/ui/ui.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/common/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/common/Header.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/common/MainMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/common/MainMenu.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/common/SimpleHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/common/SimpleHeader.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/components/idea/Idea.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/idea/Idea.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/idea/IdeaComment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/idea/IdeaComment.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/idea/_id.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/idea/_id.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/tools/InfiniteScroll.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/tools/InfiniteScroll.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/ui/InputFile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/ui/InputFile.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/pages/user/settings.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/user/settings.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/plugins/api.client.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/plugins/api.client.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/.env" beforeDir="false" afterPath="$PROJECT_DIR$/server/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/db/init/tb-0000.extensions.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/init/tb-0000.extensions.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/db/init/tb-0001.types.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/init/tb-0001.types.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/db/init/tb-0100.users.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/init/tb-0100.users.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/db/init/tb-0200.ideas.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/init/tb-0200.ideas.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/db/test-data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/test-data/tb-td-0010.users.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/auth/api/v1/queries.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/auth/api/v1/queries.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/apps/base/Method.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/base/Method.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/apps/base/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/base/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-by-id.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-by-id.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-comments.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-comments.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-list.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-list.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-user-ideas.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-user-ideas.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/queries.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/queries.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/utils/pretty-time.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/modules/pretty-time/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/base/templates.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/base/templates.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/user/api/v1/methods/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/user/api/v1/methods/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/user/api/v1/methods/save-settings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/user/api/v1/methods/save-settings.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/user/api/v1/methods/update-avatar.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/user/api/v1/methods/update-avatar.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/user/api/v1/queries.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/user/api/v1/queries.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/user/api/v1/schemas/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/user/api/v1/schemas/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/modules/logger/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/modules/logger/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/server/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/server/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/server/mws/jwt.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/server/mws/jwt.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,18 +163,18 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="C:\Users\PYJOHN\AppData\Local\JetBrains\Toolbox\apps\WebStorm\ch-0\202.7660.23\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
     <property name="vuejs.nuxt.types-notification-shown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Projects\TwoBrains\server\db\test-data" />
+      <recent name="F:\Projects\TwoBrains\server\db\scripts" />
+      <recent name="F:\Projects\TwoBrains\server\db\init" />
       <recent name="F:\Projects\TwoBrains\client\components\ui" />
       <recent name="F:\Projects\TwoBrains\client\components\common" />
-      <recent name="F:\Projects\TwoBrains\server\src\modules\pretty-time" />
-      <recent name="F:\Projects\TwoBrains\client\pages\user\_uid\ideas" />
-      <recent name="F:\Projects\TwoBrains\client\assets\sass\apps\idea" />
     </key>
   </component>
   <component name="RunManager">
@@ -163,6 +231,9 @@
       <workItem from="1614850188762" duration="440000" />
       <workItem from="1614855047490" duration="6855000" />
       <workItem from="1614866254637" duration="12496000" />
+      <workItem from="1614906643349" duration="15422000" />
+      <workItem from="1615031499244" duration="43027000" />
+      <workItem from="1615093177302" duration="4963000" />
     </task>
     <task id="LOCAL-00001" summary=":bulb: Meow">
       <created>1612391364993</created>
@@ -314,10 +385,10 @@
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state x="860" y="260" key="IDE.errors.dialog/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614281611294" />
-    <state x="784" y="162" key="SettingsEditor" timestamp="1614723285118">
+    <state x="784" y="162" key="SettingsEditor" timestamp="1614918484544">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state x="784" y="162" key="SettingsEditor/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614723285118" />
+    <state x="784" y="162" key="SettingsEditor/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614918484544" />
     <state x="784" y="162" key="SettingsEditor/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612147345234" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1612675894670">
       <screen x="0" y="0" width="2560" height="1050" />
@@ -335,24 +406,24 @@
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state x="0" y="0" width="2166" height="1032" key="dock-window-1/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1612652780293" />
-    <state x="987" y="260" width="585" height="656" key="find.popup" timestamp="1614893624178">
+    <state x="987" y="260" width="585" height="656" key="find.popup" timestamp="1615098420867">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state x="987" y="260" width="585" height="656" key="find.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614893624178" />
+    <state x="987" y="260" width="585" height="656" key="find.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1615098420867" />
     <state x="987" y="260" width="585" height="534" key="find.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612145569091" />
     <state width="600" height="440" key="javadoc.popup" timestamp="1614281174337">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state width="600" height="440" key="javadoc.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614281174337" />
-    <state x="942" y="240" width="672" height="677" key="run.anything.popup" timestamp="1614725552560">
+    <state x="942" y="240" width="672" height="677" key="run.anything.popup" timestamp="1615097800696">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state x="942" y="240" width="672" height="677" key="run.anything.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614725552560" />
+    <state x="942" y="240" width="672" height="677" key="run.anything.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1615097800696" />
     <state x="942" y="240" key="run.anything.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612128644928" />
-    <state x="943" y="232" width="672" height="677" key="search.everywhere.popup" timestamp="1614893174401">
+    <state x="943" y="232" width="672" height="677" key="search.everywhere.popup" timestamp="1615054219249">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state x="943" y="232" width="672" height="677" key="search.everywhere.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614893174401" />
+    <state x="943" y="232" width="672" height="677" key="search.everywhere.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1615054219249" />
     <state x="943" y="232" width="672" height="678" key="search.everywhere.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612131512848" />
   </component>
 </project>

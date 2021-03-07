@@ -1,10 +1,12 @@
 <template>
-    <div class="user-settings">
+    <Spinner v-if="!l10nLoaded"/>
+    <div v-else class="user-settings">
         <div class="user-settings__blocks">
             <div class="user-settings__block">
                 <div class="user-settings__block__element">
-                    <h3 class="user-settings__block__element__name">
-                        Change nickname
+                    <h3 class="user-settings__block__element__name"
+                        :class="!l10n.changeNickname ? 'skeleton' : ''">
+                        {{ l10n.changeNickname }}
                     </h3>
                     <div class="user-settings__block__element__body">
                         <input v-model="fields.nickname" minlength="1" maxlength="64">
@@ -14,26 +16,35 @@
                 <hr>
 
                 <div class="user-settings__block__element">
-                    <h3 class="user-settings__block__element__name">
-                        Change profile picture
+                    <h3 class="user-settings__block__element__name"
+                        :class="!l10n.changeAvatar ? 'skeleton' : ''">
+                        {{ l10n.changeAvatar }}
                     </h3>
                     <div class="user-settings__block__element__body">
-                        <InputFile accept="image/png, image/jpeg" :change="avatarChanged"/>
+                        <InputFile accept="image/png, image/jpeg"
+                                   :change="avatarChanged"
+                                   :preview="true"
+                                   :remove="avatarChanged(null)"/>
                     </div>
                 </div>
 
                 <hr>
 
                 <div class="user-settings__block__element">
-                    <h3 class="user-settings__block__element__name">
-                        Change unique identifier
+                    <h3 class="user-settings__block__element__name"
+                        :class="!l10n.changeUid ? 'skeleton' : ''">
+                        {{ l10n.changeUid }}
                     </h3>
-                    <span
-                        class="user-settings__block__element__descr">This identifier will be your url - /user/{{
+
+                    <span class="user-settings__block__element__descr">{{ l10n.uidDescription }} - /user/{{
                             fields.uid
                         }}</span>
+
                     <div class="user-settings__block__element__body">
-                        <input v-model="fields.uid" type="text" placeholder="new unique identifier" minlength="6"
+                        <input v-model="fields.uid"
+                               type="text"
+                               placeholder="new unique identifier"
+                               minlength="6"
                                maxlength="32">
                     </div>
                 </div>
@@ -41,9 +52,30 @@
                 <hr>
 
                 <div class="user-settings__block__element">
-                    <h3 class="user-settings__block__element__name">
-                        Update password
+                    <h4 class="user-settings__block__element__name"
+                        :class="{skeleton: !l10n.changeLang}">
+                        {{ l10n.changeLang }}
+                    </h4>
+
+                    <div class="user-settings__block__element__body">
+                        <div class="hor-list" :class="{skeleton: !locales.length}">
+                            <div class="btn hor-list__el" v-for="loc of locales"
+                                 @click="changeLocale(loc)"
+                                 :class="{active: fields.locale === loc}">
+                                {{ loc }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="user-settings__block__element">
+                    <h3 class="user-settings__block__element__name"
+                        :class="{skeleton: !l10n.changePassword}">
+                        {{ l10n.changePassword }}
                     </h3>
+
                     <div class="user-settings__block__element__body">
                         <input v-model="fields.password" type="password" placeholder="new password" minlength="8"
                                maxlength="64">
@@ -53,11 +85,12 @@
         </div>
 
         <div class="user-settings__changed">
-            <div class="user-settings__changed__changelist" v-if="">
+            <div class="user-settings__changed__changelist">
                 <div class="user-settings__changed__changelist__list">
                     <div v-for="[name, value] of Object.entries(fields)"
                          class="user-settings__changed__changelist__list__el"
-                         v-show="isChanged(name)">
+                         v-show="isChanged(name)"
+                         v-if="allowedFields.includes(name)">
 
                         <span class="user-settings__changed__changelist__list__el__name">- {{ name }}: </span>
                         <span class="user-settings__changed__changelist__list__el__value">{{ getField(name) }}</span>
@@ -66,7 +99,7 @@
                 </div>
             </div>
 
-            <div @click="save" class="material-btn user-settings__changed__save-btn">
+            <div @click="save" class="material-btn user-settings__changed__save-btn" v-show="isChanged">
                 Save
             </div>
         </div>
@@ -75,16 +108,43 @@
 
 <script>
 import {mapGetters} from 'vuex'
-import InputFile from "@/components/ui/InputFile";
+import InputFile from '@/components/ui/InputFile'
+import Spinner from '@/components/common/Spinner'
 
 export default {
-    components: {InputFile},
+    components: {InputFile, Spinner},
+    name: 'settings',
+    fetchOnServer: false,
+
+    created() {
+        if (process.client) {
+            this.$l10n.page(this)
+        }
+    },
 
     data() {
         return {
             changed: false,
+            app: 'user',
+            l10n: {
+                changeNickname: '',
+                changeAvatar: '',
+                changeUid: '',
+                changePassword: '',
+                uidDescription: '',
+                changeLang: '',
+            },
+            l10nLoaded: false,
+            locales: [],
             fields: {},
             initial: {},
+            allowedFields: [
+                'uid',
+                'nickname',
+                'avatar',
+                'password',
+                'locale',
+            ],
             hidden: [
                 'password',
             ],
@@ -93,13 +153,31 @@ export default {
             ],
             files: [
                 'avatar',
+                'locale',
             ],
+        }
+    },
+
+    async fetch() {
+        try {
+            const {locales} = await this.$api.send({
+                app: 'l10n',
+                method: 'getLocales',
+                params: {
+                    translatable: true,
+                },
+                v: 1,
+            })
+
+            this.locales = locales.map(l => l.code)
+        } catch (error) {
+            this.$toast.error('Failed to load locales')
         }
     },
 
     mounted() {
         this.fields = {...this.loggedInUser}
-        // delete this.fields.avatar
+        delete this.fields.avatar
 
         this.initial = {...this.fields}
     },
@@ -131,7 +209,6 @@ export default {
             const value = this.fields[name]
 
             if (this.files.includes(name)) {
-                console.log(`Get file:`, name, value.name)
                 return value ? value.name : ''
             }
 
@@ -142,11 +219,19 @@ export default {
             return value
         },
 
-        isChanged(name) {
+        isChanged(name = null) {
+            if (!name) {
+                for (const field of this.allowedFields) {
+                    if (this.fields[field] !== this.initial[field]) {
+                        return true
+                    }
+                }
+                return false
+            }
+
             const value = this.fields[name]
             if (this.files.includes(name)) {
-                console.log(`Check file ${name}:`, typeof value === 'object' && value.name)
-                return typeof value === 'object' && !!value.name
+                return typeof value === 'object' && value && !!value.name
             }
             return value !== this.initial[name] && this.fields[name].length
         },
@@ -157,10 +242,11 @@ export default {
 
         async save() {
             try {
-                if (!this.changed) {
-                    this.$toast.show('Nothing to update')
-                    return
-                }
+                // FIXME: change status not working
+                // if (!this.changed) {
+                //     this.$toast.show('Nothing to update')
+                //     return
+                // }
 
                 const params = {}
 
@@ -168,21 +254,25 @@ export default {
                     if (this.files.includes(name)) {
                         continue
                     }
-                    if (this.initial[name] !== value) {
+                    if (this.initial[name] !== value && this.allowedFields.includes(name)) {
                         params[name] = value
                     }
                 }
 
-                const updatedData = await this.$api.send({
-                    app: 'user',
-                    method: 'saveSettings',
-                    v: 1,
-                    params,
-                })
+                if (Object.keys(params).length) {
+                    const {updatedData} = await this.$api.send({
+                        app: 'user',
+                        method: 'saveSettings',
+                        v: 1,
+                        params,
+                    })
 
-                this.$store.commit('auth/setUserData', updatedData)
+                    this.$store.commit('auth/setUserData', updatedData)
 
-                this.$toast.show('Settings saved successfully')
+                    this.initial = updatedData
+
+                    this.$toast.show('Settings saved successfully')
+                }
 
                 await this.saveAvatar()
             } catch (error) {
@@ -193,6 +283,10 @@ export default {
 
         async saveAvatar() {
             try {
+                if (!this.fields.avatar) {
+                    return
+                }
+
                 const formData = new FormData()
                 formData.append('avatar', this.fields.avatar)
 
@@ -207,16 +301,41 @@ export default {
                     avatar: url,
                 })
 
+                this.initial.avatar = url
+
                 this.$toast.show('Avatar updated successfully')
             } catch (error) {
-                // FIXME: Common message
+                console.log(`Error:`, error)
                 this.$toast.error('Failed to save avatar')
             }
         },
 
         avatarChanged(files) {
-            this.fields.avatar = files[0]
-            console.log(`Avatar changed:`, this.fields.avatar)
+            this.fields.avatar = files ? files[0] : null
+            this.changed = !!this.fields.avatar
+        },
+
+        async changeLocale(code) {
+            try {
+                const params = {
+                    locale: code,
+                }
+
+                const {locale} = await this.$api.send({
+                    app: 'user',
+                    method: 'changeLang',
+                    params,
+                    v: 1,
+                })
+
+                this.$l10n.setLocale(locale)
+
+                this.$store.commit('auth/setUserData', {locale})
+
+                location.reload()
+            } catch (error) {
+                this.$toast.error('Failed to change language')
+            }
         },
     }
 }

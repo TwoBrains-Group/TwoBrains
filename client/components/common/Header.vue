@@ -10,20 +10,26 @@
             <img class="main-header__logo__img" src="~static/img/logo.png" alt="TwoBrains">
         </nuxt-link>
 
-        <div class="main-header__user-btn btn" @click="toggleUserMenu()">
-            <div class="main-header__user-btn__avatar">
-                <img :src="loggedInUser.avatar" alt="avatar">
+        <client-only>
+            <div class="main-header__user-btn btn" @click="toggleUserMenu()">
+                <div class="main-header__user-btn__avatar">
+                    <img :src="loggedInUser.avatar" alt="avatar">
+                </div>
+                <div class="main-header__user-btn__nickname">
+                    {{ loggedInUser.nickname }}
+                </div>
             </div>
-            <div class="main-header__user-btn__nickname">
-                {{loggedInUser.nickname}}
-            </div>
-        </div>
+        </client-only>
 
         <div class="main-header__user-menu" :class="showUserMenu ? 'show' : ''">
-            <nuxt-link to="/profile" class="btn main-header__user-menu__btn">Profile</nuxt-link>
-            <nuxt-link to="/user/settings" class="btn main-header__user-menu__btn">Settings</nuxt-link>
+            <nuxt-link to="/profile" class="btn main-header__user-menu__btn">{{ l10n.profile }}</nuxt-link>
+            <nuxt-link to="/user/settings" class="btn main-header__user-menu__btn">{{ l10n.settings }}</nuxt-link>
+
             <hr>
-            <div class="btn main-header__user-menu__btn main-header__user-menu__btn--log-out" @click="logout()">Log out</div>
+
+            <div class="btn main-header__user-menu__btn main-header__user-menu__btn--log-out" @click="logout()">
+                {{ l10n.logout }}
+            </div>
         </div>
     </header>
 </template>
@@ -33,8 +39,24 @@ const cookie = process.client ? require('js-cookie') : undefined
 import {mapMutations, mapGetters} from 'vuex'
 
 export default {
+    name: 'Header',
+    fetchOnServer: false,
+
+    created() {
+        if (process.client) {
+            this.$l10n.component(this)
+        }
+    },
+
     data() {
         return {
+            app: '*',
+            page: '*',
+            l10n: {
+                profile: '',
+                settings: '',
+                logout: '',
+            },
             showUserMenu: false
         }
     },
@@ -59,7 +81,7 @@ export default {
             this.$store.commit('auth/setAuth', null)
             await this.$router.push('/auth')
         },
-    }
+    },
 }
 </script>
 

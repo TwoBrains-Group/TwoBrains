@@ -5,14 +5,15 @@ export default jwt({
     secret: Buffer.from(process.env.JWT_SECRET!, 'base64'),
     // credentialsRequired: false,
     getToken: req => {
+        console.log(`Token:`, req.headers.authorization)
         if (req.headers.authorization && req.headers.authorization.split(' ')[0] === 'Bearer') {
-            return req.headers.authorization.split(' ')[1].trim();
+            return req.headers.authorization.split(' ')[1].trim()
         }
-        console.log(`Token is NULL!!!`)
-        return null;
+        return null
     }
 }).unless({
     path: [
-        /.*\/auth.*/g
+        /.*\/auth.*/g,
+        /\/public\/.*/g,
     ]
 })

@@ -1,6 +1,6 @@
-import {Method, MethodRes, Req} from "@apps/base/Method";
-import {QueryReturnType} from "@modules/db/Pool";
-import {prepareIdeas} from "../modules/prepare-ideas";
+import {Method, MethodRes, Req} from '@apps/base/Method'
+import {QueryReturnType} from '@modules/db/pool'
+import {prepareIdeas} from '../modules/prepare-ideas'
 
 const DEFAULT_LIMIT = 25
 

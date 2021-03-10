@@ -1,5 +1,5 @@
-import {Method, MethodRes, Req} from "@apps/base/Method";
-import {QueryReturnType} from "@modules/db/Pool";
+import {Method, MethodRes, Req} from '@apps/base/Method'
+import {QueryReturnType} from '@modules/db/pool'
 import prettyTime from '@modules/pretty-time'
 
 const DEFAULT_LIMIT = 25
@@ -41,5 +41,5 @@ class GetComments extends Method {
 }
 
 export default new GetComments({
-    route: 'getComments'
+    route: 'getComments',
 })

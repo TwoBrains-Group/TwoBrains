@@ -13,7 +13,7 @@
 
 <script>
 import InfiniteLoading from 'vue-infinite-loading'
-import Spinner from '@/components/common/Spinner'
+import Spinner from '@/components/ui/Spinner'
 
 export default {
     components: {InfiniteLoading, Spinner},
@@ -27,7 +27,7 @@ export default {
     methods: {
         fetch($state) {
             this.$emit('fetch', $state)
-        }
-    }
+        },
+    },
 }
 </script>

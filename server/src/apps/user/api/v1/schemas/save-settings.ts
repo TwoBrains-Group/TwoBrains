@@ -1,4 +1,4 @@
-import {passwordPatternString} from "@utils/data";
+import {passwordPatternString} from '@utils/data'
 
 export default {
     type: 'object',
@@ -18,6 +18,6 @@ export default {
             type: 'string',
             minLength: 6,
             maxLength: 32,
-        }
-    }
+        },
+    },
 }

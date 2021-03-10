@@ -1,0 +1,25 @@
+#page {
+    width: 1000px !important;
+}
+
+
+#page-error-404 {
+    h1 {
+        color: #df9e6f;
+        font-size: 75px;
+        text-align: center;
+        padding: 25px 0;
+        margin: 0 auto;
+        text-shadow: -2px 2px 3px #bbb;
+        font-family: 'Roboto Mono', monospace;
+    }
+
+    .error-404-cvs {
+        display: block;
+        position: relative;
+        width: 750px;
+        height: 350px;
+        margin: 0 auto;
+        box-shadow: 0 8px 5px -7px #df9e6f;
+    }
+}

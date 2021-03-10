@@ -1,5 +1,5 @@
 import {Method, MethodProps, MethodRes} from '@apps/base/Method'
-import {Req, Res} from '@apps/base/templates'
+import {Req} from '@apps/base/templates'
 
 class Google extends Method {
     constructor(props: MethodProps) {
@@ -11,12 +11,12 @@ class Google extends Method {
 
         return {
             result: {
-                kek: 'lol'
-            }
+                kek: 'lol',
+            },
         }
     }
 }
 
 export default new Google({
-    route: '/google/callback'
+    route: '/google/callback',
 })

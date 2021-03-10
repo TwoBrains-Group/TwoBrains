@@ -8,6 +8,11 @@
     height: 10px;
 }
 
+.sb--small::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
 .sb::-webkit-scrollbar-track {
     background: #f0f0f0;
 }

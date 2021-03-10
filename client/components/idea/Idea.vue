@@ -23,7 +23,8 @@
                 </nuxt-link>
             </header>
 
-            <nuxt-link :to="'/idea/' + id" class="idea__block__body"
+            <nuxt-link :to="'/idea/' + id"
+                       class="idea__block__body"
                        @mouseover.native="hover = true"
                        @mouseleave.native="hover = false">
 
@@ -58,8 +59,8 @@
 </template>
 
 <script>
-import InfiniteScroll from "@/components/tools/InfiniteScroll";
-import IdeaComment from "@/components/idea/IdeaComment";
+import InfiniteScroll from '@/components/tools/InfiniteScroll'
+import IdeaComment from '@/components/idea/IdeaComment'
 
 export default {
     name: 'Idea',
@@ -79,7 +80,7 @@ export default {
         return {
             comments: [],
             showComments: false,
-            limit: 10,
+            commentsLimit: null,
             likedByUser: this.liked,
             fetchingComments: false,
             hover: false,
@@ -117,7 +118,7 @@ export default {
                     method: 'getComments',
                     params: {
                         id: this.id,
-                        limit: this.limit,
+                        limit: this.commentsLimit,
                         offset: this.comments.length,
                     },
                     v: 1,
@@ -144,8 +145,8 @@ export default {
             }
 
             await this.fetchComments()
-        }
-    }
+        },
+    },
 }
 </script>
 

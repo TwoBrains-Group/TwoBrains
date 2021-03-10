@@ -1,10 +1,10 @@
-import express from 'express'
-import Logger, {lf} from '@modules/logger'
+import express, {Router} from 'express'
+import Logger from '@modules/logger'
 import {MethodInitData, Method} from '@apps/base/Method'
 import {getRes, Req} from '@apps/base/templates'
-import {InvalidParams, MethodError} from "@apps/base/errors";
-import Ajv, {DefinedError, JSONSchemaType, ValidateFunction} from "ajv";
-import formidable, {Fields, Files, IncomingForm} from 'formidable'
+import {InvalidParams} from '@apps/base/errors'
+import Ajv, {DefinedError, JSONSchemaType} from 'ajv'
+import formidable, {Fields, Files} from 'formidable'
 
 export type AppProps = {
     name?: string,
@@ -34,23 +34,26 @@ export class BaseApp {
         })
     }
 
-    async init(expApp: express.Application): Promise<void> {
+    async init(expApp: express.Application): Promise<Router | null> {
         await this._init(expApp)
-        await this.initRoutes(expApp)
+        return await this.initRoutes()
     }
 
-    protected async _init(expApp: express.Application): Promise<void> {}
+    // eslint-disable-next-line @typescript-eslint/no-empty-function,@typescript-eslint/no-unused-vars
+    protected async _init(expApp: express.Application): Promise<void> {
+    }
 
-    private async initRoutes(expApp: express.Application): Promise<void> {
-
+    private async initRoutes(): Promise<Router | null> {
         // FIXME: Dynamic require????!!!
+        //  - yru shouting?
 
         let api: ApiDir
         try {
+            // eslint-disable-next-line @typescript-eslint/no-var-requires
             api = require(`@apps/${this.name}/api`).default
         } catch (error) {
             this.log.warn(`No api directory found for app ${this.name}`)
-            return
+            return null
         }
 
         const ajv = new Ajv({
@@ -74,13 +77,16 @@ export class BaseApp {
                 schemas = entities.schemas
             }
 
+            const fullRoutePrefix = `/${version}/${this.routePrefix}`
+
             // Init methods
             for (const [methodName, method] of Object.entries(entities.methods)) {
-
                 const methodInitData: MethodInitData = {
                     appName: this.name,
                     queries,
                 }
+
+                const route = `${fullRoutePrefix}/${method.route}`.replace(/\/{2,}/g, '/')
 
                 await method.init(methodInitData)
 
@@ -92,19 +98,20 @@ export class BaseApp {
 
                 const validateSchema = ajv.compile(schema)
 
-                router.post(method.route, async (req: any, res, next) => {
-                    const reqBase = {
-                        app: this.name,
-                        method: methodName,
-                    }
+                const reqBase = {
+                    app: this.name,
+                    method: methodName,
+                }
 
-                    if (method.formData) {
+                if (method.formData) {
+                    router.post(route, async (req: any, res, next) => {
+                        this.log.info(`(FormData) Got request to ${req.path}: ${JSON.stringify(req.body, null, 2)}`)
+
                         const form = new formidable.IncomingForm()
 
                         form.parse(req, async (err: Error, fields: Fields, files: Files) => {
                             if (err) {
-                                next(err)
-                                return
+                                return next(err)
                             }
 
                             let result = await method.runFormData({
@@ -112,24 +119,24 @@ export class BaseApp {
                                 formData: {
                                     fields,
                                     files,
-                                }
+                                },
                             }, req.user && req.user.userData)
 
                             result = getRes(result)
 
                             res.json(result)
                         })
+                    })
+                } else {
+                    router.post(route, async (req: any, res) => {
+                        this.log.info(`Got request to ${req.path}: ${JSON.stringify(req.body, null, 2)}`)
 
-                        return
-                    }
-
-                    try {
                         const valid = await validateSchema(req.body)
 
                         if (!valid) {
                             console.log(`Invalid params: ${JSON.stringify(validateSchema.errors, null, 2)}`)
                             if (validateSchema.errors) {
-                                throw new InvalidParams(...validateSchema.errors.map((el: DefinedError) => el.message as string))
+                                throw new InvalidParams(validateSchema.errors.map((el: DefinedError) => el.message as string).join(','))
                             } else {
                                 throw new InvalidParams('Invalid params')
                             }
@@ -144,24 +151,11 @@ export class BaseApp {
                         result = getRes(result)
 
                         res.json(result)
-                    } catch (error) {
-                        if (!(error instanceof MethodError)) {
-                            this.log.warn(`Errors thrown from method must be instances of 'MethodError'`)
-                        }
-
-                        this.log.error(`Got error on running method [${method.getPath()}]: ${error.message}`)
-
-                        res.json({
-                            error: {
-                                message: error.message
-                            },
-                        })
-                    }
-                })
+                    })
+                }
             }
-
-            const route = `${process.env.URI}/${version}/${this.routePrefix}`.replace(/\/{2,}/g, '/')
-            expApp.use(route, router)
         }
+
+        return router
     }
 }

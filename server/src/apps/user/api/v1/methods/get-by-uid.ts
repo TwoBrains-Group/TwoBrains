@@ -1,23 +1,28 @@
-import {Method, MethodProps, MethodRes, Req, Res} from '@apps/base/Method'
-import {QueryReturnType} from '@modules/db/Pool'
-import {MethodError} from "@apps/base/errors";
+import {AuthUser, Method, MethodProps, MethodRes, Req} from '@apps/base/Method'
+import {QueryReturnType} from '@modules/db/pool'
+import {MethodError} from '@apps/base/errors'
+import {prepareFollowingStatus} from '../modules/prepare-user'
 
 class GetByUid extends Method {
     constructor(props: MethodProps) {
         super(props)
     }
 
-    async run(req: Req): Promise<MethodRes> {
+    async run(req: Req, loggedInUser: AuthUser): Promise<MethodRes> {
         const {uid} = req.params
+        const {id: loggedInUserId} = loggedInUser
 
-        const user = await this.query('getUserByUid', {uid}, {
+        const user = await this.query('getUserByUid', {uid, loggedInUserId}, {
             returnType: QueryReturnType.Row,
-            queryDebugLog: true,
         })
 
         if (!user) {
             throw new MethodError('User not found')
         }
+
+        prepareFollowingStatus(user)
+
+        user.isMe = user.id === loggedInUserId
 
         return {
             user,
@@ -26,5 +31,5 @@ class GetByUid extends Method {
 }
 
 export default new GetByUid({
-    route: 'getByUid'
+    route: 'getByUid',
 })

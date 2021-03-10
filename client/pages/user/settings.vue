@@ -109,12 +109,13 @@
 <script>
 import {mapGetters} from 'vuex'
 import InputFile from '@/components/ui/InputFile'
-import Spinner from '@/components/common/Spinner'
+import Spinner from '@/components/ui/Spinner'
 
 export default {
-    components: {InputFile, Spinner},
     name: 'settings',
+    components: {InputFile, Spinner},
     fetchOnServer: false,
+    fetchKey: 'user-settings',
 
     created() {
         if (process.client) {
@@ -125,16 +126,6 @@ export default {
     data() {
         return {
             changed: false,
-            app: 'user',
-            l10n: {
-                changeNickname: '',
-                changeAvatar: '',
-                changeUid: '',
-                changePassword: '',
-                uidDescription: '',
-                changeLang: '',
-            },
-            l10nLoaded: false,
             locales: [],
             fields: {},
             initial: {},
@@ -155,6 +146,17 @@ export default {
                 'avatar',
                 'locale',
             ],
+
+            app: 'user',
+            l10n: {
+                changeNickname: '',
+                changeAvatar: '',
+                changeUid: '',
+                changePassword: '',
+                uidDescription: '',
+                changeLang: '',
+            },
+            l10nLoaded: false,
         }
     },
 
@@ -305,7 +307,7 @@ export default {
 
                 this.$toast.show('Avatar updated successfully')
             } catch (error) {
-                console.log(`Error:`, error)
+                console.log('Error:', error)
                 this.$toast.error('Failed to save avatar')
             }
         },
@@ -337,10 +339,10 @@ export default {
                 this.$toast.error('Failed to change language')
             }
         },
-    }
+    },
 }
 </script>
 
 <style lang="scss">
-@import '~assets/sass/apps/user/settings';
+@import '~assets/sass/pages/user/settings';
 </style>

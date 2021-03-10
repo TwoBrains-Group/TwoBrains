@@ -1,10 +1,10 @@
-import {FormDataReq, Method, MethodRes} from "@apps/base/Method";
-import {File} from "formidable";
+import {FormDataReq, Method, MethodRes} from '@apps/base/Method'
+import {File} from 'formidable'
 import fs from 'fs'
 import {v4 as uuidv4} from 'uuid'
 import appRootPath from 'app-root-path'
 import fileType from 'file-type'
-import {QueryReturnType} from "@modules/db/Pool";
+import {QueryReturnType} from '@modules/db/pool'
 
 class UpdateAvatar extends Method {
     async runFormData(req: FormDataReq, user?: any): Promise<MethodRes> {

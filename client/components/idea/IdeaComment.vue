@@ -8,10 +8,10 @@
             <span class="idea__comments__comment__date"> - {{ creationDatetime }}</span>
         </nuxt-link>
 
-        <p class="idea__comments__comment__content">
+        <div class="idea__comments__comment__content">
             <nuxt-link v-if="isReply"
                        :to="'/user/' + rootCommentUserUid"
-                       class="idea__comments__comment__content__reply-to">@{{rootCommentUserNickname}}, </nuxt-link>{{ text }}</p>
+                       class="idea__comments__comment__content__reply-to">@{{rootCommentUserNickname}}, </nuxt-link>{{ text }}</div>
 
         <footer class="idea__comments__comment__footer">
             <div class="base-btn idea__comments__comment__footer__btn idea__comments__comment__footer__btn--like"
@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import InfiniteScroll from "@/components/tools/InfiniteScroll";
+import InfiniteScroll from '@/components/tools/InfiniteScroll'
 
 export default {
     name: 'IdeaComment',
@@ -108,7 +108,7 @@ export default {
 
                 this.replies.push(...comments)
             } catch (error) {
-                console.log(`Error:`, error)
+                console.log('Error:', error)
                 this.$toast.error('Failed to load replies')
             } finally {
                 this.fetchingReplies = false
@@ -122,8 +122,8 @@ export default {
             }
 
             await this.fetchReplies()
-        }
-    }
+        },
+    },
 }
 </script>
 

@@ -10,8 +10,8 @@
 
 <script>
 import Idea from '@/components/idea/Idea'
-import Spinner from "@/components/common/Spinner";
-import InfiniteScroll from "@/components/tools/InfiniteScroll";
+import Spinner from '@/components/ui/Spinner'
+import InfiniteScroll from '@/components/tools/InfiniteScroll'
 
 export default {
     fetchOnServer: false,
@@ -56,16 +56,16 @@ export default {
 
                 return ideas.length
             } catch (error) {
-                this.$toast.error(`Failed to load user ideas`)
+                this.$toast.error('Failed to load user ideas')
             }
-        }
+        },
     },
 
     async fetch() {
-    }
+    },
 }
 </script>
 
 <style lang="scss">
-@import '~assets/sass/apps/user/ideas.scss';
+@import '~assets/sass/pages/user/ideas.scss';
 </style>

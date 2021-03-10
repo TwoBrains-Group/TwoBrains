@@ -1,6 +1,6 @@
 import {Method, MethodProps, MethodRes, Req} from '@apps/base/Method'
-import {QueryReturnType} from '@modules/db/Pool'
-import {prepareIdea} from "../modules/prepare-ideas";
+import {QueryReturnType} from '@modules/db/pool'
+import {prepareIdea} from '../modules/prepare-ideas'
 
 class GetById extends Method {
     constructor(props: MethodProps) {

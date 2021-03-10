@@ -63,7 +63,7 @@ class L10N {
         this.data = {...this.data, ...data}
         localStorage.setItem(this.lk(), s(this.data))
 
-        console.log(`Write data`, s(this.data))
+        console.log('Write data', s(this.data))
     }
 
     setLocale(locale) {
@@ -113,7 +113,7 @@ class L10N {
         const name = cmp.$options.name
 
         if (!name) {
-            throw new Error(`Component must have 'name' field in $options`)
+            throw new Error('Component must have \'name\' field in $options')
         }
 
         for (const field of componentRequiredFields) {
@@ -146,7 +146,7 @@ class L10N {
         const name = page.$options.name
 
         if (!name) {
-            throw new Error(`Page must have 'name' field in $options`)
+            throw new Error('Page must have \'name\' field in $options')
         }
 
         for (const field of pageRequiredFields) {
@@ -213,7 +213,7 @@ class L10N {
             pages: {
                 ...this.data.pages,
                 ...updatedPages,
-            }
+            },
         })
     }
 }

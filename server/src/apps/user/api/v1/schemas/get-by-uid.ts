@@ -5,6 +5,6 @@ export default {
     properties: {
         uid: {
             type: 'string',
-        }
-    }
+        },
+    },
 }

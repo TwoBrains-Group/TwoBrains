@@ -1,11 +1,11 @@
 import {Method, MethodProps} from '@apps/base/Method'
-import jwt from "jsonwebtoken";
-import {QueryReturnType} from "@modules/db/Pool";
-import {MethodError} from "@apps/base/errors";
+import jwt from 'jsonwebtoken'
+import {QueryReturnType} from '@modules/db/pool'
+import {MethodError} from '@apps/base/errors'
 
 type getTokenResult = {
     token: string
-    userData: object
+    userData: Record<string, unknown>
 }
 
 class BaseAuth extends Method {
@@ -15,7 +15,7 @@ class BaseAuth extends Method {
 
     async getToken(userId: number): Promise<getTokenResult> {
         // TODO: Move JWT logic to module or base method
-        const userData: any = await this.query('getUserData', {userId}, {
+        const userData: Record<string, unknown> = await this.query('getUserData', {userId}, {
             returnType: QueryReturnType.Row,
         })
 

@@ -1,3 +1,5 @@
+const isProd = process.env.NODE_ENV === 'production'
+
 class RequestError {
     constructor({code, message, data}) {
         this.code = code
@@ -25,16 +27,14 @@ export class Api {
 
         const url = `http://${process.env.API_URI}/v${req.v}/${req.app}/${req.method}`
 
-        if (process.env.NODE_ENV === 'development') {
-            console.log(`Send request:`, req)
-        }
+        !isProd && console.log('Send request:', req)
 
         const {data} = await this.ctx.$axios.post(url, req.params || req.formData, {
             headers,
         })
 
         if (data.error) {
-            console.log(`Request error: ${JSON.stringify(data.error)}`)
+            !isProd && console.log(`Request error: ${JSON.stringify(data.error)}`)
             throw new RequestError(data.error)
         }
 

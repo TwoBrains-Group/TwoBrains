@@ -1,0 +1,102 @@
+#page-project-uid {
+    display: grid;
+    position: relative;
+    width: 1000px;
+    height: max-content;
+
+    padding: 10px 0;
+
+    grid-template-columns: 100%;
+    grid-template-rows: max-content max-content;
+
+    .project__header {
+        display: grid;
+
+        grid-template-columns: 150px auto;
+        grid-template-rows: 150px max-content;
+
+        box-shadow: 0 2px 5px -1px #dddd;
+        border-radius: 75px 10px 75px 10px;
+
+        background: #fff;
+
+        .project__header__plugins {
+            grid-row: 2;
+            grid-column: span 2;
+
+            display: grid;
+
+            height: 50px;
+
+            grid-template-rows: subgrid;
+            grid-template-columns: max-content;
+
+            box-shadow: 0 -1px 1px -1px #aaa;
+
+            .project__header__plugins__el {
+                width: max-content;
+                padding: 10px 25px;
+                line-height: 30px;
+                vertical-align: middle;
+                text-align: center;
+
+                font-size: 18px;
+
+                box-shadow: 0 1px 2px -1px #f0f0f0;
+                transition: box-shadow .2s ease, background .2s ease, border-radius .2s ease;
+
+                &:first-child {
+                    border-radius: 0 0 0 10px;
+                }
+
+                &:hover {
+                    box-shadow: 0 3px 5px #f0f0f0;
+                    border-radius: 0 0 10px 10px;
+                }
+            }
+        }
+
+        .project__header__image {
+            grid-column: 1;
+            padding: 8px;
+            border-radius: 50%;
+
+            img {
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                box-shadow: 0 3px 6px -1px #ddda;
+            }
+        }
+
+        .project__header__name {
+            grid-column: 2;
+            line-height: 150px;
+            vertical-align: middle;
+        }
+    }
+
+    .project__body {
+        display: block;
+        padding: 10px 0;
+
+        .project__body__section {
+
+        }
+
+        .project__body__section.project__body__section--main {
+            display: grid;
+
+            .project__body__section--main__descr {
+                .project__body__section--main__descr__h {
+                    padding: 0 10px;
+                    box-shadow: 0 3px 1px -2px #f0f0f0;
+                }
+
+                .project__body__section--main__descr__p {
+                    padding: 10px;
+                }
+            }
+        }
+    }
+}

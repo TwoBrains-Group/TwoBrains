@@ -10,6 +10,10 @@
             {{ l10n.ideas }}
         </nuxt-link>
 
+        <nuxt-link to="/project" class="btn main-menu__btn">
+            {{ l10n.projects }}
+        </nuxt-link>
+
         <div class="main-menu__bottom">
             <nuxt-link to="/info/about" class="material-btn anti main-menu__bottom__about">
                 {{ l10n.about }}
@@ -39,6 +43,7 @@ export default {
             l10n: {
                 home: '',
                 ideas: '',
+                projects: '',
                 about: '',
             },
         }
@@ -47,11 +52,11 @@ export default {
     computed: {
         show() {
             return this.$store.state.common.showMainMenu
-        }
+        },
     },
 }
 </script>
 
 <style lang="scss">
-@import '~assets/sass/components/common/menu';
+@import '~assets/sass/components/common/MainMenu';
 </style>

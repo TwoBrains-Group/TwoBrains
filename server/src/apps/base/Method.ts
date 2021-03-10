@@ -1,11 +1,9 @@
 import {MustBeOverridden} from '@utils/errors'
 import Logger from '@modules/logger'
-import {default as DB, Pool} from '@modules/db'
-import {prepareQuery, queryDefaultOptions, QueryOptions, QueryParams, QueryReturnType} from '@modules/db/Pool'
-import {Req, Res, MethodRes, FormDataReq} from '@apps/base/templates'
-import {DBError} from '@modules/db/errors'
-import {format as formatSql} from 'sql-formatter'
-import {Fields, Files} from 'formidable'
+import {default as DB} from '@modules/db'
+import {queryDefaultOptions, QueryOptions, QueryParams} from '@modules/db/pool'
+import {Req, MethodRes, FormDataReq} from '@apps/base/templates'
+import DBInstance from '@modules/db/instance'
 
 export type MethodProps = {
     useDB?: boolean,
@@ -19,10 +17,14 @@ export type MethodInitData = {
     appName: string
 }
 
+export type AuthUser = {
+    id: string
+}
+
 export abstract class Method {
     appName: string
     log: Logger
-    db?: Pool
+    db?: DBInstance
     useDB: boolean
     route: string
     formData?: boolean
@@ -37,49 +39,44 @@ export abstract class Method {
         this.formDataMult = props.formDataMult
     }
 
-    async init(appData: MethodInitData) {
+    async init(appData: MethodInitData): Promise<void> {
         this.appName = appData.appName
         this.queries = appData.queries
 
         this.log = new Logger({
-            owner: this.getPath()
+            owner: this.getPath(),
         })
 
-        this.db = await DB.getPool()
+        if (this.useDB) {
+            this.db = await DB.getInstance()
+        }
 
         await this._init()
 
         this.log.info(`Route ${this.getPath()} inited`)
     }
 
-    protected _init() {}
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    protected async _init(): Promise<void> {}
 
-    async run(req: Req, user?: any): Promise<MethodRes> {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    async run(req: Req, user?: AuthUser): Promise<MethodRes> {
         throw new MustBeOverridden('run', `method ${this.getPath()}`)
     }
 
-    async runFormData(req: FormDataReq, user?: any): Promise<MethodRes> {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    async runFormData(req: FormDataReq, user?: AuthUser): Promise<MethodRes> {
         throw new MustBeOverridden('runFormData', `method ${this.getPath()}`)
     }
-
-    // /**
-    //  * processHttp
-    //  * @param {Object} req Request
-    //  * @param {Object} res Response
-    //  * @param {Function} next Next bypass function
-    //  */
-    // processHttp(req: express.Request, res: express.Response, next: express.NextFunction) {
-    //     throw new MustBeOverridden('processHttp', this.getName())
-    // }
 
     /**
      * getName
      */
-    getPath() {
+    getPath(): string {
         return this.appName + '/' + this.getName()
     }
 
-    getName() {
+    getName(): string {
         return this.constructor.name[0].toLowerCase() + this.constructor.name.slice(1)
     }
 
@@ -96,62 +93,10 @@ export abstract class Method {
         const query = this.queries![queryName]
         if (!query) {
             this.log.error(`No query found by name '${queryName}' in route ${this.getPath()}`)
-            return
+            return null
         }
 
-        const {returnType, returnField, queryDebugLog} = options
-
-        try {
-            await this.db.exec({text: 'SET search_path TO \'main\';'})
-            const preparedQuery = prepareQuery(query, params, options)
-
-            if (queryDebugLog) {
-                const beautifulSql = formatSql(preparedQuery.text, {
-                    language: 'postgresql',
-                    indent: '    ',
-                    uppercase: true,
-                })
-                this.log.debug(`(query debug log) ${queryName}:\n${beautifulSql}\nValues: ${JSON.stringify(preparedQuery.values, null, 2)}`)
-            }
-
-            const result = await this.db.exec(preparedQuery)
-            const {rows} = result
-
-            this.log.debug(`DB result: ${JSON.stringify(rows, null, 2)}`)
-
-            if (!rows && returnType !== QueryReturnType.None) {
-                throw new DBError(`Got no rows when expected`)
-            }
-
-            if (returnType === QueryReturnType.Row) {
-                if (!rows.length) {
-                    return null
-                }
-                const result = rows[0]
-                if (!rows[0]) {
-                    return null
-                }
-
-                if (returnField) {
-                    return rows[0][returnField]
-                }
-                return rows[0]
-
-                // return returnField ? rows[0][returnField] : rows[0]
-            }
-
-            return rows
-        } catch (error) {
-            if (!(error instanceof DBError)) {
-                this.log.warn(`All errors thrown from DB module must be instances DBError`)
-            }
-
-            this.log.error(`[DB Error] ${error}`)
-
-            if (error.fatal) {
-                throw error.hide()
-            }
-        }
+        return await this.db.query(queryName, query, params, options)
     }
 }
 

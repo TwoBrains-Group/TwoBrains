@@ -1,4 +1,4 @@
-import {Fields, Files} from "formidable";
+import {Fields, Files} from 'formidable'
 
 export type ReqRes = {
     app?: string
@@ -18,10 +18,10 @@ export type FormDataReq = ReqRes & {
 }
 
 export type Res = ReqRes & {
-    result: object
+    result: Record<string, any>
 }
 
-export type MethodRes = Res | object | never
+export type MethodRes = Res | Record<string, any> | never
 
 export const template: ReqRes = {
     app: undefined,
@@ -32,7 +32,7 @@ export const getRes = (res: MethodRes): Res => {
     if (!res) {
         throw new Error('Result is null or undefined')
     }
-    if (res.hasOwnProperty('result')) {
+    if ('result' in res) {
         return {...template, ...res} as Res
     }
     return {

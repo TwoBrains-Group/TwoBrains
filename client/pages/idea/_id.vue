@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import Idea from "@/components/idea/Idea";
-import Spinner from "@/components/common/Spinner";
+import Idea from '@/components/idea/Idea'
+import Spinner from '@/components/ui/Spinner'
 
 export default {
     components: {Idea, Spinner},
@@ -35,12 +35,12 @@ export default {
 
             this.idea = idea
         } catch (error) {
-            this.$toast.error(`Failed to load idea`)
+            this.$toast.error('Failed to load idea')
         }
-    }
+    },
 }
 </script>
 
 <style lang="scss">
-@import '~assets/sass/apps/idea/single.scss';
+@import '~assets/sass/pages/idea/single.scss';
 </style>

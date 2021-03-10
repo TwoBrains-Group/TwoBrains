@@ -1,13 +1,13 @@
 export class DBError extends Error {
     fatal: boolean
 
-    constructor(message: string, fatal: boolean = true) {
+    constructor(message: string, fatal = true) {
         super()
         this.message = message
         this.fatal = fatal
     }
 
-    hide() {
+    hide(): this {
         if (process.env.ENV === 'prod') {
             this.message = 'Oops... Something went wrong'
         }
@@ -16,8 +16,8 @@ export class DBError extends Error {
 }
 
 export class UnusedQueryParams extends DBError {
-    constructor(list: string[]) {
-        super(`Query preparation: Unused query params found: ${JSON.stringify(list, null, 2)}`)
+    constructor(list: string[], queryName: string) {
+        super(`Query preparation (${queryName}): Unused query params found: ${JSON.stringify(list, null, 2)}`)
     }
 }
 

@@ -1,33 +1,77 @@
 <template>
-    <Spinner v-if="$fetchState.pending"/>
+    <Spinner v-if="$fetchState.pending || !l10nLoaded"/>
     <div v-else class="user-profile">
-        <header class="user-profile__header">
-            <div class="user-profile__header__avatar">
+        <aside class="user-profile__aside">
+            <div class="user-profile__aside__avatar">
                 <img :src="user.avatar" alt="avatar">
-                <!--        <div class="user-profile__header__avatar__online"></div>-->
+                <!--        <div class="user-profile__aside__avatar__online"></div>-->
             </div>
-            <div class="user-profile__header__nickname">
-                <span>{{user.nickname}}</span>
+            <div class="user-profile__aside__nickname">
+                <span>{{ user.nickname }}</span>
 
-                <!--        <div class="user-profile__header__nickname__was-online">{{page.user.wasOnline}}</div>-->
+                <!--        <div class="user-profile__aside__nickname__was-online">{{page.user.wasOnline}}</div>-->
             </div>
-        </header>
 
-        <nuxt-link :to="'/user/' + user.uid + '/ideas'">Ideas</nuxt-link>
+            <hr>
+
+            <div class="user-profile__aside__btns">
+                <nuxt-link v-if="user.isMe"
+                           to="/user/settings"
+                           class="flat-btn user-profile__aside__btns__el">{{ l10n.settings }}
+                </nuxt-link>
+
+                <div class="user-profile__aside__btns__el user-profile__aside__btns__el--following-you"
+                     v-if="!user.isMe && (user.followingStatus === 'following_you' || user.followingStatus === 'mutual_following')">
+                    - {{l10n[user.followingStatus] }} -
+                </div>
+
+                <div v-if="!user.isMe"
+                     @click="follow"
+                     class="flat-btn user-profile__aside__btns__el">
+                    <span>{{l10n[user.followingAction]}}</span>
+                </div>
+
+                <nuxt-link :to="'/user/' + user.uid + '/ideas'"
+                           class="flat-btn user-profile__aside__btns__el">Ideas
+                </nuxt-link>
+            </div>
+        </aside>
+
     </div>
 </template>
 
 <script>
-import Spinner from "@/components/common/Spinner";
+import Spinner from '@/components/ui/Spinner'
 
 export default {
+    name: 'profile',
+
     components: {Spinner},
     fetchOnServer: false,
     fetchKey: 'profile',
 
+    created() {
+        if (process.client) {
+            this.$l10n.page(this)
+        }
+    },
+
     data() {
         return {
-            user: {}
+            user: {},
+
+            app: 'user',
+            l10nLoaded: false,
+            l10n: {
+                following: '',
+                following_you: '',
+                mutual_following: '',
+                unfollow: '',
+                follow: '',
+                settings: '',
+                ideas: '',
+                mutually_follow: '',
+            },
         }
     },
 
@@ -49,9 +93,30 @@ export default {
             this.$toast.error('Failed to load user')
         }
     },
+
+    methods: {
+        async follow() {
+            try {
+                const params = {
+                    id: this.user.id,
+                }
+
+                const {info} = await this.$api.send({
+                    app: 'user',
+                    method: 'follow',
+                    params,
+                    v: 1,
+                })
+
+                this.user = {...this.user, ...info}
+            } catch (error) {
+                this.$toast.error('Failed to follow user')
+            }
+        },
+    },
 }
 </script>
 
 <style lang="scss">
-@import '~assets/sass/apps/user/profile.scss';
+@import '~assets/sass/pages/user/profile.scss';
 </style>

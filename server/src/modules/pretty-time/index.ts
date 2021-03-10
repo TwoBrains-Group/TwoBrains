@@ -12,7 +12,7 @@ const months = [
     'September',
     'October',
     'November',
-    'December'
+    'December',
 ]
 
 const rangeNames: {
@@ -23,7 +23,7 @@ const rangeNames: {
     'd': 'day',
     'h': 'hour',
     'm': 'minute',
-    's': 'seconds'
+    's': 'seconds',
 }
 
 const dividers: {
@@ -34,7 +34,7 @@ const dividers: {
     'd': 86400,
     'h': 3600,
     'm': 60,
-    's': 1
+    's': 1,
 }
 
 type TimeAndRange = {
@@ -55,7 +55,7 @@ class PrettyTime {
      */
     diffSec(start: Date, end?: Date) {
         if (!start) {
-            throw new Error(`Start date must be specified`)
+            throw new Error('Start date must be specified')
         }
 
         end = end || new Date()
@@ -64,7 +64,7 @@ class PrettyTime {
 
     diffTimeRange(start: Date, end?: Date): TimeAndRange {
         const diff = this.diffSec(start, end)
-        let range: string = 's'
+        let range = 's'
         let time: number = diff
         for (const [r, div] of Object.entries(dividers)) {
             time = diff / div

@@ -2,7 +2,7 @@
     <header class="main-header">
         <div class="main-header__back"></div>
 
-        <div class="main-header__menu-btn btn" @click="toggleMainMenu()">
+        <div class="btn main-header__menu-btn" @click="toggleMainMenu()">
             <i class="fas fa-bars"></i>
         </div>
 
@@ -57,14 +57,14 @@ export default {
                 settings: '',
                 logout: '',
             },
-            showUserMenu: false
+            showUserMenu: false,
         }
     },
 
     computed: {
         ...mapGetters('auth', [
             'loggedInUser',
-        ])
+        ]),
     },
 
     methods: {
@@ -86,5 +86,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~assets/sass/components/common/header';
+@import '~assets/sass/components/common/Header';
 </style>

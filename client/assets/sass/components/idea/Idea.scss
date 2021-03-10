@@ -16,7 +16,7 @@
     }
 
     &.hover {
-        box-shadow: 0 2px 5px -1px #ddd;
+        box-shadow: 0 3px 15px #f0f0f0;
     }
 
     .idea__block {
@@ -96,6 +96,9 @@
             padding: 0 10px;
 
             .idea__block__body__name {
+                height: 22px;
+                line-height: 22px;
+                vertical-align: middle;
                 padding: 0 5px;
             }
 

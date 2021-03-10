@@ -3,6 +3,7 @@ import user from './user'
 import auth from './auth'
 import idea from './idea'
 import l10n from './l10n'
+import project from './project'
 
 export default {
     main,
@@ -10,4 +11,5 @@ export default {
     auth,
     idea,
     l10n,
+    project,
 }

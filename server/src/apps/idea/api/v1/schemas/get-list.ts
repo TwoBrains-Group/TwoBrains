@@ -8,6 +8,6 @@ export default {
         },
         limit: {
             type: 'number',
-        }
-    }
+        },
+    },
 }

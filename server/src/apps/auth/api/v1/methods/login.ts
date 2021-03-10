@@ -1,14 +1,8 @@
-import {Method, MethodProps, MethodRes} from '@apps/base/Method'
-import {Req, Res} from '@apps/base/templates'
-import {InvalidParams, MethodError} from '@apps/base/errors'
-import {QueryReturnType} from '@modules/db/Pool'
-import jwt from 'jsonwebtoken'
+import {MethodProps, MethodRes} from '@apps/base/Method'
+import {Req} from '@apps/base/templates'
+import {MethodError} from '@apps/base/errors'
+import {QueryReturnType} from '@modules/db/pool'
 import BaseAuth from './base-auth'
-
-type Schema = {
-    email: string
-    password: string
-}
 
 class Login extends BaseAuth {
     constructor(props: MethodProps) {
@@ -18,7 +12,8 @@ class Login extends BaseAuth {
     async run(req: Req): Promise<MethodRes> {
         this.log.warn(`Got request: ${JSON.stringify(req, null, 2)}`)
 
-        let {email, password}: Schema = req.params
+        let {email} = req.params
+        const {password} = req.params
 
         email = email.toLowerCase()
 
@@ -37,7 +32,7 @@ class Login extends BaseAuth {
         })
 
         if (!passwordVerified) {
-            throw new MethodError(`Invalid password`)
+            throw new MethodError('Invalid password')
         }
 
         const {token, userData} = await this.getToken(userId)

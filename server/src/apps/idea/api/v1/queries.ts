@@ -7,7 +7,7 @@ export default {
             ,i.creation_datetime AS "creationDatetime"
             ,json_build_object(
                 'id', u.user_id,
-                'uid', u.user_uid,
+                'uid', u.uid,
                 'nickname', u.nickname,
                 'avatar', u.avatar,
                 'online', u.online
@@ -28,7 +28,7 @@ export default {
             ,i.creation_datetime AS "creationDatetime"
             ,json_build_object(
                 'id', u.user_id,
-                'uid', u.user_uid,
+                'uid', u.uid,
                 'nickname', u.nickname,
                 'avatar', u.avatar,
                 'online', u.online
@@ -71,7 +71,7 @@ export default {
             ,ic.creation_datetime::TIMESTAMP::DATE AS "creationDatetime"
             ,json_build_object(
                 'id', u.user_id,
-                'uid', u.user_uid,
+                'uid', u.uid,
                 'nickname', u.nickname,
                 'avatar', u.avatar,
                 'online', u.online
@@ -98,14 +98,14 @@ export default {
             ,ic.creation_datetime::TIMESTAMP::DATE AS "creationDatetime"
             ,json_build_object(
                 'id', u.user_id,
-                'uid', u.user_uid,
+                'uid', u.uid,
                 'nickname', u.nickname,
                 'avatar', u.avatar,
                 'online', u.online
             ) AS "user"
             ,(icl.user_id IS NOT NULL)::bool AS "liked"
             ,reply_u.nickname AS "rootCommentUserNickname"
-            ,reply_u.user_uid AS "rootCommentUserUid"
+            ,reply_u.uid AS "rootCommentUserUid"
         FROM
             main.ideas_comments AS ic
             INNER JOIN main.users AS u ON u.user_id = ic.user_id
@@ -146,7 +146,7 @@ export default {
             ,i.creation_datetime AS "creationDatetime"
             ,json_build_object(
                 'id', u.user_id,
-                'uid', u.user_uid,
+                'uid', u.uid,
                 'nickname', u.nickname,
                 'avatar', u.avatar,
                 'online', u.online
@@ -158,7 +158,7 @@ export default {
             LEFT JOIN main.ideas_likes AS il ON i.idea_id = il.idea_id
         WHERE
             i.user_id = u.user_id
-            AND u.user_uid = :uid
+            AND u.uid = :uid
         ORDER BY i.creation_datetime DESC
         LIMIT :limit
         OFFSET :offset;`,

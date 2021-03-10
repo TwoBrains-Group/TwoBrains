@@ -1,4 +1,4 @@
-import {emailPatternString, passwordPatternString} from "@utils/data";
+import {emailPatternString, passwordPatternString} from '@utils/data'
 
 export default {
     type: 'object',
@@ -20,6 +20,6 @@ export default {
         passwordRepeat: {
             type: 'string',
             pattern: passwordPatternString,
-        }
-    }
+        },
+    },
 }

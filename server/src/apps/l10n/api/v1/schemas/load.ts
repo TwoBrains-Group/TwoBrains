@@ -12,13 +12,13 @@ export default {
                 type: 'object',
                 properties: {
                     app: {
-                        type: 'string'
+                        type: 'string',
                     },
                     page: {
-                        type: 'string'
+                        type: 'string',
                     },
                     name: {
-                        type: 'string'
+                        type: 'string',
                     },
                 },
             },
@@ -29,13 +29,24 @@ export default {
                 type: 'object',
                 properties: {
                     app: {
-                        type: 'string'
+                        type: 'string',
                     },
                     name: {
-                        type: 'string'
+                        type: 'string',
                     },
-                }
+                },
             },
-        }
+        },
+        entities: {
+            type: 'array',
+            items: {
+                type: 'object',
+                properties: {
+                    name: {
+                        type: 'string',
+                    },
+                },
+            },
+        },
     },
 }

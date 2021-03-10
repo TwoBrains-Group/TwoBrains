@@ -1,6 +1,6 @@
-import {Method, MethodRes, Req} from "@apps/base/Method";
-import {QueryReturnType} from "@modules/db/Pool";
-import {MethodError} from "@apps/base/errors";
+import {Method, MethodRes, Req} from '@apps/base/Method'
+import {QueryReturnType} from '@modules/db/pool'
+import {MethodError} from '@apps/base/errors'
 
 class ChangeLang extends Method {
     async run(req: Req, user?: any): Promise<MethodRes> {
@@ -10,7 +10,7 @@ class ChangeLang extends Method {
 
         const newLocale = await this.query('changeLang', {id, locale}, {
             returnType: QueryReturnType.Row,
-            returnField: 'locale'
+            returnField: 'locale',
         })
 
         if (!newLocale) {

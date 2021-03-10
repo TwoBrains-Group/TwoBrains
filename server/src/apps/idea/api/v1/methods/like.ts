@@ -1,5 +1,5 @@
-import {Method, MethodProps, MethodRes, Req} from "@apps/base/Method";
-import {QueryReturnType} from "@modules/db/Pool";
+import {Method, MethodProps, MethodRes, Req} from '@apps/base/Method'
+import {QueryReturnType} from '@modules/db/pool'
 
 /**
  * Like method

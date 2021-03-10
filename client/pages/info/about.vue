@@ -28,5 +28,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~assets/sass/apps/info/about.scss';
+@import '~assets/sass/pages/info/about.scss';
 </style>

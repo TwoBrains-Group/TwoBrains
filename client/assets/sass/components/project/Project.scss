@@ -1,0 +1,101 @@
+.project {
+    display: grid;
+    position: relative;
+    width: 100%;
+    height: 160px;
+
+    grid-template-columns: 140px auto;
+    grid-template-rows: 130px 30px;
+    grid-column-gap: 5px;
+
+    border-radius: 10px;
+    box-shadow: 0 3px 6px -1px #f0f0f0;
+    transition: box-shadow .2s ease-out;
+    cursor: default;
+
+    &.hover {
+        box-shadow: 0 5px 15px #f0f0f0;
+    }
+
+    .project__aside {
+        grid-column: 1;
+
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 130px 30px;
+
+        cursor: pointer;
+
+        .project__aside__image {
+            padding: 10px 10px 0 10px;
+            border-radius: 10px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                border-radius: 10px;
+                box-shadow: 0 3px 6px -1px #ddda;
+            }
+        }
+
+        .project__aside__name {
+            font-size: 18px;
+            line-height: 28px;
+            vertical-align: middle;
+            text-align: center;
+        }
+    }
+
+    .project__info {
+        display: grid;
+        grid-column: 2;
+        grid-row: 1;
+
+        grid-template-columns: 1fr;
+        grid-template-rows: subgrid;
+
+        padding-top: 10px;
+        max-height: 125px;
+
+        cursor: pointer;
+
+        margin: auto;
+
+        .project__info__description {
+            height: max-content;
+            padding: 5px 5px 5px 0;
+            overflow-y: auto;
+            font-size: 15px;
+            line-height: 1.1;
+        }
+    }
+
+    .project__footer {
+        display: grid;
+        grid-column: 2 / 2;
+        grid-row: 2;
+        padding: 5px 0;
+
+        grid-template-columns: max-content;
+        grid-template-rows: 1fr;
+        justify-content: end;
+
+        box-shadow: 0 -1px 1px -1px #aaa;
+
+        .project__footer__creator {
+            padding: 0 10px;
+            line-height: 20px;
+            vertical-align: middle;
+
+            .project__footer__creator__link {
+                font-weight: 600;
+
+                transition: color .15s ease;
+                font-size: 15px;
+                &:hover {
+                    color: #9aa6ce;
+                }
+            }
+        }
+    }
+}

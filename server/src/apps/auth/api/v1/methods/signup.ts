@@ -1,15 +1,8 @@
-import {MethodProps, MethodRes, Req, Res} from '@apps/base/Method'
-import {QueryReturnType} from "@modules/db/Pool";
-import {InvalidParams, MethodError} from "@apps/base/errors";
+import {MethodProps, MethodRes, Req} from '@apps/base/Method'
+import {QueryReturnType} from '@modules/db/pool'
+import {InvalidParams, MethodError} from '@apps/base/errors'
 import {nanoid} from 'nanoid'
 import BaseAuth from './base-auth'
-import {passwordPattern, passwordSpecialChars} from "@utils/data";
-
-type Schema = {
-    email: string
-    password: string
-    repeatPassword: string
-}
 
 const defaultAvatar = 'default.png'
 
@@ -19,7 +12,8 @@ class Signup extends BaseAuth {
     }
 
     async run(req: Req): Promise<MethodRes> {
-        let {email, password, repeatPassword}: Schema = req.params
+        const {password, repeatPassword} = req.params
+        let email = req.params
 
         email = email.toLowerCase()
 
@@ -29,7 +23,7 @@ class Signup extends BaseAuth {
 
         const userExists = await this.query('getUserByEmail', {email}, {
             returnType: QueryReturnType.Row,
-            returnField: 'userId'
+            returnField: 'userId',
         })
 
         if (userExists) {
@@ -57,11 +51,11 @@ class Signup extends BaseAuth {
             token,
             result: {
                 userData,
-            }
+            },
         }
     }
 }
 
 export default new Signup({
-    route: 'signup'
+    route: 'signup',
 })

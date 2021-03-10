@@ -18,7 +18,7 @@ export default {
     getUserData: `
         SELECT
             u.user_id AS "id"
-            ,u.user_uid AS "uid"
+            ,u.uid AS "uid"
             ,u.avatar AS "avatar"
             ,u.nickname AS "nickname"
             ,u.email AS "email"
@@ -31,7 +31,7 @@ export default {
 
     createUser: `
         INSERT INTO
-            main.users (user_uid, nickname, email, password, avatar)
+            main.users (uid, nickname, email, password, avatar)
         VALUES
             (:uid, :nickname, :email, main.crypt(:password, main.gen_salt('bf')), :avatar)
         RETURNING

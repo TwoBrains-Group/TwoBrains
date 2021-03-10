@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d8071d69-9f16-4b4d-925b-1a31d8b63ef9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../client/.eslintignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/assets/sass/components/project/Project.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/assets/sass/pages/error/error.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/assets/sass/pages/project/list.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/assets/sass/pages/project/single.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/assets/sass/pages/user/profile.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/components/project/Project.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/constants/fetching.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/layouts/error.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/pages/project/_uid/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/pages/project/_uid/plugin/idea.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/static/img/Tumbleweed1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/static/img/cactus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/static/img/desert.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.eslintignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/server.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/init/tb-0300.projects.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/init/tb-0310.plugins.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/apps/project/api/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/apps/project/api/v1/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/apps/project/api/v1/methods/get-by-uid.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/apps/project/api/v1/methods/get-list.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/apps/project/api/v1/methods/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/apps/project/api/v1/queries.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/apps/project/api/v1/schemas/get-by-uid.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/apps/project/api/v1/schemas/get-list.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/apps/project/api/v1/schemas/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/apps/project/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/apps/project/plugins/base/base-plugin.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/apps/project/plugins/base/collector.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/apps/project/plugins/base/queries.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/apps/project/plugins/project-plugins/idea-plugin/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/apps/project/plugins/project-plugins/idea-plugin/queries.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/apps/project/plugins/project-plugins/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/apps/user/api/v1/methods/follow.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/apps/user/api/v1/modules/prepare-user.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/apps/user/api/v1/schemas/follow.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/db/instance.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/mws/error.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/assets/css/apps/main/home.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/assets/css/apps/main/home.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/assets/css/apps/user/profile.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/assets/css/apps/user/profile.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/assets/css/common/common.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/assets/css/common/common.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/assets/css/common/header.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/assets/css/pages/main/home.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/assets/sass/apps/auth/auth.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../client/assets/sass/pages/auth/auth.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/assets/sass/apps/idea/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../client/assets/sass/pages/idea/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/assets/sass/apps/idea/single.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../client/assets/sass/pages/idea/single.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/assets/sass/apps/info/about.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../client/assets/sass/pages/info/about.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/assets/sass/apps/main/home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../client/assets/sass/pages/main/home.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/assets/sass/apps/project/list.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/assets/sass/apps/user/ideas.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../client/assets/sass/pages/user/ideas.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/assets/sass/apps/user/profile.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/assets/sass/apps/user/settings.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../client/assets/sass/pages/user/settings.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/assets/sass/common/common.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../client/assets/sass/common/common.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/assets/sass/components/common/_header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../client/assets/sass/components/common/Header.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/assets/sass/components/common/_menu.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../client/assets/sass/components/common/MainMenu.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/assets/sass/components/common/_spinner.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../client/assets/sass/components/ui/Spinner.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/assets/sass/components/idea/Idea.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../client/assets/sass/components/idea/Idea.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/assets/sass/ui/_btn.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../client/assets/sass/ui/_btn.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/assets/sass/ui/_scrollbar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../client/assets/sass/ui/_scrollbar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/components/common/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../client/components/common/Header.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/components/common/MainMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../client/components/common/MainMenu.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/components/common/Spinner.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../client/components/ui/Spinner.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/components/idea/Idea.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../client/components/idea/Idea.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/components/idea/IdeaComment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../client/components/idea/IdeaComment.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/components/tools/InfiniteScroll.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../client/components/tools/InfiniteScroll.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/pages/auth/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../client/pages/auth/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/pages/idea/_id.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../client/pages/idea/_id.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/pages/idea/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../client/pages/idea/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/pages/info/about.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../client/pages/info/about.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/pages/project/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../client/pages/project/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/pages/user/_uid/ideas/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../client/pages/user/_uid/ideas/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/pages/user/_uid/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../client/pages/user/_uid/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/pages/user/settings.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../client/pages/user/settings.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/plugins/api.client.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/plugins/api.client.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/plugins/l10n.client.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/plugins/l10n.client.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/init/tb-0100.users.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/init/tb-0100.users.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/init/tb-0200.ideas.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/init/tb-0200.ideas.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nodemon.json" beforeDir="false" afterPath="$PROJECT_DIR$/nodemon.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/auth/api/v1/methods/base-auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/auth/api/v1/methods/base-auth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/auth/api/v1/methods/google.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/auth/api/v1/methods/google.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/auth/api/v1/methods/login.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/auth/api/v1/methods/login.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/auth/api/v1/methods/signup.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/auth/api/v1/methods/signup.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/auth/api/v1/queries.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/auth/api/v1/queries.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/auth/api/v1/schemas/signup.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/auth/api/v1/schemas/signup.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/auth/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/auth/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/base/Method.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/base/Method.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/base/errors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/base/errors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/base/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/base/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/base/templates.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/base/templates.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/idea/api/v1/methods/create.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/idea/api/v1/methods/create.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/idea/api/v1/methods/get-by-id.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/idea/api/v1/methods/get-by-id.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/idea/api/v1/methods/get-comments.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/idea/api/v1/methods/get-comments.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/idea/api/v1/methods/get-list.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/idea/api/v1/methods/get-list.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/idea/api/v1/methods/get-user-ideas.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/idea/api/v1/methods/get-user-ideas.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/idea/api/v1/methods/like-comment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/idea/api/v1/methods/like-comment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/idea/api/v1/methods/like.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/idea/api/v1/methods/like.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/idea/api/v1/modules/prepare-ideas.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/idea/api/v1/modules/prepare-ideas.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/idea/api/v1/queries.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/idea/api/v1/queries.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/idea/api/v1/schemas/get-by-id.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/idea/api/v1/schemas/get-by-id.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/idea/api/v1/schemas/get-comments.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/idea/api/v1/schemas/get-comments.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/idea/api/v1/schemas/get-list.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/idea/api/v1/schemas/get-list.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/idea/api/v1/schemas/like.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/idea/api/v1/schemas/like.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/l10n/api/v1/methods/component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/l10n/api/v1/methods/get-locales.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/l10n/api/v1/methods/get-locales.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/l10n/api/v1/methods/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/l10n/api/v1/methods/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/l10n/api/v1/methods/load.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/l10n/api/v1/methods/load.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/l10n/api/v1/queries.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/l10n/api/v1/queries.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/l10n/api/v1/schemas/component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/l10n/api/v1/schemas/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/l10n/api/v1/schemas/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/l10n/api/v1/schemas/load.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/l10n/api/v1/schemas/load.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/l10n/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/l10n/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/main/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/main/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/user/api/v1/methods/change-lang.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/user/api/v1/methods/change-lang.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/user/api/v1/methods/get-by-uid.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/user/api/v1/methods/get-by-uid.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/user/api/v1/methods/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/user/api/v1/methods/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/user/api/v1/methods/save-settings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/user/api/v1/methods/save-settings.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/user/api/v1/methods/update-avatar.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/user/api/v1/methods/update-avatar.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/user/api/v1/queries.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/user/api/v1/queries.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/user/api/v1/schemas/get-by-uid.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/user/api/v1/schemas/get-by-uid.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/user/api/v1/schemas/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/user/api/v1/schemas/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/user/api/v1/schemas/save-settings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/user/api/v1/schemas/save-settings.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/user/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/user/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/BaseModule.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/BaseModule.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/db/Pool.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/db/pool.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/db/errors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/db/errors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/db/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/db/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/logger/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/logger/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/pretty-time/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/pretty-time/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/RenderEngine.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/mws/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/mws/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/mws/jwt.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/mws/jwt.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/errors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/errors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/storage.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1pXB0s7m9SW3UhsgJah3lQ7FxQo" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="ts.external.directory.path" value="F:\Projects\TwoBrains\server\node_modules\typescript\lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d8071d69-9f16-4b4d-925b-1a31d8b63ef9" name="Default Changelist" comment="" />
+      <created>1615319334834</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1615319334834</updated>
+      <workItem from="1615319335886" duration="652000" />
+      <workItem from="1615398827141" duration="2214000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/src/server/index.js" />
+        <option value="$PROJECT_DIR$/src/index.js" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1060" y="280" key="FileChooserDialogImpl" timestamp="1615401574294">
+      <screen x="0" y="0" width="2560" height="1050" />
+    </state>
+    <state x="1060" y="280" key="FileChooserDialogImpl/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1615401574294" />
+  </component>
+</project>

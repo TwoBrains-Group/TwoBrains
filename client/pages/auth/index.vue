@@ -108,5 +108,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~assets/sass/apps/auth/auth';
+@import '~assets/sass/pages/auth/auth';
 </style>

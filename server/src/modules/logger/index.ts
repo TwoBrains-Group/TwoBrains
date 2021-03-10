@@ -1,8 +1,8 @@
 import {config, Config} from '@utils/config'
-import chalk from 'chalk'
+import chalk, {Chalk} from 'chalk'
 
 const defaultConfig: Config['log'] = {
-    level: 'debug'
+    level: 'debug',
 }
 
 const loggerConfig: Config['log'] = {...defaultConfig, ...config.log}
@@ -38,32 +38,32 @@ interface LogSetting {
 const LOG_SETTINGS: LogSetting = {
     debug: {
         color: 'cyan',
-        priority: 4
+        priority: 4,
     },
     info: {
         color: 'green',
-        priority: 3
+        priority: 3,
     },
     warn: {
         color: 'yellow',
-        priority: 2
+        priority: 2,
     },
     error: {
         color: 'red',
-        priority: 1
-    }
+        priority: 1,
+    },
 }
 
 // Log format template literal
-export const lf = (strings: TemplateStringsArray, ...ipValues: any) => {
+export const lf = (strings: TemplateStringsArray, ...ipValues: any[]): string => {
     return strings.reduce((total: string, current: string, index: any) => {
         total += current
-        if (ipValues.hasOwnProperty(index)) {
+        if (index in ipValues) {
             const value = ipValues[index]
             if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
                 total += JSON.stringify(value, null, 2)
             } else if (Array.isArray(value)) {
-                total += value.join(', ')
+                total += value?.join(', ')
             } else {
                 total += String(value)
             }
@@ -74,7 +74,7 @@ export const lf = (strings: TemplateStringsArray, ...ipValues: any) => {
 
 /**
  * Logger
- * Universal logger for apps, pages and methods
+ * Universal logger for pages, pages and methods
  *
  * @important Logger does not inherit BaseModule
  */
@@ -85,7 +85,7 @@ export default class Logger implements ILogger {
         this.options = options
     }
 
-    getMessagePrefix(level: string, levelOptions: object = {}) {
+    getMessagePrefix(level: string, levelOptions: Record<string, any> = {}): string {
         let prefix = ''
 
         const time = (new Date()).toISOString().replace('T', ' ').replace('Z', '')
@@ -95,15 +95,14 @@ export default class Logger implements ILogger {
             prefix += `[${this.options.owner}] `
         }
 
-        // FIXME: Blah-blah types
-        // @ts-ignore
-        prefix += `${chalk[levelOptions.color](level)}: `
+        const color: keyof Chalk = levelOptions.color
+
+        prefix += `${(chalk[color] as Chalk)(level)}: `
 
         return prefix
     }
 
-    _log(level: string, ...args: any[]) {
-        // @ts-ignore
+    _log(level: string, ...args: any[]): void {
         const levelOptions = LOG_SETTINGS[level]
 
         if (levelOptions.priority > LOG_SETTINGS[loggerConfig.level].priority) {
@@ -111,22 +110,22 @@ export default class Logger implements ILogger {
         }
 
         // FIXME: JSON.stringify |--__--|
-        process.stdout.write(`${this.getMessagePrefix(level, levelOptions) + args.join(' ')}\n`)
+        console.log(this.getMessagePrefix(level, levelOptions), ...args)
     }
 
-    debug(...args: any[]) {
+    debug(...args: any[]): void {
         this._log('debug', ...args)
     }
 
-    info(...args: any[]) {
+    info(...args: any[]): void {
         this._log('info', ...args)
     }
 
-    warn(...args: any[]) {
+    warn(...args: any[]): void {
         this._log('warn', ...args)
     }
 
-    error(...args: any[]) {
+    error(...args: any[]): void {
         this._log('error', ...args)
     }
 }

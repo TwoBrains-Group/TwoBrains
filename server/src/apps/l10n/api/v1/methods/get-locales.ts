@@ -1,8 +1,8 @@
-import {Method, MethodRes, Req} from "@apps/base/Method";
-import {QueryReturnType} from "@modules/db/Pool";
+import {Method, MethodRes, Req} from '@apps/base/Method'
+import {QueryReturnType} from '@modules/db/pool'
 
 class GetLocales extends Method {
-    async run(req: Req, user?: any): Promise<MethodRes> {
+    async run(req: Req): Promise<MethodRes> {
         const {params} = req
         const {translatable} = params
 

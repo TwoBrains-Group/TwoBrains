@@ -7,5 +7,5 @@ class Main extends BaseApp {
 }
 
 export default new Main({
-    routePrefix: '/'
+    routePrefix: '/',
 })

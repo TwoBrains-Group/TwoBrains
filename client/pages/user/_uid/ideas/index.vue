@@ -31,7 +31,7 @@ export default {
             const count = await this.fetchIdeas()
             if (count > 0) {
                 $state.loaded()
-                this.offset += this.batch
+                this.offset += count
             } else {
                 $state.complete()
             }

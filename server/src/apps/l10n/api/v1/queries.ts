@@ -19,9 +19,9 @@ export default {
             pl10n.data::jsonb AS "data"
         FROM
             main.pages_l10n AS pl10n
-            INNER JOIN locales l ON l.locale_id = pl10n.locale_id
+            INNER JOIN main.locales AS l ON l.locale_id = pl10n.locale_id
             INNER JOIN main.pages AS p ON pl10n.page_id = p.page_id
-            INNER JOIN apps AS a ON a.app_id = p.app_id
+            INNER JOIN main.apps AS a ON a.app_id = p.app_id
         WHERE
             a.name = :app
             AND p.name = :name
@@ -35,15 +35,4 @@ export default {
         WHERE
             l.state = 'enabled'::main.state
             AND l.translatable = :translatable;`,
-
-    // getPluginsData: `
-    //     SELECT
-    //         pl10n.data AS "data"
-    //     FROM
-    //         main.plugins_l10n AS pl10n
-    //         INNER JOIN main.plugins AS p ON pl10n.plugin_id = p.plugin_id
-    //         INNER JOIN main.locales AS l ON l.locale_id = pl10n.locale_id
-    //     WHERE
-    //         p.id = ANY(:ids)
-    //         AND l.code = :locale;`,
 }

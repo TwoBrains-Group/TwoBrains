@@ -124,6 +124,8 @@ export class BaseApp {
 
                             result = getRes(result)
 
+                            this.log.info(`Sent request: ${JSON.stringify(result, null, 2)}`)
+
                             res.json(result)
                         })
                     })
@@ -149,6 +151,8 @@ export class BaseApp {
 
                         let result = await method.run(requestObject, req.user && req.user.userData)
                         result = getRes(result)
+
+                        this.log.info(`Sent request: ${JSON.stringify(result, null, 2)}`)
 
                         res.json(result)
                     })

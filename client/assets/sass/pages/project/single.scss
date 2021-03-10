@@ -16,7 +16,7 @@
         grid-template-rows: 150px max-content;
 
         box-shadow: 0 2px 5px -1px #dddd;
-        border-radius: 75px 10px 75px 10px;
+        border-radius: 75px 10px 50px 10px;
 
         background: #fff;
 
@@ -28,8 +28,8 @@
 
             height: 50px;
 
+            grid-template-columns: repeat(auto-fit, minmax(0, max-content));
             grid-template-rows: subgrid;
-            grid-template-columns: max-content;
 
             box-shadow: 0 -1px 1px -1px #aaa;
 
@@ -51,7 +51,7 @@
 
                 &:hover {
                     box-shadow: 0 3px 5px #f0f0f0;
-                    border-radius: 0 0 10px 10px;
+                    //border-radius: 0 0 10px 10px;
                 }
             }
         }
@@ -90,7 +90,7 @@
             .project__body__section--main__descr {
                 .project__body__section--main__descr__h {
                     padding: 0 10px;
-                    box-shadow: 0 3px 1px -2px #f0f0f0;
+                    box-shadow: 0 1px 1px -1px #aaa;
                 }
 
                 .project__body__section--main__descr__p {

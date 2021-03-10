@@ -1,5 +1,5 @@
 <template>
-    <Spinner v-if="$fetchState.pending"/>
+    <Spinner v-if="$fetchState.pending || !l10nLoaded"/>
     <div v-else id="page-project-uid">
         <header class="project__header">
             <div class="project__header__image">
@@ -12,19 +12,19 @@
 
             <div class="project__header__plugins" v-if="project.plugins.length">
                 <div class="btn project__header__plugins__el"
-                     v-for="plugin in project.plugins"
+                     v-for="plugin in [{name: 'home'}, ...project.plugins]"
                      :key="plugin.id"
-                     @click="goto('ideas')">{{ l10n.pluginsNames[plugin.name] }}
+                     @click="goto(plugin.name)">{{ l10n.sections[plugin.name] }}
                 </div>
             </div>
         </header>
 
         <div class="project__body">
-            <div class="project__body__section project__body__section--ideas" v-if="section === 'ideas'">
-                <Idea v-for="idea in ideas" :key="idea.id" v-bind="idea"/>
+            <div class="project__body__section project__body__section--ideas" v-if="section === 'idea'">
+                <IdeaList relation="project"/>
             </div>
 
-            <div class="project__body__section project__body__section--main" v-else>
+            <div class="project__body__section project__body__section--main" v-else-if="!section.length || section === 'home'">
                 <div class="project__body__section--main__descr">
                     <h3 class="project__body__section--main__descr__h">{{ l10n.description }}</h3>
                     <p class="project__body__section--main__descr__p">
@@ -40,11 +40,12 @@
 import Spinner from '@/components/ui/Spinner'
 import {ideasFetching} from '@/constants/fetching'
 import Idea from '~/pages/project/_uid/plugin/idea'
+import IdeaList from '@/components/idea/IdeaList'
 
 export default {
     name: 'project',
 
-    components: {Idea, Spinner},
+    components: {IdeaList, Idea, Spinner},
 
     fetchKey: 'project',
     fetchOnServer: false,
@@ -64,8 +65,9 @@ export default {
             ideas: [],
             l10n: {
                 description: 'Description',
-                pluginsNames: [],
+                sections: [],
             },
+            l10nLoaded: false,
         }
     },
 

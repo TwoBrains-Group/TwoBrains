@@ -9,25 +9,23 @@ type DirectiveEntity = {
     }
 }
 
-// type PluginEntity = {
-//     // names?: string[]
-//     ids?: string[]
-// }
-//
-// type TableEntity = {
-//     [key: string]: PluginEntity
-// }
-
 type Schema = {
     components: DirectiveEntity
     pages: DirectiveEntity
-    // entities: TableEntity
 }
 
-// entity - query
-// const TABLE_ENTITIES: Record<string, string> = {
-//     plugins: 'getPluginsData',
-// }
+const DEFAULT_LOCALE = 'en'
+
+type CmpQueryParams = {
+    app: string
+    page: string
+    name: string
+}
+
+type PageQueryParams = {
+    app: string
+    name: string
+}
 
 class Load extends Method {
     async run(req: Req): Promise<MethodRes> {
@@ -35,7 +33,6 @@ class Load extends Method {
         const {
             components,
             pages,
-            // entities,
             locale,
         } = params
 
@@ -44,7 +41,6 @@ class Load extends Method {
         const data: Schema = {
             components: {},
             pages: {},
-            entities: {},
         }
 
         for (const cmp of components) {
@@ -52,49 +48,57 @@ class Load extends Method {
             const page = cmp.page
             const name = cmp.name
 
-            data.components[`${app}_${page}_${name}`] = await this.query('getComponentData', {
-                app,
-                page,
-                name,
-                locale,
-            }, {
-                returnType: QueryReturnType.Row,
-                returnField: 'data',
-            }) || {}
+            const params: CmpQueryParams = {app, page, name}
+
+            let cmpData = await this.loadComponentData(params, locale)
+
+            if (!cmpData) {
+                cmpData = await this.loadComponentData(params, DEFAULT_LOCALE)
+            }
+
+            data.components[`${app}_${page}_${name}`] = cmpData || {}
         }
 
         for (const page of pages) {
             const app = page.app
             const name = page.name
 
-            data.pages[`${app}_${name}`] = await this.query('getPageData', {
-                app,
-                name,
-                locale,
-            }, {
-                returnType: QueryReturnType.Row,
-                returnField: 'data',
-            }) || {}
+            const params: PageQueryParams = {app, name}
+            let pageData = await this.loadPageData(params, locale)
+
+            if (!pageData) {
+                pageData = await this.loadPageData(params, DEFAULT_LOCALE)
+            }
+
+            data.pages[`${app}_${name}`] = pageData || {}
         }
 
-        // for (const entity of entities) {
-        //     const query = TABLE_ENTITIES[entity]
-        //     if (!query) {
-        //         this.log.debug(`Skipped unsupported entity ${entity}`)
-        //         continue
-        //     }
-        //
-        //     data.entities[entity] = await this.query(query, {locale, ...entity}, {
-        //         returnType: QueryReturnType.Row,
-        //         returnField: 'data',
-        //     }) || {}
-        // }
-
-        console.log('DATA:', data)
+        console.log('Data:', data)
 
         return {
             data,
         }
+    }
+
+    async loadComponentData(params: CmpQueryParams, locale: string): Promise<any> {
+        return await this.query('getComponentData', {
+            ...params,
+            locale,
+        }, {
+            returnType: QueryReturnType.Row,
+            returnField: 'data',
+        })
+    }
+
+    async loadPageData(params: PageQueryParams, locale: string): Promise<any> {
+        return await this.query('getPageData', {
+            ...params,
+            locale,
+        }, {
+            returnType: QueryReturnType.Row,
+            returnField: 'data',
+            queryDebugLog: true,
+        })
     }
 }
 

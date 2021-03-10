@@ -9,5 +9,13 @@ export default {
         limit: {
             type: 'number',
         },
+        relation: {
+            anyOf: [{
+                enum: ['project', 'user'],
+                default: 'user',
+            }, {
+                type: 'null',
+            }],
+        },
     },
 }

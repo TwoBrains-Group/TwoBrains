@@ -1,28 +1,36 @@
 <template>
-    <div class="ideas">
-        <div class="user-ideas__list">
-            <Idea v-for="idea in ideas" v-bind="idea" :key="idea.id"/>
-        </div>
+    <div class="idea-list">
+        <Idea v-for="idea in ideas" :key="idea.id" v-bind="idea"/>
 
         <InfiniteScroll :no-result="false" :no-more="false" @fetch="infiniteScroll"/>
     </div>
 </template>
 
 <script>
-import Idea from '@/components/idea/Idea'
-import Spinner from '@/components/ui/Spinner'
 import InfiniteScroll from '@/components/tools/InfiniteScroll'
+import {ideasFetching} from '@/constants/fetching'
+import Idea from '@/components/idea/Idea'
+
+const ideasRelations = ['project', 'user']
 
 export default {
+    components: {Idea, InfiniteScroll},
     fetchOnServer: false,
-    fetchKey: 'user-ideas',
-    components: {Spinner, Idea, InfiniteScroll},
+
+    props: {
+        relation: {
+            type: String,
+            default: 'user',
+            validator(value) {
+                return ideasRelations.includes(value)
+            },
+        },
+    },
 
     data() {
         return {
-            offset: 0,
-            batch: 25,
             ideas: [],
+            offset: 0,
         }
     },
 
@@ -38,12 +46,13 @@ export default {
         },
 
         async fetchIdeas() {
-            const params = {
-                offset: this.offset,
-                limit: this.batch,
-            }
-
             try {
+                const params = {
+                    limit: ideasFetching.limit,
+                    offset: this.offset,
+                    relation: this.relation,
+                }
+
                 const {ideas} = await this.$api.send({
                     app: 'idea',
                     method: 'getList',
@@ -59,14 +68,9 @@ export default {
             }
         },
     },
-
-    async fetch() {
-        // await this.fetchIdeas()
-    },
 }
 </script>
 
 <style lang="scss">
-@import '~assets/sass/pages/idea/index';
+@import '~assets/sass/components/idea/IdeaList';
 </style>
-

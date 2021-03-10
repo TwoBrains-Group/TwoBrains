@@ -1,7 +1,7 @@
 import {MustBeOverridden} from '@utils/errors'
 import Logger from '@modules/logger'
 import {default as DB} from '@modules/db'
-import {queryDefaultOptions, QueryOptions, QueryParams} from '@modules/db/pool'
+import {Query, queryDefaultOptions, QueryOptions, QueryParams} from '@modules/db/pool'
 import {Req, MethodRes, FormDataReq} from '@apps/base/templates'
 import DBInstance from '@modules/db/instance'
 
@@ -29,7 +29,7 @@ export abstract class Method {
     route: string
     formData?: boolean
     formDataMult?: boolean
-    private queries?: Record<string, string>
+    private queries?: Record<string, Query>
 
     constructor(props: MethodProps) {
         this.appName = ''
@@ -90,10 +90,17 @@ export abstract class Method {
 
         options = {...queryDefaultOptions, ...options}
 
-        const query = this.queries![queryName]
+        let query = this.queries![queryName]
         if (!query) {
             this.log.error(`No query found by name '${queryName}' in route ${this.getPath()}`)
             return null
+        }
+
+        if (typeof query === 'function') {
+            if (!options.args) {
+                throw new Error(`(${queryName}) 'args' must be passed to query options for func-type query`)
+            }
+            query = query(options.args) as string
         }
 
         return await this.db.query(queryName, query, params, options)

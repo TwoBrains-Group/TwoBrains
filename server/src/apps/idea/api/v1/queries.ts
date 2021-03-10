@@ -1,3 +1,5 @@
+import {Queries} from '@modules/db/pool'
+
 export default {
     getById: `
         SELECT
@@ -20,7 +22,7 @@ export default {
         WHERE
             i.idea_id = :id;`,
 
-    getList: `
+    getList: ({relation}): string => `
         SELECT
              i.idea_id AS "id"
             ,i.name AS "name"
@@ -38,6 +40,8 @@ export default {
             main.ideas AS i
             INNER JOIN main.users AS u ON i.user_id = u.user_id
             LEFT JOIN main.ideas_likes AS uil ON uil.user_id = :loggedInUserId AND uil.idea_id = i.idea_id
+        ${relation && 'WHERE'}
+            ${relation && `i.relation = '${relation}'::main.idea_relation`}
         ORDER BY i.creation_datetime DESC
         LIMIT :limit
         OFFSET :offset;`,
@@ -162,4 +166,6 @@ export default {
         ORDER BY i.creation_datetime DESC
         LIMIT :limit
         OFFSET :offset;`,
-}
+
+    getProjectList: '',
+} as Queries

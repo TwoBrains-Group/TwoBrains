@@ -15,6 +15,7 @@ export type QueryOptions = {
     returnField?: string
     unusedToNull?: Array<string>
     queryDebugLog?: boolean
+    args?: Record<string, any> // Must be passed if func-query was used
 }
 
 export const queryDefaultOptions: QueryOptions = {
@@ -24,13 +25,19 @@ export const queryDefaultOptions: QueryOptions = {
     unusedToNull: [],
 }
 
+export type Query = string | ((args: Record<string, any>) => any)
+
+export type Queries = Record<string, Query>
+
 export type QueryParams = {
     [key: string]: any
 }
 
-export const prepareQuery = (queryName: string, queryString: string, params: QueryParams = {}, options: QueryOptions = {}): {text: string, values: any[]} => {
-    let paramIndex = 0
+export type PreparedQuery = {text: string, values: any[]}
+
+export const prepareQuery = (queryName: string, queryString: string, params: QueryParams = {}, options: QueryOptions = {}): PreparedQuery => {
     const values: any[] = []
+    let paramIndex = 0
     const unusedVariables: string[] = []
 
     const text = queryString.replace(/(?<!:):(\w+)/g, (text, variable) => {

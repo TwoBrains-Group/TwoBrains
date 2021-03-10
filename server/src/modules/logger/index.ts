@@ -97,7 +97,7 @@ export default class Logger implements ILogger {
 
         const color: keyof Chalk = levelOptions.color
 
-        prefix += `${(chalk[color] as Chalk)(level)}: `
+        prefix += `${(chalk[color] as Chalk)(level)}:`
 
         return prefix
     }

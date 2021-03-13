@@ -1,6 +1,7 @@
 import {Queries} from '@modules/db/pool'
 
 export default {
+    // Main getters //
     getById: `
         SELECT
              i.idea_id AS "id"
@@ -14,13 +15,24 @@ export default {
                 'avatar', u.avatar,
                 'online', u.online
             ) AS "user"
-            ,(uil.user_id IS NOT NULL)::bool AS "liked"
+            ,(il.user_id IS NOT NULL)::bool AS "liked"
+            ,(il_liked.user_id IS NOT NULL AND il_liked.dislike = FALSE)::BOOL AS "liked"
+            ,(il_liked.user_id IS NOT NULL AND il_liked.dislike = TRUE)::BOOL AS "disliked"
+            ,COUNT(il.user_id) FILTER (WHERE il.dislike = FALSE) AS "likesCount"
+            ,COUNT(il.user_id) FILTER (WHERE il.dislike = TRUE) AS "dislikesCount"
         FROM
             main.ideas AS i
             INNER JOIN main.users AS u ON u.user_id = i.user_id
-            LEFT JOIN main.ideas_likes AS uil ON uil.user_id = :loggedInUserId AND uil.idea_id = i.idea_id
+            LEFT JOIN main.ideas_likes AS il_liked ON il_liked.user_id = :loggedInUserId AND il_liked.idea_id = i.idea_id
+            LEFT JOIN main.ideas_likes AS il ON il.idea_id = i.idea_id
         WHERE
-            i.idea_id = :id;`,
+            i.idea_id = :ideaId
+        GROUP BY
+            i.idea_id,
+            u.user_id,
+            il_liked.user_id,
+            il_liked.dislike,
+            il.user_id;`,
 
     getList: ({relation}): string => `
         SELECT
@@ -35,112 +47,27 @@ export default {
                 'avatar', u.avatar,
                 'online', u.online
             ) AS "user"
-            ,(uil.user_id IS NOT NULL)::bool AS "liked"
+            ,(il_liked.user_id IS NOT NULL AND il_liked.dislike = FALSE)::BOOL AS "liked"
+            ,(il_liked.user_id IS NOT NULL AND il_liked.dislike = TRUE)::BOOL AS "disliked"
+            ,COUNT(il.user_id) FILTER (WHERE il.dislike = FALSE) AS "likesCount"
+            ,COUNT(il.user_id) FILTER (WHERE il.dislike = TRUE) AS "dislikesCount"
         FROM
             main.ideas AS i
             INNER JOIN main.users AS u ON i.user_id = u.user_id
-            LEFT JOIN main.ideas_likes AS uil ON uil.user_id = :loggedInUserId AND uil.idea_id = i.idea_id
+            LEFT JOIN main.ideas_likes AS il_liked
+                ON il_liked.user_id = :loggedInUserId AND il_liked.idea_id = i.idea_id
+            LEFT JOIN main.ideas_likes AS il ON il.idea_id = i.idea_id
         ${relation && 'WHERE'}
             ${relation && `i.relation = '${relation}'::main.idea_relation`}
+        GROUP BY
+            i.idea_id,
+            u.user_id,
+            il_liked.user_id,
+            il_liked.dislike
         ORDER BY i.creation_datetime DESC
         LIMIT :limit
         OFFSET :offset;`,
 
-    isLiked: `
-        SELECT
-            (uil.user_id IS NOT NULL)::bool AS "liked"
-        FROM
-            main.ideas_likes AS uil
-        WHERE
-            idea_id = :ideaId::int8
-            AND user_id = :userId::int8;`,
-
-    like: `
-        INSERT INTO main.ideas_likes (user_id, idea_id)
-        VALUES (:userId::int8, :ideaId::int8);`,
-
-    unlike: `
-        DELETE FROM
-            main.ideas_likes
-        WHERE
-            user_id = :userId::int8
-            AND idea_id = :ideaId::int8;`,
-
-    getComments: `
-        SELECT
-            ic.idea_comment_id AS "id"
-            ,ic.idea_id AS "ideaId"
-            ,ic.user_id AS "userId"
-            ,ic.text AS "text"
-            ,ic.creation_datetime::TIMESTAMP::DATE AS "creationDatetime"
-            ,json_build_object(
-                'id', u.user_id,
-                'uid', u.uid,
-                'nickname', u.nickname,
-                'avatar', u.avatar,
-                'online', u.online
-            ) AS "user"
-            ,(icl.user_id IS NOT NULL)::bool AS "liked"
-        FROM
-            main.ideas_comments AS ic
-            INNER JOIN main.users AS u ON u.user_id = ic.user_id
-            LEFT JOIN main.ideas_comments_likes AS icl
-                ON icl.idea_comment_id = ic.idea_comment_id AND icl.user_id = :loggedInUserId
-        WHERE
-            ic.idea_id = :id
-            AND ic.reply_to IS NULL
-        ORDER BY ic.creation_datetime DESC
-        LIMIT :limit
-        OFFSET :offset;`,
-
-    getCommentsReplies: `
-        SELECT
-            ic.idea_comment_id AS "id"
-            ,ic.idea_id AS "ideaId"
-            ,ic.user_id AS "userId"
-            ,ic.text AS "text"
-            ,ic.creation_datetime::TIMESTAMP::DATE AS "creationDatetime"
-            ,json_build_object(
-                'id', u.user_id,
-                'uid', u.uid,
-                'nickname', u.nickname,
-                'avatar', u.avatar,
-                'online', u.online
-            ) AS "user"
-            ,(icl.user_id IS NOT NULL)::bool AS "liked"
-            ,reply_u.nickname AS "rootCommentUserNickname"
-            ,reply_u.uid AS "rootCommentUserUid"
-        FROM
-            main.ideas_comments AS ic
-            INNER JOIN main.users AS u ON u.user_id = ic.user_id
-            INNER JOIN main.users AS reply_u ON reply_u.user_id = ic.user_id
-            LEFT JOIN main.ideas_comments_likes AS icl
-                ON icl.idea_comment_id = ic.idea_comment_id AND icl.user_id = :loggedInUserId
-        WHERE
-            ic.reply_to = :replyTo
-        ORDER BY ic.creation_datetime DESC
-        LIMIT :limit
-        OFFSET :offset;`,
-
-    isCommentLiked: `
-        SELECT
-            (icl.user_id IS NOT NULL)::bool AS "liked"
-        FROM
-            main.ideas_comments_likes AS icl
-        WHERE
-            icl.idea_comment_id = :id::int8
-            AND icl.user_id = :userId::int8;`,
-
-    likeComment: `
-        INSERT INTO main.ideas_comments_likes (user_id, idea_comment_id)
-        VALUES (:userId::int8, :id::int8);`,
-
-    unlikeComment: `
-        DELETE FROM
-            main.ideas_comments_likes
-        WHERE
-            user_id = :userId::int8
-            AND idea_comment_id = :id::int8;`,
 
     getUserIdeas: `
         SELECT
@@ -167,5 +94,198 @@ export default {
         LIMIT :limit
         OFFSET :offset;`,
 
-    getProjectList: '',
+    // Likes //
+    like: `
+        INSERT INTO main.ideas_likes (user_id, idea_id, dislike)
+        VALUES (:userId::int8, :ideaId::int8, :dislike);`,
+
+    getLikeStatus: `
+        SELECT
+             (il.user_id IS NOT NULL)::BOOL AS "exists"
+            ,(il.dislike = TRUE)::BOOL AS "dislike"
+        FROM
+            main.ideas_likes AS il
+        WHERE
+            il.idea_id = :ideaId::int8
+            AND il.user_id = :userId::int8;`,
+
+    getLikesCount: `
+        SELECT
+             COUNT(il.user_id) FILTER (WHERE il.dislike = FALSE) AS "likesCount"
+            ,COUNT(il.user_id) FILTER (WHERE il.dislike = TRUE) AS "dislikesCount"
+        FROM
+            main.ideas_likes AS il
+        WHERE
+            il.idea_id = :ideaId;`,
+
+    unlike: `
+        DELETE FROM
+            main.ideas_likes
+        WHERE
+            user_id = :userId::int8
+            AND idea_id = :ideaId::int8;`,
+
+
+    // Comments //
+    getComments: `
+        SELECT
+            ic.idea_comment_id AS "id"
+            ,ic.idea_id AS "ideaId"
+            ,ic.user_id AS "userId"
+            ,ic.text AS "text"
+            ,ic.creation_datetime::TIMESTAMP::DATE AS "creationDatetime"
+            ,json_build_object(
+                'id', u.user_id,
+                'uid', u.uid,
+                'nickname', u.nickname,
+                'avatar', u.avatar,
+                'online', u.online
+            ) AS "user"
+            ,(icl_liked.user_id IS NOT NULL)::bool AS "liked"
+            ,COUNT(icl.user_id) AS "likesCount"
+        FROM
+            main.ideas_comments AS ic
+            INNER JOIN main.users AS u ON u.user_id = ic.user_id
+            LEFT JOIN main.ideas_comments_likes AS icl_liked
+                ON icl_liked.idea_comment_id = ic.idea_comment_id AND icl_liked.user_id = :loggedInUserId
+            LEFT JOIN main.ideas_comments_likes AS icl ON icl.idea_comment_id = ic.idea_comment_id
+        WHERE
+            ic.idea_id = :id
+            AND ic.reply_to IS NULL
+            AND ic.deleted IS NULL
+        GROUP BY
+            ic.idea_comment_id,
+            u.user_id,
+            icl_liked.user_id,
+            ic.creation_datetime
+        ORDER BY ic.creation_datetime DESC
+        LIMIT :limit
+        OFFSET :offset;`,
+
+    getCommentsReplies: `
+        SELECT
+            ic.idea_comment_id AS "id"
+            ,ic.idea_id AS "ideaId"
+            ,ic.user_id AS "userId"
+            ,ic.text AS "text"
+            ,ic.creation_datetime::TIMESTAMP::DATE AS "creationDatetime"
+            ,json_build_object(
+                'id', u.user_id,
+                'uid', u.uid,
+                'nickname', u.nickname,
+                'avatar', u.avatar,
+                'online', u.online
+            ) AS "user"
+            ,(icl_liked.user_id IS NOT NULL)::bool AS "liked"
+            ,COUNT(icl.user_id) AS "likesCount"
+            ,reply_u.nickname AS "rootCommentUserNickname"
+            ,reply_u.uid AS "rootCommentUserUid"
+        FROM
+            main.ideas_comments AS ic
+            INNER JOIN main.users AS u ON u.user_id = ic.user_id
+            INNER JOIN main.users AS reply_u ON reply_u.user_id = ic.user_id
+            LEFT JOIN main.ideas_comments_likes AS icl_liked
+                ON icl_liked.idea_comment_id = ic.idea_comment_id AND icl_liked.user_id = :loggedInUserId
+            LEFT JOIN main.ideas_comments_likes AS icl ON icl.idea_comment_id = ic.idea_comment_id
+        WHERE
+            ic.reply_to = :replyTo
+            AND ic.deleted IS NULL
+        GROUP BY
+            ic.idea_comment_id,
+            u.user_id,
+            icl_liked.user_id,
+            reply_u.nickname,
+            reply_u.uid,
+            ic.creation_datetime
+        ORDER BY ic.creation_datetime DESC
+        LIMIT :limit
+        OFFSET :offset;`,
+
+    comment: `
+        INSERT INTO main.ideas_comments (idea_id, user_id, text)
+        VALUES (:ideaId, :userId, :text)
+        RETURNING idea_comment_id AS "id";`,
+
+    getCommentById: `
+        SELECT
+            ic.idea_comment_id AS "id"
+            ,ic.idea_id AS "ideaId"
+            ,ic.user_id AS "userId"
+            ,ic.text AS "text"
+            ,ic.creation_datetime::TIMESTAMP::DATE AS "creationDatetime"
+            ,json_build_object(
+                'id', u.user_id,
+                'uid', u.uid,
+                'nickname', u.nickname,
+                'avatar', u.avatar,
+                'online', u.online
+            ) AS "user"
+            ,(icl_liked.user_id IS NOT NULL)::bool AS "liked"
+            ,COUNT(icl.user_id) AS "likesCount"
+        FROM
+            main.ideas_comments AS ic
+            INNER JOIN main.users AS u ON u.user_id = ic.user_id
+            LEFT JOIN main.ideas_comments_likes AS icl_liked
+                ON icl_liked.idea_comment_id = ic.idea_comment_id AND icl_liked.user_id = :loggedInUserId
+            LEFT JOIN main.ideas_comments_likes AS icl ON icl.idea_comment_id = ic.idea_comment_id
+        WHERE
+            ic.idea_comment_id = :id
+            AND ic.deleted IS NULL
+        GROUP BY
+            ic.idea_comment_id,
+            u.user_id,
+            icl_liked.user_id,
+            ic.creation_datetime;`,
+
+    checkCommentCreator: `
+        SELECT
+            ic.user_id AS "userId"
+        FROM
+            main.ideas_comments AS ic
+        WHERE
+            ic.idea_comment_id = :id
+            AND ic.user_id = :userId;`,
+
+    deleteComment: `
+        UPDATE main.ideas_comments AS ic
+        SET deleted = NOW()
+        WHERE
+            ic.idea_comment_id = :id
+            AND ic.user_id = :userId`,
+
+    // Comments-likes //
+    isCommentLiked: `
+        SELECT
+            (icl.user_id IS NOT NULL)::bool AS "liked"
+        FROM
+            main.ideas_comments_likes AS icl
+        WHERE
+            icl.idea_comment_id = :id::int8
+            AND icl.user_id = :userId::int8;`,
+
+    likeComment: `
+        INSERT INTO main.ideas_comments_likes (user_id, idea_comment_id)
+        VALUES (:userId::int8, :id::int8);`,
+
+    unlikeComment: `
+        DELETE FROM
+            main.ideas_comments_likes
+        WHERE
+            user_id = :userId::int8
+            AND idea_comment_id = :id::int8;`,
+
+    getCommentLikesCount: `
+        SELECT
+            COUNT(icl.user_id) AS "count"
+        FROM
+            main.ideas_comments_likes AS icl
+        WHERE
+            icl.user_id = :userId
+            AND icl.idea_comment_id = :id;`,
+
+    create: `
+        INSERT INTO main.ideas AS i (user_id, name, text)
+        VALUES (:userId, :name, :text)
+        RETURNING i.idea_id AS "id";`,
+
 } as Queries

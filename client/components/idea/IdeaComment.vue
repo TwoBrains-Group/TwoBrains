@@ -1,30 +1,58 @@
 <template>
-    <div class="idea__comments__comment" :class="isReply ? 'reply' : ''" v-bind:isReply="false">
-        <nuxt-link :to="'/user/' + user.uid" class="btn idea__comments_comment__user">
-            <div class="idea__comments__comment__user__avatar">
-                <img :src="user.avatar" alt="avatar">
+    <div class="idea__comments__comment"
+         :class="{reply: isReply}"
+         v-bind:isReply="false">
+        <header class="idea__comments__comment__header">
+            <nuxt-link :to="'/user/' + user.uid" class="btn idea__comments_comment__user">
+                <div class="idea__comments__comment__user__avatar">
+                    <img :src="user.avatar" alt="avatar">
+                </div>
+                <span class="idea__comments__comment__user__nickname">{{ user.nickname }}</span>
+                <span class="idea__comments__comment__date"> - {{ creationDatetime }}</span>
+            </nuxt-link>
+
+            <div class="idea__comments__comment__header__options">
+                <div class="btn idea__comments__comment__header__options__el"
+                     @click="deleteComment"
+                     v-show="showOptions">{{ l10n.delete }}
+                </div>
             </div>
-            <span class="idea__comments__comment__user__nickname">{{ user.nickname }}</span>
-            <span class="idea__comments__comment__date"> - {{ creationDatetime }}</span>
-        </nuxt-link>
+
+            <div class="right">
+                <div class="btn idea__comments__comment__user__options-btn" @click="showOptions = !showOptions">
+                    <i class="fas fa-ellipsis-h"></i>
+                </div>
+
+                <div></div>
+            </div>
+        </header>
 
         <div class="idea__comments__comment__content">
             <nuxt-link v-if="isReply"
                        :to="'/user/' + rootCommentUserUid"
-                       class="idea__comments__comment__content__reply-to">@{{rootCommentUserNickname}}, </nuxt-link>{{ text }}</div>
+                       class="idea__comments__comment__content__reply-to">@{{ rootCommentUserNickname }},
+            </nuxt-link>
+            {{ text }}
+        </div>
 
         <footer class="idea__comments__comment__footer">
             <div class="base-btn idea__comments__comment__footer__btn idea__comments__comment__footer__btn--like"
-                 :class="likedByUser ? 'liked' : ''"
+                 :class="liked$ ? 'liked' : ''"
                  @click="like">
-                <i :class="likedByUser ? 'fas' : 'far'" class="fa-heart"></i>
+                <i :class="liked$ ? 'fas' : 'far'" class="fa-heart"></i>
+                <span class="count">{{ likesCount$ }}</span>
             </div>
 
             <div v-if="!isReply"
                  class="idea__comments__comment__footer__btn idea__comments__comment__footer__btn--replies"
                  @click="toggleReplies">
-                <span v-if="!showReplies">Show replies</span>
-                <span v-else>Close replies</span>
+                <span v-if="!showReplies">{{ l10n.showReplies }}</span>
+                <span v-else>{{ l10n.closeReplies }}</span>
+            </div>
+
+            <div class="idea__comments__comment__footer__btn idea__comments__comment__footer__btn--reply"
+                 @click="reply">
+
             </div>
         </footer>
 
@@ -35,9 +63,14 @@
                              :key="reply.id"
                              v-bind="reply"
                              v-bind:isReply="true"/>
+
+                <div v-if="!allRepliesFetched"
+                     @click="fetchReplies"
+                     class="base-btn idea__comments__comment__replies__list__load-more">Load more
+                </div>
             </div>
 
-<!--            <InfiniteScroll @fetch="fetchReplies"/>-->
+            <!--            <InfiniteScroll @fetch="fetchReplies"/>-->
         </div>
         <div class="idea__comments__comment__replies_stub" v-else></div>
     </div>
@@ -48,6 +81,8 @@ import InfiniteScroll from '@/components/tools/InfiniteScroll'
 
 export default {
     name: 'IdeaComment',
+    fetchOnServer: false,
+
     components: {InfiniteScroll},
     props: [
         'id',
@@ -55,26 +90,60 @@ export default {
         'text',
         'creationDatetime',
         'liked',
+        'likesCount',
         'isReply',
         'rootCommentUserUid',
         'rootCommentUserNickname',
     ],
 
+    created() {
+        if (process.client) {
+            this.$l10n.component(this)
+        }
+
+        this.likesCount$ = Number(this.likesCount$) || ''
+    },
+
     data() {
         return {
-            // firstRepliesCount: 5,
-            firstRepliesCount: null,
-            likedByUser: this.liked,
+            app: 'idea',
+            page: '*',
+
+            l10n: {
+                delete: 'Delete',
+                edit: 'Edit',
+                showReplies: 'Show replies',
+                closeReplies: 'Close replies',
+                reply: 'Reply',
+                failedToLikeComment: 'Failed to like comment',
+                failedToLoadReplies: 'Failed to load replies',
+                failedToDeleteComment: 'Failed to delete comment',
+                failedToReply: 'Failed to reply',
+                commentSuccessfullyDeleted: 'Comment successfully deleted',
+                replySuccessfullyAdded: 'Reply successfully added',
+            },
+
+            liked$: this.liked,
+            likesCount$: this.likesCount,
+
+            showOptions: false,
+
             showReplies: false,
             replies: [],
-            repliesFetched: false,
+            firstRepliesCount: 5,
+            firstRepliesFetch: true,
+            repliesOffset: 0,
+            allRepliesFetched: false,
         }
     },
 
     methods: {
         async like() {
             try {
-                const {liked} = await this.$api.send({
+                const {
+                    liked,
+                    count,
+                } = await this.$api.send({
                     app: 'idea',
                     method: 'likeComment',
                     params: {
@@ -83,35 +152,39 @@ export default {
                     v: 1,
                 })
 
-                this.likedByUser = liked
+                this.liked$ = liked
+                this.likesCount$ = Number(count) || ''
             } catch (error) {
-                this.$toast.error('Failed to liked comment')
+                this.$toast.error(this.l10n.failedToLikeComment)
             }
         },
 
         async fetchReplies() {
-            if (this.repliesFetched) {
-                return
-            }
             try {
-                const limit = this.replies.length ? null : this.firstRepliesCount
+                const params = {
+                    replyTo: this.id,
+                    limit: this.firstRepliesFetch ? this.firstRepliesCount : null,
+                    offset: this.repliesOffset,
+                }
+
                 const {comments} = await this.$api.send({
                     app: 'idea',
                     method: 'getComments',
-                    params: {
-                        replyTo: this.id,
-                        limit,
-                        offset: this.replies.length,
-                    },
+                    params,
                     v: 1,
                 })
 
+                if (!this.firstRepliesFetch) {
+                    this.allRepliesFetched = true
+                }
+
+                this.repliesOffset += comments.length
                 this.replies.push(...comments)
             } catch (error) {
                 console.log('Error:', error)
-                this.$toast.error('Failed to load replies')
+                this.$toast.error(this.l10n.failedToLoadReplies)
             } finally {
-                this.fetchingReplies = false
+                this.firstRepliesFetch = false
             }
         },
 
@@ -122,6 +195,46 @@ export default {
             }
 
             await this.fetchReplies()
+        },
+
+        async deleteComment() {
+            try {
+                const params = {
+                    id: this.id,
+                }
+
+                await this.$api.send({
+                    app: 'idea',
+                    method: 'deleteComment',
+                    params,
+                    v: 1,
+                })
+
+                this.$toast.info(this.l10n.commentSuccessfullyDeleted)
+
+                this.$destroy()
+                this.$el.parentNode.removeChild(this.$el)
+            } catch (error) {
+                this.$toast.error(this.l10n.failedToDeleteComment)
+            }
+        },
+
+        async reply() {
+            try {
+                const params = {
+                    replyTo: this.id,
+                }
+
+                await this.$api.send({
+                    app: 'idea',
+                    method: 'replyToComment',
+                    params,
+                    v: 1,
+                })
+
+            } catch (error) {
+                this.$toast.error(this.l10n.failedToReply)
+            }
         },
     },
 }

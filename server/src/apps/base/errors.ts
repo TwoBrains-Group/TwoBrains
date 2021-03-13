@@ -12,9 +12,13 @@ export class MethodError extends Error {
     }
 }
 
+const prepareSchemaError = (errors: any[]) => errors.reduce((acc: string, el: any) => {
+    return acc + `'${el.dataPath.replace(/\//, '')}' ${el.message},\n`
+}, '')
+
 export class InvalidParams extends MethodError {
-    constructor(message = 'Invalid params') {
-        super(message, -32602, {})
+    constructor(errors: any[] | string = 'Invalid params') {
+        super(Array.isArray(errors) ? prepareSchemaError(errors) : errors)
     }
 }
 

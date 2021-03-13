@@ -1,5 +1,5 @@
 <script>
 export default {
-    middleware: ['profile']
+    middleware: ['profile'],
 }
 </script>

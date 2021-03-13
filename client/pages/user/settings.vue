@@ -155,6 +155,7 @@ export default {
                 changePassword: '',
                 uidDescription: '',
                 changeLang: '',
+                failedToLoadLocales: 'Failed to load locales',
             },
             l10nLoaded: false,
         }
@@ -173,7 +174,8 @@ export default {
 
             this.locales = locales.map(l => l.code)
         } catch (error) {
-            this.$toast.error('Failed to load locales')
+            console.log(error)
+            this.$toast.error(this.l10n.failedToLoadLocales)
         }
     },
 

@@ -1,5 +1,5 @@
 <template>
-    <header class="main-header">
+    <header id="main-header">
         <div class="main-header__back"></div>
 
         <nuxt-link to="/" class="main-header__logo btn">

@@ -6,7 +6,6 @@ export default {
             ,u.nickname AS "nickname"
             ,u.avatar AS "avatar"
             ,u.online AS "online"
-            ,u.status AS "status"
             ,l.code
             ,(uf.user_id IS NOT NULL)::BOOL AS "following"
             ,(uf_contra.user_id IS NOT NULL)::BOOL AS "followingYou"

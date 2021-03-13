@@ -4,6 +4,9 @@ import like from './like'
 import getComments from './get-comments'
 import likeComment from './like-comment'
 import getUserIdeas from './get-user-ideas'
+import create from './create'
+import comment from './comment'
+import deleteComment from './delete-comment'
 
 export default {
     getById,
@@ -12,4 +15,7 @@ export default {
     getComments,
     likeComment,
     getUserIdeas,
+    create,
+    comment,
+    deleteComment,
 }

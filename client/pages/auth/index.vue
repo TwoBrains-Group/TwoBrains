@@ -8,7 +8,7 @@
         <div class="auth-window__body auth-window__body--login" v-if="login">
             <input type="email" placeholder="email" v-model="fields.loginEmail">
 
-            <input type="password" placeholder="password" v-model="fields.loginPassword">
+            <input type="password" :placeholder="l10n.password" v-model="fields.loginPassword">
 
             <div class="material-btn auth-window__body__accept" @click="loginLocal()">Login</div>
         </div>
@@ -16,15 +16,15 @@
         <div class="auth-window__body auth-window__body--signup" v-if="!login">
             <input type="email" placeholder="email" v-model="fields.signupEmail">
 
-            <input type="password" placeholder="password" v-model="fields.signupPassword">
+            <input type="password" :placeholder="l10n.password" v-model="fields.signupPassword">
 
-            <input type="password" placeholder="repeat password" v-model="fields.signupRepeatPassword">
+            <input type="password" :placeholder="l10n.repeatPassword" v-model="fields.signupRepeatPassword">
 
             <div class="material-btn auth-window__body__accept" @click="signup()">Sign up</div>
         </div>
 
         <footer class="auth-window__footer">
-            <h6>or use other auth methods:</h6>
+            <h6>{{ l10n.orUseOtherAuthMethods }}</h6>
 
             <div class="auth-window__footer__services-buttons">
                 <div @click="loginWithGoogle()" class="base-btn auth-window__footer__services-buttons__btn auth-window__footer__services-buttons--google">
@@ -41,8 +41,21 @@ const cookie = process.client ? require('js-cookie') : undefined
 export default {
     layout: 'auth',
 
+    created() {
+        if (process.client) {
+            this.$l10n.page(this)
+        }
+    },
+
     data() {
         return {
+            app: 'auth',
+
+            l10n: {
+                password: 'Password',
+                repeatPassword: 'Repeat password',
+                orUseOtherAuthMethods: 'or use other auth methods',
+            },
             fields: {
                 loginEmail: null,
                 loginPassword: null,

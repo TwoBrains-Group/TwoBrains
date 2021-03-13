@@ -1,10 +1,12 @@
 .infinite-status-prompt {
     .hide-no-more {
-        opacity: 0;
+        display: none;
+        //opacity: 0;
     }
 
     .hide-no-result {
-        opacity: 0;
+        display: none;
+        //opacity: 0;
     }
 }
 

@@ -2,20 +2,28 @@
     <div class="idea-list">
         <Idea v-for="idea in ideas" :key="idea.id" v-bind="idea"/>
 
-        <InfiniteScroll :no-result="false" :no-more="false" @fetch="infiniteScroll"/>
+        <InfiniteScroll :no-result="l10n.noResult" :no-more="l10n.noMore" @fetch="infiniteScroll"/>
     </div>
 </template>
 
 <script>
 import InfiniteScroll from '@/components/tools/InfiniteScroll'
-import {ideasFetching} from '@/constants/fetching'
+import {ideaFetching} from '@/constants/fetching'
 import Idea from '@/components/idea/Idea'
 
 const ideasRelations = ['project', 'user']
 
 export default {
+    name: 'IdeaList',
+
     components: {Idea, InfiniteScroll},
     fetchOnServer: false,
+
+    created() {
+        if (process.client) {
+            this.$l10n.component(this)
+        }
+    },
 
     props: {
         relation: {
@@ -29,6 +37,15 @@ export default {
 
     data() {
         return {
+            app: 'idea',
+            page: '*',
+
+            l10n: {
+                noResult: 'No ideas here',
+                noMore: 'No more...',
+                failedToLoadIdeas: 'Failed to load ideas',
+            },
+
             ideas: [],
             offset: 0,
         }
@@ -48,7 +65,7 @@ export default {
         async fetchIdeas() {
             try {
                 const params = {
-                    limit: ideasFetching.limit,
+                    limit: ideaFetching.limit,
                     offset: this.offset,
                     relation: this.relation,
                 }
@@ -64,7 +81,7 @@ export default {
 
                 return ideas.length
             } catch (error) {
-                this.$toast.error('Failed to load ideas')
+                this.$toast.error(this.l10n.failedToLoadIdeas)
             }
         },
     },

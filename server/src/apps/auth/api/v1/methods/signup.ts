@@ -4,7 +4,7 @@ import {InvalidParams, MethodError} from '@apps/base/errors'
 import {nanoid} from 'nanoid'
 import BaseAuth from './base-auth'
 
-const defaultAvatar = 'default.png'
+const defaultAvatar = `http://${process.env.HOST}:${process.env.PORT}${process.env.UPLOADS_DIR}/user/default_avatar.png`
 
 class Signup extends BaseAuth {
     constructor(props: MethodProps) {
@@ -13,7 +13,7 @@ class Signup extends BaseAuth {
 
     async run(req: Req): Promise<MethodRes> {
         const {password, repeatPassword} = req.params
-        let email = req.params
+        let {email} = req.params
 
         email = email.toLowerCase()
 

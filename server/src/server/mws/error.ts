@@ -7,11 +7,13 @@ export default (err: MethodError, req: Request, res: Response, next: NextFunctio
         return next(err)
     }
 
-    res.status(200).json({
-        code: err.code,
-        message: err.message,
-        data: err.data,
+    res.json({
+        error: {
+            code: err.code,
+            message: err.message,
+            data: err.data,
+        },
     })
 
-    next(err)
+    // next(err)
 }

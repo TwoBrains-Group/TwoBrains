@@ -8,7 +8,8 @@
         "start": "node build/index.js",
         "dev": "nodemon",
         "lint": "eslint src --quiet --ext .ts",
-        "fix-lint": "eslint src --fix --ext .ts"
+        "fix-lint": "eslint src --fix --ext .ts",
+        "img-test": "tsc && node build/modules/image-generator/index.js"
     },
     "_moduleAliases": {
         "@root": ".",
@@ -34,6 +35,7 @@
         "file-type": "^16.2.0",
         "formidable": "^1.2.2",
         "handlebars": "^4.7.6",
+        "jimp": "^0.16.1",
         "json-rpc-error": "^2.0.0",
         "jsonwebtoken": "^8.5.1",
         "module-alias": "^2.2.2",
@@ -44,6 +46,7 @@
         "uuid": "^8.3.2"
     },
     "devDependencies": {
+        "@jimp/jpeg": "^0.16.1",
         "@types/app-root-path": "^1.2.4",
         "@types/chalk": "^2.2.0",
         "@types/cookie-parser": "^1.4.2",
@@ -64,6 +67,7 @@
         "@typescript-eslint/eslint-plugin": "^4.16.1",
         "@typescript-eslint/parser": "^4.16.1",
         "eslint": "^7.21.0",
+        "eslint-plugin-import": "^2.22.1",
         "nodemon": "^2.0.7",
         "typescript": "^4.1.3"
     }

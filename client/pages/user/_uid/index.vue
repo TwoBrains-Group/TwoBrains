@@ -6,6 +6,7 @@
                 <img :src="user.avatar" alt="avatar">
                 <!--        <div class="user-profile__aside__avatar__online"></div>-->
             </div>
+
             <div class="user-profile__aside__nickname">
                 <span>{{ user.nickname }}</span>
 
@@ -32,7 +33,7 @@
                 </div>
 
                 <nuxt-link :to="'/user/' + user.uid + '/ideas'"
-                           class="flat-btn user-profile__aside__btns__el">Ideas
+                           class="flat-btn user-profile__aside__btns__el">{{ l10n.ideas }}
                 </nuxt-link>
             </div>
         </aside>

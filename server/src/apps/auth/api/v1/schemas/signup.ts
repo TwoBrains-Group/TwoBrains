@@ -6,7 +6,7 @@ export default {
     required: [
         'email',
         'password',
-        'passwordRepeat',
+        'repeatPassword',
     ],
     properties: {
         email: {
@@ -17,7 +17,7 @@ export default {
             type: 'string',
             pattern: passwordPatternString,
         },
-        passwordRepeat: {
+        repeatPassword: {
             type: 'string',
             pattern: passwordPatternString,
         },

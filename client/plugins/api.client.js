@@ -33,12 +33,14 @@ export class Api {
             headers,
         })
 
+        !isProd && console.log('Got response:', data)
+
         if (data.error) {
             !isProd && console.log(`Request error: ${JSON.stringify(data.error)}`)
             throw new RequestError(data.error)
         }
 
-        if (!data.result) {
+        if (!data.error && !data.result) {
             throw new RequestError({message: 'Invalid response data'})
         }
 

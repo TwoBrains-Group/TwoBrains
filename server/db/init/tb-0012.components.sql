@@ -3,7 +3,7 @@ SET search_path TO main;
 
 -- components --
 CREATE TABLE main.components (
-    component_id SERIAL NOT NULL,
+    component_id SERIAL2 NOT NULL,
     page_id INT2 DEFAULT NULL,
     name TEXT NOT NULL,
     CONSTRAINT components_component_id_pkey PRIMARY KEY (component_id),
@@ -17,7 +17,7 @@ COMMENT ON COLUMN main.components.name IS 'Component name';
 
 -- components_l10n --
 CREATE TABLE main.components_l10n (
-    component_id INT4 NOT NULL,
+    component_id INT2 NOT NULL,
     locale_id INT2 NOT NULL,
     data JSONB NOT NULL DEFAULT '{}',
     CONSTRAINT components_l10n_component_id_fkey FOREIGN KEY (component_id) REFERENCES main.components(component_id),

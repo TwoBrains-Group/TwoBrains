@@ -1,23 +1,29 @@
-import {Method, MethodProps, MethodRes, Req} from '@apps/base/Method'
+import {Method, MethodRes, Req} from '@apps/base/Method'
 import {QueryReturnType} from '@modules/db/pool'
 import {prepareIdea} from '../modules/prepare-ideas'
 
 class GetById extends Method {
-    constructor(props: MethodProps) {
-        super(props)
-    }
-
     async run(req: Req, user?: any) : Promise<MethodRes> {
-        const {params: {id}} = req
+        const {params} = req
+        const {id: ideaId} = params
         const {id: loggedInUserId} = user
 
-        let idea = await this.query('getById', {id, loggedInUserId}, {
+        let idea = await this.query('getById', {ideaId, loggedInUserId}, {
             returnType: QueryReturnType.Row,
         })
 
         idea = prepareIdea(idea)
 
-        return {idea}
+        const likesCount = await this.query('getLikesCount', {ideaId}, {
+            returnType: QueryReturnType.Row,
+        })
+
+        return {
+            idea: {
+                ...idea,
+                ...likesCount,
+            },
+        }
     }
 }
 

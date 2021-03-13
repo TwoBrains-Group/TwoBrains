@@ -1,5 +1,5 @@
 <template>
-    <header class="main-header">
+    <header id="main-header">
         <div class="main-header__back"></div>
 
         <div class="btn main-header__menu-btn" @click="toggleMainMenu()">
@@ -11,17 +11,28 @@
         </nuxt-link>
 
         <client-only>
-            <div class="main-header__user-btn btn" @click="toggleUserMenu()">
-                <div class="main-header__user-btn__avatar">
-                    <img :src="loggedInUser.avatar" alt="avatar">
+            <div class="right">
+                <div class="btn main-header__plus" @click="showPlusMenu = !showPlusMenu">
+                    <i class="fas fa-plus"></i>
                 </div>
-                <div class="main-header__user-btn__nickname">
-                    {{ loggedInUser.nickname }}
+
+                <div class="main-header__user-btn btn" @click="showUserMenu = !showUserMenu">
+                    <div class="main-header__user-btn__avatar">
+                        <img :src="loggedInUser.avatar" alt="avatar">
+                    </div>
+                    <div class="main-header__user-btn__nickname">
+                        {{ loggedInUser.nickname }}
+                    </div>
                 </div>
             </div>
         </client-only>
 
-        <div class="main-header__user-menu" :class="showUserMenu ? 'show' : ''">
+        <div class="main-header__plus-menu" :class="{show: showPlusMenu}">
+            <nuxt-link to="/idea/create" class="btn main-header__plus-menu__btn">Create idea</nuxt-link>
+            <nuxt-link to="/project/new" class="btn main-header__plus-menu__btn">Create project</nuxt-link>
+        </div>
+
+        <div class="main-header__user-menu" :class="{show: showUserMenu}">
             <nuxt-link to="/profile" class="btn main-header__user-menu__btn">{{ l10n.profile }}</nuxt-link>
             <nuxt-link to="/user/settings" class="btn main-header__user-menu__btn">{{ l10n.settings }}</nuxt-link>
 
@@ -35,8 +46,9 @@
 </template>
 
 <script>
-const cookie = process.client ? require('js-cookie') : undefined
 import {mapMutations, mapGetters} from 'vuex'
+
+const cookie = process.client ? require('js-cookie') : undefined
 
 export default {
     name: 'Header',
@@ -58,6 +70,7 @@ export default {
                 logout: '',
             },
             showUserMenu: false,
+            showPlusMenu: false,
         }
     },
 
@@ -71,10 +84,6 @@ export default {
         ...mapMutations({
             toggleMainMenu: 'common/toggleMainMenu',
         }),
-
-        toggleUserMenu() {
-            this.showUserMenu = !this.showUserMenu
-        },
 
         async logout() {
             cookie.remove('auth')

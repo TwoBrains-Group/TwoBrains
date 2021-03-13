@@ -1,3 +1,4 @@
-export const ideasFetching = {
+export const ideaFetching = {
     limit: 10,
+    commentsLimit: 10,
 }

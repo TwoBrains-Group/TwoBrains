@@ -124,14 +124,21 @@
                 vertical-align: middle;
                 transition: color .15s ease;
                 box-shadow: inset -1px 0 1px -1px #aaa;
+                color: #555;
+            }
+
+            .idea__block__footer__btn--like,
+            .idea__block__footer__btn--dislike {
+                background: #fff;
+
+                .count:not(:empty) {
+                    padding-left: 5px;
+                }
             }
 
             .idea__block__footer__btn--like {
-                background: #fff;
-
                 &:hover {
                     color: #f25959cc;
-                    text-shadow: 0 1px 5px -1px #f0f0f0;
                 }
 
                 &:active {
@@ -155,8 +162,36 @@
                 }
             }
 
+            .idea__block__footer__btn--dislike {
+                &:hover {
+                    color: darken(#9aa6ce, 20%);
+                }
+
+                &:active {
+                    i {
+                        transform: scale(1.2);
+                    }
+                }
+
+                &.disliked {
+                    color: darken(#9aa6ce, 20%);
+
+                    &:hover {
+                        color: #333;
+                    }
+
+                    &:active {
+                        i {
+                            transform: rotate(15deg);
+                        }
+                    }
+                }
+            }
+
             .idea__block__footer__btn--comments {
                 transition: box-shadow .15s ease;
+                font-size: 19px;
+
                 &:hover {
                     box-shadow: 0 5px 10px #f0f0f0;
                 }
@@ -168,15 +203,19 @@
         display: grid;
         position: relative;
         width: 100%;
-        max-height: 400px;
-
+        height: auto;
         grid-template-columns: auto;
         grid-template-rows: max-content;
-
         box-shadow: inset 0 3px 5px -1px #fafafa;
         z-index: 0;
 
-        overflow-y: auto;
+        max-height: 0;
+        overflow: hidden;
+        transition: .1s ease-out;
+        &.show {
+            max-height: 400px;
+            overflow-y: auto;
+        }
     }
 
     .idea__comments__comment__replies {
@@ -203,12 +242,34 @@
 
             grid-template-columns: minmax(0, 1fr);
             grid-template-rows: max-content;
+
+            .idea__comments__comment__replies__list__load-more {
+                display: block;
+                position: relative;
+                width: max-content;
+                height: max-content;
+                padding: 3px 15px;
+                margin: 5px 0;
+
+                line-height: 20px;
+                vertical-align: middle;
+                color: #9aa6ce;
+                transition: .2s ease;
+                font-size: 14px;
+                border-radius: 0;
+
+                &:hover {
+                    color: #333;
+                }
+            }
         }
     }
 
+    // FIXME: Bug with max-height, I think that I need separate page for single idea
     &.page {
         .idea__comments {
-            max-height: none;
+            //max-height: none;
+            //max-height: 675px;
         }
     }
 }

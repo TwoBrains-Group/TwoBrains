@@ -21,7 +21,7 @@
 
         <div class="project__body">
             <div class="project__body__section project__body__section--ideas" v-if="section === 'idea'">
-                <IdeaList relation="project"/>
+                <IdeaList relation="user"/>
             </div>
 
             <div class="project__body__section project__body__section--main" v-else-if="!section.length || section === 'home'">
@@ -38,14 +38,13 @@
 
 <script>
 import Spinner from '@/components/ui/Spinner'
-import {ideasFetching} from '@/constants/fetching'
-import Idea from '~/pages/project/_uid/plugin/idea'
+import {ideaFetching} from '@/constants/fetching'
 import IdeaList from '@/components/idea/IdeaList'
 
 export default {
     name: 'project',
 
-    components: {IdeaList, Idea, Spinner},
+    components: {IdeaList, Spinner},
 
     fetchKey: 'project',
     fetchOnServer: false,
@@ -61,11 +60,11 @@ export default {
             app: 'project',
             ideasOffset: 0,
             project: {},
-            section: 'main',
+            section: 'home',
             ideas: [],
             l10n: {
                 description: 'Description',
-                sections: [],
+                sections: {},
             },
             l10nLoaded: false,
         }
@@ -103,7 +102,7 @@ export default {
         async fetchIdeas() {
             try {
                 const params = {
-                    ...ideasFetching,
+                    ...ideaFetching,
                     offset: this.ideasOffset,
                 }
 

@@ -38,22 +38,34 @@
 
             <footer class="idea__block__footer">
                 <div class="base-btn idea__block__footer__btn idea__block__footer__btn--like"
-                     :class="likedByUser ? 'liked' : ''"
-                     @click="like">
-                    <i :class="likedByUser ? 'fas' : 'far'" class="fa-heart"></i>
+                     :class="liked$ ? 'liked' : ''"
+                     @click="like(false)">
+                    <i :class="liked$ ? 'fas' : 'far'" class="fa-heart"></i>
+                    <span class="count">{{ likesCount$ }}</span>
+                </div>
+
+                <div class="base-btn idea__block__footer__btn idea__block__footer__btn--dislike"
+                     :class="disliked$ ? 'disliked' : ''"
+                     @click="like(true)">
+                    <i :class="disliked$ ? 'fas' : 'far'" class="fa-frown-open"></i>
+                    <span class="count">{{ dislikesCount$ }}</span>
                 </div>
 
                 <div class="base-btn idea__block__footer__btn idea__block__footer__btn--comments"
-                     @click="toggleComments">
-                    <i class="fas fa-comment-dots"></i>
+                     @click="toggleComments"
+                     v-if="!isPage">
+                    <i :class="showComments ? 'fas' : 'far'" class="fa-comments"></i>
                 </div>
             </footer>
         </div>
 
-        <div class="sb idea__comments" v-show="showComments">
+        <div class="sb idea__comments"
+             :class="{show: showComments}">
+            <WriteComment :idea-id="id" @done="commented"/>
+
             <IdeaComment v-for="cmt of comments" :key="cmt.id" v-bind="cmt" :is-reply="false"/>
 
-            <InfiniteScroll @fetch="fetchComments"/>
+            <InfiniteScroll ref="infiniteScroll" @fetch="commentsInfiniteScroll"/>
         </div>
     </div>
 </template>
@@ -61,95 +73,149 @@
 <script>
 import InfiniteScroll from '@/components/tools/InfiniteScroll'
 import IdeaComment from '@/components/idea/IdeaComment'
+import {ideaFetching} from '@/constants/fetching'
+import WriteComment from '@/components/idea/WriteComment'
 
 export default {
     name: 'Idea',
-    components: {IdeaComment, InfiniteScroll},
+
+    components: {WriteComment, IdeaComment, InfiniteScroll},
+    fetchKey: 'user-ideas',
+    fetchOnServer: false,
+
     props: [
         'id',
         'name',
         'text',
         'liked',
+        'disliked',
         'user',
         'creationDatetime',
         'prettyCreationDatetime',
         'isPage',
+        'likesCount',
+        'dislikesCount',
     ],
+
+    created() {
+        if (process.client) {
+            this.$l10n.component(this)
+        }
+
+        this.likesCount$ = Number(this.likesCount$) || ''
+        this.dislikesCount$ = Number(this.dislikesCount$) || ''
+    },
+
+    mounted() {
+        if (this.isPage) {
+            this.toggleComments()
+        }
+    },
 
     data() {
         return {
+            app: '*',
+            page: '*',
+
+            l10n: {
+                failedToLoadComments: 'Failed to load comments',
+                delete: 'Delete',
+                edit: 'Edit',
+            },
+
+            hover: false,
+            liked$: this.liked,
+            disliked$: this.disliked,
+            likesCount$: this.likesCount,
+            dislikesCount$: this.dislikesCount,
+
             comments: [],
             showComments: false,
-            commentsLimit: null,
-            likedByUser: this.liked,
-            fetchingComments: false,
-            hover: false,
+            commentsOffset: 0,
+            commentsFirstFetch: true,
         }
     },
 
     methods: {
-        async like() {
+        async like(dislike) {
             try {
-                const {liked} = await this.$api.send({
+                const params = {
+                    dislike,
+                    id: this.id,
+                }
+
+                const {
+                    exists,
+                    dislike: disliked,
+                    likesCount,
+                    dislikesCount,
+                } = await this.$api.send({
                     app: 'idea',
                     method: 'like',
-                    params: {
-                        id: this.id,
-                    },
+                    params,
                     v: 1,
                 })
 
-                this.likedByUser = liked
+                this.liked$ = exists && !disliked
+                this.disliked$ = exists && disliked
+                this.likesCount$ = Number(likesCount) || ''
+                this.dislikesCount$ = Number(dislikesCount) || ''
             } catch (error) {
                 this.$toast.error(error.message)
             }
         },
 
-        async fetchComments($state) {
-            if (this.fetchingComments) {
-                return
+        async commentsInfiniteScroll($state) {
+            const count = await this.fetchComments()
+            if (count > 0) {
+                this.commentsOffset += count
+                $state.loaded()
+            } else {
+                $state.complete()
             }
+        },
 
-            this.fetchingComments = true
+        async fetchComments() {
+            const params = {
+                id: this.id,
+                limit: ideaFetching.commentsLimit,
+                offset: this.commentsOffset,
+            }
 
             try {
                 const {comments} = await this.$api.send({
                     app: 'idea',
                     method: 'getComments',
-                    params: {
-                        id: this.id,
-                        limit: this.commentsLimit,
-                        offset: this.comments.length,
-                    },
+                    params,
                     v: 1,
                 })
 
                 this.comments.push(...comments)
 
-                if (!comments.length) {
-                    $state && $state.complete()
-                } else {
-                    $state && $state.loaded()
-                }
+                return comments.length
             } catch (error) {
-                this.$toast.error('Failed to load comments')
-            } finally {
-                this.fetchingComments = false
+                this.$toast.error(this.l10n.failedToLoadComments)
             }
         },
 
         async toggleComments() {
+            // Don't fetch again on comments toggle
             this.showComments = !this.showComments
-            if (!this.showComments) {
-                return
+            if (this.commentsFirstFetch) {
+                this.$refs.infiniteScroll.manual()
             }
+        },
 
-            await this.fetchComments()
+        commented() {
+            this.commentsOffset = 0
+            this.comments = []
+            this.fetchComments()
+            // TODO: Prepend comment
         },
     },
 }
 </script>
 
 <style lang="scss">
-@import '~assets/sass/components/idea/Idea.scss';
+@import '~assets/sass/components/idea/Idea';
 </style>

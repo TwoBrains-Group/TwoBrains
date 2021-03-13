@@ -21,7 +21,7 @@
 
         <div class="project__footer" @mouseover.stop @mouseover="hover = false">
             <div class="project__footer__creator">
-                Created by
+                {{ `${l10n.createdBy} ` }}
                 <nuxt-link class="project__footer__creator__link" :to="'/user/' + creator.uid">
                     {{ creator.nickname }}
                 </nuxt-link>
@@ -32,6 +32,8 @@
 
 <script>
 export default {
+    name: 'project',
+
     props: [
         'id',
         'uid',
@@ -44,6 +46,13 @@ export default {
 
     data() {
         return {
+            app: 'project',
+            page: '*',
+
+            l10n: {
+                createdBy: 'Created by',
+            },
+
             url: `/project/${this.uid}`,
             hover: false,
             descriptionLimit: 696,

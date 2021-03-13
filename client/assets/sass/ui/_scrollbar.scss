@@ -1,6 +1,6 @@
 .sb {
     -ms-overflow-style: -ms-autohiding-scrollbar;
-    overflow-y: overlay;
+    overflow-y: auto;
 }
 
 .sb::-webkit-scrollbar {

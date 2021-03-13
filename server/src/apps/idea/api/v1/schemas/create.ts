@@ -2,14 +2,17 @@ export default {
     type: 'object',
     additionalProperties: false,
     required: [
-        'id',
+        'name',
+        'text',
     ],
     properties: {
-        id: {
+        name: {
             type: 'string',
+            minLength: 12,
         },
-        dislike: {
-            type: 'boolean',
+        text: {
+            type: 'string',
+            minLength: 35,
         },
     },
 }

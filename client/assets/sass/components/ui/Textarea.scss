@@ -1,0 +1,29 @@
+.ui-textarea {
+    display: block;
+    position: relative;
+
+    .ui-textarea__len-info {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        right: 10px;
+        width: max-content;
+        height: 25px;
+        padding: 0 5px;
+        font-size: 12px;
+        color: #666;
+        line-height: 25px;
+        vertical-align: middle;
+        background: #fffb;
+        border-radius: 10px;
+
+        &.warn {
+            color: #FFA500;
+        }
+
+        &.error {
+            color: #f25959;
+            font-weight: 900;
+        }
+    }
+}

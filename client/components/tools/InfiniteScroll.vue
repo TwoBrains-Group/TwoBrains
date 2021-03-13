@@ -1,12 +1,25 @@
 <template>
     <client-only>
         <!-- TODO: Add distance -->
-        <infinite-loading @infinite="fetch">
+        <infinite-loading :force-use-infinite-wrapper="wrapper"
+                          @infinite="fetch"
+                          :identifier="identifier"
+                          ref="infiniteLoading">
             <div slot="spinner">
                 <Spinner/>
             </div>
-            <h5 slot="no-more" :class="!noMore ? 'hide-no-more' : ''">No more :(</h5>
-            <h5 slot="no-results" :class="!noResult ? 'hide-no-result' : ''">Nothing here...</h5>
+
+            <h5 slot="no-more" :class="!noMore ? 'hide-no-more' : ''">{{ noMore$ }}</h5>
+
+            <h5 slot="no-results" :class="!noResult ? 'hide-no-result' : ''">
+                {{ noResult$ }}
+            </h5>
+
+            <nuxt-link slot="no-results"
+                       class="flat-btn"
+                       v-if="noResultLinkUrl"
+                       :to="noResultLinkUrl">{{ noResultLinkText }}
+            </nuxt-link>
         </infinite-loading>
     </client-only>
 </template>
@@ -18,15 +31,40 @@ import Spinner from '@/components/ui/Spinner'
 export default {
     components: {InfiniteLoading, Spinner},
 
-    props: [
+    props: {
         // 'distance',
-        'noResult',
-        'noMore',
-    ],
+        noResult: {},
+        noMore: {},
+        noResultLinkUrl: {
+            type: String,
+        },
+        noResultLinkText: {
+            type: String,
+        },
+        identifier: {
+            type: String,
+        },
+        wrapper: {
+            type: String,
+        },
+    },
+
+    data() {
+        return {
+            noMore$: this.noMore || 'No more...',
+            noResult$: this.noResult || 'Nothing here 😞',
+        }
+    },
 
     methods: {
         fetch($state) {
             this.$emit('fetch', $state)
+        },
+
+        manual() {
+            this.$nextTick(() => {
+                this.$refs.infiniteLoading.attemptLoad()
+            })
         },
     },
 }

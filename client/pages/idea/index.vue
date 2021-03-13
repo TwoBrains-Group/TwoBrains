@@ -4,7 +4,11 @@
             <Idea v-for="idea in ideas" v-bind="idea" :key="idea.id"/>
         </div>
 
-        <InfiniteScroll :no-result="false" :no-more="false" @fetch="infiniteScroll"/>
+        <InfiniteScroll :no-result="l10n.noIdeasHere + ' 😞'"
+                        no-result-link-url="/idea/create"
+                        :no-result-link-text="l10n.addOne"
+                        :no-more="false"
+                        @fetch="infiniteScroll"/>
     </div>
 </template>
 
@@ -14,14 +18,29 @@ import Spinner from '@/components/ui/Spinner'
 import InfiniteScroll from '@/components/tools/InfiniteScroll'
 
 export default {
+    name: 'index',
+
     fetchOnServer: false,
     fetchKey: 'user-ideas',
     components: {Spinner, Idea, InfiniteScroll},
 
+    created() {
+        if (process.client) {
+            this.$l10n.page(this)
+        }
+    },
+
     data() {
         return {
+            app: 'idea',
+
+            l10n: {
+                noIdeasHere: 'No ideas here',
+                addOne: 'Add one',
+            },
+
             offset: 0,
-            batch: 25,
+            limit: 25,
             ideas: [],
         }
     },
@@ -40,7 +59,7 @@ export default {
         async fetchIdeas() {
             const params = {
                 offset: this.offset,
-                limit: this.batch,
+                limit: this.limit,
             }
 
             try {

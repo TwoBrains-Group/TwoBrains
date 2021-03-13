@@ -1,10 +1,11 @@
 {
     "watch": [
-        "src/**/*.ts"
+        "src/**/*.ts",
+        "config.dev.json"
     ],
     "ignore": [
         "src/**/*.spec.ts"
     ],
     "ext": "ts,json,env",
-    "exec": "npm run fix-lint && npm run lint && npm run build && npm run start"
+    "exec": "npm run lint && npm run build && npm run start"
 }

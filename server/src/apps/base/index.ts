@@ -3,7 +3,7 @@ import Logger from '@modules/logger'
 import {MethodInitData, Method} from '@apps/base/Method'
 import {getRes, Req} from '@apps/base/templates'
 import {InvalidParams} from '@apps/base/errors'
-import Ajv, {DefinedError, JSONSchemaType} from 'ajv'
+import Ajv, {JSONSchemaType} from 'ajv'
 import formidable, {Fields, Files} from 'formidable'
 
 export type AppProps = {
@@ -124,23 +124,22 @@ export class BaseApp {
 
                             result = getRes(result)
 
-                            this.log.info(`Sent request: ${JSON.stringify(result, null, 2)}`)
+                            this.log.info(`Sent response: ${JSON.stringify(result, null, 2)}`)
 
                             res.json(result)
                         })
                     })
                 } else {
-                    router.post(route, async (req: any, res) => {
+                    router.post(route, async (req: any, res, next) => {
                         this.log.info(`Got request to ${req.path}: ${JSON.stringify(req.body, null, 2)}`)
 
                         const valid = await validateSchema(req.body)
 
                         if (!valid) {
-                            console.log(`Invalid params: ${JSON.stringify(validateSchema.errors, null, 2)}`)
                             if (validateSchema.errors) {
-                                throw new InvalidParams(validateSchema.errors.map((el: DefinedError) => el.message as string).join(','))
+                                return next(new InvalidParams(validateSchema.errors))
                             } else {
-                                throw new InvalidParams('Invalid params')
+                                throw new InvalidParams()
                             }
                         }
 
@@ -152,7 +151,7 @@ export class BaseApp {
                         let result = await method.run(requestObject, req.user && req.user.userData)
                         result = getRes(result)
 
-                        this.log.info(`Sent request: ${JSON.stringify(result, null, 2)}`)
+                        this.log.info(`Sent response: ${JSON.stringify(result, null, 2)}`)
 
                         res.json(result)
                     })

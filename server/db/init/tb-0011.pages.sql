@@ -3,7 +3,7 @@ SET search_path TO main;
 
 -- pages --
 CREATE TABLE main.pages (
-    page_id SMALLSERIAL NOT NULL,
+    page_id SERIAL2 NOT NULL,
     app_id INT2 NOT NULL,
     name TEXT NOT NULL,
     CONSTRAINT pages_page_id_pkey PRIMARY KEY (page_id),

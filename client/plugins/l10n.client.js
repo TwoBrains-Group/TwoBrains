@@ -32,6 +32,12 @@ class L10N {
         return `l10n_${l || this.locale}`
     }
 
+    format(template, params) {
+        return template.match(/{(.+?)}/g, (m, name) => {
+            return params[name]
+        })
+    }
+
     _init() {
         if (!localStorage.getItem(LOCALE_KEY)) {
             localStorage.setItem(LOCALE_KEY, DEFAULT_LOCALE)

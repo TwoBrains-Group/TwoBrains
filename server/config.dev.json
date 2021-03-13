@@ -5,7 +5,7 @@
             "user": "postgres",
             "database": "tb",
             "password": "agvin",
-            "port": 5432
+            "port": 5433
         }
     }
 }

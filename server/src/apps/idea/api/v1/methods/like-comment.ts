@@ -16,8 +16,14 @@ class LikeComment extends Method {
 
         await this.query(queryName, {id, userId})
 
+        const count = await this.query('getCommentLikesCount', {id, userId}, {
+            returnType: QueryReturnType.Row,
+            returnField: 'count',
+        })
+
         return {
             liked: !liked,
+            count,
         }
     }
 }

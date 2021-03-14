@@ -8,7 +8,10 @@
                         {{ l10n.changeNickname }}
                     </h3>
                     <div class="user-settings__block__element__body">
-                        <input v-model="fields.nickname" minlength="1" maxlength="64">
+                        <Input v-model="fields.nickname"
+                               :min-len="1"
+                               :max-len="64"
+                               ref="nickname"/>
                     </div>
                 </div>
 
@@ -40,11 +43,12 @@
                         }}</span>
 
                     <div class="user-settings__block__element__body">
-                        <input v-model="fields.uid"
+                        <Input v-model="fields.uid"
                                type="text"
-                               placeholder="new unique identifier"
-                               minlength="6"
-                               maxlength="32">
+                               :placeholder="l10n.newUniqueIdentifier"
+                               :min-len="6"
+                               :max-len="32"
+                               ref="uid"/>
                     </div>
                 </div>
 
@@ -76,8 +80,12 @@
                     </h3>
 
                     <div class="user-settings__block__element__body">
-                        <input v-model="fields.password" type="password" placeholder="new password" minlength="8"
-                               maxlength="64">
+                        <Input v-model="fields.password"
+                               type="password"
+                               :placeholder="l10n.newPassword"
+                               :min-len="8"
+                               :max-len="64"
+                               ref="password"/>
                     </div>
                 </div>
             </div>
@@ -106,6 +114,7 @@
 </template>
 
 <script>
+import Input from '@/components/ui/Input'
 import {mapGetters} from 'vuex'
 import InputFile from '@/components/ui/InputFile'
 import Spinner from '@/components/ui/Spinner'
@@ -114,6 +123,7 @@ export default {
     name: 'settings',
 
     components: {
+        Input,
         InputFile,
         Spinner,
     },
@@ -147,7 +157,6 @@ export default {
 
     computed: {
         availableLocales() {
-            console.log(`Locale: ${this.$i18n.locale}`)
             return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale)
         },
 
@@ -238,6 +247,12 @@ export default {
                     }
                 }
 
+                if ('nickname' in params && !this.$refs.nickname.test() ||
+                    'uid' in params && !this.$refs.uid.test() ||
+                    'password' in params && !this.$refs.password.test()) {
+                    return
+                }
+
                 if (Object.keys(params).length) {
                     const {updatedData} = await this.$api.send({
                         app: 'user',
@@ -255,7 +270,6 @@ export default {
 
                 await this.saveAvatar()
             } catch (error) {
-                console.log(error)
                 this.$toast.error(error.message)
             }
         },

@@ -1,14 +1,10 @@
-import {MethodProps, MethodRes} from '@apps/base/Method'
+import {MethodRes} from '@apps/base/Method'
 import {Req} from '@apps/base/templates'
-import {MethodError} from '@apps/base/errors'
+import {AuthError} from '@apps/base/errors'
 import {QueryReturnType} from '@modules/db/pool'
 import BaseAuth from './base-auth'
 
 class Login extends BaseAuth {
-    constructor(props: MethodProps) {
-        super(props)
-    }
-
     async run(req: Req): Promise<MethodRes> {
         this.log.warn(`Got request: ${JSON.stringify(req, null, 2)}`)
 
@@ -23,7 +19,7 @@ class Login extends BaseAuth {
         })
 
         if (!userId) {
-            throw new MethodError(`User with email '${email}' not found`)
+            throw new AuthError(`User with email '${email}' not found`)
         }
 
         const passwordVerified = await this.query('verifyPassword', {password, userId}, {
@@ -32,7 +28,7 @@ class Login extends BaseAuth {
         })
 
         if (!passwordVerified) {
-            throw new MethodError('Invalid password')
+            throw new AuthError('Invalid password')
         }
 
         const {token, userData} = await this.getToken(userId)

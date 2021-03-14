@@ -28,3 +28,8 @@ export class MethodNotFound extends MethodError {
     }
 }
 
+export class AuthError extends MethodError {
+    constructor(message = 'Authentication error') {
+        super(message, -32002, {})
+    }
+}

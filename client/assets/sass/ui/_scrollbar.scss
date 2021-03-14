@@ -3,6 +3,14 @@
     overflow-y: auto;
 }
 
+.sb--round::-webkit-scrollbar-track {
+    border-radius: 5px;
+}
+
+.sb--round::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+}
+
 .sb::-webkit-scrollbar {
     width: 10px;
     height: 10px;
@@ -19,6 +27,7 @@
 
 .sb::-webkit-scrollbar-thumb {
     background: #ccc;
+    cursor: pointer;
 
     &:hover {
         background: #aaa;

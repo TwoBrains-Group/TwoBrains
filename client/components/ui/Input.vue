@@ -1,23 +1,28 @@
 <template>
-    <div class="ui-textarea" :class="{ringError}">
-        <textarea @focusin="focused = true"
-                  @focusout="focused = false"
-                  class="sb sb--round"
-                  @input="changed"
-                  :placeholder="placeholder"
-                  ref="textarea"></textarea>
+    <div class="ui-input" :class="{ringError}">
+        <input :type="type"
+               @focusin="focused = true"
+               @focusout="focused = false"
+               @input="changed"
+               :placeholder="placeholder"
+               ref="input"
+               :value="value">
 
-        <div class="ui-textarea__len-info"
-             :class="{warn, error: error || ringError, show: focused || ringError}">{{ lenInfo }}
+        <div class="ui-input__len-info"
+             :class="{warn, error: error || ringError, show: focused}">{{ lenInfo }}
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'Textarea',
+    name: 'Input',
 
     props: {
+        type: {
+            type: String,
+            default: 'text',
+        },
         minLen: {
             type: Number,
             default: 0,
@@ -26,11 +31,11 @@ export default {
             type: Number,
             default: Infinity,
         },
-        warnLen: {
-            type: Number,
-            default: null,
-        },
         placeholder: {
+            type: String,
+            default: '',
+        },
+        value: {
             type: String,
             default: '',
         },
@@ -53,8 +58,6 @@ export default {
             const val = e.target.value
             const len = val.length
 
-            this.ringError = false
-
             if (this.minLen !== 0 && len < this.minLen) {
                 this.lenInfo = this.$l10n.format(this.l10n.moreToGo, {
                     count: this.minLen - len,
@@ -67,7 +70,6 @@ export default {
                 this.lenInfo = this.$l10n.format(this.l10n.charactersLeft, {
                     count: this.maxLen - len,
                 })
-                this.ringError = false
             }
 
             if (this.warnLen) {
@@ -80,15 +82,16 @@ export default {
         },
 
         test() {
-            const len = this.$refs.textarea.value.length
+            const len = this.$refs.input.value.length
 
             if (len < this.minLen || len > this.maxLen) {
-                this.ringError = true
-
+                this.ringError = false
                 if (this.ringTimeout) {
                     clearTimeout(this.ringTimeout)
                 }
                 this.ringTimeout = setTimeout(() => this.ringError = false, 2500)
+
+                this.ringError = true
 
                 return false
             }
@@ -97,12 +100,12 @@ export default {
         },
 
         clear() {
-            this.$refs.textarea.value = ''
+            this.$refs.input.value = ''
         },
     },
 }
 </script>
 
 <style lang="scss">
-@import '~assets/sass/components/ui/Textarea';
+@import '~assets/sass/components/ui/Input';
 </style>

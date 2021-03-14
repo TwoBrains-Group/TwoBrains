@@ -10,40 +10,6 @@ label {
     margin: 5px auto;
 }
 
-input:not([type='file']):not([type='checkbox']),
-textarea {
-    display: block;
-    position: relative;
-    padding: 3px;
-    margin: 8px auto;
-
-    text-align: center;
-    border-radius: 5px;
-    box-shadow: 0 0 0 1px #f0f0f0;
-    transition: .2s ease;
-    &:hover {
-        box-shadow: 0 0 0 1px #f0f0f0, 0 2.5px 5px -1px #f0f0f0;
-    }
-
-    &:focus {
-        box-shadow: 0 4px 10px -1px #f0f0f0;
-    }
-}
-
-input:not([type='file']):not([type='checkbox']) {
-    width: 225px;
-    height: 25px;
-}
-
-textarea {
-    width: 100%;
-    padding: 5px;
-    box-sizing: border-box;
-    resize: vertical;
-    font-size: 16px;
-    font-family: 'Roboto', sans-serif;
-}
-
 //input[type='file'] {
 //    display: block;
 //    position: relative;

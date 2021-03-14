@@ -66,9 +66,14 @@ export default {
                 chooseFile: 'Выберите файл...',
             },
             Textarea: {
-                moreToGo: 'символов осталось',
+                moreToGo: 'Ещё {count} символов',
                 tooLongBy: 'Слишком длинный на {count} символов',
-                charactersLeft: 'символов осталось',
+                charactersLeft: '{count} символов осталось',
+            },
+            Input: {
+                moreToGo: 'Ещё {count} символов',
+                tooLongBy: 'Слишком длинный на {count} символов',
+                charactersLeft: '{count} символов осталось',
             },
         },
         idea: {

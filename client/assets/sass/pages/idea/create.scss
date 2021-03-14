@@ -14,13 +14,13 @@
         border-radius: 10px;
         box-shadow: 0 3px 5px -1px #f0f0f0;
 
-        .new-idea-form__name,
+        .new-idea-form__name > input,
         .new-idea-form__text {
             width: 100%;
             box-sizing: border-box;
         }
 
-        .new-idea-form__name {
+        .new-idea-form__name > input {
             height: 40px;
             padding: 5px 15px;
             font-size: 20px;
@@ -29,10 +29,14 @@
         .new-idea-form__text {
             display: block;
             position: relative;
-            padding: 10px;
-            min-height: 350px;
-            font-size: 18px;
-            text-align: left;
+            padding: 0;
+
+            textarea {
+                min-height: 350px;
+                max-height: 750px;
+                font-size: 18px;
+                text-align: left;
+            }
         }
 
         .new-idea-form__done {

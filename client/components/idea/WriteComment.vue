@@ -41,10 +41,7 @@ export default {
 
     methods: {
         async done() {
-            try {
-                this.$refs.textarea.test()
-            } catch (error) {
-                this.$toast.error(error.message)
+            if (!this.$refs.textarea.test()) {
                 return
             }
 

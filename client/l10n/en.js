@@ -9,6 +9,7 @@ export default {
                 changePassword: 'Change password',
                 uidDescription: 'This identifier will be your url',
                 failedToLoadLocales: 'Failed to load languages',
+                newUniqueIdentifier: 'New unique identifier',
             },
             _uid: {
                 ideas: 'Ideas',
@@ -66,9 +67,14 @@ export default {
                 chooseFile: 'Choose file...',
             },
             Textarea: {
-                moreToGo: 'more to go',
+                moreToGo: '{count} more to go',
                 tooLongBy: 'Too long by {count} characters',
-                charactersLeft: 'characters left',
+                charactersLeft: '{count} characters left',
+            },
+            Input: {
+                moreToGo: '{count} more to go',
+                tooLongBy: 'Too long by {count} characters',
+                charactersLeft: '{count} characters left',
             },
         },
         idea: {

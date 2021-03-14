@@ -6,19 +6,44 @@
         </header>
 
         <div class="auth-window__body auth-window__body--login" v-if="login">
-            <input type="email" placeholder="email" v-model="fields.loginEmail">
+            <Input type="email"
+                   placeholder="email"
+                   v-model="fields.loginEmail"
+                   :min-len="3"
+                   :max-len="320"
+                   ref="loginEmail"/>
 
-            <input type="password" :placeholder="l10n.password" v-model="fields.loginPassword">
+            <Input type="password"
+                   :placeholder="l10n.password"
+                   v-model="fields.loginPassword"
+                   :min-len="8"
+                   :max-len="64"
+                   ref="loginPassword"/>
 
             <div class="material-btn auth-window__body__accept" @click="loginLocal()">Login</div>
         </div>
 
         <div class="auth-window__body auth-window__body--signup" v-if="!login">
-            <input type="email" placeholder="email" v-model="fields.signupEmail">
+            <Input type="email"
+                   placeholder="email"
+                   v-model="fields.signupEmail"
+                   :min-len="3"
+                   :max-len="320"
+                   ref="signupEmail"/>
 
-            <input type="password" :placeholder="l10n.password" v-model="fields.signupPassword">
+            <Input type="password"
+                   :placeholder="l10n.password"
+                   v-model="fields.signupPassword"
+                   :min-len="8"
+                   :max-len="64"
+                   ref="signupPassword"/>
 
-            <input type="password" :placeholder="l10n.repeatPassword" v-model="fields.signupRepeatPassword">
+            <Input type="password"
+                   :placeholder="l10n.repeatPassword"
+                   v-model="fields.signupRepeatPassword"
+                   :min-len="8"
+                   :max-len="64"
+                   ref="signupRepeatPassword"/>
 
             <div class="material-btn auth-window__body__accept" @click="signup()">Sign up</div>
         </div>
@@ -27,7 +52,8 @@
             <h6>{{ l10n.orUseOtherAuthMethods }}</h6>
 
             <div class="auth-window__footer__services-buttons">
-                <div @click="loginWithGoogle()" class="base-btn auth-window__footer__services-buttons__btn auth-window__footer__services-buttons--google">
+                <div @click="loginWithGoogle()"
+                     class="base-btn auth-window__footer__services-buttons__btn auth-window__footer__services-buttons--google">
                     <img src="/img/auth/google/btn_google_signin_dark_normal_web@2x.png" alt="Sign in with Google">
                 </div>
             </div>
@@ -36,9 +62,14 @@
 </template>
 
 <script>
+import Input from '@/components/ui/Input'
+
 const cookie = process.client ? require('js-cookie') : undefined
 
 export default {
+    components: {
+        Input,
+    },
     layout: 'auth',
 
     data() {
@@ -57,7 +88,8 @@ export default {
     },
 
     methods: {
-        loginWithGoogle() {},
+        loginWithGoogle() {
+        },
 
         switchAuthType() {
             this.login = !this.login
@@ -92,6 +124,11 @@ export default {
         },
 
         async loginLocal() {
+            if (!this.$refs.loginEmail.test() ||
+                !this.$refs.loginPassword.test()) {
+                return
+            }
+
             const params = {
                 email: this.fields.loginEmail,
                 password: this.fields.loginPassword,
@@ -100,6 +137,12 @@ export default {
         },
 
         async signup() {
+            if (!this.$refs.signupEmail.test() ||
+                !this.$refs.signupPassword.test() ||
+                !this.$refs.signupRepeatPassword.test()) {
+                return
+            }
+
             const params = {
                 email: this.fields.signupEmail,
                 password: this.fields.signupPassword,

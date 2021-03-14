@@ -1,9 +1,19 @@
 <template>
     <div id="page-idea-new">
         <div class="new-idea-form">
-            <input type="text" class="new-idea-form__name" :placeholder="l10n.nameYourIdea" v-model="name">
+            <Input type="text"
+                   class="new-idea-form__name"
+                   :placeholder="l10n.nameYourIdea"
+                   v-model="name"
+                   :max-len="120"
+                   :min-len="5"/>
 
-            <textarea class="new-idea-form__text" :placeholder="l10n.myIdeaIsAbout" v-model="text"></textarea>
+            <Textarea class="new-idea-form__text"
+                      v-model="text"
+                      :max-len="5000"
+                      :min-len="50"
+                      :warn-len="4000"
+                      :placeholder="l10n.myIdeaIsAbout"/>
 
             <div class="material-btn new-idea-form__done" @click="done">
                 {{ l10n.done }}
@@ -13,9 +23,15 @@
 </template>
 
 <script>
+import Input from '@/components/ui/Input'
+import Textarea from '@/components/ui/Textarea'
+
 export default {
     name: 'create',
-
+    components: {
+        Input,
+        Textarea,
+    },
     data() {
         return {
             name: '',
@@ -49,5 +65,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~assets/sass/pages/idea/new';
+@import '~assets/sass/pages/idea/create';
 </style>

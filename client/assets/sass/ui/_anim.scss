@@ -1,0 +1,9 @@
+@keyframes ring {
+    from {
+        transform: translateX(-2px);
+    }
+
+    to {
+        transform: translateX(2px);
+    }
+}

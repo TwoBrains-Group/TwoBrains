@@ -15,5 +15,6 @@ export default jwt({
     path: [
         /.*\/auth.*/g,
         /\/public\/.*/g,
+        /\/l10n\/.*/g,
     ],
 })

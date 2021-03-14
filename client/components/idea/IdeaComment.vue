@@ -209,7 +209,7 @@ export default {
                     v: 1,
                 })
 
-                this.$toast.info(this.l10n.commentSuccessfullyDeleted)
+                this.$toast.show(this.l10n.commentSuccessfullyDeleted)
 
                 this.$destroy()
                 this.$el.parentNode.removeChild(this.$el)

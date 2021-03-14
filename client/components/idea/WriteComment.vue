@@ -76,7 +76,7 @@ export default {
 
                 this.$emit('done', comment)
 
-                this.$toast.info(this.l10n.commentSuccessfullyAdded)
+                this.$toast.show(this.l10n.commentSuccessfullyAdded)
             } catch (error) {
                 this.$toast.error('Failed to comment')
             }

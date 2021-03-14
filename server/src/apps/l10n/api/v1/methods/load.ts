@@ -30,46 +30,60 @@ class Load extends Method {
     async run(req: Req): Promise<MethodRes> {
         const {params} = req
         const {
-            components,
-            pages,
+            // components,
+            // pages,
             locale,
         } = params
 
         // FIXME: Optimize (!!!)
+
+        // FIXME: Direct loading was turned off due to bugs with components/pages collecting
+        //  Now just load all the data by locale
+
 
         const data: Schema = {
             components: {},
             pages: {},
         }
 
-        for (const cmp of components) {
-            const app = cmp.app
-            const name = cmp.name
+        data.components = await this.query('getAllComponentsData', {locale}, {
+            returnType: QueryReturnType.Row,
+            returnField: 'data',
+        })
 
-            const params: CmpQueryParams = {app, name}
+        data.pages = await this.query('getAllPagesData', {locale}, {
+            returnType: QueryReturnType.Row,
+            returnField: 'data',
+        })
 
-            let cmpData = await this.loadComponentData(params, locale)
-
-            if (!cmpData) {
-                cmpData = await this.loadComponentData(params, DEFAULT_LOCALE)
-            }
-
-            data.components[`${app}_${name}`] = cmpData || {}
-        }
-
-        for (const page of pages) {
-            const app = page.app
-            const name = page.name
-
-            const params: PageQueryParams = {app, name}
-            let pageData = await this.loadPageData(params, locale)
-
-            if (!pageData) {
-                pageData = await this.loadPageData(params, DEFAULT_LOCALE)
-            }
-
-            data.pages[`${app}_${name}`] = pageData || {}
-        }
+        // for (const cmp of components) {
+        //     const app = cmp.app
+        //     const name = cmp.name
+        //
+        //     const params: CmpQueryParams = {app, name}
+        //
+        //     let cmpData = await this.loadComponentData(params, locale)
+        //
+        //     if (!cmpData) {
+        //         cmpData = await this.loadComponentData(params, DEFAULT_LOCALE)
+        //     }
+        //
+        //     data.components[`${app}_${name}`] = cmpData || {}
+        // }
+        //
+        // for (const page of pages) {
+        //     const app = page.app
+        //     const name = page.name
+        //
+        //     const params: PageQueryParams = {app, name}
+        //     let pageData = await this.loadPageData(params, locale)
+        //
+        //     if (!pageData) {
+        //         pageData = await this.loadPageData(params, DEFAULT_LOCALE)
+        //     }
+        //
+        //     data.pages[`${app}_${name}`] = pageData || {}
+        // }
 
         return {
             data,

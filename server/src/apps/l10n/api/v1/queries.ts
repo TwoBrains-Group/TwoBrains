@@ -33,4 +33,30 @@ export default {
         WHERE
             l.state = 'enabled'::main.state
             AND l.translatable = :translatable;`,
+
+    getAllComponentsData: `
+        SELECT
+            json_object_agg(
+                a.name || '_' || c.name, cl10n.data
+            )::jsonb AS "data"
+        FROM
+            main.components_l10n AS cl10n
+            INNER JOIN main.locales AS l ON cl10n.locale_id = l.locale_id
+            INNER JOIN main.components AS c ON cl10n.component_id = c.component_id
+            INNER JOIN main.apps AS a ON c.app_id = a.app_id
+        WHERE
+            l.code = :locale;`,
+
+    getAllPagesData: `
+        SELECT
+            json_object_agg(
+                a.name || '_' || p.name, pl10n.data
+            )::jsonb AS "data"
+        FROM
+            main.pages_l10n AS pl10n
+            INNER JOIN main.locales AS l ON pl10n.locale_id = l.locale_id
+            INNER JOIN main.pages AS p ON pl10n.page_id = p.page_id
+            INNER JOIN main.apps AS a ON p.app_id = a.app_id
+        WHERE
+            l.code = :locale;`,
 }

@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 const isProd = process.env.NODE_ENV === 'production'
 
 class RequestError {
@@ -29,7 +31,7 @@ export class Api {
 
         !isProd && console.log('Send request:', req)
 
-        const {data} = await this.ctx.$axios.post(url, req.params || req.formData, {
+        const {data} = await axios.post(url, req.params || req.formData, {
             headers,
         })
 

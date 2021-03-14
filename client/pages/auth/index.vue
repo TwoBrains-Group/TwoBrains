@@ -56,6 +56,7 @@ export default {
                 repeatPassword: 'Repeat password',
                 orUseOtherAuthMethods: 'or use other auth methods',
             },
+
             fields: {
                 loginEmail: null,
                 loginPassword: null,

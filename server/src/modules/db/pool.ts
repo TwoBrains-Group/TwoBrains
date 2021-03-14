@@ -40,7 +40,7 @@ export const prepareQuery = (queryName: string, queryString: string, params: Que
     let paramIndex = 0
     const unusedVariables: string[] = []
 
-    const text = queryString.replace(/(?<!:):(\w+)/g, (text, variable) => {
+    let text = queryString.replace(/(?<!:):(\w+)/g, (text, variable) => {
         if (variable in params) {
             ++paramIndex
             values.push(params[variable])
@@ -52,6 +52,10 @@ export const prepareQuery = (queryName: string, queryString: string, params: Que
         }
         return text
     }).trim()
+
+    const pattern = new RegExp(`/\\*\\s*${Object.keys(params).join('|')}:([^\*]*)\\*/`, 'gm');
+
+    text = text.replace(pattern, '$1')
 
     if (unusedVariables.length) {
         throw new UnusedQueryParams(unusedVariables, queryName)

@@ -10,8 +10,10 @@ import Project from '@/components/project/Project'
 import Spinner from '@/components/ui/Spinner'
 
 export default {
-    components: {Project, Spinner},
-    fetchOnServer: false,
+    components: {
+        Project,
+        Spinner,
+    },
 
     data() {
         return {

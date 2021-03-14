@@ -1,5 +1,5 @@
 <template>
-    <Spinner v-if="$fetchState.pending || !l10nLoaded"/>
+    <Spinner v-if="$fetchState.pending"/>
     <div v-else class="user-profile">
         <aside class="user-profile__aside">
             <div class="user-profile__aside__avatar">
@@ -47,32 +47,15 @@ import Spinner from '@/components/ui/Spinner'
 export default {
     name: 'profile',
 
-    components: {Spinner},
-    fetchOnServer: false,
-    fetchKey: 'profile',
-
-    created() {
-        if (process.client) {
-            this.$l10n.page(this)
-        }
+    components: {
+        Spinner,
     },
 
     data() {
         return {
-            user: {},
+            l10n: this.$t('page.user._uid'),
 
-            app: 'user',
-            l10nLoaded: false,
-            l10n: {
-                following: '',
-                following_you: '',
-                mutual_following: '',
-                unfollow: '',
-                follow: '',
-                settings: '',
-                ideas: '',
-                mutually_follow: '',
-            },
+            user: {},
         }
     },
 
@@ -109,7 +92,10 @@ export default {
                     v: 1,
                 })
 
-                this.user = {...this.user, ...info}
+                this.user = {
+                    ...this.user,
+                    ...info,
+                }
             } catch (error) {
                 this.$toast.error('Failed to follow user')
             }

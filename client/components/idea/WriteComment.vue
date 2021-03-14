@@ -21,29 +21,19 @@ import Textarea from '@/components/ui/Textarea'
 
 export default {
     name: 'WriteComment',
-    fetchOnServer: false,
 
-    components: {Textarea},
+    components: {
+        Textarea,
+    },
+
     props: [
         'replyTo',
         'ideaId',
     ],
 
-    created() {
-        if (process.client) {
-            console.log('Add write comment')
-            this.$l10n.component(this)
-        }
-    },
-
     data() {
         return {
-            app: 'idea',
-
-            l10n: {
-                writeAComment: 'Write a comment...',
-                commentSuccessfullyAdded: 'Comment successfully added',
-            },
+            l10n: this.$t('cmp.idea.WriteComment'),
 
             text: '',
         }

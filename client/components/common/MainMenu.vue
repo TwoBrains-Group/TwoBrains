@@ -28,24 +28,10 @@
 <script>
 export default {
     name: 'MainMenu',
-    fetchOnServer: false,
-
-    created() {
-        if (process.client) {
-            this.$l10n.component(this)
-        }
-    },
 
     data() {
         return {
-            app: '*',
-
-            l10n: {
-                home: '',
-                ideas: '',
-                projects: '',
-                about: '',
-            },
+            l10n: this.$t('cmp.*.MainMenu'),
         }
     },
 

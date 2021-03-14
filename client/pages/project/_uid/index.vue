@@ -1,5 +1,5 @@
 <template>
-    <Spinner v-if="$fetchState.pending || !l10nLoaded"/>
+    <Spinner v-if="$fetchState.pending"/>
     <div v-else id="page-project-uid">
         <header class="project__header">
             <div class="project__header__image">
@@ -44,31 +44,19 @@ import IdeaList from '@/components/idea/IdeaList'
 export default {
     name: 'project',
 
-    components: {IdeaList, Spinner},
-
-    fetchKey: 'project',
-    fetchOnServer: false,
-
-    created() {
-        if (process.client) {
-            this.$l10n.page(this)
-        }
+    components: {
+        IdeaList,
+        Spinner,
     },
 
     data() {
         return {
-            app: 'project',
-
-            l10n: {
-                description: 'Description',
-                sections: {},
-            },
+            l10n: this.$t('page.project._uid'),
 
             ideasOffset: 0,
             project: {},
             section: 'home',
             ideas: [],
-            l10nLoaded: false,
         }
     },
 

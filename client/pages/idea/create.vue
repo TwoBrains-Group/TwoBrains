@@ -16,23 +16,11 @@
 export default {
     name: 'create',
 
-    created() {
-        if (process.client) {
-            this.$l10n.page(this)
-        }
-    },
-
     data() {
         return {
-            app: 'idea',
-
             name: '',
             text: '',
-            l10n: {
-                done: 'Done',
-                myIdeaIsAbout: 'My idea is about...',
-                nameYourIdea: 'Name your idea',
-            },
+            l10n: this.$t('page.idea.create'),
         }
     },
 

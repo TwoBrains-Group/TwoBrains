@@ -81,9 +81,10 @@ import InfiniteScroll from '@/components/tools/InfiniteScroll'
 
 export default {
     name: 'IdeaComment',
-    fetchOnServer: false,
 
-    components: {InfiniteScroll},
+    components: {
+        InfiniteScroll,
+    },
     props: [
         'id',
         'user',
@@ -97,30 +98,12 @@ export default {
     ],
 
     created() {
-        if (process.client) {
-            this.$l10n.component(this)
-        }
-
         this.likesCount$ = Number(this.likesCount$) || ''
     },
 
     data() {
         return {
-            app: 'idea',
-
-            l10n: {
-                delete: 'Delete',
-                edit: 'Edit',
-                showReplies: 'Show replies',
-                closeReplies: 'Close replies',
-                reply: 'Reply',
-                failedToLikeComment: 'Failed to like comment',
-                failedToLoadReplies: 'Failed to load replies',
-                failedToDeleteComment: 'Failed to delete comment',
-                failedToReply: 'Failed to reply',
-                commentSuccessfullyDeleted: 'Comment successfully deleted',
-                replySuccessfullyAdded: 'Reply successfully added',
-            },
+            l10n: this.$t('cmp.idea.IdeaComment'),
 
             liked$: this.liked,
             likesCount$: this.likesCount,

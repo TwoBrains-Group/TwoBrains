@@ -14,9 +14,11 @@ import Spinner from '@/components/ui/Spinner'
 import InfiniteScroll from '@/components/tools/InfiniteScroll'
 
 export default {
-    fetchOnServer: false,
-    fetchKey: 'user-ideas',
-    components: {InfiniteScroll, Spinner, Idea},
+    components: {
+        InfiniteScroll,
+        Spinner,
+        Idea,
+    },
 
     data() {
         return {

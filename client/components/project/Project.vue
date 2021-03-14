@@ -48,9 +48,7 @@ export default {
         return {
             app: 'project',
 
-            l10n: {
-                createdBy: 'Created by',
-            },
+            l10n: this.$t('cmp.project.Project'),
 
             url: `/project/${this.uid}`,
             hover: false,

@@ -23,8 +23,6 @@
 export default {
     name: 'InputFile',
 
-    fetchOnServer: false,
-
     props: [
         'text',
         'accept',
@@ -33,19 +31,9 @@ export default {
         'remove',
     ],
 
-    created() {
-        if (process.client) {
-            this.$l10n.component(this)
-        }
-    },
-
     data() {
         return {
-            app: '*',
-
-            l10n: {
-                chooseFile: '',
-            },
+            l10n: this.$t('cmp.*.InputFile'),
 
             chosen: '',
         }

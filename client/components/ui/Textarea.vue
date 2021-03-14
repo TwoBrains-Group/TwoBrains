@@ -17,9 +17,6 @@
 export default {
     name: 'Textarea',
 
-    created() {
-    },
-
     props: {
         minLen: {
             type: Number,
@@ -41,13 +38,7 @@ export default {
 
     data() {
         return {
-            app: '*',
-
-            l10n: {
-                moreToGo: 'more to go',
-                tooLongBy: 'Too long by {len} characters',
-                charactersLeft: 'characters left',
-            },
+            l10n: this.$t('cmp.*.Textarea'),
 
             focused: false,
             lenInfo: '',

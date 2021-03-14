@@ -29,12 +29,17 @@ import InfiniteLoading from 'vue-infinite-loading'
 import Spinner from '@/components/ui/Spinner'
 
 export default {
-    components: {InfiniteLoading, Spinner},
+    components: {
+        InfiniteLoading,
+        Spinner,
+    },
 
     props: {
         // 'distance',
-        noResult: {},
-        noMore: {},
+        noResult: {
+        },
+        noMore: {
+        },
         noResultLinkUrl: {
             type: String,
         },

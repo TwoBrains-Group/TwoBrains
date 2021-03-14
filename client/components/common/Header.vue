@@ -52,23 +52,11 @@ const cookie = process.client ? require('js-cookie') : undefined
 
 export default {
     name: 'Header',
-    fetchOnServer: false,
-
-    created() {
-        if (process.client) {
-            this.$l10n.component(this)
-        }
-    },
 
     data() {
         return {
-            app: '*',
+            l10n: this.$t('cmp.*.Header'),
 
-            l10n: {
-                profile: '',
-                settings: '',
-                logout: '',
-            },
             showUserMenu: false,
             showPlusMenu: false,
         }

@@ -41,21 +41,9 @@ const cookie = process.client ? require('js-cookie') : undefined
 export default {
     layout: 'auth',
 
-    created() {
-        if (process.client) {
-            this.$l10n.page(this)
-        }
-    },
-
     data() {
         return {
-            app: 'auth',
-
-            l10n: {
-                password: 'Password',
-                repeatPassword: 'Repeat password',
-                orUseOtherAuthMethods: 'or use other auth methods',
-            },
+            l10n: this.$t('pages.auth.auth'),
 
             fields: {
                 loginEmail: null,
@@ -88,6 +76,8 @@ export default {
                     userData,
                     token,
                 }
+
+                await this.$i18n.setLocale(authData.userData.locale)
 
                 this.$store.commit('auth/setAuth', authData)
                 cookie.set('auth', authData)

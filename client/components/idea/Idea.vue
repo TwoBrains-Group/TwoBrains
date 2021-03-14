@@ -79,9 +79,12 @@ import WriteComment from '@/components/idea/WriteComment'
 export default {
     name: 'Idea',
 
-    components: {WriteComment, IdeaComment, InfiniteScroll},
+    components: {
+        WriteComment,
+        IdeaComment,
+        InfiniteScroll,
+    },
     fetchKey: 'user-ideas',
-    fetchOnServer: false,
 
     props: [
         'id',
@@ -98,23 +101,13 @@ export default {
     ],
 
     created() {
-        if (process.client) {
-            this.$l10n.component(this)
-        }
-
         this.likesCount$ = Number(this.likesCount$) || ''
         this.dislikesCount$ = Number(this.dislikesCount$) || ''
     },
 
     data() {
         return {
-            app: 'idea',
-
-            l10n: {
-                failedToLoadComments: 'Failed to load comments',
-                delete: 'Delete',
-                edit: 'Edit',
-            },
+            l10n: this.$t('cmp.idea.Idea'),
 
             hover: false,
             liked$: this.liked,

@@ -58,10 +58,10 @@
 
                     <div class="user-settings__block__element__body">
                         <div class="hor-list" :class="{skeleton: !locales.length}">
-                            <div class="btn hor-list__el" v-for="loc of locales"
-                                 @click="changeLocale(loc)"
-                                 :class="{active: fields.locale === loc}">
-                                {{ loc }}
+                            <div class="btn hor-list__el" v-for="loc of availableLocales"
+                                 @click="changeLocale(loc.code)"
+                                 :key="loc.code">
+                                {{ loc.name }}
                             </div>
                         </div>
                     </div>
@@ -112,20 +112,18 @@ import Spinner from '@/components/ui/Spinner'
 
 export default {
     name: 'settings',
-    components: {InputFile, Spinner},
-    fetchOnServer: false,
-    fetchKey: 'user-settings',
 
-    created() {
-        if (process.client) {
-            this.$l10n.page(this)
-        }
+    components: {
+        InputFile,
+        Spinner,
     },
 
     data() {
         return {
+            l10n: this.$t('page.user.settings'),
+
             changed: false,
-            locales: [],
+            locales: this.$i18n.locales.filter(locale => locale.code !== this.$i18n.locale),
             fields: {},
             initial: {},
             allowedFields: [
@@ -143,50 +141,30 @@ export default {
             ],
             files: [
                 'avatar',
-                'locale',
             ],
-
-            app: 'user',
-            l10n: {
-                changeNickname: '',
-                changeAvatar: '',
-                changeUid: '',
-                changePassword: '',
-                uidDescription: '',
-                changeLang: '',
-                failedToLoadLocales: 'Failed to load locales',
-            },
-            l10nLoaded: false,
         }
     },
 
-    async fetch() {
-        try {
-            const {locales} = await this.$api.send({
-                app: 'l10n',
-                method: 'getLocales',
-                params: {
-                    translatable: true,
-                },
-                v: 1,
-            })
+    computed: {
+        availableLocales() {
+            console.log(`Locale: ${this.$i18n.locale}`)
+            return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale)
+        },
 
-            if (!locales) {
-                throw new Error()
-            }
-
-            this.locales = locales.map(l => l.code)
-        } catch (error) {
-            console.log(error)
-            this.$toast.error(this.l10n.failedToLoadLocales)
-        }
+        ...mapGetters('auth', [
+            'loggedInUser',
+        ]),
     },
 
     mounted() {
-        this.fields = {...this.loggedInUser}
+        this.fields = {
+            ...this.loggedInUser,
+        }
         delete this.fields.avatar
 
-        this.initial = {...this.fields}
+        this.initial = {
+            ...this.fields,
+        }
     },
 
     updated() {
@@ -199,12 +177,6 @@ export default {
                 this.changed = true
             }
         }
-    },
-
-    computed: {
-        ...mapGetters('auth', [
-            'loggedInUser',
-        ]),
     },
 
     methods: {
@@ -335,9 +307,11 @@ export default {
                     v: 1,
                 })
 
-                this.$l10n.setLocale(locale)
+                await this.$i18n.setLocale(code)
 
-                this.$store.commit('auth/setUserData', {locale})
+                this.$store.commit('auth/setUserData', {
+                    locale,
+                })
 
                 location.reload()
             } catch (error) {

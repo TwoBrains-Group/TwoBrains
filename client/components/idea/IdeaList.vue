@@ -16,8 +16,10 @@ const ideasRelations = ['project', 'user']
 export default {
     name: 'IdeaList',
 
-    components: {Idea, InfiniteScroll},
-    fetchOnServer: false,
+    components: {
+        Idea,
+        InfiniteScroll,
+    },
 
     props: {
         relation: {
@@ -29,21 +31,9 @@ export default {
         },
     },
 
-    created() {
-        if (process.client) {
-            this.$l10n.component(this)
-        }
-    },
-
     data() {
         return {
-            app: 'idea',
-
-            l10n: {
-                noResult: 'No ideas here',
-                noMore: 'No more...',
-                failedToLoadIdeas: 'Failed to load ideas',
-            },
+            l10n: this.$t('cmp.idea.IdeaList'),
 
             ideas: [],
             offset: 0,

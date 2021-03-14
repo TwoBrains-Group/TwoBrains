@@ -20,24 +20,15 @@ import InfiniteScroll from '@/components/tools/InfiniteScroll'
 export default {
     name: 'index',
 
-    fetchOnServer: false,
-    fetchKey: 'user-ideas',
-    components: {Spinner, Idea, InfiniteScroll},
-
-    created() {
-        if (process.client) {
-            this.$l10n.page(this)
-        }
+    components: {
+        Spinner,
+        Idea,
+        InfiniteScroll,
     },
 
     data() {
         return {
-            app: 'idea',
-
-            l10n: {
-                noIdeasHere: 'No ideas here',
-                addOne: 'Add one',
-            },
+            l10n: this.$t('page.idea.index'),
 
             offset: 0,
             limit: 25,

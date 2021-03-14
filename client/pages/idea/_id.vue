@@ -10,9 +10,10 @@ import Idea from '@/components/idea/Idea'
 import Spinner from '@/components/ui/Spinner'
 
 export default {
-    components: {Idea, Spinner},
-    fetchOnServer: false,
-    fetchKey: 'idea',
+    components: {
+        Idea,
+        Spinner,
+    },
 
     data() {
         return {

@@ -3,14 +3,13 @@ import Vue from 'vue'
 
 const LOCALE_KEY = 'l10n_locale'
 const DEFAULT_LOCALE = 'en'
-const componentRequiredFields = ['l10n', 'app', 'page']
+const componentRequiredFields = ['l10n', 'app']
 const pageRequiredFields = ['l10n', 'app']
 const l10nTypes = ['components', 'pages']
 
 const s = JSON.stringify
 const p = JSON.parse
-const cmpKey = (app, page, name) => `${app}_${page}_${name}`
-const pageKey = (app, name) => `${app}_${name}`
+const key = (app, name) => `${app}_${name}`
 
 class L10N {
     constructor(ctx, api) {
@@ -63,6 +62,8 @@ class L10N {
         //     console.log(`WINDOW ONLOAD\n\n\n`)
         //     await this.load()
         // }
+
+        console.log('L10N INITED')
     }
 
     writeData(data) {
@@ -79,8 +80,8 @@ class L10N {
         this.data = p(localStorage.getItem(this.lk()))
     }
 
-    getComponentCache(l10nFields, app, page, name) {
-        const cmpCache = this.data.components[cmpKey(app, page, name)]
+    getComponentCache(l10nFields, app, name) {
+        const cmpCache = this.data.components[key(app, name)]
 
         if (!cmpCache) {
             return null
@@ -96,7 +97,7 @@ class L10N {
     }
 
     getPageCache(l10nFields, app, name) {
-        const pageCache = this.data.pages[pageKey(app, name)]
+        const pageCache = this.data.pages[key(app, name)]
 
         if (!pageCache) {
             return null
@@ -129,10 +130,9 @@ class L10N {
         }
 
         const app = cmp.app
-        const page = cmp.page
         const l10nFields = Object.keys(cmp.l10n)
 
-        const cache = this.getComponentCache(l10nFields, app, page, name)
+        const cache = this.getComponentCache(l10nFields, app, name)
 
         if (cache) {
             cmp.l10n = cache
@@ -140,8 +140,8 @@ class L10N {
             return
         }
 
-        this.componentsNames.push({app, page, name})
-        this.components[cmpKey(app, page, name)] = cmp
+        this.componentsNames.push({app, name})
+        this.components[key(app, name)] = cmp
     }
 
     page(page) {
@@ -173,7 +173,7 @@ class L10N {
         }
 
         this.pagesNames.push({app, name})
-        this.pages[pageKey(app, name)] = page
+        this.pages[key(app, name)] = page
     }
 
     async load() {
@@ -225,7 +225,9 @@ class L10N {
 }
 
 export default (ctx, inject) => {
-    // FIXME: Fckn strange hack!
-    const api = new Api(ctx)
-    inject('l10n', new L10N(ctx, api))
+    if (process.client) {
+        // FIXME: Fckn strange hack!
+        const api = new Api(ctx)
+        inject('l10n', new L10N(ctx, api))
+    }
 }

@@ -3,7 +3,7 @@
         <div class="btn ui-input-file__container" @click="$refs.input.click()">
             <input type="file" ref="input" :accept="accept" @change="updateChosen">
             <span class="ui-input-file__container__text"
-                  :class="{skeleton: l10n.chooseFile.length === 0}" ref="text">{{ l10n.chooseFile }}</span>
+                  :class="{skeleton: !l10n.chooseFile.length}" ref="text">{{ l10n.chooseFile }}</span>
             <span class="ui-input-file__container__chosen" v-show="chosen.length">{{ chosen }}</span>
         </div>
 
@@ -33,13 +33,20 @@ export default {
         'remove',
     ],
 
+    created() {
+        if (process.client) {
+            this.$l10n.component(this)
+        }
+    },
+
     data() {
         return {
             app: '*',
-            page: '*',
+
             l10n: {
                 chooseFile: '',
             },
+
             chosen: '',
         }
     },
@@ -54,13 +61,13 @@ export default {
                 }
 
                 if (this.preview) {
-                    const reader = new FileReader();
+                    const reader = new FileReader()
 
                     reader.onload = e => {
                         this.$refs.previewImage.src = reader.result
                     }
 
-                    reader.readAsDataURL(e.target.files[0]);
+                    reader.readAsDataURL(e.target.files[0])
                 }
             }
         },
@@ -79,10 +86,6 @@ export default {
         drop(e) {
             this.change(e.dataTransfer.files)
         },
-    },
-
-    async fetch() {
-        await this.$l10n.component(this)
     },
 }
 </script>

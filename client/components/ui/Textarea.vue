@@ -42,7 +42,6 @@ export default {
     data() {
         return {
             app: '*',
-            page: '*',
 
             l10n: {
                 moreToGo: 'more to go',

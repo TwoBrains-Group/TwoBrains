@@ -1,6 +1,5 @@
 <template>
-    <Spinner v-if="!l10nLoaded"/>
-    <div v-else class="user-settings">
+    <div class="user-settings">
         <div class="user-settings__blocks">
             <div class="user-settings__block">
                 <div class="user-settings__block__element">
@@ -17,7 +16,7 @@
 
                 <div class="user-settings__block__element">
                     <h3 class="user-settings__block__element__name"
-                        :class="!l10n.changeAvatar ? 'skeleton' : ''">
+                        :class="{skeleton: !l10n.changeAvatar}">
                         {{ l10n.changeAvatar }}
                     </h3>
                     <div class="user-settings__block__element__body">
@@ -171,6 +170,10 @@ export default {
                 },
                 v: 1,
             })
+
+            if (!locales) {
+                throw new Error()
+            }
 
             this.locales = locales.map(l => l.code)
         } catch (error) {

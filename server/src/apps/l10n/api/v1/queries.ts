@@ -1,16 +1,14 @@
 export default {
     getComponentData: `
         SELECT
-            cl.data::jsonb AS "data"
+            cl10n.data::jsonb AS "data"
         FROM
-            main.components_l10n AS cl
+            main.components_l10n AS cl10n
             INNER JOIN main.locales AS l ON l.code = :locale
-            INNER JOIN main.components AS c ON cl.component_id = c.component_id
-            INNER JOIN main.pages AS p ON p.page_id = c.page_id
-            INNER JOIN main.apps AS a ON a.app_id = p.app_id
+            INNER JOIN main.components AS c ON cl10n.component_id = c.component_id
+            INNER JOIN main.apps AS a ON a.app_id = c.app_id
         WHERE
-            cl.locale_id = l.locale_id
-            AND p.name = :page
+            cl10n.locale_id = l.locale_id
             AND a.name = :app
             AND c.name = :name;`,
 

@@ -58,14 +58,16 @@ export default {
     data() {
         return {
             app: 'project',
-            ideasOffset: 0,
-            project: {},
-            section: 'home',
-            ideas: [],
+
             l10n: {
                 description: 'Description',
                 sections: {},
             },
+
+            ideasOffset: 0,
+            project: {},
+            section: 'home',
+            ideas: [],
             l10nLoaded: false,
         }
     },

@@ -106,16 +106,9 @@ export default {
         this.dislikesCount$ = Number(this.dislikesCount$) || ''
     },
 
-    mounted() {
-        if (this.isPage) {
-            this.toggleComments()
-        }
-    },
-
     data() {
         return {
-            app: '*',
-            page: '*',
+            app: 'idea',
 
             l10n: {
                 failedToLoadComments: 'Failed to load comments',
@@ -133,6 +126,12 @@ export default {
             showComments: false,
             commentsOffset: 0,
             commentsFirstFetch: true,
+        }
+    },
+
+    mounted() {
+        if (this.isPage) {
+            this.toggleComments()
         }
     },
 

@@ -10,11 +10,10 @@ export default {
             type: 'array',
             items: {
                 type: 'object',
+                additionalProperties: false,
+                required: ['app', 'name'],
                 properties: {
                     app: {
-                        type: 'string',
-                    },
-                    page: {
                         type: 'string',
                     },
                     name: {
@@ -27,6 +26,8 @@ export default {
             type: 'array',
             items: {
                 type: 'object',
+                additionalProperties: false,
+                required: ['app', 'name'],
                 properties: {
                     app: {
                         type: 'string',

@@ -19,12 +19,6 @@ export default {
     components: {Idea, InfiniteScroll},
     fetchOnServer: false,
 
-    created() {
-        if (process.client) {
-            this.$l10n.component(this)
-        }
-    },
-
     props: {
         relation: {
             type: String,
@@ -35,10 +29,15 @@ export default {
         },
     },
 
+    created() {
+        if (process.client) {
+            this.$l10n.component(this)
+        }
+    },
+
     data() {
         return {
             app: 'idea',
-            page: '*',
 
             l10n: {
                 noResult: 'No ideas here',

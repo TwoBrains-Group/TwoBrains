@@ -41,10 +41,10 @@ $$
         ---- PAGES ----
         ---------------
 
-        -- any --
+        -- * page --
         INSERT INTO main.pages (app_id, name) VALUES (any_app, '*') RETURNING page_id INTO any_page;
 
-        -- user_settings --
+        -- user_settings page --
         INSERT INTO main.pages (app_id, name) VALUES (user_app, 'settings') RETURNING page_id INTO user_settings_page;
 
         INSERT INTO main.pages_l10n (page_id, locale_id, data)
@@ -69,7 +69,7 @@ $$
             "failedToLoadLocales": "Не удалось загрузить языки"
         }');
 
-        -- user_profile --
+        -- user_profile page --
         INSERT INTO main.pages (app_id, name) VALUES (user_app, 'profile') RETURNING page_id INTO user_profile_page;
 
         INSERT INTO main.pages_l10n (page_id, locale_id, data)
@@ -96,7 +96,7 @@ $$
             "mutuallyFollow": "Стать друзьями"
         }');
 
-        -- idea_index --
+        -- idea_index page --
         INSERT INTO main.pages (app_id, name) VALUES (idea_app, 'index') RETURNING page_id INTO idea_index_page;
 
         INSERT INTO main.pages_l10n (page_id, locale_id, data)
@@ -111,7 +111,7 @@ $$
             "addOne": "Добавить"
         }');
 
-        -- idea_create_page --
+        -- idea_create page --
         INSERT INTO main.pages (app_id, name) VALUES (idea_app, 'create') RETURNING page_id INTO idea_create_page;
 
         INSERT INTO main.pages_l10n (page_id, locale_id, data)
@@ -128,7 +128,7 @@ $$
             "nameYourIdea": "Назовите свою идею"
         }');
 
-        -- idea_create_page --
+        -- project_project page --
         INSERT INTO main.pages (app_id, name) VALUES (idea_app, 'project') RETURNING page_id INTO project_project_page;
 
         INSERT INTO main.pages_l10n (page_id, locale_id, data)
@@ -149,7 +149,7 @@ $$
             }
         }');
 
-        -- auth_auth_page --
+        -- auth_auth page --
         INSERT INTO main.pages (app_id, name) VALUES (auth_app, 'auth') RETURNING page_id INTO auth_auth_page;
 
         INSERT INTO main.pages_l10n (page_id, locale_id, data)
@@ -170,8 +170,8 @@ $$
         ---- COMPONENTS ----
         --------------------
 
-        -- MainMenu --
-        INSERT INTO main.components (page_id, name) VALUES (any_page, 'MainMenu') RETURNING component_id INTO cmp;
+        -- *_MainMenu component --
+        INSERT INTO main.components (app_id, name) VALUES (any_app, 'MainMenu') RETURNING component_id INTO cmp;
 
         INSERT INTO main.components_l10n (component_id, locale_id, data)
         VALUES (cmp, enlocale, '{
@@ -189,8 +189,8 @@ $$
             "about": "О платформе"
         }');
 
-        -- Header --
-        INSERT INTO main.components (page_id, name) VALUES (any_page, 'Header') RETURNING component_id INTO cmp;
+        -- *_Header component --
+        INSERT INTO main.components (app_id, name) VALUES (any_app, 'Header') RETURNING component_id INTO cmp;
 
         INSERT INTO main.components_l10n (component_id, locale_id, data)
         VALUES (cmp, enlocale, '{
@@ -206,8 +206,8 @@ $$
             "logout": "Выйти"
         }');
 
-        -- InputFile --
-        INSERT INTO main.components (page_id, name) VALUES (any_page, 'InputFile') RETURNING component_id INTO cmp;
+        -- *_InputFile component --
+        INSERT INTO main.components (app_id, name) VALUES (any_app, 'InputFile') RETURNING component_id INTO cmp;
 
         INSERT INTO main.components_l10n (component_id, locale_id, data)
         VALUES (cmp, enlocale, '{
@@ -216,14 +216,28 @@ $$
 
         INSERT INTO main.components_l10n (component_id, locale_id, data)
         VALUES (cmp, rulocale, '{
-            "home": "Главная",
-            "ideas": "Идеи",
-            "projects": "Проекты",
-            "about": "О платформе"
+            "chooseFile": "Выберите файл..."
         }');
 
-        -- IdeaComment --
-        INSERT INTO main.components (page_id, name) VALUES (any_page, 'IdeaComment') RETURNING component_id INTO cmp;
+        -- *_Textarea component --
+        INSERT INTO main.components (app_id, name) VALUES (any_app, 'Textarea') RETURNING component_id INTO cmp;
+
+        INSERT INTO main.components_l10n (component_id, locale_id, data)
+        VALUES (cmp, enlocale, '{
+            "moreToGo": "more to go",
+            "tooLongBy": "Too long by {count} characters",
+            "charactersLeft": "characters left"
+        }');
+
+        INSERT INTO main.components_l10n (component_id, locale_id, data)
+        VALUES (cmp, rulocale, '{
+            "moreToGo": "символов осталось",
+            "tooLongBy": "Слишком длинный на {count} символов",
+            "charactersLeft": "символов осталось"
+        }');
+
+        -- idea_IdeaComment component --
+        INSERT INTO main.components (app_id, name) VALUES (idea_app, 'IdeaComment') RETURNING component_id INTO cmp;
 
         INSERT INTO main.components_l10n (component_id, locale_id, data)
         VALUES (cmp, enlocale, '{
@@ -255,8 +269,8 @@ $$
             "replySuccessfullyAdded": "Ответ успешно добавлен"
         }');
 
-        -- WriteComment --
-        INSERT INTO main.components (page_id, name) VALUES (any_page, 'WriteComment') RETURNING component_id INTO cmp;
+        -- idea_WriteComment component --
+        INSERT INTO main.components (app_id, name) VALUES (idea_app, 'WriteComment') RETURNING component_id INTO cmp;
 
         INSERT INTO main.components_l10n (component_id, locale_id, data)
         VALUES (cmp, enlocale, '{
@@ -270,8 +284,8 @@ $$
             "commentSuccessfullyAdded": "Комментарий успешно добавлен"
         }');
 
-        -- Idea --
-        INSERT INTO main.components (page_id, name) VALUES (any_page, 'Idea') RETURNING component_id INTO cmp;
+        -- idea_Idea component --
+        INSERT INTO main.components (app_id, name) VALUES (idea_app, 'Idea') RETURNING component_id INTO cmp;
 
         INSERT INTO main.components_l10n (component_id, locale_id, data)
         VALUES (cmp, enlocale, '{
@@ -287,8 +301,8 @@ $$
             "edit": "Изменить"
         }');
 
-        -- IdeaList --
-        INSERT INTO main.components (page_id, name) VALUES (any_page, 'IdeaList') RETURNING component_id INTO cmp;
+        -- idea_IdeaList component --
+        INSERT INTO main.components (app_id, name) VALUES (idea_app, 'IdeaList') RETURNING component_id INTO cmp;
 
         INSERT INTO main.components_l10n (component_id, locale_id, data)
         VALUES (cmp, enlocale, '{
@@ -304,8 +318,8 @@ $$
             "failedToLoadIdeas": "Не удалось загрузить идеи"
         }');
 
-        -- IdeaList --
-        INSERT INTO main.components (page_id, name) VALUES (any_page, 'Project') RETURNING component_id INTO cmp;
+        -- project_Project component --
+        INSERT INTO main.components (app_id, name) VALUES (project_app, 'Project') RETURNING component_id INTO cmp;
 
         INSERT INTO main.components_l10n (component_id, locale_id, data)
         VALUES (cmp, enlocale, '{
@@ -315,23 +329,6 @@ $$
         INSERT INTO main.components_l10n (component_id, locale_id, data)
         VALUES (cmp, rulocale, '{
             "createdBy": "Создан"
-        }');
-
-        -- Textarea --
-        INSERT INTO main.components (page_id, name) VALUES (any_page, 'Textarea') RETURNING component_id INTO cmp;
-
-        INSERT INTO main.components_l10n (component_id, locale_id, data)
-        VALUES (cmp, enlocale, '{
-            "moreToGo": "more to go",
-            "tooLongBy": "Too long by {count} characters",
-            "charactersLeft": "characters left"
-        }');
-
-        INSERT INTO main.components_l10n (component_id, locale_id, data)
-        VALUES (cmp, rulocale, '{
-            "moreToGo": "символов осталось",
-            "tooLongBy": "Слишком длинный на {count} символов",
-            "charactersLeft": "символов осталось"
         }');
 
     END

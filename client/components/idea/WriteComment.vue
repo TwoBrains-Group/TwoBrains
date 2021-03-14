@@ -21,6 +21,7 @@ import Textarea from '@/components/ui/Textarea'
 
 export default {
     name: 'WriteComment',
+    fetchOnServer: false,
 
     components: {Textarea},
     props: [
@@ -30,6 +31,7 @@ export default {
 
     created() {
         if (process.client) {
+            console.log('Add write comment')
             this.$l10n.component(this)
         }
     },
@@ -37,7 +39,6 @@ export default {
     data() {
         return {
             app: 'idea',
-            page: '*',
 
             l10n: {
                 writeAComment: 'Write a comment...',

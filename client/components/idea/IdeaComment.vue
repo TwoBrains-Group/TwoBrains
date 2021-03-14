@@ -107,7 +107,6 @@ export default {
     data() {
         return {
             app: 'idea',
-            page: '*',
 
             l10n: {
                 delete: 'Delete',

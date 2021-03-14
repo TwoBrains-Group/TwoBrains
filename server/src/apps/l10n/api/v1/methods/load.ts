@@ -18,7 +18,6 @@ const DEFAULT_LOCALE = 'en'
 
 type CmpQueryParams = {
     app: string
-    page: string
     name: string
 }
 
@@ -45,10 +44,9 @@ class Load extends Method {
 
         for (const cmp of components) {
             const app = cmp.app
-            const page = cmp.page
             const name = cmp.name
 
-            const params: CmpQueryParams = {app, page, name}
+            const params: CmpQueryParams = {app, name}
 
             let cmpData = await this.loadComponentData(params, locale)
 
@@ -56,7 +54,7 @@ class Load extends Method {
                 cmpData = await this.loadComponentData(params, DEFAULT_LOCALE)
             }
 
-            data.components[`${app}_${page}_${name}`] = cmpData || {}
+            data.components[`${app}_${name}`] = cmpData || {}
         }
 
         for (const page of pages) {
@@ -72,8 +70,6 @@ class Load extends Method {
 
             data.pages[`${app}_${name}`] = pageData || {}
         }
-
-        console.log('Data:', data)
 
         return {
             data,
@@ -97,7 +93,6 @@ class Load extends Method {
         }, {
             returnType: QueryReturnType.Row,
             returnField: 'data',
-            queryDebugLog: true,
         })
     }
 }

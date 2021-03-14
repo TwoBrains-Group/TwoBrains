@@ -63,7 +63,7 @@ export default {
     data() {
         return {
             app: '*',
-            page: '*',
+
             l10n: {
                 profile: '',
                 settings: '',

@@ -47,7 +47,6 @@ export default {
     data() {
         return {
             app: 'project',
-            page: '*',
 
             l10n: {
                 createdBy: 'Created by',

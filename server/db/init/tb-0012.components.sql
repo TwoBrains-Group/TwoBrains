@@ -4,15 +4,15 @@ SET search_path TO main;
 -- components --
 CREATE TABLE main.components (
     component_id SERIAL2 NOT NULL,
-    page_id INT2 DEFAULT NULL,
+    app_id INT2 DEFAULT NULL,
     name TEXT NOT NULL,
     CONSTRAINT components_component_id_pkey PRIMARY KEY (component_id),
-    CONSTRAINT components_page_id_fkey FOREIGN KEY (page_id) REFERENCES main.pages(page_id),
-    CONSTRAINT components_page_id_name_ukey UNIQUE (page_id, name)
+    CONSTRAINT components_app_id_fkey FOREIGN KEY (app_id) REFERENCES main.apps(app_id),
+    CONSTRAINT components_app_id_component_id_ukey UNIQUE (app_id, name)
 );
 
 COMMENT ON TABLE main.components IS 'Components table';
-COMMENT ON COLUMN main.components.page_id IS 'Page id';
+COMMENT ON COLUMN main.components.app_id IS 'Component app id';
 COMMENT ON COLUMN main.components.name IS 'Component name';
 
 -- components_l10n --

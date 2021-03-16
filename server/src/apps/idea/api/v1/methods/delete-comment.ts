@@ -8,7 +8,10 @@ class DeleteComment extends Method {
         const {id} = params
         const {id: userId} = user
 
-        const check = await this.query('checkCommentCreator', {id, userId}, {
+        const check = await this.query('checkCommentCreator', {
+            id,
+            userId,
+        }, {
             returnType: QueryReturnType.Row,
             returnField: 'userId',
         })
@@ -17,7 +20,10 @@ class DeleteComment extends Method {
             throw new MethodError('This is not your comment')
         }
 
-        await this.query('deleteComment', {id, userId})
+        await this.query('deleteComment', {
+            id,
+            userId,
+        })
 
         return {}
     }

@@ -21,12 +21,18 @@ class Create extends Method {
         name = prepareName(name)
         text = prepareText(text)
 
-        const id = await this.query('create', {name, text, userId}, {
+        const id = await this.query('create', {
+            name,
+            text,
+            userId,
+        }, {
             returnType: QueryReturnType.Row,
             returnField: 'id',
         })
 
-        return {id}
+        return {
+            id,
+        }
     }
 }
 

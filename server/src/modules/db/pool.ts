@@ -53,7 +53,7 @@ export const prepareQuery = (queryName: string, queryString: string, params: Que
         return text
     }).trim()
 
-    const pattern = new RegExp(`/\\*\\s*${Object.keys(params).join('|')}:([^\*]*)\\*/`, 'gm');
+    const pattern = new RegExp(`\\/\\*\\s*(${Object.keys(params)}):\\s*\\*\\/`, 'gm')
 
     text = text.replace(pattern, '$1')
 
@@ -69,7 +69,10 @@ export const prepareQuery = (queryName: string, queryString: string, params: Que
 
 export class Pool extends PgPool<Client> {
     constructor(options: PgPool.Config<any>) {
-        super({Client, ...options})
+        super({
+            Client,
+            ...options,
+        })
     }
 
     exec(queryObject: QueryConfig): Promise<QueryResultRow> {

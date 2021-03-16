@@ -7,7 +7,9 @@ class IdeaPlugin extends BasePlugin {
         const extended = project as ExtendedProjectRow
 
         const id = project.id
-        const ideas = await this.db.query('getProjectIdeas', queries.getProjectIdeas, {id}, {
+        const ideas = await this.db.query('getProjectIdeas', queries.getProjectIdeas, {
+            id,
+        }, {
             returnType: QueryReturnType.Rows,
         })
 

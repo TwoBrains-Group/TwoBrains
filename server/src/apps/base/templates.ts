@@ -33,7 +33,10 @@ export const getRes = (res: MethodRes): Res => {
         throw new Error('Result is null or undefined')
     }
     if ('result' in res) {
-        return {...template, ...res} as Res
+        return {
+            ...template,
+            ...res,
+        } as Res
     }
     return {
         ...template,

@@ -3,7 +3,7 @@
          :class="{
             'comments-open': showComments,
             page: isPage,
-            hover,
+            hover
          }">
 
         <div class="idea__block">
@@ -61,7 +61,7 @@
 
         <div class="sb idea__comments"
              :class="{show: showComments}">
-            <WriteComment :idea-id="id" @done="commented"/>
+            <WriteComment type="idea" :id="id" @done="commented"/>
 
             <IdeaComment v-for="cmt of comments" :key="cmt.id" v-bind="cmt" :is-reply="false"/>
 

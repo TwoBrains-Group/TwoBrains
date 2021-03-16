@@ -12,11 +12,17 @@ class GetList extends Method {
         } = params
         const {id: loggedInUserId} = user
 
-        const projects = await this.query('getList', {limit, offset, loggedInUserId}, {
+        const projects = await this.query('getList', {
+            limit,
+            offset,
+            loggedInUserId,
+        }, {
             returnType: QueryReturnType.Rows,
         })
 
-        return {projects}
+        return {
+            projects,
+        }
     }
 }
 

@@ -17,12 +17,23 @@ class GetComments extends Method {
 
         let comments
         if (replyTo) {
-            const queryParams = {ideaId: id, limit, offset, loggedInUserId, replyTo}
+            const queryParams = {
+                ideaId: id,
+                limit,
+                offset,
+                loggedInUserId,
+                replyTo,
+            }
             comments = await this.query('getCommentsReplies', queryParams, {
                 returnType: QueryReturnType.Rows,
             })
         } else {
-            const queryParams = {id, limit, offset, loggedInUserId}
+            const queryParams = {
+                id,
+                limit,
+                offset,
+                loggedInUserId,
+            }
             comments = await this.query('getComments', queryParams, {
                 returnType: QueryReturnType.Rows,
             })
@@ -36,7 +47,9 @@ class GetComments extends Method {
 
         console.log(`Comments: ${JSON.stringify(comments, null, 2)}`)
 
-        return {comments}
+        return {
+            comments,
+        }
     }
 }
 

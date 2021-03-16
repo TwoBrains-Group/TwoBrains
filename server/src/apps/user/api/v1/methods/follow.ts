@@ -8,21 +8,32 @@ class Follow extends Method {
         const {id} = params
         const {id: loggedInUserId} = user
 
-        const following = await this.query('isFollowing', {id, loggedInUserId}, {
+        const following = await this.query('isFollowing', {
+            id,
+            loggedInUserId,
+        }, {
             returnType: QueryReturnType.Row,
             returnField: 'following',
         })
 
         const queryName = following ? 'unfollow' : 'follow'
-        await this.query(queryName, {id, loggedInUserId})
+        await this.query(queryName, {
+            id,
+            loggedInUserId,
+        })
 
-        const info = await this.query('getFollowingStatus', {id, loggedInUserId}, {
+        const info = await this.query('getFollowingStatus', {
+            id,
+            loggedInUserId,
+        }, {
             returnType: QueryReturnType.Row,
         })
 
         prepareFollowingStatus(info)
 
-        return {info}
+        return {
+            info,
+        }
     }
 }
 

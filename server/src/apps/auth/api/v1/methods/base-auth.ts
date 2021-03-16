@@ -15,19 +15,21 @@ class BaseAuth extends Method {
 
     async getToken(userId: number): Promise<getTokenResult> {
         // TODO: Move JWT logic to module or base method
-        const userData: Record<string, unknown> = await this.query('getUserData', {userId}, {
+        const userData: Record<string, unknown> = await this.query('getUserData', {
+            userId,
+        }, {
             returnType: QueryReturnType.Row,
         })
-
-        if (userData.blocked) {
-            throw new MethodError('This user is blocked')
-        }
 
         if (userData.deleted) {
             throw new MethodError('This user is deleted')
         }
 
-        const token = jwt.sign({userData}, Buffer.from(process.env.JWT_SECRET!, 'base64'), {algorithm: 'HS256'})
+        const token = jwt.sign({
+            userData,
+        }, Buffer.from(process.env.JWT_SECRET!, 'base64'), {
+            algorithm: 'HS256',
+        })
 
         return {
             token,

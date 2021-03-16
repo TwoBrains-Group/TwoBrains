@@ -11,8 +11,12 @@ export default {
         },
         limit: {
             anyOf: [
-                {type: 'number'},
-                {type: 'null'},
+                {
+                    type: 'number',
+                },
+                {
+                    type: 'null',
+                },
             ],
         },
         replyTo: {

@@ -51,18 +51,21 @@
             </div>
 
             <div class="idea__comments__comment__footer__btn idea__comments__comment__footer__btn--reply"
-                 @click="reply">
-
+                 @click="beginReply">
+                {{ l10n.reply }}
             </div>
         </footer>
 
-        <div class="idea__comments__comment__replies" v-if="!isReply && showReplies">
+        <div class="idea__comments__comment__replies">
             <div class="idea__comments__comment__replies__line"></div>
             <div class="idea__comments__comment__replies__list">
+                <WriteComment v-if="showReplies" ref="writeReply" type="comment" :id="id" @done="replied"/>
+
                 <IdeaComment v-for="reply of replies"
                              :key="reply.id"
                              v-bind="reply"
-                             v-bind:isReply="true"/>
+                             v-bind:isReply="true"
+                             v-if="!isReply && showReplies"/>
 
                 <div v-if="!allRepliesFetched"
                      @click="fetchReplies"
@@ -72,17 +75,19 @@
 
             <!--            <InfiniteScroll @fetch="fetchReplies"/>-->
         </div>
-        <div class="idea__comments__comment__replies_stub" v-else></div>
+<!--        <div class="idea__comments__comment__replies_stub" v-else></div>-->
     </div>
 </template>
 
 <script>
+import WriteComment from '@/components/idea/WriteComment'
 import InfiniteScroll from '@/components/tools/InfiniteScroll'
 
 export default {
     name: 'IdeaComment',
 
     components: {
+        WriteComment,
         InfiniteScroll,
     },
     props: [
@@ -201,22 +206,20 @@ export default {
             }
         },
 
-        async reply() {
-            try {
-                const params = {
-                    replyTo: this.id,
-                }
+        async beginReply() {
+            this.showReplies = true
 
-                await this.$api.send({
-                    app: 'idea',
-                    method: 'replyToComment',
-                    params,
-                    v: 1,
-                })
+            this.$nextTick(() => this.$refs.writeReply.focus())
 
-            } catch (error) {
-                this.$toast.error(this.l10n.failedToReply)
+            if (this.firstRepliesFetch) {
+                await this.fetchReplies()
             }
+        },
+
+        async replied() {
+            this.repliesOffset = 0
+            this.replies = []
+            await this.fetchReplies()
         },
     },
 }

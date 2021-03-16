@@ -21,7 +21,9 @@ class Signup extends BaseAuth {
             throw new InvalidParams('passwords does not match')
         }
 
-        const userExists = await this.query('getUserByEmail', {email}, {
+        const userExists = await this.query('getUserByEmail', {
+            email,
+        }, {
             returnType: QueryReturnType.Row,
             returnField: 'userId',
         })

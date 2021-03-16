@@ -13,7 +13,9 @@ class Login extends BaseAuth {
 
         email = email.toLowerCase()
 
-        const userId = await this.query('getUserByEmail', {email}, {
+        const userId = await this.query('getUserByEmail', {
+            email,
+        }, {
             returnType: QueryReturnType.Row,
             returnField: 'userId',
         })
@@ -22,7 +24,10 @@ class Login extends BaseAuth {
             throw new AuthError(`User with email '${email}' not found`)
         }
 
-        const passwordVerified = await this.query('verifyPassword', {password, userId}, {
+        const passwordVerified = await this.query('verifyPassword', {
+            password,
+            userId,
+        }, {
             returnType: QueryReturnType.Row,
             returnField: 'passwordVerified',
         })

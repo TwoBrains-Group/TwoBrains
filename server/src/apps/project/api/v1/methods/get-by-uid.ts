@@ -7,11 +7,16 @@ class GetByUid extends Method {
         const {uid} = params
         const {id: loggedInUserId} = user
 
-        const project = await this.query('getProjectByUid', {uid, loggedInUserId}, {
+        const project = await this.query('getProjectByUid', {
+            uid,
+            loggedInUserId,
+        }, {
             returnType: QueryReturnType.Row,
         })
 
-        return {project}
+        return {
+            project,
+        }
     }
 }
 

@@ -187,7 +187,8 @@
             }
         }
 
-        .idea__comments__comment__footer__btn--replies {
+        .idea__comments__comment__footer__btn--replies,
+        .idea__comments__comment__footer__btn--reply {
             @extend .base-btn;
 
             transition: box-shadow .15s ease, color .15s ease;

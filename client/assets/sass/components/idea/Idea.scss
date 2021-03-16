@@ -206,7 +206,7 @@
         height: auto;
         grid-template-columns: auto;
         grid-template-rows: max-content;
-        box-shadow: inset 0 3px 5px -1px #fafafa;
+        box-shadow: inset 0 3px 5px -1px #f6f6f6;
         z-index: 0;
 
         max-height: 0;
@@ -229,8 +229,8 @@
         .idea__comments__comment__replies__line {
             display: block;
             width: 5px;
-            height: calc(100% - 20px);
-            margin: 10px 10px 10px 15px;
+            height: calc(100% - 18px);
+            margin: 8px 10px 10px 15px;
             border-radius: 5px;
             background: #f0f0f0;
         }

@@ -26,7 +26,9 @@ class Comment extends Method {
             returnType: QueryReturnType.Row,
         })
 
-        return {comment}
+        return {
+            comment,
+        }
     }
 }
 

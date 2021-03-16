@@ -20,7 +20,9 @@ class GetUserIdeas extends Method {
 
         ideas = prepareIdeas(ideas)
 
-        return {ideas}
+        return {
+            ideas,
+        }
     }
 }
 

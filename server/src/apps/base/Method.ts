@@ -88,7 +88,10 @@ export abstract class Method {
             throw new Error(`Failed to initialize DB on request to route ${this.getPath()}`)
         }
 
-        options = {...queryDefaultOptions, ...options}
+        options = {
+            ...queryDefaultOptions,
+            ...options,
+        }
 
         let query = this.queries![queryName]
         if (!query) {

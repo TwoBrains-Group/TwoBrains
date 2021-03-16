@@ -1,5 +1,5 @@
 <template>
-    <div class="ui-input" :class="{ringError}">
+    <div class="ui-input" :class="{ringError, warn}">
         <input :type="type"
                @focusin="focused = true"
                @focusout="focused = false"
@@ -9,7 +9,7 @@
                :value="value">
 
         <div class="ui-input__len-info"
-             :class="{warn, error: error || ringError, show: focused}">{{ lenInfo }}
+             :class="{warn: lenWarn, error: lenError || ringError, show: focused && lenInfo.length}">{{ lenInfo }}
         </div>
     </div>
 </template>
@@ -39,6 +39,18 @@ export default {
             type: String,
             default: '',
         },
+        regexp: {
+            type: RegExp,
+            default: null,
+        },
+        regexpErrMsg: {
+            type: String,
+            default: '',
+        },
+        regexpWarn: {
+            type: Boolean,
+            default: false,
+        },
     },
 
     data() {
@@ -47,13 +59,18 @@ export default {
 
             focused: false,
             lenInfo: '',
-            warn: false,
-            error: false,
+            lenWarn: false,
+            lenError: false,
             ringError: false,
+            warn: false,
         }
     },
 
     methods: {
+        testRegexp() {
+            return this.regexp.test(this.$refs.input.value)
+        },
+
         changed(e) {
             const val = e.target.value
             const len = val.length
@@ -73,26 +90,48 @@ export default {
             }
 
             if (this.warnLen) {
-                this.warn = len > this.warnLen
+                this.lenWarn = len > this.warnLen
             }
 
-            this.error = len > this.maxLen
+            this.lenError = len > this.maxLen
+
+            if (this.regexp) {
+                this.warn = !this.testRegexp()
+            }
 
             this.$emit('input', val)
         },
 
+        ring() {
+            if (this.ringTimeout) {
+                clearTimeout(this.ringTimeout)
+            }
+            this.ringTimeout = setTimeout(() => this.ringError = false, 2500)
+
+            this.ringError = true
+        },
+
         test() {
-            const len = this.$refs.input.value.length
+            const val = this.$refs.input.value
+            const len = val.length
+
+            console.log('test', this.regexp && !this.testRegexp())
+
+            if (this.regexp && !this.testRegexp()) {
+                console.log('AHAHAH')
+            }
+
+            if (this.regexp && !this.testRegexp()) {
+                this.ring()
+                console.log('RING')
+                if (this.regexpErrMsg) {
+                    this.$toast.error(this.regexpErrMsg)
+                }
+                return false
+            }
 
             if (len < this.minLen || len > this.maxLen) {
-                this.ringError = false
-                if (this.ringTimeout) {
-                    clearTimeout(this.ringTimeout)
-                }
-                this.ringTimeout = setTimeout(() => this.ringError = false, 2500)
-
-                this.ringError = true
-
+                this.ring()
                 return false
             }
 

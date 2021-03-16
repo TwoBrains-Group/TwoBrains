@@ -7,6 +7,7 @@ import getUserIdeas from './get-user-ideas'
 import create from './create'
 import comment from './comment'
 import deleteComment from './delete-comment'
+import replyToComment from './reply-to-comment'
 
 export default {
     getById,
@@ -18,4 +19,5 @@ export default {
     create,
     comment,
     deleteComment,
+    replyToComment,
 }

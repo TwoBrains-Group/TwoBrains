@@ -1,26 +1,12 @@
 @import '../../ui/anim';
 
+
 .ui-input {
     display: block;
     position: relative;
     width: max-content;
     padding: 5px 0;
     margin: 0 auto;
-
-    &.ringError {
-        input {
-            animation: ring .1s;
-            animation-iteration-count: 3;
-            box-shadow: 0 0 0 1px #f25959;
-            background: #f2595944;
-            color: #fff;
-        }
-
-        .ui-input__len-info {
-            font-size: 14px;
-            bottom: -20px;
-        }
-    }
 
     input {
         display: block;
@@ -32,8 +18,13 @@
 
         text-align: center;
         border-radius: 5px;
-        box-shadow: 0 0 0 1px #f0f0f0;
         transition: box-shadow .2s ease, background .5s ease;
+
+        &::placeholder {
+            transition: color .1s ease;
+        }
+
+        box-shadow: 0 0 0 1px #f0f0f0;
 
         &:hover {
             box-shadow: 0 0 0 1px #f0f0f0, 0 3px 5px -1px #f0f0f0;
@@ -41,6 +32,33 @@
 
         &:focus {
             box-shadow: 0 4px 10px -1px #f0f0f0;
+        }
+    }
+
+    &.warn {
+        input {
+            &:focus {
+                box-shadow: inset 0 0 0 1px #ffa500,  0 4px 10px -1px #f0f0f0;
+            }
+        }
+    }
+
+    &.ringError {
+        input {
+            animation: ring .1s;
+            animation-iteration-count: 3;
+            box-shadow: 0 0 0 1px #f25959;
+            background: #f2595944;
+            color: #fff;
+
+            &::placeholder {
+                color: #fff;
+            }
+        }
+
+        .ui-input__len-info {
+            font-size: 14px;
+            bottom: -20px;
         }
     }
 
@@ -70,7 +88,7 @@
         }
 
         &.warn {
-            color: #FFA500;
+            color: #ffa500;
         }
 
         &.error {

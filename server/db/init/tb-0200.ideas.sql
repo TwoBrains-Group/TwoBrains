@@ -84,5 +84,18 @@ COMMENT ON COLUMN main.ideas_comments_likes.idea_comment_id IS 'Idea comment lik
 COMMENT ON COLUMN main.ideas_comments_likes.user_id IS 'User id foreign key';
 COMMENT ON COLUMN main.ideas_comments_likes.creation_datetime IS 'Creation timestamp';
 
+-- ideas_tags --
+CREATE TABLE main.ideas_tags (
+    idea_id INT8 NOT NULL,
+    tag_id INT2 NOT NULL,
+    CONSTRAINT ideas_tags_idea_id_fkey FOREIGN KEY (idea_id) REFERENCES main.ideas(idea_id),
+    CONSTRAINT ideas_tags_tag_id_fkey FOREIGN KEY (tag_id) REFERENCES main.tags(tag_id),
+    CONSTRAINT ideas_tags_idea_id_tag_id_ukey UNIQUE (idea_id, tag_id)
+);
+
+COMMENT ON TABLE main.ideas_tags IS 'Ideas tags table';
+COMMENT ON COLUMN main.ideas_tags.idea_id IS 'Idea id';
+COMMENT ON COLUMN main.ideas_tags.tag_id IS 'Tag id';
+
 
 COMMIT;

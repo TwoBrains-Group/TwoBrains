@@ -47,9 +47,16 @@ export default {
                 password: 'Password',
                 repeatPassword: 'Repeat password',
                 orUseOtherAuthMethods: 'or use other auth methods',
+                login: 'Log in',
+                signup: 'Sign up',
+                loginApply: 'Log in',
+                signupApply: 'Create new account',
+                invalidPasswordMessage: 'Password must be at least 8 characters long, contain upper case letters, digits and at least one special character',
+                invalidEmailMessage: 'Invalid email',
             },
         },
     },
+
     cmp: {
         '*': {
             MainMenu: {

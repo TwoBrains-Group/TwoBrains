@@ -253,6 +253,10 @@ export default {
             ic.idea_comment_id = :id
             AND ic.user_id = :userId`,
 
+    replyToComment: `
+        INSERT INTO main.ideas_comments (idea_id, user_id, text, reply_to)
+        VALUES (:ideaId, :loggedInUserId, :text, :replyTo);`,
+
     // Comments-likes //
     isCommentLiked: `
         SELECT

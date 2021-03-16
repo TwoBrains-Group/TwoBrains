@@ -14,7 +14,7 @@ type Schema = {
     pages: DirectiveEntity
 }
 
-const DEFAULT_LOCALE = 'en'
+// const DEFAULT_LOCALE = 'en'
 
 type CmpQueryParams = {
     app: string
@@ -46,12 +46,16 @@ class Load extends Method {
             pages: {},
         }
 
-        data.components = await this.query('getAllComponentsData', {locale}, {
+        data.components = await this.query('getAllComponentsData', {
+            locale,
+        }, {
             returnType: QueryReturnType.Row,
             returnField: 'data',
         })
 
-        data.pages = await this.query('getAllPagesData', {locale}, {
+        data.pages = await this.query('getAllPagesData', {
+            locale,
+        }, {
             returnType: QueryReturnType.Row,
             returnField: 'data',
         })

@@ -14,15 +14,24 @@ class GetList extends Method {
 
         const {id: loggedInUserId} = user
 
-        let ideas = await this.query('getList', {offset, limit, loggedInUserId, relation}, {
+        let ideas = await this.query('getList', {
+            offset,
+            limit,
+            loggedInUserId,
+            relation,
+        }, {
             returnType: QueryReturnType.Rows,
             queryDebugLog: true,
-            args: {relation},
+            args: {
+                relation,
+            },
         })
 
         ideas = prepareIdeas(ideas)
 
-        return {ideas}
+        return {
+            ideas,
+        }
     }
 }
 

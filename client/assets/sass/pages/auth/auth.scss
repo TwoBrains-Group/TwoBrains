@@ -16,39 +16,36 @@
 .auth-window__header {
     display: block;
     position: relative;
-    width: max-content;
-    height: 35px;
+    width: 100%;
+    height: max-content;
     margin: 0 auto;
 
-    .auth-window__header_h--login {
-        left: -25%;
-
-        &.chosen {
-            left: 25%;
-        }
-    }
-
-    .auth-window__header_h--signup {
-        right: -25%;
-
-        &.chosen {
-            right: 25%;
+    &:hover {
+        .auth-window__header_h--other {
+            opacity: 0.8;
         }
     }
 
     .auth-window__header_h {
         display: inline-block;
+        width: 100%;
         position: relative;
         text-align: center;
-        font-size: 16px;
-        margin: 0 auto;
+
+        padding-bottom: 5px;
 
         transition: font-size .1s, left .25s, right .25s;
-        opacity: 0.6;
-        &.chosen {
-            font-size: 24px;
-            opacity: 1;
-        }
+        font-size: 24px;
+    }
+
+    .auth-window__header_h--other {
+        position: absolute;
+        top: -10px;
+        left: 0;
+        padding: 10px 0;
+        opacity: 0.5;
+        font-size: 14px;
+        transition: .2s ease;
     }
 }
 
@@ -78,20 +75,21 @@
 .auth-window__footer__services-buttons__btn {
     display: block;
     position: relative;
-    width: 175px;
+    width: max-content;
     margin: 5px auto;
 
-    transition: opacity .1s;
-    &:hover {
-        opacity: 0.9;
-    }
+    transition: opacity .2s;
 
-    &:active {
+    &:hover {
         opacity: 0.75;
     }
 
+    &:active {
+        opacity: 0.5;
+    }
+
     img {
-        width: 175px;
+        width: 185px;
     }
 }
 

@@ -26,10 +26,16 @@ export default {
         Textarea,
     },
 
-    props: [
-        'replyTo',
-        'ideaId',
-    ],
+    props: {
+        type: {
+            type: String,
+            required: true,
+        },
+        id: {
+            type: String,
+            required: true,
+        },
+    },
 
     data() {
         return {
@@ -47,14 +53,20 @@ export default {
 
             try {
                 const params = {
-                    ideaId: this.ideaId,
                     text: this.text,
-                    replyTo: this.replyTo,
                 }
+
+                if (this.type === 'comment') {
+                    params.replyTo = this.id
+                } else {
+                    params.ideaId = this.id
+                }
+
+                const method = this.type === 'idea' ? 'comment' : 'replyToComment'
 
                 const {comment} = await this.$api.send({
                     app: 'idea',
-                    method: 'comment',
+                    method,
                     params,
                     v: 1,
                 })
@@ -67,6 +79,10 @@ export default {
             } catch (error) {
                 this.$toast.error('Failed to comment')
             }
+        },
+
+        focus() {
+            this.$refs.textarea.focus()
         },
     },
 }

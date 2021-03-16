@@ -12,7 +12,10 @@ class GetByUid extends Method {
         const {uid} = req.params
         const {id: loggedInUserId} = loggedInUser
 
-        const user = await this.query('getUserByUid', {uid, loggedInUserId}, {
+        const user = await this.query('getUserByUid', {
+            uid,
+            loggedInUserId,
+        }, {
             returnType: QueryReturnType.Row,
         })
 

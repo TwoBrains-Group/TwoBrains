@@ -6,28 +6,37 @@ module.exports = {
         'eslint:recommended',
         'plugin:@typescript-eslint/eslint-recommended',
         'plugin:@typescript-eslint/recommended',
-        // 'plugin:import/errors',
-        // 'plugin:import/warnings',
-        // 'plugin:import/typescript',
     ],
     parserOptions: {
         ecmaVersion: 6,
         sourceType: 'module',
-        ecmaFeatures: {
-        },
+        ecmaFeatures: {},
     },
     plugins: [
         '@typescript-eslint',
-        // 'import',
     ],
     rules: {
-        '@typescript-eslint/no-non-null-assertion': 'off',
-        '@typescript-eslint/no-explicit-any': 'off',
+        // Common //
         quotes: ['error', 'single'],
         semi: ['error', 'never'],
-        '@typescript-eslint/indent': ['error', 4],
+        indent: ['error', 4],
         'comma-dangle': ['error', 'always-multiline'],
-        // 'import/newline-after-import': ['error', {count: 1}],
-        // 'import/no-unresolved': 0,
+        'keyword-spacing': ['error', {
+            before: true,
+            after: true,
+        }],
+        'space-before-blocks': 'error',
+        'object-property-newline': ['error'],
+        'object-curly-newline': ['error', {
+            ObjectExpression: {
+                minProperties: 1,
+            },
+            ImportDeclaration: 'never',
+        }],
+        'quote-props': ['error', 'as-needed'],
+
+        // TS //
+        '@typescript-eslint/no-non-null-assertion': 'off',
+        '@typescript-eslint/no-explicit-any': 'off',
     },
 }

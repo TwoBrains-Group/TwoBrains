@@ -5,7 +5,10 @@ const defaultConfig: Config['log'] = {
     level: 'debug',
 }
 
-const loggerConfig: Config['log'] = {...defaultConfig, ...config.log}
+const loggerConfig: Config['log'] = {
+    ...defaultConfig,
+    ...config.log,
+}
 
 /**
  * TODO:

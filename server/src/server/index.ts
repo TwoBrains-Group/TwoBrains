@@ -24,7 +24,9 @@ class Server {
         const expApp = this.expApp
 
         expApp.use('/public', express.static(appRootPath + '/public'))
-        expApp.use(bodyParser.urlencoded({ extended: false }))
+        expApp.use(bodyParser.urlencoded({
+            extended: false, 
+        }))
         expApp.use(bodyParser.json())
         expApp.use(cookieParser())
         expApp.use(cors({

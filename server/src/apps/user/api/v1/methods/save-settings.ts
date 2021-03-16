@@ -16,7 +16,12 @@ class SaveSettings extends Method {
             uid = uid.replace(/ /, '')
         }
 
-        const updatedData = await this.query('updateUser', {id, nickname, password, uid}, {
+        const updatedData = await this.query('updateUser', {
+            id,
+            nickname,
+            password,
+            uid,
+        }, {
             returnType: QueryReturnType.Row,
             unusedToNull: ['uid', 'nickname', 'avatar', 'password', 'locale'],
             queryDebugLog: true,

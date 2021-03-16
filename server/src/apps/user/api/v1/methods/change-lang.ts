@@ -8,7 +8,10 @@ class ChangeLang extends Method {
         const {locale} = params
         const {id} = user
 
-        const newLocale = await this.query('changeLang', {id, locale}, {
+        const newLocale = await this.query('changeLang', {
+            id,
+            locale,
+        }, {
             returnType: QueryReturnType.Row,
             returnField: 'locale',
         })

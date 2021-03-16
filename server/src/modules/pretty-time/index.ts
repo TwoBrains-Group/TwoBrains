@@ -18,23 +18,23 @@ const months = [
 const rangeNames: {
     [key: string]: string
 } = {
-    'y': 'year',
-    'mth': 'month',
-    'd': 'day',
-    'h': 'hour',
-    'm': 'minute',
-    's': 'seconds',
+    y: 'year',
+    mth: 'month',
+    d: 'day',
+    h: 'hour',
+    m: 'minute',
+    s: 'seconds',
 }
 
 const dividers: {
     [key: string]: number
 } = {
-    'y': 31536000,
-    'mth': 2592000,
-    'd': 86400,
-    'h': 3600,
-    'm': 60,
-    's': 1,
+    y: 31536000,
+    mth: 2592000,
+    d: 86400,
+    h: 3600,
+    m: 60,
+    s: 1,
 }
 
 type TimeAndRange = {

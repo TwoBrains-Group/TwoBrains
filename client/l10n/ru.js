@@ -46,9 +46,16 @@ export default {
                 password: 'Пароль',
                 repeatPassword: 'Повторите пароль',
                 orUseOtherAuthMethods: 'или используйте другой метод авторизации',
+                login: 'Вход',
+                signup: 'Регистрация',
+                loginApply: 'Войти',
+                signupApply: 'Зарегистрироваться',
+                invalidPasswordMessage: 'Пароль должен быть длиннее 8 символов, содержать большие буквы, цифры и хотя бы один специальный символ',
+                invalidEmailMessage: 'Неверный email',
             },
         },
     },
+
     cmp: {
         '*': {
             MainMenu: {

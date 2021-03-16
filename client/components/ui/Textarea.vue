@@ -99,6 +99,10 @@ export default {
         clear() {
             this.$refs.textarea.value = ''
         },
+
+        focus() {
+            this.$refs.textarea.focus()
+        },
     },
 }
 </script>

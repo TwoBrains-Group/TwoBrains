@@ -8,13 +8,18 @@ class GetById extends Method {
         const {id: ideaId} = params
         const {id: loggedInUserId} = user
 
-        let idea = await this.query('getById', {ideaId, loggedInUserId}, {
+        let idea = await this.query('getById', {
+            ideaId,
+            loggedInUserId,
+        }, {
             returnType: QueryReturnType.Row,
         })
 
         idea = prepareIdea(idea)
 
-        const likesCount = await this.query('getLikesCount', {ideaId}, {
+        const likesCount = await this.query('getLikesCount', {
+            ideaId,
+        }, {
             returnType: QueryReturnType.Row,
         })
 

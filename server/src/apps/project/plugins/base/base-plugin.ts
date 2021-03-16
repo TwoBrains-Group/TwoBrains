@@ -42,7 +42,9 @@ class BasePlugin {
     async init(): Promise<void> {
         this.db = await DB.getInstance()
 
-        this.id = await this.db.query('getPluginId', queries.getPluginId, {name: this.name}, {
+        this.id = await this.db.query('getPluginId', queries.getPluginId, {
+            name: this.name,
+        }, {
             returnType: QueryReturnType.Row,
             returnField: 'id',
         })

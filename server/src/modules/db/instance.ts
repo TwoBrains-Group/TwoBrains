@@ -42,12 +42,17 @@ class DBInstance {
     }
 
     async query(queryName: string, query: string, params: QueryParams = {}, options: QueryOptions = {}): Promise<any> {
-        options = {...queryDefaultOptions, ...options}
+        options = {
+            ...queryDefaultOptions,
+            ...options,
+        }
 
         const {returnType, returnField, queryDebugLog} = options
 
         try {
-            await this.pool.exec({text: 'SET search_path TO \'main\';'})
+            await this.pool.exec({
+                text: 'SET search_path TO \'main\';',
+            })
             const preparedQuery = prepareQuery(queryName, query, params, options)
 
             if (queryDebugLog) {
@@ -83,7 +88,7 @@ class DBInstance {
                 this.log.warn('All errors thrown from DB module must be instances DBError')
             }
 
-            this.log.error(`[DB Error] ${error}`)
+            this.log.error(`[DB Error] (${queryName}) ${error}`)
 
             if (error.fatal) {
                 throw error.hide()

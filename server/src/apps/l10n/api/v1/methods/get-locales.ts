@@ -6,11 +6,15 @@ class GetLocales extends Method {
         const {params} = req
         const {translatable} = params
 
-        const locales = await this.query('getLocales', {translatable}, {
+        const locales = await this.query('getLocales', {
+            translatable,
+        }, {
             returnType: QueryReturnType.Rows,
         })
 
-        return {locales}
+        return {
+            locales,
+        }
     }
 }
 

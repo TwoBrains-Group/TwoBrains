@@ -17,7 +17,7 @@ export default {
 
     getUserData: `
         SELECT
-            u.user_id AS "id"
+             u.user_id AS "id"
             ,u.uid AS "uid"
             ,u.avatar AS "avatar"
             ,u.nickname AS "nickname"

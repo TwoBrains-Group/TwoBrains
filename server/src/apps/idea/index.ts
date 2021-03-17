@@ -7,5 +7,5 @@ class Idea extends BaseApp {
 }
 
 export default new Idea({
-    routePrefix: '/idea',
+    name: 'idea',
 })

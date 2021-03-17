@@ -7,5 +7,5 @@ class User extends BaseApp {
 }
 
 export default new User({
-    routePrefix: '/user',
+    name: 'user',
 })

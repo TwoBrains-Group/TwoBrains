@@ -31,7 +31,7 @@ export class Api {
 
         !isProd && console.log('Send request:', req)
 
-        const {data} = await axios.post(url, req.params || req.formData, {
+        const {data} = await axios.post(url, req, {
             headers,
         })
 
@@ -43,7 +43,9 @@ export class Api {
         }
 
         if (!data.error && !data.result) {
-            throw new RequestError({message: 'Invalid response data'})
+            throw new RequestError({
+                message: 'Invalid response data',
+            })
         }
 
         return getRes ? data.result : data

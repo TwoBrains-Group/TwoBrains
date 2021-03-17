@@ -21,5 +21,5 @@ class GetByUid extends Method {
 }
 
 export default new GetByUid({
-    route: 'getByUid',
+    name: 'getByUid',
 })

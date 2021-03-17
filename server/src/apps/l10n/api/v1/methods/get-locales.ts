@@ -19,5 +19,5 @@ class GetLocales extends Method {
 }
 
 export default new GetLocales({
-    route: 'getLocales',
+    name: 'getLocales',
 })

@@ -10,9 +10,21 @@ class GetList extends Method {
             offset = 0,
             limit = DEFAULT_LIMIT,
             relation = 'user',
+            userUid,
         }} = req
 
         const {id: loggedInUserId} = user
+
+        const params: Record<string, any> = {
+            offset,
+            limit,
+            loggedInUserId,
+            relation,
+        }
+
+        if (userUid) {
+            params.userUid = userUid
+        }
 
         let ideas = await this.query('getList', {
             offset,
@@ -22,9 +34,6 @@ class GetList extends Method {
         }, {
             returnType: QueryReturnType.Rows,
             queryDebugLog: true,
-            args: {
-                relation,
-            },
         })
 
         ideas = prepareIdeas(ideas)
@@ -36,5 +45,5 @@ class GetList extends Method {
 }
 
 export default new GetList({
-    route: 'getList',
+    name: 'getList',
 })

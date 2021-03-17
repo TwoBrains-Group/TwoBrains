@@ -18,5 +18,5 @@ class Google extends Method {
 }
 
 export default new Google({
-    route: '/google/callback',
+    name: '/google/callback',
 })

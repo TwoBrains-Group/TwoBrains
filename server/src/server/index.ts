@@ -1,3 +1,5 @@
+import api from '@apps/base/api'
+import {getRes} from '@apps/base/templates'
 import express from 'express'
 import 'path'
 import appRootPath from 'app-root-path'
@@ -5,6 +7,7 @@ import apps from '@apps/index'
 import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
 import cors from 'cors'
+import formidable, {Fields, Files} from 'formidable'
 import mws from './mws'
 import Logger from '@modules/logger'
 
@@ -25,7 +28,7 @@ class Server {
 
         expApp.use('/public', express.static(appRootPath + '/public'))
         expApp.use(bodyParser.urlencoded({
-            extended: false, 
+            extended: false,
         }))
         expApp.use(bodyParser.json())
         expApp.use(cookieParser())
@@ -47,16 +50,17 @@ class Server {
     async initApps() {
         for (const [appName, app] of Object.entries(apps)) {
             try {
-                const router = await app.init(this.expApp)
-
-                if (router) {
-                    this.expApp.use(process.env.URI!, router)
-                    // console.log('Use router:', router)
-                }
+                await app.init(this.expApp)
             } catch (error) {
-                this.log.error(`Failed to initialize app ${appName}`)
+                this.log.error(`Failed to initialize app ${appName}, error: ${error}`)
             }
         }
+
+        console.log('API SYSTEM:', JSON.stringify(api.system, null, 2))
+
+        this.expApp.post(process.env.API_URI!, async (req, res, next) => {
+            await api.callMethod(req, res, next)
+        })
     }
 }
 export default new Server()

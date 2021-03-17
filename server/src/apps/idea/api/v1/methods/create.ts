@@ -37,5 +37,5 @@ class Create extends Method {
 }
 
 export default new Create({
-    route: 'create',
+    name: 'create',
 })

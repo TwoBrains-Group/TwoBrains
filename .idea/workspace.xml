@@ -14,218 +14,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="edaaf9c1-6c17-4647-aa91-a795e595d129" name="Default Changelist" comment="Ahhhh, l10n.orgasm">
-      <change afterPath="$PROJECT_DIR$/client/constants/patterns.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/Google_signin_button.sketch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/hdpi/btn_google_dark_disabled_hdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/hdpi/btn_google_dark_focus_hdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/hdpi/btn_google_dark_normal_hdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/hdpi/btn_google_dark_pressed_hdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/hdpi/btn_google_light_disabled_hdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/hdpi/btn_google_light_focus_hdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/hdpi/btn_google_light_normal_hdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/hdpi/btn_google_light_pressed_hdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/hdpi/btn_google_signin_dark_disabled_hdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/hdpi/btn_google_signin_dark_focus_hdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/hdpi/btn_google_signin_dark_normal_hdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/hdpi/btn_google_signin_dark_pressed_hdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/hdpi/btn_google_signin_light_disabled_hdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/hdpi/btn_google_signin_light_focus_hdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/hdpi/btn_google_signin_light_normal_hdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/hdpi/btn_google_signin_light_pressed_hdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/ldpi/btn_google_dark_disabled_ldpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/ldpi/btn_google_dark_focus_ldpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/ldpi/btn_google_dark_normal_ldpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/ldpi/btn_google_dark_pressed_ldpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/ldpi/btn_google_light_disabled_ldpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/ldpi/btn_google_light_focus_ldpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/ldpi/btn_google_light_normal_ldpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/ldpi/btn_google_light_pressed_ldpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/ldpi/btn_google_signin_dark_disabled_ldpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/ldpi/btn_google_signin_dark_focus_ldpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/ldpi/btn_google_signin_dark_normal_ldpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/ldpi/btn_google_signin_dark_pressed_ldpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/ldpi/btn_google_signin_light_disabled_ldpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/ldpi/btn_google_signin_light_focus_ldpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/ldpi/btn_google_signin_light_normal_ldpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/ldpi/btn_google_signin_light_pressed_ldpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/mdpi/btn_google_dark_disabled_mdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/mdpi/btn_google_dark_focus_mdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/mdpi/btn_google_dark_normal_mdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/mdpi/btn_google_dark_pressed_mdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/mdpi/btn_google_light_disabled_mdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/mdpi/btn_google_light_focus_mdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/mdpi/btn_google_light_normal_mdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/mdpi/btn_google_light_pressed_mdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/mdpi/btn_google_signin_dark_disabled_mdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/mdpi/btn_google_signin_dark_focus_mdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/mdpi/btn_google_signin_dark_normal_mdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/mdpi/btn_google_signin_dark_pressed_mdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/mdpi/btn_google_signin_light_disabled_mdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/mdpi/btn_google_signin_light_focus_mdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/mdpi/btn_google_signin_light_normal_mdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/mdpi/btn_google_signin_light_pressed_mdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/tvdpi/btn_google_dark_disabled_tvdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/tvdpi/btn_google_dark_focus_tvdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/tvdpi/btn_google_dark_normal_tvdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/tvdpi/btn_google_dark_pressed_tvdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/tvdpi/btn_google_light_disabled_tvdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/tvdpi/btn_google_light_focus_tvdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/tvdpi/btn_google_light_normal_tvdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/tvdpi/btn_google_light_pressed_tvdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/tvdpi/btn_google_signin_dark_disabled_tvdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/tvdpi/btn_google_signin_dark_focus_tvdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/tvdpi/btn_google_signin_dark_normal_tvdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/tvdpi/btn_google_signin_dark_pressed_tvdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/tvdpi/btn_google_signin_light_disabled_tvdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/tvdpi/btn_google_signin_light_focus_tvdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/tvdpi/btn_google_signin_light_normal_tvdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/tvdpi/btn_google_signin_light_pressed_tvdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xhdpi/btn_google_dark_disabled_xhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xhdpi/btn_google_dark_focus_xhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xhdpi/btn_google_dark_normal_xhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xhdpi/btn_google_dark_pressed_xhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xhdpi/btn_google_light_disabled_xhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xhdpi/btn_google_light_focus_xhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xhdpi/btn_google_light_normal_xhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xhdpi/btn_google_light_pressed_xhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xhdpi/btn_google_signin_dark_disabled_xhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xhdpi/btn_google_signin_dark_focus_xhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xhdpi/btn_google_signin_dark_normal_xhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xhdpi/btn_google_signin_dark_pressed_xhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xhdpi/btn_google_signin_light_disabled_xhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xhdpi/btn_google_signin_light_focus_xhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xhdpi/btn_google_signin_light_normal_xhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xhdpi/btn_google_signin_light_pressed_xhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xxhdpi/btn_google_dark_disabled_xxhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xxhdpi/btn_google_dark_focus_xxhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xxhdpi/btn_google_dark_normal_xxhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xxhdpi/btn_google_dark_pressed_xxhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xxhdpi/btn_google_light_disabled_xxhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xxhdpi/btn_google_light_focus_xxhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xxhdpi/btn_google_light_normal_xxhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xxhdpi/btn_google_light_pressed_xxhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xxhdpi/btn_google_signin_dark_disabled_xxhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xxhdpi/btn_google_signin_dark_focus_xxhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xxhdpi/btn_google_signin_dark_normal_xxhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xxhdpi/btn_google_signin_dark_pressed_xxhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xxhdpi/btn_google_signin_light_disabled_xxhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xxhdpi/btn_google_signin_light_focus_xxhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xxhdpi/btn_google_signin_light_normal_xxhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xxhdpi/btn_google_signin_light_pressed_xxhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xxxhdpi/btn_google_dark_disabled_xxxhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xxxhdpi/btn_google_dark_focus_xxxhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xxxhdpi/btn_google_dark_normal_xxxhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xxxhdpi/btn_google_dark_pressed_xxxhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xxxhdpi/btn_google_light_disabled_xxxhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xxxhdpi/btn_google_light_focus_xxxhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xxxhdpi/btn_google_light_normal_xxxhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xxxhdpi/btn_google_light_pressed_xxxhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xxxhdpi/btn_google_signin_dark_disabled_xxxhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xxxhdpi/btn_google_signin_dark_focus_xxxhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xxxhdpi/btn_google_signin_dark_normal_xxxhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xxxhdpi/btn_google_signin_dark_pressed_xxxhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xxxhdpi/btn_google_signin_light_disabled_xxxhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xxxhdpi/btn_google_signin_light_focus_xxxhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xxxhdpi/btn_google_signin_light_normal_xxxhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/android/xxxhdpi/btn_google_signin_light_pressed_xxxhdpi.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/1x/btn_google_dark_disabled_ios.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/1x/btn_google_dark_focus_ios.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/1x/btn_google_dark_normal_ios.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/1x/btn_google_dark_pressed_ios.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/1x/btn_google_light_disabled_ios.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/1x/btn_google_light_focus_ios.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/1x/btn_google_light_normal_ios.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/1x/btn_google_light_pressed_ios.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/1x/btn_google_signin_dark_disabled_ios.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/1x/btn_google_signin_dark_focus_ios.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/1x/btn_google_signin_dark_normal_ios.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/1x/btn_google_signin_dark_pressed_ios.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/1x/btn_google_signin_light_disabled_ios.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/1x/btn_google_signin_light_focus_ios.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/1x/btn_google_signin_light_normal_ios.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/1x/btn_google_signin_light_pressed_ios.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/2x/btn_google_dark_disabled_ios@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/2x/btn_google_dark_focus_ios@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/2x/btn_google_dark_normal_ios@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/2x/btn_google_dark_pressed_ios@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/2x/btn_google_light_disabled_ios@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/2x/btn_google_light_focus_ios@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/2x/btn_google_light_normal_ios@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/2x/btn_google_light_pressed_ios@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/2x/btn_google_signin_dark_disabled_ios@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/2x/btn_google_signin_dark_focus_ios@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/2x/btn_google_signin_dark_normal_ios@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/2x/btn_google_signin_dark_pressed_ios@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/2x/btn_google_signin_light_disabled_ios@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/2x/btn_google_signin_light_focus_ios@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/2x/btn_google_signin_light_normal_ios@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/2x/btn_google_signin_light_pressed_ios@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/3x/btn_google_dark_disabled_ios@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/3x/btn_google_dark_focus_ios@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/3x/btn_google_dark_normal_ios@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/3x/btn_google_dark_pressed_ios@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/3x/btn_google_light_disabled_ios@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/3x/btn_google_light_focus_ios@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/3x/btn_google_light_normal_ios@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/3x/btn_google_light_pressed_ios@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/3x/btn_google_signin_dark_disabled_ios@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/3x/btn_google_signin_dark_focus_ios@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/3x/btn_google_signin_dark_normal_ios@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/3x/btn_google_signin_dark_pressed_ios@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/3x/btn_google_signin_light_disabled_ios@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/3x/btn_google_signin_light_focus_ios@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/3x/btn_google_signin_light_normal_ios@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/ios/3x/btn_google_signin_light_pressed_ios@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/web/1x/btn_google_signin_dark_disabled_web.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/web/1x/btn_google_signin_dark_focus_web.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/web/1x/btn_google_signin_dark_normal_web.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/web/1x/btn_google_signin_dark_pressed_web.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/web/1x/btn_google_signin_light_disabled_web.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/web/1x/btn_google_signin_light_focus_web.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/web/1x/btn_google_signin_light_normal_web.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/web/1x/btn_google_signin_light_pressed_web.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/web/vector/btn_google_dark_disabled_ios.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/web/vector/btn_google_dark_disabled_ios.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/web/vector/btn_google_dark_focus_ios.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/web/vector/btn_google_dark_focus_ios.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/web/vector/btn_google_dark_normal_ios.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/web/vector/btn_google_dark_normal_ios.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/web/vector/btn_google_dark_pressed_ios.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/web/vector/btn_google_dark_pressed_ios.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/web/vector/btn_google_light_disabled_ios.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/web/vector/btn_google_light_disabled_ios.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/web/vector/btn_google_light_focus_ios.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/web/vector/btn_google_light_focus_ios.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/web/vector/btn_google_light_normal_ios.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/web/vector/btn_google_light_normal_ios.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/web/vector/btn_google_light_pressed_ios.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/google_signin_buttons/web/vector/btn_google_light_pressed_ios.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/static/img/auth/google/signin-assets.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/db/init/tb-0013.tags.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/reply-to-comment.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/schemas/reply-to-comment.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/assets/sass/components/tag/TagSearch.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/tag/TagSearch.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/base/api.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/tag/api/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/tag/api/v1/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/tag/api/v1/methods/get-tags.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/tag/api/v1/methods/get-top.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/tag/api/v1/methods/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/tag/api/v1/queries.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/tag/api/v1/schemas/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/tag/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/modules/ajv/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/assets/sass/components/idea/Idea.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/components/idea/Idea.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/sass/components/idea/IdeaComment.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/components/idea/IdeaComment.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/sass/components/idea/WriteComment.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/components/idea/WriteComment.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/sass/components/ui/Input.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/components/ui/Input.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/sass/pages/auth/auth.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/pages/auth/auth.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/sass/ui/_btn.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/ui/_btn.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/sass/pages/idea/create.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/pages/idea/create.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/components/idea/Idea.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/idea/Idea.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/components/idea/IdeaComment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/idea/IdeaComment.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/idea/WriteComment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/idea/WriteComment.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/ui/Input.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/ui/Input.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/ui/Textarea.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/ui/Textarea.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/l10n/en.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/l10n/en.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/l10n/ru.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/l10n/ru.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/auth/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/auth/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/.eslintrc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/db/init/tb-0200.ideas.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/init/tb-0200.ideas.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/auth/api/v1/methods/base-auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/auth/api/v1/methods/base-auth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/idea/IdeaList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/idea/IdeaList.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/idea/create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/idea/create.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/user/_uid/ideas/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/user/_uid/ideas/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/plugins/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/plugins/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/.env" beforeDir="false" afterPath="$PROJECT_DIR$/server/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/db/init/tb-0013.tags.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/init/tb-0013.tags.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/auth/api/v1/methods/google.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/auth/api/v1/methods/google.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/apps/auth/api/v1/methods/login.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/auth/api/v1/methods/login.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/apps/auth/api/v1/methods/signup.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/auth/api/v1/methods/signup.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/auth/api/v1/queries.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/auth/api/v1/queries.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/auth/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/auth/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/apps/base/Method.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/base/Method.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/base/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/base/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/apps/base/templates.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/base/templates.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/comment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/comment.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/create.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/create.ts" afterDir="false" />
@@ -233,28 +50,34 @@
       <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-by-id.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-by-id.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-comments.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-comments.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-list.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-list.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-user-ideas.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-user-ideas.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-user-ideas.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/like-comment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/like-comment.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/like.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/like.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/reply-to-comment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/reply-to-comment.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/queries.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/queries.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/schemas/get-comments.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/schemas/get-comments.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/schemas/get-list.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/schemas/get-list.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/schemas/get-user-ideas.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/tag/api/v1/schemas/get-tags.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/schemas/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/schemas/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/idea/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/apps/l10n/api/v1/methods/get-locales.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/l10n/api/v1/methods/get-locales.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/apps/l10n/api/v1/methods/load.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/l10n/api/v1/methods/load.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/l10n/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/l10n/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/main/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/main/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/apps/project/api/v1/methods/get-by-uid.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/project/api/v1/methods/get-by-uid.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/apps/project/api/v1/methods/get-list.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/project/api/v1/methods/get-list.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/project/plugins/base/base-plugin.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/project/plugins/base/base-plugin.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/project/plugins/project-plugins/idea-plugin/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/project/plugins/project-plugins/idea-plugin/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/project/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/project/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/apps/user/api/v1/methods/change-lang.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/user/api/v1/methods/change-lang.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/apps/user/api/v1/methods/follow.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/user/api/v1/methods/follow.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/apps/user/api/v1/methods/get-by-uid.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/user/api/v1/methods/get-by-uid.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/apps/user/api/v1/methods/save-settings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/user/api/v1/methods/save-settings.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/user/api/v1/methods/update-avatar.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/user/api/v1/methods/update-avatar.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/user/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/user/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/modules/db/instance.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/modules/db/instance.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/modules/db/pool.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/modules/db/pool.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/modules/logger/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/modules/logger/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/modules/pretty-time/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/modules/pretty-time/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/server/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/server/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/server/mws/jwt.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/server/mws/jwt.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -313,18 +136,18 @@
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.prettier.on.save" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
     <property name="ts.external.directory.path" value="C:\Users\PYJOHN\AppData\Local\JetBrains\Toolbox\apps\WebStorm\ch-0\202.7660.23\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
     <property name="vuejs.nuxt.types-notification-shown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Projects\TwoBrains\server\src\apps\tag\api\v1\schemas" />
+      <recent name="F:\Projects\TwoBrains\server\src\apps\tag\api\v1\methods" />
       <recent name="F:\Projects\TwoBrains\server\src\apps\project\plugins\base" />
       <recent name="F:\Projects\TwoBrains\server\src\apps\project\plugins\project-plugins" />
       <recent name="F:\Projects\TwoBrains\server\src\apps\project\plugins" />
-      <recent name="F:\Projects\TwoBrains\client\layouts" />
-      <recent name="F:\Projects\TwoBrains\client\components\ui" />
     </key>
   </component>
   <component name="RunManager">
@@ -399,6 +222,9 @@
       <workItem from="1615729053161" duration="27115000" />
       <workItem from="1615778033961" duration="16644000" />
       <workItem from="1615864092622" duration="2558000" />
+      <workItem from="1615909675108" duration="17244000" />
+      <workItem from="1615965340135" duration="3361000" />
+      <workItem from="1615980329365" duration="13966000" />
     </task>
     <task id="LOCAL-00001" summary=":bulb: Meow">
       <created>1612391364993</created>
@@ -575,10 +401,10 @@
       <screen x="0" y="0" width="2560" height="1052" />
     </state>
     <state x="738" y="185" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612125479031" />
-    <state x="1034" y="319" width="508" height="414" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1615171424575">
+    <state x="1034" y="319" width="508" height="414" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1616008611627">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state x="1034" y="319" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1615171424575" />
+    <state x="1034" y="319" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1616008611627" />
     <state x="1034" y="320" width="508" height="414" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612140347437" />
     <state x="935" y="308" width="683" height="683" key="EditFileWatcherDialog" timestamp="1612141018555">
       <screen x="0" y="0" width="2560" height="1052" />
@@ -593,10 +419,10 @@
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state x="860" y="260" key="IDE.errors.dialog/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614281611294" />
-    <state x="784" y="162" key="SettingsEditor" timestamp="1615755148883">
+    <state x="784" y="162" key="SettingsEditor" timestamp="1615927135129">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state x="784" y="162" key="SettingsEditor/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1615755148883" />
+    <state x="784" y="162" key="SettingsEditor/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1615927135129" />
     <state x="784" y="162" key="SettingsEditor/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612147345234" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1612675894670">
       <screen x="0" y="0" width="2560" height="1050" />
@@ -614,26 +440,26 @@
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state x="0" y="0" width="2166" height="1032" key="dock-window-1/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1612652780293" />
-    <state x="987" y="260" width="594" height="656" key="find.popup" timestamp="1615793805722">
+    <state x="987" y="260" width="594" height="656" key="find.popup" timestamp="1616016540148">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state x="987" y="260" width="594" height="656" key="find.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1615793805722" />
+    <state x="987" y="260" width="594" height="656" key="find.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1616016540148" />
     <state x="3054" y="246" width="555" height="622" key="find.popup/0.0.2560.1050/2560.0.1280.994@2560.0.1280.994" timestamp="1615672963356" />
     <state x="987" y="260" width="585" height="534" key="find.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612145569091" />
     <state width="600" height="440" key="javadoc.popup" timestamp="1614281174337">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state width="600" height="440" key="javadoc.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614281174337" />
-    <state x="942" y="240" width="672" height="677" key="run.anything.popup" timestamp="1615781385975">
+    <state x="942" y="240" width="672" height="677" key="run.anything.popup" timestamp="1616017376946">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state x="942" y="240" width="672" height="677" key="run.anything.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1615781385975" />
+    <state x="942" y="240" width="672" height="677" key="run.anything.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1616017376946" />
     <state x="3031" y="227" width="336" height="641" key="run.anything.popup/0.0.2560.1050/2560.0.1280.994@2560.0.1280.994" timestamp="1615669619272" />
     <state x="942" y="240" key="run.anything.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612128644928" />
-    <state x="943" y="232" width="672" height="677" key="search.everywhere.popup" timestamp="1615793147673">
+    <state x="943" y="232" width="672" height="677" key="search.everywhere.popup" timestamp="1615927600035">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state x="943" y="232" width="672" height="677" key="search.everywhere.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1615793147673" />
+    <state x="943" y="232" width="672" height="677" key="search.everywhere.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1615927600035" />
     <state x="943" y="232" width="672" height="678" key="search.everywhere.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612131512848" />
   </component>
 </project>

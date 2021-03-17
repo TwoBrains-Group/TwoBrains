@@ -54,5 +54,5 @@ class GetComments extends Method {
 }
 
 export default new GetComments({
-    route: 'getComments',
+    name: 'getComments',
 })

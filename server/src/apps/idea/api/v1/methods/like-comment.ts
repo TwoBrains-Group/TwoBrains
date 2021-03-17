@@ -38,5 +38,5 @@ class LikeComment extends Method {
 }
 
 export default new LikeComment({
-    route: 'likeComment',
+    name: 'likeComment',
 })

@@ -34,5 +34,5 @@ class SaveSettings extends Method {
 }
 
 export default new SaveSettings({
-    route: 'saveSettings',
+    name: 'saveSettings',
 })

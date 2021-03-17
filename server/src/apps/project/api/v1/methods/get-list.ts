@@ -27,5 +27,5 @@ class GetList extends Method {
 }
 
 export default new GetList({
-    route: 'getList',
+    name: 'getList',
 })

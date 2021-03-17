@@ -4,10 +4,11 @@ import {default as DB} from '@modules/db'
 import {Query, queryDefaultOptions, QueryOptions, QueryParams} from '@modules/db/pool'
 import {Req, MethodRes, FormDataReq} from '@apps/base/templates'
 import DBInstance from '@modules/db/instance'
+import {ValidateFunction} from 'ajv'
 
 export type MethodProps = {
     useDB?: boolean,
-    route: string,
+    name: string,
     formData?: boolean
     formDataMult?: boolean
 }
@@ -15,6 +16,7 @@ export type MethodProps = {
 export type MethodInitData = {
     queries?: Record<string, string>
     appName: string
+    validateSchema: ValidateFunction
 }
 
 export type AuthUser = {
@@ -26,25 +28,27 @@ export abstract class Method {
     log: Logger
     db?: DBInstance
     useDB: boolean
-    route: string
+    name: string
     formData?: boolean
     formDataMult?: boolean
     private queries?: Record<string, Query>
+    validateSchema: ValidateFunction
 
     constructor(props: MethodProps) {
         this.appName = ''
-        this.route = `/${props.route}`.replace(/\/{2,}/g, '/')
+        this.name = props.name || this.getName()
         this.useDB = props.useDB || true
         this.formData = props.formData
         this.formDataMult = props.formDataMult
     }
 
-    async init(appData: MethodInitData): Promise<void> {
-        this.appName = appData.appName
-        this.queries = appData.queries
+    async init(data: MethodInitData): Promise<void> {
+        this.appName = data.appName
+        this.queries = data.queries
+        this.validateSchema = data.validateSchema
 
         this.log = new Logger({
-            owner: this.getPath(),
+            owner: `${this.appName}/${this.getPath()}`,
         })
 
         if (this.useDB) {
@@ -53,7 +57,7 @@ export abstract class Method {
 
         await this._init()
 
-        this.log.info(`Route ${this.getPath()} inited`)
+        this.log.info(`Method ${this.getPath()} inited`)
     }
 
     // eslint-disable-next-line @typescript-eslint/no-empty-function

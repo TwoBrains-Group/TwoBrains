@@ -48,5 +48,5 @@ class Login extends BaseAuth {
 }
 
 export default new Login({
-    route: 'login',
+    name: 'login',
 })

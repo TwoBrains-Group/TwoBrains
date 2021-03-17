@@ -29,6 +29,10 @@ export default {
                 return ideasRelations.includes(value)
             },
         },
+        userUid: {
+            type: String,
+            default: null,
+        },
     },
 
     data() {
@@ -57,6 +61,7 @@ export default {
                     limit: ideaFetching.limit,
                     offset: this.offset,
                     relation: this.relation,
+                    userUid: this.userUid,
                 }
 
                 const {ideas} = await this.$api.send({

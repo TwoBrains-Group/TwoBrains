@@ -1,8 +1,9 @@
 import {Fields, Files} from 'formidable'
 
 export type ReqRes = {
-    app?: string
-    method?: string
+    app: string
+    method: string
+    v: number
     token?: string
 }
 
@@ -24,8 +25,9 @@ export type Res = ReqRes & {
 export type MethodRes = Res | Record<string, any> | never
 
 export const template: ReqRes = {
-    app: undefined,
-    method: undefined,
+    app: 'unknown',
+    method: 'unknown',
+    v: 0,
 }
 
 export const getRes = (res: MethodRes): Res => {

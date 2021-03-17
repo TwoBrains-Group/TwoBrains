@@ -4,6 +4,7 @@ import auth from './auth'
 import idea from './idea'
 import l10n from './l10n'
 import project from './project'
+import tag from './tag'
 
 export default {
     main,
@@ -12,4 +13,5 @@ export default {
     idea,
     l10n,
     project,
+    tag,
 }

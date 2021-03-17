@@ -17,7 +17,7 @@ COMMENT ON COLUMN main.tag_groups.label IS 'Tag group label';
 CREATE TABLE main.tags (
     tag_id SERIAL2 NOT NULL,
     label TEXT NOT NULL,
-    tag_group_id INT2 NOT NULL,
+    tag_group_id INT2,
     CONSTRAINT tags_tag_id_pkey PRIMARY KEY (tag_id),
     CONSTRAINT tags_label_ukey UNIQUE (label),
     CONSTRAINT tags_tag_group_id_fkey FOREIGN KEY (tag_group_id) REFERENCES main.tag_groups(tag_group_id)

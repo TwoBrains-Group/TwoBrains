@@ -116,5 +116,5 @@ class Load extends Method {
 }
 
 export default new Load({
-    route: 'load',
+    name: 'load',
 })

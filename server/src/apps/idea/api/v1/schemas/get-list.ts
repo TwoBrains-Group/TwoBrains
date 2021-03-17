@@ -17,5 +17,8 @@ export default {
                 type: 'null',
             }],
         },
+        userUid: {
+            type: 'string',
+        },
     },
 }

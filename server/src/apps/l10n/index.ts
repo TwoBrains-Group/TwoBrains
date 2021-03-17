@@ -7,5 +7,5 @@ class L10N extends BaseApp {
 }
 
 export default new L10N({
-    routePrefix: 'l10n',
+    name: 'l10n',
 })

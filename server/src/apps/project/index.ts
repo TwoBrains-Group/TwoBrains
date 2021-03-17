@@ -7,5 +7,5 @@ class Project extends BaseApp {
 }
 
 export default new Project({
-    routePrefix: 'project',
+    name: 'project',
 })

@@ -22,8 +22,6 @@
                 <div class="btn idea__comments__comment__user__options-btn" @click="showOptions = !showOptions">
                     <i class="fas fa-ellipsis-h"></i>
                 </div>
-
-                <div></div>
             </div>
         </header>
 
@@ -56,7 +54,7 @@
             </div>
         </footer>
 
-        <div class="idea__comments__comment__replies">
+        <div class="idea__comments__comment__replies" v-if="showReplies">
             <div class="idea__comments__comment__replies__line"></div>
             <div class="idea__comments__comment__replies__list">
                 <WriteComment v-if="showReplies" ref="writeReply" type="comment" :id="id" @done="replied"/>
@@ -67,7 +65,7 @@
                              v-bind:isReply="true"
                              v-if="!isReply && showReplies"/>
 
-                <div v-if="!allRepliesFetched"
+                <div v-if="!allRepliesFetched && showReplies"
                      @click="fetchReplies"
                      class="base-btn idea__comments__comment__replies__list__load-more">Load more
                 </div>

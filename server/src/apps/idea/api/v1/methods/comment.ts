@@ -33,5 +33,5 @@ class Comment extends Method {
 }
 
 export default new Comment({
-    route: 'comment',
+    name: 'comment',
 })

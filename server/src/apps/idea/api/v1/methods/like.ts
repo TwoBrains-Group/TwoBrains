@@ -59,5 +59,5 @@ class Like extends Method {
 }
 
 export default new Like({
-    route: 'like',
+    name: 'like',
 })

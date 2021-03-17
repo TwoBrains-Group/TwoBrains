@@ -38,5 +38,5 @@ class Follow extends Method {
 }
 
 export default new Follow({
-    route: 'follow',
+    name: 'follow',
 })

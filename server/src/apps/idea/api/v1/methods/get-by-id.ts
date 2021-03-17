@@ -33,5 +33,5 @@ class GetById extends Method {
 }
 
 export default new GetById({
-    route: 'getById',
+    name: 'getById',
 })

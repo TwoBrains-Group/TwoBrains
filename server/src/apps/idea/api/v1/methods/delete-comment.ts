@@ -30,5 +30,5 @@ class DeleteComment extends Method {
 }
 
 export default new DeleteComment({
-    route: 'deleteComment',
+    name: 'deleteComment',
 })

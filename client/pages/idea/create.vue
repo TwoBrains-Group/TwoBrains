@@ -15,6 +15,8 @@
                       :warn-len="4000"
                       :placeholder="l10n.myIdeaIsAbout"/>
 
+            <TagSearch :header="l10n.addTags"/>
+
             <div class="material-btn new-idea-form__done" @click="done">
                 {{ l10n.done }}
             </div>
@@ -23,20 +25,27 @@
 </template>
 
 <script>
+import TagSearch from '@/components/tag/TagSearch'
 import Input from '@/components/ui/Input'
 import Textarea from '@/components/ui/Textarea'
 
 export default {
     name: 'create',
+
     components: {
+        TagSearch,
         Input,
         Textarea,
     },
+
     data() {
         return {
             name: '',
             text: '',
-            l10n: this.$t('page.idea.create'),
+            l10n: {
+                ...this.$t('page.idea.create'),
+                ...this.$t('tags'),
+            },
         }
     },
 
@@ -59,6 +68,10 @@ export default {
             } catch (error) {
                 this.$toast.error(error.message)
             }
+        },
+
+        toggleTag(id) {
+            this.tags.add(id)
         },
     },
 }

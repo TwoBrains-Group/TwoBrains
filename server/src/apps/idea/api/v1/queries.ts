@@ -15,16 +15,30 @@ export default {
                 'avatar', u.avatar,
                 'online', u.online
             ) AS "user"
-            ,(il.user_id IS NOT NULL)::bool AS "liked"
+            ,likes_count.lcount AS "likesCount"
+            ,likes_count.dcount AS "dislikesCount"
             ,(il_liked.user_id IS NOT NULL AND il_liked.dislike = FALSE)::BOOL AS "liked"
             ,(il_liked.user_id IS NOT NULL AND il_liked.dislike = TRUE)::BOOL AS "disliked"
-            ,COUNT(il.user_id) FILTER (WHERE il.dislike = FALSE) AS "likesCount"
-            ,COUNT(il.user_id) FILTER (WHERE il.dislike = TRUE) AS "dislikesCount"
+            ,array_agg(json_build_object(
+                'label', t.label,
+                'groupLabel', tg.label
+            )) AS "tags"
         FROM
             main.ideas AS i
             INNER JOIN main.users AS u ON u.user_id = i.user_id
-            LEFT JOIN main.ideas_likes AS il_liked ON il_liked.user_id = :loggedInUserId AND il_liked.idea_id = i.idea_id
-            LEFT JOIN main.ideas_likes AS il ON il.idea_id = i.idea_id
+            LEFT JOIN main.ideas_tags AS it ON it.idea_id = i.idea_id
+            LEFT JOIN main.tags AS t ON t.tag_id = it.tag_id
+            LEFT JOIN main.tag_groups AS tg ON tg.tag_group_id = t.tag_group_id
+            LEFT JOIN LATERAL (
+                SELECT
+                     COUNT(NOT il.dislike) AS lcount
+                    ,COUNT(il.dislike)     AS dcount
+                FROM
+                    main.ideas_likes AS il
+                WHERE
+                    il.idea_id = i.idea_id
+            ) AS likes_count ON TRUE
+            LEFT JOIN main.ideas_likes AS il_liked ON il_liked.idea_id = i.idea_id AND il_liked.user_id = :loggedInUserId
         WHERE
             i.idea_id = :ideaId
         GROUP BY
@@ -32,9 +46,10 @@ export default {
             u.user_id,
             il_liked.user_id,
             il_liked.dislike,
-            il.user_id;`,
+            likes_count.lcount,
+            likes_count.dcount;`,
 
-    getList: ({relation}): string => `
+    getList: `
         SELECT
              i.idea_id AS "id"
             ,i.name AS "name"
@@ -47,49 +62,51 @@ export default {
                 'avatar', u.avatar,
                 'online', u.online
             ) AS "user"
+            ,likes_count.lcount AS "likesCount"
+            ,likes_count.dcount AS "dislikesCount"
             ,(il_liked.user_id IS NOT NULL AND il_liked.dislike = FALSE)::BOOL AS "liked"
             ,(il_liked.user_id IS NOT NULL AND il_liked.dislike = TRUE)::BOOL AS "disliked"
-            ,COUNT(il.user_id) FILTER (WHERE il.dislike = FALSE) AS "likesCount"
-            ,COUNT(il.user_id) FILTER (WHERE il.dislike = TRUE) AS "dislikesCount"
+            ,array_agg(json_build_object(
+                'label', t.label,
+                'groupLabel', tg.label
+            )) AS "tags"
         FROM
             main.ideas AS i
             INNER JOIN main.users AS u ON i.user_id = u.user_id
+            LEFT JOIN main.ideas_tags AS it ON i.idea_id = it.idea_id
+            LEFT JOIN main.tags AS t ON t.tag_id = it.tag_id
+            LEFT JOIN main.tag_groups AS tg ON tg.tag_group_id = t.tag_group_id
             LEFT JOIN main.ideas_likes AS il_liked
                 ON il_liked.user_id = :loggedInUserId AND il_liked.idea_id = i.idea_id
             LEFT JOIN main.ideas_likes AS il ON il.idea_id = i.idea_id
-        ${relation && 'WHERE'}
-            ${relation && `i.relation = '${relation}'::main.idea_relation`}
+            LEFT JOIN LATERAL (
+                SELECT
+                     COUNT(NOT il.dislike) AS lcount
+                    ,COUNT(il.dislike)     AS dcount
+                FROM
+                    main.ideas_likes AS il
+                WHERE
+                    il.idea_id = i.idea_id
+            ) AS likes_count ON TRUE
+            WHERE
+                TRUE
+        /* relation:
+                AND i.relation = :relation::main.idea_relation
+        */
+        /* userUid:
+                AND u.uid = :userUid
+        */
+        /* ideaId:
+                AND i.idea_id = :ideaId
+        */
         GROUP BY
             i.idea_id,
             u.user_id,
             il_liked.user_id,
-            il_liked.dislike
-        ORDER BY i.creation_datetime DESC
-        LIMIT :limit
-        OFFSET :offset;`,
-
-
-    getUserIdeas: `
-        SELECT
-             i.idea_id AS "id"
-            ,i.name AS "name"
-            ,i.text AS "text"
-            ,i.creation_datetime AS "creationDatetime"
-            ,json_build_object(
-                'id', u.user_id,
-                'uid', u.uid,
-                'nickname', u.nickname,
-                'avatar', u.avatar,
-                'online', u.online
-            ) AS "user"
-            ,(il.user_id IS NOT NULL)::bool AS "liked"
-        FROM
-            main.ideas AS i
-            INNER JOIN main.users AS u ON i.user_id = u.user_id
-            LEFT JOIN main.ideas_likes AS il ON i.idea_id = il.idea_id
-        WHERE
-            i.user_id = u.user_id
-            AND u.uid = :uid
+            il_liked.dislike,
+            likes_count.lcount,
+            likes_count.dcount,
+            i.creation_datetime
         ORDER BY i.creation_datetime DESC
         LIMIT :limit
         OFFSET :offset;`,

@@ -1,5 +1,6 @@
 import {Client, QueryConfig, QueryResultRow} from 'pg'
 import PgPool from 'pg-pool'
+import {log} from 'util'
 import {UnusedQueryParams} from './errors'
 
 // const strict: boolean = process.env.ENV.toLowerCase() === 'prod' || true
@@ -38,9 +39,17 @@ export type PreparedQuery = {text: string, values: any[]}
 export const prepareQuery = (queryName: string, queryString: string, params: QueryParams = {}, options: QueryOptions = {}): PreparedQuery => {
     const values: any[] = []
     let paramIndex = 0
-    const unusedVariables: string[] = []
+    const unusedQueryParams: string[] = []
 
-    let text = queryString.replace(/(?<!:):(\w+)/g, (text, variable) => {
+    let text = queryString
+    for (const param of Object.keys(params)) {
+        const pattern = new RegExp(`/\\*\\s*${param}:([^\\*]*)\\*/`, 'gm')
+        text = text.replace(pattern, '$1')
+    }
+
+    text = text.replace(/\/\*[\s\S]*?\*\//gms, '')
+
+    text = text.replace(/(?<!:):(\w+)/g, (text, variable) => {
         if (variable in params) {
             ++paramIndex
             values.push(params[variable])
@@ -48,17 +57,13 @@ export const prepareQuery = (queryName: string, queryString: string, params: Que
         } else if (options.unusedToNull?.includes(variable)) {
             return 'null'
         } else {
-            unusedVariables.push(variable)
+            unusedQueryParams.push(variable)
         }
         return text
     }).trim()
 
-    const pattern = new RegExp(`\\/\\*\\s*(${Object.keys(params)}):\\s*\\*\\/`, 'gm')
-
-    text = text.replace(pattern, '$1')
-
-    if (unusedVariables.length) {
-        throw new UnusedQueryParams(unusedVariables, queryName)
+    if (unusedQueryParams.length) {
+        throw new UnusedQueryParams(unusedQueryParams, queryName)
     }
 
     return {

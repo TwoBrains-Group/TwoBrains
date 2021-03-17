@@ -59,5 +59,5 @@ class Signup extends BaseAuth {
 }
 
 export default new Signup({
-    route: 'signup',
+    name: 'signup',
 })

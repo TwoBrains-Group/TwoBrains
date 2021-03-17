@@ -56,6 +56,10 @@
                      v-if="!isPage">
                     <i :class="showComments ? 'fas' : 'far'" class="fa-comments"></i>
                 </div>
+
+                <div class="idea__block__footer__tags">
+                    <div class="idea__block__footer__tags__el" v-for="tag of tags" :key="tag.tag_id">{{tag.label}}</div>
+                </div>
             </footer>
         </div>
 
@@ -98,6 +102,7 @@ export default {
         'isPage',
         'likesCount',
         'dislikesCount',
+        'tags',
     ],
 
     created() {

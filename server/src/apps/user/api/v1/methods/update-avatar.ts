@@ -45,6 +45,6 @@ class UpdateAvatar extends Method {
 }
 
 export default new UpdateAvatar({
-    route: 'updateAvatar',
+    name: 'updateAvatar',
     formData: true,
 })

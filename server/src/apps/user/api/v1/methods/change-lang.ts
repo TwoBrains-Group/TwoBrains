@@ -27,5 +27,5 @@ class ChangeLang extends Method {
 }
 
 export default new ChangeLang({
-    route: 'changeLang',
+    name: 'changeLang',
 })

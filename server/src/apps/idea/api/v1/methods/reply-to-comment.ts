@@ -44,5 +44,5 @@ class ReplyToComment extends Method {
 }
 
 export default new ReplyToComment({
-    route: 'replyToComment',
+    name: 'replyToComment',
 })

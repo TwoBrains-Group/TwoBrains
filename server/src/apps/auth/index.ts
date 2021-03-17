@@ -19,5 +19,5 @@ class Auth extends BaseApp {
 }
 
 export default new Auth({
-    routePrefix: '/auth',
+    name: 'auth',
 })

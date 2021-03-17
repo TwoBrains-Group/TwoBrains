@@ -49,6 +49,20 @@ class DBInstance {
 
         const {returnType, returnField, queryDebugLog} = options
 
+        if (queryDebugLog) {
+            this.log.debug(`(query debug log) ${queryName}: Full params: ${JSON.stringify(params, null, 2)}`)
+        }
+
+        for (const paramName of Object.keys(params)) {
+            if (params[paramName] === undefined) {
+                delete params[paramName]
+            }
+        }
+
+        if (queryDebugLog) {
+            this.log.debug(`(query debug log) ${queryName}: Clean params: ${JSON.stringify(params, null, 2)}`)
+        }
+
         try {
             await this.pool.exec({
                 text: 'SET search_path TO \'main\';',

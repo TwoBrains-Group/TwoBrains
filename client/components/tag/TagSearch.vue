@@ -17,6 +17,10 @@
     </div>
 </template>
 
+<style lang="scss">
+@import '~assets/sass/components/tag/TagSearch';
+</style>
+
 <script>
 import Input from '@/components/ui/Input'
 
@@ -73,7 +77,3 @@ export default {
     },
 }
 </script>
-
-<style lang="scss">
-@import '~assets/sass/components/tag/TagSearch';
-</style>

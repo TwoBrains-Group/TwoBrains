@@ -5,6 +5,10 @@
     </div>
 </template>
 
+<style lang="scss">
+@import '~assets/sass/pages/project/list';
+</style>
+
 <script>
 import Project from '@/components/project/Project'
 import Spinner from '@/components/ui/Spinner'
@@ -44,7 +48,3 @@ export default {
     },
 }
 </script>
-
-<style lang="scss">
-@import '~assets/sass/pages/project/list';
-</style>

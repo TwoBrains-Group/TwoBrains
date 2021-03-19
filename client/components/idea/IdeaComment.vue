@@ -77,6 +77,10 @@
     </div>
 </template>
 
+<style lang="scss">
+@import '~assets/sass/components/idea/IdeaComment';
+</style>
+
 <script>
 import WriteComment from '@/components/idea/WriteComment'
 import InfiniteScroll from '@/components/tools/InfiniteScroll'
@@ -222,7 +226,3 @@ export default {
     },
 }
 </script>
-
-<style lang="scss">
-@import '~assets/sass/components/idea/IdeaComment';
-</style>

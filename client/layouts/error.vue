@@ -9,6 +9,10 @@
     </div>
 </template>
 
+<style lang="scss">
+@import '~assets/sass/pages/error/error.scss';
+</style>
+
 <script>
 /**
  * Thanks for me from 2019 for this shit
@@ -164,7 +168,3 @@ export default {
     },
 }
 </script>
-
-<style lang="scss">
-@import '~assets/sass/pages/error/error.scss';
-</style>

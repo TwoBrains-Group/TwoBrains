@@ -25,6 +25,10 @@
     </div>
 </template>
 
+<style lang="scss">
+@import '~assets/sass/components/common/MainMenu';
+</style>
+
 <script>
 export default {
     name: 'MainMenu',
@@ -42,7 +46,3 @@ export default {
     },
 }
 </script>
-
-<style lang="scss">
-@import '~assets/sass/components/common/MainMenu';
-</style>

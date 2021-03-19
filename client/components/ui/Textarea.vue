@@ -13,6 +13,10 @@
     </div>
 </template>
 
+<style lang="scss">
+@import '~assets/sass/components/ui/Textarea';
+</style>
+
 <script>
 export default {
     name: 'Textarea',
@@ -106,7 +110,3 @@ export default {
     },
 }
 </script>
-
-<style lang="scss">
-@import '~assets/sass/components/ui/Textarea';
-</style>

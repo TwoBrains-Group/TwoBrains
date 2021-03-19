@@ -36,6 +36,10 @@
     </div>
 </template>
 
+<style lang="scss">
+@import '~assets/sass/pages/project/single';
+</style>
+
 <script>
 import Spinner from '@/components/ui/Spinner'
 import {ideaFetching} from '@/constants/fetching'
@@ -111,7 +115,3 @@ export default {
     },
 }
 </script>
-
-<style lang="scss">
-@import '~assets/sass/pages/project/single';
-</style>

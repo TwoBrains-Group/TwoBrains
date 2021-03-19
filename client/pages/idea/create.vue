@@ -24,6 +24,10 @@
     </div>
 </template>
 
+<style lang="scss">
+@import '~assets/sass/pages/idea/create';
+</style>
+
 <script>
 import TagSearch from '@/components/tag/TagSearch'
 import Input from '@/components/ui/Input'
@@ -73,7 +77,3 @@ export default {
     },
 }
 </script>
-
-<style lang="scss">
-@import '~assets/sass/pages/idea/create';
-</style>

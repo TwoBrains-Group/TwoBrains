@@ -75,6 +75,10 @@
     </div>
 </template>
 
+<style lang="scss">
+@import '~assets/sass/pages/auth/auth';
+</style>
+
 <script>
 import Input from '@/components/ui/Input'
 import {emailPattern, passwordPattern} from '@/constants/patterns'
@@ -170,7 +174,3 @@ export default {
     },
 }
 </script>
-
-<style lang="scss">
-@import '~assets/sass/pages/auth/auth';
-</style>

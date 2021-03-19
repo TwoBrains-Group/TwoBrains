@@ -12,6 +12,10 @@
     </div>
 </template>
 
+<style lang="scss">
+@import '~assets/sass/pages/idea/index';
+</style>
+
 <script>
 import Idea from '@/components/idea/Idea'
 import Spinner from '@/components/ui/Spinner'
@@ -75,8 +79,3 @@ export default {
     },
 }
 </script>
-
-<style lang="scss">
-@import '~assets/sass/pages/idea/index';
-</style>
-

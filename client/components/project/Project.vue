@@ -30,6 +30,10 @@
     </div>
 </template>
 
+<style lang="scss">
+@import '~assets/sass/components/project/Project';
+</style>
+
 <script>
 export default {
     name: 'project',
@@ -57,7 +61,3 @@ export default {
     },
 }
 </script>
-
-<style lang="scss">
-@import '~assets/sass/components/project/Project';
-</style>

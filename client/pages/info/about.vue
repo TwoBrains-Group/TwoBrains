@@ -21,12 +21,10 @@
     </div>
 </template>
 
-<script>
-export default {
-
-}
-</script>
-
 <style lang="scss">
 @import '~assets/sass/pages/info/about.scss';
 </style>
+
+<script>
+export default {}
+</script>

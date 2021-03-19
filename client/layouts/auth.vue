@@ -12,7 +12,9 @@
 import SimpleHeader from '~/components/common/SimpleHeader.vue'
 
 export default {
-    components: {SimpleHeader},
+    components: {
+        SimpleHeader,
+    },
     middleware: ['nonAuth'],
 }
 </script>

@@ -16,6 +16,10 @@
     </div>
 </template>
 
+<style lang="scss">
+@import '~assets/sass/components/idea/WriteComment';
+</style>
+
 <script>
 import Textarea from '@/components/ui/Textarea'
 
@@ -87,7 +91,3 @@ export default {
     },
 }
 </script>
-
-<style lang="scss">
-@import '~assets/sass/components/idea/WriteComment';
-</style>

@@ -17,6 +17,10 @@
     </form>
 </template>
 
+<style lang="scss">
+@import '~assets/sass/components/ui/InputFile';
+</style>
+
 <script>
 // TODO: Multiple files. Store files in data.
 
@@ -77,7 +81,3 @@ export default {
     },
 }
 </script>
-
-<style lang="scss">
-@import '~assets/sass/components/ui/InputFile';
-</style>

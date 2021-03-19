@@ -14,6 +14,10 @@
     </div>
 </template>
 
+<style lang="scss">
+@import '~assets/sass/components/ui/Input';
+</style>
+
 <script>
 export default {
     name: 'Input',
@@ -144,7 +148,3 @@ export default {
     },
 }
 </script>
-
-<style lang="scss">
-@import '~assets/sass/components/ui/Input';
-</style>

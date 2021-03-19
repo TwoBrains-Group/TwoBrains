@@ -13,36 +13,29 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="edaaf9c1-6c17-4647-aa91-a795e595d129" name="Default Changelist" comment="Ahhhh, l10n.orgasm">
-      <change afterPath="$PROJECT_DIR$/client/components/ui/Debounce.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/db/test-data/tb-td-0009.tags.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/tag/api/v1/schemas/get-top.ts" afterDir="false" />
+    <list default="true" id="edaaf9c1-6c17-4647-aa91-a795e595d129" name="Default Changelist" comment="Fix likes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/sass/components/idea/Idea.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/components/idea/Idea.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/sass/components/idea/IdeaComment.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/components/idea/IdeaComment.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/sass/ui/_scrollbar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/ui/_scrollbar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/idea/Idea.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/idea/Idea.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/common/MainMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/common/MainMenu.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/idea/IdeaComment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/idea/IdeaComment.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/idea/IdeaList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/idea/IdeaList.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/idea/WriteComment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/idea/WriteComment.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/project/Project.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/project/Project.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/components/tag/TagSearch.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/tag/TagSearch.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/tools/InfiniteScroll.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/tools/InfiniteScroll.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/l10n/en.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/l10n/en.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/l10n/ru.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/l10n/ru.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/ui/Input.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/ui/Input.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/ui/InputFile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/ui/InputFile.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/ui/Textarea.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/ui/Textarea.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/layouts/auth.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/layouts/auth.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/layouts/error.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/layouts/error.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/auth/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/auth/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/idea/_id.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/idea/_id.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/pages/idea/create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/idea/create.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/plugins/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/plugins/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/db/test-data/tb-td-0000-prepare.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/test-data/tb-td-0000-prepare.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/db/test-data/tb-td-0002.localization.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/db/test-data/tb-td-0020.ideas.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/test-data/tb-td-0020.ideas.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/db/test-data/tb-td-0021.idea_comments.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/test-data/tb-td-0021.idea_comments.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/db/test-data/tb-td-0022.ideas_comments-replies.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/test-data/tb-td-0022.ideas_comments-replies.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/base/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/base/api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-by-id.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-by-id.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-list.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-list.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/queries.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/queries.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/schemas/get-by-id.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/schemas/get-by-id.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/schemas/get-list.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/schemas/get-list.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/tag/api/v1/methods/get-tags.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/tag/api/v1/methods/get-tags.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/tag/api/v1/methods/get-top.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/tag/api/v1/methods/get-top.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/tag/api/v1/queries.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/tag/api/v1/queries.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/server/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/server/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/idea/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/idea/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/info/about.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/info/about.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/project/_uid/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/project/_uid/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/project/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/project/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/user/_uid/ideas/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/user/_uid/ideas/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/user/_uid/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/user/_uid/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/user/settings.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/user/settings.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +185,7 @@
       <workItem from="1615980329365" duration="13966000" />
       <workItem from="1616089533466" duration="10322000" />
       <workItem from="1616172859030" duration="2984000" />
-      <workItem from="1616176218793" duration="2545000" />
+      <workItem from="1616176218793" duration="2835000" />
     </task>
     <task id="LOCAL-00001" summary=":bulb: Meow">
       <created>1612391364993</created>
@@ -292,7 +285,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615752326577</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Fix likes">
+      <created>1616184116017</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1616184116017</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -332,7 +332,8 @@
     <MESSAGE value=":poop: l10n, again and again" />
     <MESSAGE value="save" />
     <MESSAGE value="Ahhhh, l10n.orgasm" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ahhhh, l10n.orgasm" />
+    <MESSAGE value="Fix likes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix likes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1009" y="236" key="#ESLint" timestamp="1615152242649">
@@ -408,20 +409,20 @@
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state x="0" y="0" width="2166" height="1032" key="dock-window-1/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1612652780293" />
-    <state x="987" y="260" width="594" height="656" key="find.popup" timestamp="1616091858055">
+    <state x="987" y="260" width="594" height="656" key="find.popup" timestamp="1616184124762">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state x="987" y="260" width="594" height="656" key="find.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1616091858055" />
+    <state x="987" y="260" width="594" height="656" key="find.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1616184124762" />
     <state x="3054" y="246" width="555" height="622" key="find.popup/0.0.2560.1050/2560.0.1280.994@2560.0.1280.994" timestamp="1615672963356" />
     <state x="987" y="260" width="585" height="534" key="find.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612145569091" />
     <state width="600" height="440" key="javadoc.popup" timestamp="1614281174337">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state width="600" height="440" key="javadoc.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614281174337" />
-    <state x="942" y="240" width="672" height="677" key="run.anything.popup" timestamp="1616102220124">
+    <state x="942" y="240" width="672" height="677" key="run.anything.popup" timestamp="1616184252028">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state x="942" y="240" width="672" height="677" key="run.anything.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1616102220124" />
+    <state x="942" y="240" width="672" height="677" key="run.anything.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1616184252028" />
     <state x="3031" y="227" width="336" height="641" key="run.anything.popup/0.0.2560.1050/2560.0.1280.994@2560.0.1280.994" timestamp="1615669619272" />
     <state x="942" y="240" key="run.anything.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612128644928" />
     <state x="943" y="232" width="672" height="677" key="search.everywhere.popup" timestamp="1615927600035">

@@ -5,6 +5,10 @@
     </div>
 </template>
 
+<style lang="scss">
+@import '~assets/sass/pages/idea/single.scss';
+</style>
+
 <script>
 import Idea from '@/components/idea/Idea'
 import Spinner from '@/components/ui/Spinner'
@@ -41,7 +45,3 @@ export default {
     },
 }
 </script>
-
-<style lang="scss">
-@import '~assets/sass/pages/idea/single.scss';
-</style>

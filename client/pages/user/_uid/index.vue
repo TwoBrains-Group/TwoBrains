@@ -37,9 +37,12 @@
                 </nuxt-link>
             </div>
         </aside>
-
     </div>
 </template>
+
+<style lang="scss">
+@import '~assets/sass/pages/user/profile.scss';
+</style>
 
 <script>
 import Spinner from '@/components/ui/Spinner'
@@ -103,7 +106,3 @@ export default {
     },
 }
 </script>
-
-<style lang="scss">
-@import '~assets/sass/pages/user/profile.scss';
-</style>

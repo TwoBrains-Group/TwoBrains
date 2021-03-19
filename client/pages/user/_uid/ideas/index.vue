@@ -4,6 +4,10 @@
     </div>
 </template>
 
+<style lang="scss">
+@import '~assets/sass/pages/user/ideas.scss';
+</style>
+
 <script>
 import IdeaList from '@/components/idea/IdeaList'
 
@@ -22,7 +26,3 @@ export default {
     },
 }
 </script>
-
-<style lang="scss">
-@import '~assets/sass/pages/user/ideas.scss';
-</style>

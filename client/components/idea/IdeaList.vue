@@ -6,6 +6,10 @@
     </div>
 </template>
 
+<style lang="scss">
+@import '~assets/sass/components/idea/IdeaList';
+</style>
+
 <script>
 import InfiniteScroll from '@/components/tools/InfiniteScroll'
 import {ideaFetching} from '@/constants/fetching'
@@ -81,7 +85,3 @@ export default {
     },
 }
 </script>
-
-<style lang="scss">
-@import '~assets/sass/components/idea/IdeaList';
-</style>

@@ -113,6 +113,10 @@
     </div>
 </template>
 
+<style lang="scss">
+@import '~assets/sass/pages/user/settings';
+</style>
+
 <script>
 import Input from '@/components/ui/Input'
 import {mapGetters} from 'vuex'
@@ -335,7 +339,3 @@ export default {
     },
 }
 </script>
-
-<style lang="scss">
-@import '~assets/sass/pages/user/settings';
-</style>

@@ -36,10 +36,8 @@ export default {
 
     props: {
         // 'distance',
-        noResult: {
-        },
-        noMore: {
-        },
+        noResult: {},
+        noMore: {},
         noResultLinkUrl: {
             type: String,
         },
@@ -58,11 +56,21 @@ export default {
         return {
             noMore$: this.noMore || 'No more...',
             noResult$: this.noResult || 'Nothing here 😞',
+            fetched: true,
         }
     },
 
     methods: {
+        setFetched() {
+            this.fetched = true
+        },
+
         fetch($state) {
+            if (!this.fetched) {
+                return
+            }
+            this.fetched = false
+            console.log('state', $state)
             this.$emit('fetch', $state)
         },
 

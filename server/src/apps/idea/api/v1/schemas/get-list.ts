@@ -20,5 +20,8 @@ export default {
         userUid: {
             type: 'string',
         },
+        tagsLimit: {
+            type: 'number',
+        },
     },
 }

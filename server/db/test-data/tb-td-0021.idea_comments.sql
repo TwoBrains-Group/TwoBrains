@@ -9,7 +9,7 @@ DO $$
             FOR i in 0..count LOOP
                 INSERT INTO
                     main.ideas_comments (idea_id, user_id, text, reply_to, creation_datetime)
-                VALUES (iid, 1, main.random_string(128), null, (now() + i * '1 second'::interval)::timestamp);
+                VALUES (iid, 2, main.random_string(128), null, (now() + i * '1 second'::interval)::timestamp);
             END LOOP;
         END LOOP;
 END $$;

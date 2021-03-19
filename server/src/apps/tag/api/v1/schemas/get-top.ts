@@ -1,15 +1,18 @@
 export default {
     type: 'object',
     additionalProperties: false,
-    required: [
-        'id',
-    ],
+    required: [],
     properties: {
-        id: {
+        type: {
+            type: 'string',
+            enum: ['idea', 'project'],
+        },
+        group: {
             type: 'string',
         },
-        tagsLimit: {
+        count: {
             type: 'number',
+            default: 10,
         },
     },
 }

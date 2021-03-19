@@ -27,28 +27,36 @@ export class Api {
             headers['Content-Type'] = 'application/json'
         }
 
-        const url = `http://${process.env.API_URI}/v${req.v}/${req.app}/${req.method}`
-
-        !isProd && console.log('Send request:', req)
-
-        const {data} = await axios.post(url, req, {
-            headers,
-        })
-
-        !isProd && console.log('Got response:', data)
-
-        if (data.error) {
-            !isProd && console.log(`Request error: ${JSON.stringify(data.error)}`)
-            throw new RequestError(data.error)
-        }
-
-        if (!data.error && !data.result) {
-            throw new RequestError({
-                message: 'Invalid response data',
+        try {
+            const {data} = await axios.post(process.env.API_URI, req, {
+                headers,
             })
-        }
 
-        return getRes ? data.result : data
+            !isProd && console.log('Sent request:', req)
+            !isProd && console.log('Got response:', data)
+
+            if (!data) {
+                throw new Error('No response')
+            }
+
+            if (data.error) {
+                !isProd && console.log(`Request error: ${JSON.stringify(data.error)}`)
+                throw new RequestError(data.error)
+            }
+
+            if (!data.error && !data.result) {
+                throw new RequestError({
+                    message: 'Invalid response data',
+                })
+            }
+
+            return getRes ? data.result : data
+        } catch (error) {
+            console.log('Got error on sending request:', error)
+            if (process.browser) {
+                throw error
+            }
+        }
     }
 
     async redirect(to) {

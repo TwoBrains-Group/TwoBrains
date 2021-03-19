@@ -5,12 +5,16 @@ import {prepareIdea} from '../modules/prepare-ideas'
 class GetById extends Method {
     async run(req: Req, user?: any) : Promise<MethodRes> {
         const {params} = req
-        const {id: ideaId} = params
+        const {
+            id: ideaId,
+            tagsLimit = 5,
+        } = params
         const {id: loggedInUserId} = user
 
         let idea = await this.query('getById', {
             ideaId,
             loggedInUserId,
+            tagsLimit,
         }, {
             returnType: QueryReturnType.Row,
         })

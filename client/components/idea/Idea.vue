@@ -57,26 +57,40 @@
                     <i :class="showComments ? 'fas' : 'far'" class="fa-comments"></i>
                 </div>
 
-                <div class="idea__block__footer__tags">
-                    <div class="idea__block__footer__tags__el" v-for="tag of tags" :key="tag.tag_id">{{tag.label}}</div>
+                <div class="idea__block__footer__tags" v-if="Object.keys(tags).length">
+                    <span class="idea__block__footer__tags__hash">#</span>
+                    <nuxt-link :to="getTagSearchUrl(tag.id)"
+                               class="btn idea__block__footer__tags__el"
+                               v-for="tag of tags"
+                               :key="tag.id">
+                        <span class="group" v-if="tag.groupLabel">{{ l10n.tagGroups.meow }}:</span>
+                        {{ l10n.tags['lol'] }}
+<!--                        <span class="group" v-if="tag.groupLabel">{{ l10n.tagGroups[tag.groupLabel] }}:</span>-->
+<!--                        {{ l10n.tags[tag.label] }}-->
+                    </nuxt-link>
                 </div>
             </footer>
         </div>
 
-        <div class="sb idea__comments"
-             :class="{show: showComments}">
+        <Debounce class="sb debounce-shadow idea__comments" :class="{show: showComments}">
+
             <WriteComment type="idea" :id="id" @done="commented"/>
 
             <IdeaComment v-for="cmt of comments" :key="cmt.id" v-bind="cmt" :is-reply="false"/>
 
             <InfiniteScroll ref="infiniteScroll" @fetch="commentsInfiniteScroll"/>
-        </div>
+        </Debounce>
     </div>
 </template>
+
+<style lang="scss">
+@import '~assets/sass/components/idea/Idea';
+</style>
 
 <script>
 import InfiniteScroll from '@/components/tools/InfiniteScroll'
 import IdeaComment from '@/components/idea/IdeaComment'
+import Debounce from '@/components/ui/Debounce'
 import {ideaFetching} from '@/constants/fetching'
 import WriteComment from '@/components/idea/WriteComment'
 
@@ -84,6 +98,7 @@ export default {
     name: 'Idea',
 
     components: {
+        Debounce,
         WriteComment,
         IdeaComment,
         InfiniteScroll,
@@ -94,6 +109,7 @@ export default {
         'id',
         'name',
         'text',
+        'likeExists',
         'liked',
         'disliked',
         'user',
@@ -112,11 +128,15 @@ export default {
 
     data() {
         return {
-            l10n: this.$t('cmp.idea.Idea'),
+            l10n: {
+                ...this.$t('cmp.idea.Idea'),
+                tags: this.$t('entities.tags'),
+                tagGroups: this.$t('entities.tagGroups'),
+            },
 
             hover: false,
-            liked$: this.liked,
-            disliked$: this.disliked,
+            liked$: this.likeExists && this.liked,
+            disliked$: this.likeExists && this.disliked,
             likesCount$: this.likesCount,
             dislikesCount$: this.dislikesCount,
 
@@ -209,10 +229,10 @@ export default {
             this.fetchComments()
             // TODO: Prepend comment
         },
+
+        getTagSearchUrl(tagId) {
+            return `/idea/search?tags=[${tagId}]`
+        },
     },
 }
 </script>
-
-<style lang="scss">
-@import '~assets/sass/components/idea/Idea';
-</style>

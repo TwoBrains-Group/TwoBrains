@@ -11,14 +11,12 @@ class GetTags extends Method {
             groupLabels,
         } = params
 
-        const queryParams = {
+        const tags = await this.query('getList', {
             ids,
             labels,
             groupIds,
             groupLabels,
-        }
-
-        const tags = await this.query('getList', queryParams, {
+        }, {
             returnType: QueryReturnType.Rows,
             queryDebugLog: true,
         })

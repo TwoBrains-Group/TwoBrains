@@ -1,6 +1,9 @@
 .sb {
-    -ms-overflow-style: -ms-autohiding-scrollbar;
     overflow-y: auto;
+}
+
+.sb-hor {
+    overflow-x: auto;
 }
 
 .sb--round::-webkit-scrollbar-track {

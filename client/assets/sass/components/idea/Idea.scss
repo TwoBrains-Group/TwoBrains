@@ -17,6 +17,17 @@
 
     &.hover {
         box-shadow: 0 3px 15px #f0f0f0;
+
+        .idea__block__footer {
+            .idea__block__footer__tags__hash {
+                color: #333;
+            }
+
+            .idea__block__footer__tags__el {
+                box-shadow: 0 2px 5px -1px #dfdfdf;
+                opacity: 0.75;
+            }
+        }
     }
 
     .idea__block {
@@ -110,7 +121,11 @@
         }
 
         .idea__block__footer {
-            display: flex;
+            display: grid;
+
+            grid-template-columns: max-content max-content max-content auto;
+            grid-template-rows: 40px;
+
             box-shadow: 0 -1px 2px -1px #f0f0f0;
 
             .idea__block__footer__btn:last-of-type {
@@ -118,18 +133,16 @@
             }
 
             .idea__block__footer__btn {
-                width: max-content;
                 padding: 10px 19px;
                 line-height: 20px;
                 vertical-align: middle;
-                transition: color .15s ease;
+                transition: .15s ease;
                 box-shadow: inset -1px 0 1px -1px #aaa;
                 color: #555;
             }
 
             .idea__block__footer__btn--like,
             .idea__block__footer__btn--dislike {
-                background: #fff;
 
                 .count:not(:empty) {
                     padding-left: 5px;
@@ -189,11 +202,52 @@
             }
 
             .idea__block__footer__btn--comments {
-                transition: box-shadow .15s ease;
                 font-size: 19px;
+                transition: .2s ease !important;
 
                 &:hover {
                     box-shadow: 0 5px 10px #f0f0f0;
+                }
+            }
+
+            .idea__block__footer__tags {
+                display: flex;
+                position: relative;
+                gap: 6px;
+                align-items: stretch;
+
+                .idea__block__footer__tags__hash {
+                    height: 40px;
+                    padding: 0 5px 0 10px;
+                    font-size: 18px;
+                    color: #aaa;
+                    line-height: 38px;
+                    transition: .15s ease;
+                }
+
+                .idea__block__footer__tags__el {
+                    width: max-content;
+                    max-width: 150px;
+                    height: 15px;
+                    padding: 5px 10px;
+                    margin: 6px 0;
+
+                    line-height: 15px;
+                    vertical-align: middle;
+                    text-align: center;
+                    overflow: hidden;
+                    border-radius: 10px;
+                    font-size: 14px;
+                    opacity: 0.5;
+
+                    box-shadow: 0 1px 2px -1px #aaa;
+
+                    transition: .15s ease;
+
+                    &:hover {
+                        opacity: 1;
+                        box-shadow: 0 3px 6px -1px #dddd;
+                    }
                 }
             }
         }
@@ -206,15 +260,21 @@
         height: auto;
         grid-template-columns: auto;
         grid-template-rows: max-content;
-        box-shadow: inset 0 3px 5px -1px #f6f6f6;
         z-index: 0;
 
         max-height: 0;
         overflow: hidden;
         transition: .1s ease-out;
+
         &.show {
             max-height: 400px;
             overflow-y: auto;
+        }
+
+        box-shadow: 0 -1px 1px -1px #ddd;
+
+        &:not([data-debounce='true']) {
+            box-shadow: inset 0 3px 5px -1px #f6f6f6;
         }
     }
 

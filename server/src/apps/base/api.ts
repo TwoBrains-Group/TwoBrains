@@ -108,6 +108,8 @@ class Api {
     async callMethod(req: any, res: Response, next: NextFunction) {
         const reqObj: Req = req.body
 
+        this.log.info(`Got request: ${JSON.stringify(reqObj, null, 2)}`)
+
         // TODO: Validate base
 
         const method = this.system[reqObj.app][`v${reqObj.v}`].methods[reqObj.method]

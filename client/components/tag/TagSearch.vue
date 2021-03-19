@@ -35,6 +35,11 @@ export default {
 
     data() {
         return {
+            l10n: {
+                tags: this.$t('entities.tags'),
+                tagGroups: this.$t('entities.tagGroups'),
+            },
+
             tags: [],
             addedTags: new Set(),
         }

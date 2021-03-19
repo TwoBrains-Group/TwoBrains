@@ -119,4 +119,13 @@ export default {
             },
         },
     },
+
+    entities: {
+        tags: {
+            lol: 'kek',
+        },
+        tagGroups: {
+            meow: 'bitch',
+        },
+    },
 }

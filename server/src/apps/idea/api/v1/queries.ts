@@ -3,6 +3,23 @@ import {Queries} from '@modules/db/pool'
 export default {
     // Main getters //
     getById: `
+        WITH tags AS (
+            SELECT
+                it.idea_id
+                ,jsonb_agg(json_build_object(
+                    'label', t.label,
+                    'groupLabel', tg.label
+                )) AS "tags"
+            FROM
+                main.ideas_tags AS it
+                LEFT JOIN main.tags AS t ON t.tag_id = it.tag_id
+                LEFT JOIN main.tag_groups AS tg ON tg.tag_group_id = t.tag_group_id
+            WHERE
+                it.tag_id IS NOT NULL
+            GROUP BY
+                it.idea_id
+            LIMIT :tagsLimit
+        )
         SELECT
              i.idea_id AS "id"
             ,i.name AS "name"
@@ -17,28 +34,24 @@ export default {
             ) AS "user"
             ,likes_count.lcount AS "likesCount"
             ,likes_count.dcount AS "dislikesCount"
-            ,(il_liked.user_id IS NOT NULL AND il_liked.dislike = FALSE)::BOOL AS "liked"
-            ,(il_liked.user_id IS NOT NULL AND il_liked.dislike = TRUE)::BOOL AS "disliked"
-            ,array_agg(json_build_object(
-                'label', t.label,
-                'groupLabel', tg.label
-            )) AS "tags"
+            ,il_liked.user_id IS NOT NULL AS "likeExists"
+            ,il_liked.dislike = FALSE AS "liked"
+            ,il_liked.dislike = TRUE AS "disliked"
+            ,COALESCE(t.tags, '[]')::jsonb AS "tags"
         FROM
             main.ideas AS i
             INNER JOIN main.users AS u ON u.user_id = i.user_id
-            LEFT JOIN main.ideas_tags AS it ON it.idea_id = i.idea_id
-            LEFT JOIN main.tags AS t ON t.tag_id = it.tag_id
-            LEFT JOIN main.tag_groups AS tg ON tg.tag_group_id = t.tag_group_id
             LEFT JOIN LATERAL (
                 SELECT
-                     COUNT(NOT il.dislike) AS lcount
-                    ,COUNT(il.dislike)     AS dcount
+                     COUNT(nullif(il.dislike, true))  AS lcount
+                    ,COUNT(nullif(il.dislike, false)) AS dcount
                 FROM
                     main.ideas_likes AS il
                 WHERE
                     il.idea_id = i.idea_id
             ) AS likes_count ON TRUE
             LEFT JOIN main.ideas_likes AS il_liked ON il_liked.idea_id = i.idea_id AND il_liked.user_id = :loggedInUserId
+            LEFT JOIN tags AS t ON t.idea_id = i.idea_id
         WHERE
             i.idea_id = :ideaId
         GROUP BY
@@ -47,9 +60,27 @@ export default {
             il_liked.user_id,
             il_liked.dislike,
             likes_count.lcount,
-            likes_count.dcount;`,
+            likes_count.dcount,
+            t.tags;`,
 
     getList: `
+        WITH tags AS (
+            SELECT
+                it.idea_id
+                ,jsonb_agg(json_build_object(
+                    'label', t.label,
+                    'groupLabel', tg.label
+                )) AS "tags"
+            FROM
+                main.ideas_tags AS it
+                LEFT JOIN main.tags AS t ON t.tag_id = it.tag_id
+                LEFT JOIN main.tag_groups AS tg ON tg.tag_group_id = t.tag_group_id
+            WHERE
+                it.tag_id IS NOT NULL
+            GROUP BY
+                it.idea_id
+            LIMIT :tagsLimit
+        )
         SELECT
              i.idea_id AS "id"
             ,i.name AS "name"
@@ -64,30 +95,24 @@ export default {
             ) AS "user"
             ,likes_count.lcount AS "likesCount"
             ,likes_count.dcount AS "dislikesCount"
-            ,(il_liked.user_id IS NOT NULL AND il_liked.dislike = FALSE)::BOOL AS "liked"
-            ,(il_liked.user_id IS NOT NULL AND il_liked.dislike = TRUE)::BOOL AS "disliked"
-            ,array_agg(json_build_object(
-                'label', t.label,
-                'groupLabel', tg.label
-            )) AS "tags"
+            ,il_liked.user_id IS NOT NULL AS "likeExists"
+            ,il_liked.dislike = FALSE AS "liked"
+            ,il_liked.dislike = TRUE AS "disliked"
+            ,COALESCE(t.tags, '[]')::jsonb AS "tags"
         FROM
             main.ideas AS i
             INNER JOIN main.users AS u ON i.user_id = u.user_id
-            LEFT JOIN main.ideas_tags AS it ON i.idea_id = it.idea_id
-            LEFT JOIN main.tags AS t ON t.tag_id = it.tag_id
-            LEFT JOIN main.tag_groups AS tg ON tg.tag_group_id = t.tag_group_id
-            LEFT JOIN main.ideas_likes AS il_liked
-                ON il_liked.user_id = :loggedInUserId AND il_liked.idea_id = i.idea_id
-            LEFT JOIN main.ideas_likes AS il ON il.idea_id = i.idea_id
-            LEFT JOIN LATERAL (
+            INNER JOIN LATERAL (
                 SELECT
-                     COUNT(NOT il.dislike) AS lcount
-                    ,COUNT(il.dislike)     AS dcount
+                     COUNT(nullif(il.dislike, true))  AS lcount
+                    ,COUNT(nullif(il.dislike, false)) AS dcount
                 FROM
                     main.ideas_likes AS il
                 WHERE
                     il.idea_id = i.idea_id
             ) AS likes_count ON TRUE
+            LEFT JOIN main.ideas_likes AS il_liked ON il_liked.idea_id = i.idea_id AND il_liked.user_id = :loggedInUserId
+            LEFT JOIN tags AS t ON t.idea_id = i.idea_id
             WHERE
                 TRUE
         /* relation:
@@ -106,7 +131,8 @@ export default {
             il_liked.dislike,
             likes_count.lcount,
             likes_count.dcount,
-            i.creation_datetime
+            i.creation_datetime,
+            t.tags
         ORDER BY i.creation_datetime DESC
         LIMIT :limit
         OFFSET :offset;`,

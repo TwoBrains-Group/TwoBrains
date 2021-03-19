@@ -42,10 +42,7 @@ export default {
         return {
             name: '',
             text: '',
-            l10n: {
-                ...this.$t('page.idea.create'),
-                ...this.$t('tags'),
-            },
+            l10n: this.$t('page.idea.create'),
         }
     },
 

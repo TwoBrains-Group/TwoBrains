@@ -45,6 +45,10 @@
     </header>
 </template>
 
+<style lang="scss">
+@import '~assets/sass/components/common/Header';
+</style>
+
 <script>
 import {mapMutations, mapGetters} from 'vuex'
 
@@ -81,7 +85,3 @@ export default {
     },
 }
 </script>
-
-<style lang="scss">
-@import '~assets/sass/components/common/Header';
-</style>

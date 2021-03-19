@@ -56,8 +56,6 @@ class Server {
             }
         }
 
-        console.log('API SYSTEM:', JSON.stringify(api.system, null, 2))
-
         this.expApp.post(process.env.API_URI!, async (req, res, next) => {
             await api.callMethod(req, res, next)
         })

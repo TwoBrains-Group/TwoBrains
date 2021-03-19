@@ -11,6 +11,7 @@ class GetList extends Method {
             limit = DEFAULT_LIMIT,
             relation = 'user',
             userUid,
+            tagsLimit = 5,
         }} = req
 
         const {id: loggedInUserId} = user
@@ -31,9 +32,9 @@ class GetList extends Method {
             limit,
             loggedInUserId,
             relation,
+            tagsLimit,
         }, {
             returnType: QueryReturnType.Rows,
-            queryDebugLog: true,
         })
 
         ideas = prepareIdeas(ideas)

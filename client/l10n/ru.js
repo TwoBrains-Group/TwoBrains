@@ -118,4 +118,10 @@ export default {
             },
         },
     },
+
+    entities: {
+        tags: {
+            lol: 'кек',
+        },
+    },
 }

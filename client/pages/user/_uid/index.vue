@@ -85,7 +85,7 @@ export default {
         async follow() {
             try {
                 const params = {
-                    id: this.user.id,
+                    id: this.user.id.toString(),
                 }
 
                 const {info} = await this.$api.send({

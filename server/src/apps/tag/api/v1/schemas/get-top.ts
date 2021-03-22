@@ -3,10 +3,10 @@ export default {
     additionalProperties: false,
     required: [],
     properties: {
-        type: {
-            type: 'string',
-            enum: ['idea', 'project'],
-        },
+        // type: {
+        //     type: 'string',
+        //     enum: ['idea', 'project'],
+        // },
         group: {
             type: 'string',
         },

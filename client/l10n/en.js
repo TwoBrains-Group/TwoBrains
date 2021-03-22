@@ -31,6 +31,7 @@ export default {
                 done: 'Done',
                 nameYourIdea: 'Name your idea',
                 myIdeaIsAbout: 'My idea is about...',
+                addTags: 'Add tags',
             },
         },
         project: {
@@ -69,6 +70,10 @@ export default {
                 logout: 'Log out',
                 profile: 'Profile',
                 settings: 'Settings',
+                search: 'Search...',
+                users: 'Users',
+                ideas: 'Ideas',
+                noSearchResult: 'No result',
             },
             InputFile: {
                 chooseFile: 'Choose file...',

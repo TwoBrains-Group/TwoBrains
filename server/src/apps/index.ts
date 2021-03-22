@@ -5,6 +5,7 @@ import idea from './idea'
 import l10n from './l10n'
 import project from './project'
 import tag from './tag'
+import search from './search'
 
 export default {
     main,
@@ -14,4 +15,5 @@ export default {
     l10n,
     project,
     tag,
+    search,
 }

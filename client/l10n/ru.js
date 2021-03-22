@@ -30,6 +30,7 @@ export default {
                 done: 'Готово',
                 nameYourIdea: 'Назовите свою идею',
                 myIdeaIsAbout: 'Моя идея заключается в...',
+                addTags: 'Добавить теги',
             },
         },
         project: {
@@ -68,6 +69,10 @@ export default {
                 logout: 'Выйти',
                 profile: 'Профиль',
                 settings: 'Настройки',
+                search: 'Поиск...',
+                users: 'Пользователи',
+                ideas: 'Идеи',
+                noSearchResult: 'Нет результатов',
             },
             InputFile: {
                 chooseFile: 'Выберите файл...',

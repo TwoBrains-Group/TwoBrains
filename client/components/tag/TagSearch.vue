@@ -6,7 +6,7 @@
         </div>
 
         <div class="tag-search__list">
-            <div class="tag-search__list__el"
+            <div class="btn tag-search__list__el"
                  v-for="tag of tags"
                  @click="toggleTag(tag.id)"
                  :class="{active: addedTags.has(tag.id)}">
@@ -73,6 +73,7 @@ export default {
 
         toggleTag(id) {
             this.addedTags.has(id) ? this.addedTags.delete(id) : this.addedTags.add(id)
+            this.$forceUpdate()
         },
     },
 }

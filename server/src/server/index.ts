@@ -35,11 +35,13 @@ class Server {
         expApp.use(cors({
             origin: process.env.CORS_URL!,
         }))
+
         expApp.use(mws.jwt)
 
         await this.initApps()
 
         expApp.use(mws.error)
+        expApp.use(mws.notSupported)
 
         const port = parseInt(process.env.PORT!)
         const server = expApp.listen(port, process.env.HOST!, () => {

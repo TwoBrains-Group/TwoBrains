@@ -1,0 +1,1 @@
+{"version":3,"file":"component.js","sourceRoot":"","sources":["../../../../../../src/apps/localization/api/v1/schemas/component.ts"],"names":[],"mappings":";;AAAA,kBAAe;IACX,IAAI,EAAE,QAAQ;IACd,oBAAoB,EAAE,KAAK;IAC3B,QAAQ,EAAE;QACN,MAAM;KACT;IACD,UAAU,EAAE;QACR,IAAI,EAAE;YACF,IAAI,EAAE,QAAQ;SACjB;QACD,OAAO,EAAE;YACL,IAAI,EAAE,QAAQ;SACjB;KACJ;CACJ,CAAA"}

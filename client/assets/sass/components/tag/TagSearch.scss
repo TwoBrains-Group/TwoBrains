@@ -4,13 +4,35 @@
     display: block;
     position: relative;
     width: 100%;
-    height: 150px;
     padding: 5px;
 
+    box-shadow: 0 0 0 1px #f0f0f0;
+    border-radius: 5px;
+
+    .tag-search__header {
+        text-align: center;
+        padding: 5px 0;
+    }
 
     .tag-search__list {
         display: grid;
         position: relative;
+        width: 100%;
+        height: max-content;
+        padding: 10px 0;
 
+        grid-template-columns: repeat(3, minmax(max-content, 1fr));
+        grid-gap: 8px;
+
+        .tag-search__list__el {
+            padding: 5px 10px;
+            border-radius: 10px;
+            box-shadow: 0 3px 5px -1px #f0f0f0;
+            text-align: center;
+
+            &.active {
+                box-shadow: 0 0 0 1px #9aa6ce;
+            }
+        }
     }
 }

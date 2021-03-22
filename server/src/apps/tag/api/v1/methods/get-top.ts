@@ -5,13 +5,13 @@ class GetTop extends Method {
     async run(req: Req): Promise<MethodRes> {
         const {params} = req
         const {
-            type,
+            // type,
             group,
-            count,
+            count = 10,
         } = params
 
         const tags = await this.query('getTop', {
-            type,
+            // type,
             group,
             count,
         }, {

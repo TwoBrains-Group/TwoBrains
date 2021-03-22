@@ -13,29 +13,377 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="edaaf9c1-6c17-4647-aa91-a795e595d129" name="Default Changelist" comment="Fix likes">
+    <list default="true" id="edaaf9c1-6c17-4647-aa91-a795e595d129" name="Default Changelist" comment=":recycle: Templates refactoring">
+      <change afterPath="$PROJECT_DIR$/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/.eslintrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/layouts/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/layouts/default.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/middleware/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/nuxt.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/pages/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/pages/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/plugins/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/static/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/static/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/static/img/TwoBrains.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/static/img/logo_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/store/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/api/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/api/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/api/v1/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/api/v1/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/api/v1/methods/BaseAuth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/api/v1/methods/BaseAuth.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/api/v1/methods/base-auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/api/v1/methods/base-auth.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/api/v1/methods/google.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/api/v1/methods/google.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/api/v1/methods/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/api/v1/methods/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/api/v1/methods/login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/api/v1/methods/login.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/api/v1/methods/signup.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/api/v1/methods/signup.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/api/v1/queries.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/api/v1/queries.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/api/v1/schemas/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/api/v1/schemas/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/api/v1/schemas/login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/api/v1/schemas/login.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/api/v1/schemas/signup.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/api/v1/schemas/signup.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/methods/google.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/methods/google.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/methods/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/methods/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/methods/login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/methods/login.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/methods/queries.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/methods/queries.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/methods/v1/google.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/methods/v1/google.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/methods/v1/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/methods/v1/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/methods/v1/login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/methods/v1/login.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/methods/v1/queries.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/methods/v1/queries.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/v1/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/v1/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/v1/methods/google.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/v1/methods/google.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/v1/methods/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/v1/methods/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/v1/methods/login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/v1/methods/login.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/v1/methods/queries.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/v1/methods/queries.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/v1/methods/v1/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/v1/methods/v1/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/v1/queries.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/auth/v1/queries.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/base/Method.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/base/Method.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/base/Page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/base/Page.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/base/api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/base/errors.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/base/errors.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/base/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/base/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/base/templates.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/base/templates.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/comment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/create.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/create.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/critique.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/delete-comment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/deleteComment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/get-by-id.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/get-by-id.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/get-comments.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/get-comments.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/get-list.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/get-list.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/get-project-list.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/get-tags.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/get-user-ideas.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/get-user-ideas.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/getById.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/getById.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/getComments.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/getComments.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/like-comment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/like-comment.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/like.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/like.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/likeComment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/likeComment.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/new.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/reply-to-comment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/modules/prepare-ideas.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/modules/prepare-ideas.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/queries.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/queries.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/comment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/create.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/critique.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/delete-comment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/get-by-id.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/get-by-id.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/get-comments.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/get-comments.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/get-list.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/get-list.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/get-tags.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/get-user-ideas.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/get-user-ideas.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/getById.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/getById.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/like-comment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/like-comment.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/like.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/like.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/likeComment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/likeComment.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/new.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/reply-to-comment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/idea/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/l10n/api/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/l10n/api/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/methods/component.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/methods/component.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/methods/get-locales.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/methods/get-locales.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/methods/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/methods/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/methods/load.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/methods/load.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/queries.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/queries.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/schemas/component.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/schemas/component.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/schemas/get-locales.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/schemas/get-locales.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/schemas/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/schemas/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/schemas/load.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/schemas/load.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/l10n/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/l10n/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/localization/api/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/localization/api/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/localization/api/v1/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/localization/api/v1/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/localization/api/v1/methods/component.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/localization/api/v1/methods/component.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/localization/api/v1/methods/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/localization/api/v1/methods/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/localization/api/v1/queries.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/localization/api/v1/queries.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/localization/api/v1/schemas/component.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/localization/api/v1/schemas/component.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/localization/api/v1/schemas/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/localization/api/v1/schemas/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/localization/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/localization/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/main/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/main/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/main/pages.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/main/pages.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/main/queries.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/main/queries.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/main/v1/queries.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/main/v1/queries.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/project/api/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/project/api/v1/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/project/api/v1/methods/get-by-uid.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/project/api/v1/methods/get-list.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/project/api/v1/methods/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/project/api/v1/queries.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/project/api/v1/schemas/get-by-uid.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/project/api/v1/schemas/get-list.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/project/api/v1/schemas/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/project/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/project/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/project/plugins/base-plugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/project/plugins/base/base-plugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/project/plugins/base/collector.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/project/plugins/base/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/project/plugins/base/queries.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/project/plugins/collector.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/project/plugins/idea-plugin/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/project/plugins/project-plugins/idea-plugin/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/project/plugins/project-plugins/idea-plugin/queries.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/project/plugins/project-plugins/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/tag/api/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/tag/api/v1/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/tag/api/v1/methods/get-tags.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/tag/api/v1/methods/get-top.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/tag/api/v1/methods/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/tag/api/v1/queries.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/tag/api/v1/schemas/get-tags.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/tag/api/v1/schemas/get-top.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/tag/api/v1/schemas/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/tag/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/change-lang.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/change-lang.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/follow.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/get-by-id.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/get-by-id.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/get-by-uid.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/get-by-uid.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/get-locale.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/get-locale.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/get.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/get.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/getByUid.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/getByUid.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/save-settings.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/save-settings.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/saveSettings.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/saveSettings.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/update-avatar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/update-avatar.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/modules/prepare-user.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/queries.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/queries.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/schemas/change-lang.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/schemas/change-lang.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/schemas/follow.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/schemas/get-by-id.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/schemas/get-by-id.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/schemas/get-by-uid.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/schemas/get-by-uid.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/schemas/get-locale.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/schemas/get-locale.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/schemas/getById.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/schemas/getById.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/schemas/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/schemas/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/schemas/save-settings.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/schemas/save-settings.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/schemas/saveSettings.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/schemas/saveSettings.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/schemas/update-avatar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/schemas/update-avatar.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/queries.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/apps/user/queries.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/modules/BaseModule.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/modules/BaseModule.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/modules/ajv/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/modules/api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/modules/api.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/modules/db/Pool.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/modules/db/Pool.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/modules/db/errors.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/modules/db/errors.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/modules/db/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/modules/db/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/modules/db/instance.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/modules/image-generator/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/modules/logger/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/modules/logger/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/modules/pretty-time/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/modules/pretty-time/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/modules/pretty-time/pretty-time.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/modules/pretty-time/pretty-time.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/server/RenderEngine.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/server/RenderEngine.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/server/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/server/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/server/mws/error.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/server/mws/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/server/mws/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/server/mws/jwt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/server/mws/jwt.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/tsconfig.tsbuildinfo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/utils/ajv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/utils/ajv.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/utils/config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/utils/config.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/utils/data.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/utils/data.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/utils/dotenv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/utils/dotenv.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/utils/errors.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/utils/errors.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/utils/pp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/utils/pp.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/utils/pretty-time.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/utils/pretty-time.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/utils/storage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build/utils/storage.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/search/api/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/search/api/v1/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/search/api/v1/methods/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/search/api/v1/methods/simple.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/search/api/v1/queries.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/search/api/v1/schemas/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/search/api/v1/schemas/simple.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/search/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/server/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/server/mws/not-supported.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/common/MainMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/common/MainMenu.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/idea/IdeaComment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/idea/IdeaComment.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/idea/IdeaList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/idea/IdeaList.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/idea/WriteComment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/idea/WriteComment.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/project/Project.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/project/Project.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/sass/common/common.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/common/common.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/sass/components/common/Header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/components/common/Header.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/sass/components/tag/TagSearch.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/components/tag/TagSearch.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/sass/pages/idea/single.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/pages/idea/single.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/common/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/common/Header.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/components/tag/TagSearch.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/tag/TagSearch.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/components/ui/Input.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/ui/Input.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/ui/InputFile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/ui/InputFile.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/ui/Textarea.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/ui/Textarea.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/layouts/auth.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/layouts/auth.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/layouts/error.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/layouts/error.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/auth/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/auth/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/idea/_id.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/idea/_id.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/idea/create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/idea/create.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/idea/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/idea/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/info/about.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/info/about.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/project/_uid/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/project/_uid/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/project/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/project/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/user/_uid/ideas/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/user/_uid/ideas/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/l10n/en.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/l10n/en.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/l10n/ru.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/l10n/ru.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/pages/user/_uid/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/user/_uid/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/user/settings.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/user/settings.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/.idea/server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/server/.idea/server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/db/init/tb-0100.users.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/init/tb-0100.users.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/db/init/tb-0200.ideas.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/init/tb-0200.ideas.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/base/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/base/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/tag/api/v1/methods/get-top.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/tag/api/v1/methods/get-top.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/tag/api/v1/methods/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/tag/api/v1/methods/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/tag/api/v1/queries.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/tag/api/v1/queries.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/tag/api/v1/schemas/get-top.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/tag/api/v1/schemas/get-top.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/tag/api/v1/schemas/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/tag/api/v1/schemas/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/server/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/server/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/server/mws/error.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/server/mws/error.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/server/mws/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/server/mws/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,23 +426,24 @@
     <property name="com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable" value="ALL" />
     <property name="javascript.nodejs.core.library.configured.version" value="14.8.0" />
     <property name="javascript.nodejs.core.library.typings.version" value="14.14.25" />
+    <property name="js.linters.configure.manually.selectedeslint" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.stylelint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.eslint" value="/opt/node/bin/node" />
     <property name="node.js.path.for.package.standard" value="project" />
     <property name="node.js.path.for.package.stylelint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/server/node_modules/eslint" />
     <property name="node.js.selected.package.standard" value="" />
     <property name="node.js.selected.package.stylelint" value="" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.prettier.on.save" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="C:\Users\PYJOHN\AppData\Local\JetBrains\Toolbox\apps\WebStorm\ch-0\202.7660.23\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
     <property name="vuejs.nuxt.types-notification-shown" value="true" />
@@ -185,7 +534,13 @@
       <workItem from="1615980329365" duration="13966000" />
       <workItem from="1616089533466" duration="10322000" />
       <workItem from="1616172859030" duration="2984000" />
-      <workItem from="1616176218793" duration="2835000" />
+      <workItem from="1616176218793" duration="9144000" />
+      <workItem from="1616246964984" duration="3603000" />
+      <workItem from="1616262342275" duration="7875000" />
+      <workItem from="1616329362501" duration="7581000" />
+      <workItem from="1616340961144" duration="3786000" />
+      <workItem from="1616354853854" duration="4498000" />
+      <workItem from="1616377962963" duration="2157000" />
     </task>
     <task id="LOCAL-00001" summary=":bulb: Meow">
       <created>1612391364993</created>
@@ -292,7 +647,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616184116017</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary=":recycle: Templates refactoring">
+      <created>1616184359197</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1616184359197</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -333,13 +695,15 @@
     <MESSAGE value="save" />
     <MESSAGE value="Ahhhh, l10n.orgasm" />
     <MESSAGE value="Fix likes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix likes" />
+    <MESSAGE value=":recycle: Templates refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value=":recycle: Templates refactoring" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1009" y="236" key="#ESLint" timestamp="1615152242649">
-      <screen x="0" y="0" width="2560" height="1050" />
+    <state x="2289" y="243" width="936" height="707" key="#ESLint" timestamp="1616378032134">
+      <screen x="1280" y="0" width="2560" height="1080" />
     </state>
     <state x="1009" y="236" key="#ESLint/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1615152242649" />
+    <state x="2289" y="243" width="936" height="707" key="#ESLint/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1616378032134" />
     <state x="1168" y="364" width="223" height="326" key="#File_Watchers" timestamp="1612140945966">
       <screen x="0" y="0" width="2560" height="1052" />
     </state>
@@ -388,11 +752,12 @@
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state x="860" y="260" key="IDE.errors.dialog/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614281611294" />
-    <state x="784" y="162" key="SettingsEditor" timestamp="1615927135129">
-      <screen x="0" y="0" width="2560" height="1050" />
+    <state x="2064" y="167" key="SettingsEditor" timestamp="1616380312671">
+      <screen x="1280" y="0" width="2560" height="1080" />
     </state>
     <state x="784" y="162" key="SettingsEditor/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1615927135129" />
     <state x="784" y="162" key="SettingsEditor/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612147345234" />
+    <state x="2064" y="167" key="SettingsEditor/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1616380312671" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1612675894670">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
@@ -409,26 +774,27 @@
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state x="0" y="0" width="2166" height="1032" key="dock-window-1/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1612652780293" />
-    <state x="987" y="260" width="594" height="656" key="find.popup" timestamp="1616184124762">
+    <state x="987" y="260" width="594" height="656" key="find.popup" timestamp="1616341956787">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state x="987" y="260" width="594" height="656" key="find.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1616184124762" />
+    <state x="987" y="260" width="594" height="656" key="find.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1616280650639" />
     <state x="3054" y="246" width="555" height="622" key="find.popup/0.0.2560.1050/2560.0.1280.994@2560.0.1280.994" timestamp="1615672963356" />
+    <state x="987" y="260" width="594" height="656" key="find.popup/0.0.2560.1050/2560.0.1680.1020/-1280.4.1280.994@0.0.2560.1050" timestamp="1616341956787" />
     <state x="987" y="260" width="585" height="534" key="find.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612145569091" />
     <state width="600" height="440" key="javadoc.popup" timestamp="1614281174337">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state width="600" height="440" key="javadoc.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614281174337" />
-    <state x="942" y="240" width="672" height="677" key="run.anything.popup" timestamp="1616184252028">
+    <state x="942" y="240" width="672" height="677" key="run.anything.popup" timestamp="1616185594536">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state x="942" y="240" width="672" height="677" key="run.anything.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1616184252028" />
+    <state x="942" y="240" width="672" height="677" key="run.anything.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1616185594536" />
     <state x="3031" y="227" width="336" height="641" key="run.anything.popup/0.0.2560.1050/2560.0.1280.994@2560.0.1280.994" timestamp="1615669619272" />
     <state x="942" y="240" key="run.anything.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612128644928" />
-    <state x="943" y="232" width="672" height="677" key="search.everywhere.popup" timestamp="1615927600035">
+    <state x="943" y="232" width="672" height="677" key="search.everywhere.popup" timestamp="1616281564758">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state x="943" y="232" width="672" height="677" key="search.everywhere.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1615927600035" />
+    <state x="943" y="232" width="672" height="677" key="search.everywhere.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1616281564758" />
     <state x="943" y="232" width="672" height="678" key="search.everywhere.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612131512848" />
   </component>
 </project>

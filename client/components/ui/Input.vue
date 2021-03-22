@@ -6,7 +6,8 @@
                @input="changed"
                :placeholder="placeholder"
                ref="input"
-               :value="value">
+               :value="value"
+               @keyup.enter="applyEnter">
 
         <div class="ui-input__len-info"
              :class="{warn: lenWarn, error: lenError || ringError, show: focused && lenInfo.length}">{{ lenInfo }}
@@ -55,6 +56,12 @@ export default {
             type: Boolean,
             default: false,
         },
+        enter: {
+            type: Function,
+        },
+        enterOnUnchanged: {
+            type: Boolean,
+        },
     },
 
     data() {
@@ -67,6 +74,7 @@ export default {
             lenError: false,
             ringError: false,
             warn: false,
+            oldEnterValue: '',
         }
     },
 
@@ -144,6 +152,20 @@ export default {
 
         clear() {
             this.$refs.input.value = ''
+        },
+
+        focus() {
+            this.$refs.input.focus()
+        },
+
+        applyEnter() {
+            if (this.enter) {
+                const value = this.$refs.input.value
+                if (this.enterOnUnchanged || value !== this.oldEnterValue) {
+                    this.enter(value)
+                }
+                this.oldEnterValue = value
+            }
         },
     },
 }

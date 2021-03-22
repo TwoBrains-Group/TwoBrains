@@ -1,6 +1,7 @@
 BEGIN TRANSACTION;
 SET search_path TO main;
 
+-- idea_relation --
 CREATE TYPE main.idea_relation AS ENUM ('user', 'project');
 
 -- ideas --
@@ -14,6 +15,7 @@ CREATE TABLE main.ideas (
     creation_datetime TIMESTAMP WITH TIME ZONE DEFAULT NOW() NOT NULL,
     last_edit_datetime TIMESTAMP WITH TIME ZONE DEFAULT NULL,
     deleted TIMESTAMP WITH TIME ZONE DEFAULT NULL,
+    tsv tsvector NOT NULL,
     CONSTRAINT ideas_idea_id_pkey PRIMARY KEY (idea_id),
     CONSTRAINT ideas_user_id_fkey FOREIGN KEY (user_id) REFERENCES main.users(user_id)
 );
@@ -27,6 +29,24 @@ COMMENT ON COLUMN main.ideas.relation IS 'Idea relation';
 COMMENT ON COLUMN main.ideas.creation_datetime IS 'Idea creation datetime';
 COMMENT ON COLUMN main.ideas.last_edit_datetime IS 'Idea last edit datetime';
 COMMENT ON COLUMN main.ideas.deleted IS 'Idea deletion datetime';
+COMMENT ON COLUMN main.ideas.tsv IS 'Idea tsvector for search';
+
+-- ideas_tsv_idx --
+CREATE INDEX ideas_tsv_idx ON main.ideas USING gin(tsv);
+
+-- ideas_tsv_update --
+CREATE FUNCTION ideas_tsv_update() RETURNS trigger AS $$
+BEGIN
+    new.tsv =
+        setweight(to_tsvector(new.name), 'A') ||
+        setweight(to_tsvector(new.text), 'D');
+    return new;
+END
+$$ LANGUAGE plpgsql;
+
+-- ideas_tsv_update_trigger --
+CREATE TRIGGER ideas_tsv_update_trigger BEFORE INSERT OR UPDATE
+ON main.ideas FOR EACH ROW EXECUTE PROCEDURE ideas_tsv_update();
 
 -- ideas_likes --
 CREATE TABLE main.ideas_likes (

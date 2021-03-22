@@ -1,0 +1,1 @@
+{"version":3,"file":"get-list.js","sourceRoot":"","sources":["../../../../../../src/apps/idea/api/v1/schemas/get-list.ts"],"names":[],"mappings":";;AAAA,kBAAe;IACX,IAAI,EAAE,QAAQ;IACd,oBAAoB,EAAE,KAAK;IAC3B,QAAQ,EAAE,EAAE;IACZ,UAAU,EAAE;QACR,MAAM,EAAE;YACJ,IAAI,EAAE,QAAQ;SACjB;QACD,KAAK,EAAE;YACH,IAAI,EAAE,QAAQ;SACjB;KACJ;CACJ,CAAA"}

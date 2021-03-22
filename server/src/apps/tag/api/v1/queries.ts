@@ -39,6 +39,5 @@ export default {
             tg.tag_group_id
         ORDER BY
             COUNT(it.tag_id) DESC
-        LIMIT
-            :topCount;`,
+        LIMIT :count;`,
 }

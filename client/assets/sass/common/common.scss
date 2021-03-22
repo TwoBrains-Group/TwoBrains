@@ -16,16 +16,18 @@ body {
 }
 
 html, body {
-    width: 100%;
     height: 100%;
     margin: 0;
+    padding: 0;
 }
 
+#__nuxt,
+#__layout,
 #layout {
     display: block;
-    position: relative;
     width: 100%;
     height: 100%;
+    margin: 0 auto;
 }
 
 #page {

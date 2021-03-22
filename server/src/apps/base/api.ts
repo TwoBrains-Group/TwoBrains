@@ -112,7 +112,19 @@ class Api {
 
         // TODO: Validate base
 
+        if (!this.system[reqObj.app]) {
+            throw new Error('Service does not exists')
+        }
+
+        if (!this.system[reqObj.app][`v${reqObj.v}`]) {
+            throw new Error('Version is not supported')
+        }
+
         const method = this.system[reqObj.app][`v${reqObj.v}`].methods[reqObj.method]
+
+        if (!method) {
+            throw new Error('Method does not exists')
+        }
 
         if (method.formData) {
             const form = new formidable.IncomingForm()

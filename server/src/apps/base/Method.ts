@@ -7,8 +7,9 @@ import DBInstance from '@modules/db/instance'
 import {ValidateFunction} from 'ajv'
 
 export type MethodProps = {
-    useDB?: boolean,
-    name: string,
+    useDB?: boolean
+    auth?: boolean
+    name: string
     formData?: boolean
     formDataMult?: boolean
 }
@@ -28,6 +29,7 @@ export abstract class Method {
     log: Logger
     db?: DBInstance
     useDB: boolean
+    auth: boolean
     name: string
     formData?: boolean
     formDataMult?: boolean
@@ -36,6 +38,7 @@ export abstract class Method {
 
     constructor(props: MethodProps) {
         this.appName = ''
+        this.auth = props.auth || true
         this.name = props.name || this.getName()
         this.useDB = props.useDB || true
         this.formData = props.formData
@@ -48,7 +51,7 @@ export abstract class Method {
         this.validateSchema = data.validateSchema
 
         this.log = new Logger({
-            owner: `${this.appName}/${this.getPath()}`,
+            owner: this.getPath(),
         })
 
         if (this.useDB) {

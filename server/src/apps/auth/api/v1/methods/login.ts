@@ -49,4 +49,5 @@ class Login extends BaseAuth {
 
 export default new Login({
     name: 'login',
+    auth: false,
 })

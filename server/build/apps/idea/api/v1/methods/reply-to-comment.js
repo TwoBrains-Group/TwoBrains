@@ -16,7 +16,7 @@ class ReplyToComment extends Method_1.Method {
             returnField: 'ideaId',
         });
         if (!ideaId) {
-            throw new errors_1.MethodError('Unable to reply to comment');
+            throw new errors_1.BaseError('Unable to reply to comment');
         }
         const commentId = await this.query('replyToComment', {
             replyTo,

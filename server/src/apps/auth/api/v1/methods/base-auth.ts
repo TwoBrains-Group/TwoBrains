@@ -1,7 +1,7 @@
 import {Method, MethodProps} from '@apps/base/Method'
 import jwt from 'jsonwebtoken'
 import {QueryReturnType} from '@modules/db/pool'
-import {MethodError} from '@apps/base/errors'
+import {BaseError} from '@apps/base/errors'
 
 type getTokenResult = {
     token: string
@@ -22,7 +22,7 @@ class BaseAuth extends Method {
         })
 
         if (userData.deleted) {
-            throw new MethodError('This user is deleted')
+            throw new BaseError('This user is deleted')
         }
 
         const token = jwt.sign({

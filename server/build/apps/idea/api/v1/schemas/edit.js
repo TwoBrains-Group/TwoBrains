@@ -3,11 +3,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = {
     type: 'object',
     additionalProperties: false,
-    required: [
-        'name',
-        'text',
-    ],
+    required: ['id'],
     properties: {
+        id: {
+            type: 'string',
+        },
         name: {
             type: 'string',
             minLength: 12,

@@ -14,5 +14,11 @@ export default {
             type: 'string',
             minLength: 35,
         },
+        tags: {
+            type: 'array',
+            items: {
+                type: 'string',
+            },
+        },
     },
 }

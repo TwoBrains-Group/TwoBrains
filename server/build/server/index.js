@@ -32,6 +32,21 @@ class Server {
             origin: process.env.CORS_URL,
         }));
         expApp.use(mws_1.default.jwt);
+        this.log.info(`API listens on ${process.env.API_URI}`);
+        this.expApp.post(process.env.API_URI, async (req, res, next) => {
+            try {
+                await api_1.default.callMethod(req, res, next);
+            }
+            catch (err) {
+                res.json({
+                    error: {
+                        code: err.code,
+                        message: err.message,
+                        data: err.data,
+                    },
+                });
+            }
+        });
         await this.initApps();
         expApp.use(mws_1.default.error);
         expApp.use(mws_1.default.notSupported);
@@ -49,9 +64,6 @@ class Server {
                 this.log.error(`Failed to initialize app ${appName}, error: ${error}`);
             }
         }
-        this.expApp.post(process.env.API_URI, async (req, res, next) => {
-            await api_1.default.callMethod(req, res, next);
-        });
     }
 }
 exports.default = new Server();

@@ -18,7 +18,7 @@ class GetByUid extends Method_1.Method {
             returnType: pool_1.QueryReturnType.Row,
         });
         if (!user) {
-            throw new errors_1.MethodError('User not found');
+            throw new errors_1.BaseError('User not found');
         }
         prepare_user_1.prepareFollowingStatus(user);
         user.isMe = user.id === loggedInUserId;

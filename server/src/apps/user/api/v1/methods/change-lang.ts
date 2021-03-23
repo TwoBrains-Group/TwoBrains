@@ -1,6 +1,6 @@
 import {Method, MethodRes, Req} from '@apps/base/Method'
 import {QueryReturnType} from '@modules/db/pool'
-import {MethodError} from '@apps/base/errors'
+import {BaseError} from '@apps/base/errors'
 
 class ChangeLang extends Method {
     async run(req: Req, user?: any): Promise<MethodRes> {
@@ -17,7 +17,7 @@ class ChangeLang extends Method {
         })
 
         if (!newLocale) {
-            throw new MethodError('Locale not found')
+            throw new BaseError('Locale not found')
         }
 
         return {

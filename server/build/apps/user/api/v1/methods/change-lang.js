@@ -16,7 +16,7 @@ class ChangeLang extends Method_1.Method {
             returnField: 'locale',
         });
         if (!newLocale) {
-            throw new errors_1.MethodError('Locale not found');
+            throw new errors_1.BaseError('Locale not found');
         }
         return {
             locale: newLocale,

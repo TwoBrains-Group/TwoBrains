@@ -6,7 +6,9 @@ export default (err: unknown, req: Request, res: Response, next: NextFunction): 
     res.type('json')
 
     const error = new MethodNotFound()
-    !res.headersSent && res.type('json').status(200).send(error)
+    !res.headersSent && res.type('json').status(200).send({
+        error,
+    })
 
     // next(err)
 }

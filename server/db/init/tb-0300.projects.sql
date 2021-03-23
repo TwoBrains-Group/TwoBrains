@@ -2,7 +2,7 @@ BEGIN TRANSACTION;
 SET search_path TO main;
 
 -- project_user_role --
-CREATE TYPE main.project_user_role AS ENUM ('admin', 'party');
+CREATE TYPE main.project_user_role AS ENUM ('admin', 'moderator', 'party');
 
 -- projects --
 CREATE TABLE main.projects (
@@ -64,5 +64,19 @@ COMMENT ON TABLE main.projects_likes IS 'Projects likes table';
 COMMENT ON COLUMN main.projects_likes.project_id IS 'Projects likes project id foreign key';
 COMMENT ON COLUMN main.projects_likes.user_id IS 'Projects likes user id foreign key';
 COMMENT ON COLUMN main.projects_likes.creation_datetime IS 'Project like creation timestamp';
+
+-- projects_tags --
+CREATE TABLE main.projects_tags (
+    project_id INT8 NOT NULL,
+    tag_id INT2 NOT NULL,
+    CONSTRAINT projects_tags_project_id_fkey FOREIGN KEY (project_id) REFERENCES main.projects(project_id),
+    CONSTRAINT projects_tags_tag_id_fkey FOREIGN KEY (tag_id) REFERENCES main.tags(tag_id),
+    CONSTRAINT projects_tags_project_id_tag_id_ukey UNIQUE (project_id, tag_id)
+);
+
+COMMENT ON TABLE main.projects_tags IS 'Projects tags';
+COMMENT ON COLUMN main.projects_tags.project_id IS 'Project id';
+COMMENT ON COLUMN main.projects_tags.tag_id IS 'Tag id';
+
 
 COMMIT;

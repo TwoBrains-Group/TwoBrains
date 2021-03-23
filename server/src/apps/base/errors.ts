@@ -1,4 +1,4 @@
-export class MethodError extends Error {
+export class BaseError extends Error {
     code: number
     message: string
     data: Record<string, any>
@@ -16,20 +16,26 @@ const prepareSchemaError = (errors: any[]) => errors.reduce((acc: string, el: an
     return acc + `'${el.dataPath.replace(/\//, '')}' ${el.message},\n`
 }, '')
 
-export class InvalidParams extends MethodError {
+export class InvalidParams extends BaseError {
     constructor(errors: any[] | string = 'Invalid params') {
         super(Array.isArray(errors) ? prepareSchemaError(errors) : errors)
     }
 }
 
-export class MethodNotFound extends MethodError {
+export class MethodNotFound extends BaseError {
     constructor(message = 'Method not found') {
         super(message, -32601, {})
     }
 }
 
-export class AuthError extends MethodError {
+export class AuthError extends BaseError {
     constructor(message = 'Authentication error') {
         super(message, -32002, {})
+    }
+}
+
+export class UnauthorizedError extends BaseError {
+    constructor(message = 'Unauthorized') {
+        super(message, -32001, {})
     }
 }

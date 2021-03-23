@@ -1,6 +1,6 @@
 import {AuthUser, Method, MethodProps, MethodRes, Req} from '@apps/base/Method'
 import {QueryReturnType} from '@modules/db/pool'
-import {MethodError} from '@apps/base/errors'
+import {BaseError} from '@apps/base/errors'
 import {prepareFollowingStatus} from '../modules/prepare-user'
 
 class GetByUid extends Method {
@@ -20,7 +20,7 @@ class GetByUid extends Method {
         })
 
         if (!user) {
-            throw new MethodError('User not found')
+            throw new BaseError('User not found')
         }
 
         prepareFollowingStatus(user)

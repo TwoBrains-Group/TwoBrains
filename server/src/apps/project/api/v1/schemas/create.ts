@@ -1,20 +1,12 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = {
+export default {
     type: 'object',
     additionalProperties: false,
     required: [
         'name',
-        'text',
     ],
     properties: {
         name: {
             type: 'string',
-            minLength: 12,
-        },
-        text: {
-            type: 'string',
-            minLength: 35,
         },
         tags: {
             type: 'array',
@@ -22,5 +14,11 @@ exports.default = {
                 type: 'string',
             },
         },
+        // plugins: {
+        //     type: 'array',
+        //     items: {
+        //         type: 'string',
+        //     },
+        // },
     },
-};
+}

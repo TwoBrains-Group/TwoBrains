@@ -105,12 +105,8 @@ class Api {
         }
     }
 
-    async callMethod(req: any, res: Response, next: NextFunction) {
+    getMethod(req: any): Method {
         const reqObj: Req = req.body
-
-        this.log.info(`Got request: ${JSON.stringify(reqObj, null, 2)}`)
-
-        // TODO: Validate base
 
         if (!this.system[reqObj.app]) {
             throw new Error('Service does not exists')
@@ -125,6 +121,18 @@ class Api {
         if (!method) {
             throw new Error('Method does not exists')
         }
+
+        return method
+    }
+
+    async callMethod(req: any, res: Response, next: NextFunction) {
+        const reqObj: Req = req.body
+
+        this.log.info(`Got request: ${JSON.stringify(reqObj, null, 2)}`)
+
+        // TODO: Validate base
+
+        const method = this.getMethod(req)
 
         if (method.formData) {
             const form = new formidable.IncomingForm()

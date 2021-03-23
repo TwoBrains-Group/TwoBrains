@@ -1,13 +1,11 @@
 import api from '@apps/base/api'
-import {getRes} from '@apps/base/templates'
-import express from 'express'
+import express, {RequestHandler} from 'express'
 import 'path'
 import appRootPath from 'app-root-path'
 import apps from '@apps/index'
 import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
 import cors from 'cors'
-import formidable, {Fields, Files} from 'formidable'
 import mws from './mws'
 import Logger from '@modules/logger'
 
@@ -36,7 +34,23 @@ class Server {
             origin: process.env.CORS_URL!,
         }))
 
-        expApp.use(mws.jwt)
+        expApp.use(mws.jwt as RequestHandler)
+
+        this.log.info(`API listens on ${process.env.API_URI}`)
+        this.expApp.post(process.env.API_URI!, async (req, res, next) => {
+            // FIXME: Strange shit, error mw not working
+            try {
+                await api.callMethod(req, res, next)
+            } catch (err) {
+                res.json({
+                    error: {
+                        code: err.code,
+                        message: err.message,
+                        data: err.data,
+                    },
+                })
+            }
+        })
 
         await this.initApps()
 
@@ -57,10 +71,6 @@ class Server {
                 this.log.error(`Failed to initialize app ${appName}, error: ${error}`)
             }
         }
-
-        this.expApp.post(process.env.API_URI!, async (req, res, next) => {
-            await api.callMethod(req, res, next)
-        })
     }
 }
 export default new Server()

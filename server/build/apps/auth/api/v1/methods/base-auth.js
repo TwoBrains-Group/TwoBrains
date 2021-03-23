@@ -18,7 +18,7 @@ class BaseAuth extends Method_1.Method {
             returnType: pool_1.QueryReturnType.Row,
         });
         if (userData.deleted) {
-            throw new errors_1.MethodError('This user is deleted');
+            throw new errors_1.BaseError('This user is deleted');
         }
         const token = jsonwebtoken_1.default.sign({
             userData,

@@ -16,7 +16,7 @@ class DeleteComment extends Method_1.Method {
             returnField: 'userId',
         });
         if (!check) {
-            throw new errors_1.MethodError('This is not your comment');
+            throw new errors_1.BaseError('This is not your comment');
         }
         await this.query('deleteComment', {
             id,

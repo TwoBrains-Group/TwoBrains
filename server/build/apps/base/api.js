@@ -67,9 +67,8 @@ class Api {
             }
         }
     }
-    async callMethod(req, res, next) {
+    getMethod(req) {
         const reqObj = req.body;
-        this.log.info(`Got request: ${JSON.stringify(reqObj, null, 2)}`);
         if (!this.system[reqObj.app]) {
             throw new Error('Service does not exists');
         }
@@ -80,6 +79,12 @@ class Api {
         if (!method) {
             throw new Error('Method does not exists');
         }
+        return method;
+    }
+    async callMethod(req, res, next) {
+        const reqObj = req.body;
+        this.log.info(`Got request: ${JSON.stringify(reqObj, null, 2)}`);
+        const method = this.getMethod(req);
         if (method.formData) {
             const form = new formidable_1.default.IncomingForm();
             form.parse(req.formData, async (err, fields, files) => {

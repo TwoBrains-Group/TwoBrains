@@ -11,6 +11,7 @@ const pool_1 = require("@modules/db/pool");
 class Method {
     constructor(props) {
         this.appName = '';
+        this.auth = props.auth || true;
         this.name = props.name || this.getName();
         this.useDB = props.useDB || true;
         this.formData = props.formData;
@@ -21,7 +22,7 @@ class Method {
         this.queries = data.queries;
         this.validateSchema = data.validateSchema;
         this.log = new logger_1.default({
-            owner: `${this.appName}/${this.getPath()}`,
+            owner: this.getPath(),
         });
         if (this.useDB) {
             this.db = await db_1.default.getInstance();

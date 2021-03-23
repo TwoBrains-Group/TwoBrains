@@ -7,6 +7,7 @@ import create from './create'
 import comment from './comment'
 import deleteComment from './delete-comment'
 import replyToComment from './reply-to-comment'
+import edit from './edit'
 
 export default {
     getById,
@@ -18,4 +19,5 @@ export default {
     comment,
     deleteComment,
     replyToComment,
+    edit,
 }

@@ -1,6 +1,6 @@
 import {MethodProps, MethodRes, Req} from '@apps/base/Method'
 import {QueryReturnType} from '@modules/db/pool'
-import {InvalidParams, MethodError} from '@apps/base/errors'
+import {InvalidParams, BaseError} from '@apps/base/errors'
 import {nanoid} from 'nanoid'
 import BaseAuth from './base-auth'
 
@@ -29,7 +29,7 @@ class Signup extends BaseAuth {
         })
 
         if (userExists) {
-            throw new MethodError(`User with email '${email}' already exists`)
+            throw new BaseError(`User with email '${email}' already exists`)
         }
 
         const nickname = email.split('@')[0]
@@ -60,4 +60,5 @@ class Signup extends BaseAuth {
 
 export default new Signup({
     name: 'signup',
+    auth: false,
 })

@@ -1,4 +1,4 @@
-import {MethodError} from '@apps/base/errors'
+import {BaseError} from '@apps/base/errors'
 import {AuthUser, Method, MethodRes, Req} from '@apps/base/Method'
 import {QueryReturnType} from '@modules/db/pool'
 
@@ -17,7 +17,7 @@ class ReplyToComment extends Method {
         })
 
         if (!ideaId) {
-            throw new MethodError('Unable to reply to comment')
+            throw new BaseError('Unable to reply to comment')
         }
 
         const commentId = await this.query('replyToComment', {

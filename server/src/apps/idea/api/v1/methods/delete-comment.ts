@@ -1,6 +1,6 @@
 import {AuthUser, Method, MethodRes, Req} from '@apps/base/Method'
 import {QueryReturnType} from '@modules/db/pool'
-import {MethodError} from '@apps/base/errors'
+import {BaseError} from '@apps/base/errors'
 
 class DeleteComment extends Method {
     async run(req: Req, user: AuthUser): Promise<MethodRes> {
@@ -17,7 +17,7 @@ class DeleteComment extends Method {
         })
 
         if (!check) {
-            throw new MethodError('This is not your comment')
+            throw new BaseError('This is not your comment')
         }
 
         await this.query('deleteComment', {

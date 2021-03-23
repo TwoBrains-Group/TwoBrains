@@ -26,7 +26,7 @@ class Signup extends base_auth_1.default {
             returnField: 'userId',
         });
         if (userExists) {
-            throw new errors_1.MethodError(`User with email '${email}' already exists`);
+            throw new errors_1.BaseError(`User with email '${email}' already exists`);
         }
         const nickname = email.split('@')[0];
         const uid = `${nickname}_${nanoid_1.nanoid(8)}`;
@@ -52,4 +52,5 @@ class Signup extends base_auth_1.default {
 }
 exports.default = new Signup({
     name: 'signup',
+    auth: false,
 });

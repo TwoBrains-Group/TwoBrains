@@ -42,4 +42,5 @@ class Login extends base_auth_1.default {
 }
 exports.default = new Login({
     name: 'login',
+    auth: false,
 });

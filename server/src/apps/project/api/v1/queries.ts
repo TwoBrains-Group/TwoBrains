@@ -52,4 +52,50 @@ export default {
         ORDER BY p.creation_datetime DESC
         LIMIT :limit
         OFFSET :offset;`,
+
+    checkAuthor: `
+        SELECT
+            i.idea_id AS "id"
+        FROM
+            main.ideas AS i
+        WHERE
+            i.idea_id = :id
+            AND i.user_id = :loggedInUserId;`,
+
+    edit: `
+        UPDATE
+            main.ideas
+        SET
+            name = :name,
+            text = :text
+        WHERE
+            idea_id = :id
+        RETURNING
+            idea_id AS "id";`,
+
+    create: `
+        INSERT INTO main.projects (name, uid, user_id, image, cover_image)
+        VALUES (:name, :uid, :loggedInUserId, :image, :coverImage);`,
+
+    bindTags: `
+        INSERT INTO main.projects_tags (project_id, tag_id)
+        VALUES (:id, unnest(:tags));`,
+
+    bindPlugin: `
+        INSERT INTO main.projects_plugins (project_id, plugin_id)
+        SELECT
+            :id,
+            p.plugin_id
+        FROM
+            main.plugins AS p
+        WHERE
+            p.name = :name;`,
+
+    changeImage: `
+        UPDATE
+            main.projects
+        SET
+            image = :image
+        WHERE
+            project_id = :id;`,
 }

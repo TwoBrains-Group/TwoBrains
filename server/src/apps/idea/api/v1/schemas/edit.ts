@@ -1,13 +1,11 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = {
+export default {
     type: 'object',
     additionalProperties: false,
-    required: [
-        'name',
-        'text',
-    ],
+    required: ['id'],
     properties: {
+        id: {
+            type: 'string',
+        },
         name: {
             type: 'string',
             minLength: 12,
@@ -23,4 +21,4 @@ exports.default = {
             },
         },
     },
-};
+}

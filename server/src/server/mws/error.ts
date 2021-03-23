@@ -1,9 +1,9 @@
 import {NextFunction, Request, Response} from 'express'
-import {MethodError} from '@apps/base/errors'
+import {BaseError} from '@apps/base/errors'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default (err: unknown, req: Request, res: Response, next: NextFunction): void => {
-    if (err instanceof MethodError) {
+    if (err instanceof BaseError) {
         !res.headersSent
         && res.type('json').status(200).send({
             error: {
@@ -14,5 +14,7 @@ export default (err: unknown, req: Request, res: Response, next: NextFunction): 
         })
     }
 
-    // next(err)
+    // FIXME: Add "unknown error" handling
+    console.log('ERROR:', err)
+    next(err)
 }

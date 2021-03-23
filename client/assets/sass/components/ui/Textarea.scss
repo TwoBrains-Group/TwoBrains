@@ -3,7 +3,7 @@
 .ui-textarea {
     display: block;
     position: relative;
-    margin: 5px auto;
+    margin: 0 auto;
 
     &.ringError {
         textarea {
@@ -26,6 +26,7 @@
         position: relative;
         width: 100%;
         padding: 10px;
+        margin: 0 auto;
 
         box-sizing: border-box;
         resize: vertical;

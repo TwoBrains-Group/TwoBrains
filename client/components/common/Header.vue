@@ -77,7 +77,7 @@
 
         <div class="main-header__plus-menu" :class="{show: showPlusMenu}">
             <nuxt-link to="/idea/create" class="btn main-header__plus-menu__btn">Create idea</nuxt-link>
-            <nuxt-link to="/project/new" class="btn main-header__plus-menu__btn">Create project</nuxt-link>
+            <nuxt-link to="/project/create" class="btn main-header__plus-menu__btn">Create project</nuxt-link>
         </div>
 
         <div class="main-header__user-menu" :class="{show: showUserMenu}">

@@ -1,0 +1,82 @@
+@keyframes appear {
+    from {
+        transform: scale(0.0001, 0.0001);
+    }
+
+    to {
+        transform: scale(1, 1);
+    }
+}
+
+.ui-checkbox {
+    display: flex;
+    width: max-content;
+    height: 25px;
+    padding: 10px 0;
+    position: relative;
+    flex-direction: row;
+    cursor: pointer;
+
+    &.checked {
+        .ui-checkbox__box {
+            i {
+                opacity: 1;
+                transform: scale(1, 1);
+            }
+
+            border-radius: 50%;
+        }
+    }
+
+    &.outlined {
+        box-shadow: 0 0 0 1px #f0f0f0;
+        border-radius: 5px;
+        padding: 5px 10px;
+        margin: 10px 0;
+    }
+
+    &:hover {
+        .ui-checkbox__box {
+            background: #f0f0f0;
+            box-shadow: 0 2px 5px -1px #f0f0f0;
+        }
+    }
+
+    &:active {
+        .ui-checkbox__box {
+            border-radius: 50%;
+        }
+    }
+
+    label {
+        padding: 5px 10px 5px 0;
+        margin: 0;
+        height: 15px;
+        font-size: 15px;
+        line-height: 15px;
+        vertical-align: middle;
+        text-align: left;
+    }
+
+    .ui-checkbox__box {
+        width: 15px;
+        height: 15px;
+        padding: 5px;
+        border-radius: 5px;
+        box-shadow: 0 0 0 1px #f0f0f0;
+        font-size: 12px;
+        line-height: 16px;
+        vertical-align: middle;
+        text-align: center;
+        background: #fff;
+        color: #9aa6ce;
+        transition: .25s ease;
+
+        i {
+            opacity: 0;
+            transition: .15s ease-out;
+            transform: scale(0.0001, 0.0001);
+        }
+    }
+}
+

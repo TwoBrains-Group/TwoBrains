@@ -1,0 +1,119 @@
+#project-create {
+    display: block;
+    position: relative;
+    width: 600px;
+    height: max-content;
+    margin: 10px auto 0 auto;
+    padding: 10px;
+    box-sizing: border-box;
+
+    box-shadow: -1px 0 #f0f0f0, 1px 0 #f0f0f0;
+
+    .project-create__header {
+        text-align: center;
+        padding: 8px 0;
+    }
+
+    .project-create__main {
+        display: block;
+        position: relative;
+        width: 500px;
+        height: max-content;
+        margin: 0 auto;
+
+        .project-create__main__name {
+            width: 500px;
+            margin: 0 auto;
+        }
+
+        .ui-textarea {
+            width: 500px;
+            margin: 0 auto;
+
+            textarea {
+                height: 400px;
+                max-height: 500px;
+            }
+        }
+    }
+
+    .project-create__plugins {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+
+        box-shadow: 0 0 0 1px #f0f0f0;
+        border-radius: 10px;
+
+        .project-create__plugins__header {
+            padding: 6px 0;
+            text-indent: 10px;
+        }
+
+        .list {
+            display: grid;
+            height: max-content;
+            max-height: 250px;
+
+            grid-template-columns: 100%;
+            grid-template-rows: max-content;
+            grid-gap: 5px;
+
+            .project-create__plugins__el {
+                display: grid;
+                padding: 5px 10px;
+
+                grid-template-columns: subgrid;
+                grid-template-rows: 20px max-content;
+                grid-gap: 5px;
+
+                border-radius: 5px;
+                box-shadow: 0 0 0 1px #f0f0f0;
+                transition: .15s ease;
+                cursor: pointer;
+
+                &:hover {
+                    box-shadow: 0 4px 6px -1px #dfdfdf, 0 0 0 1px #f0f0f0;
+                }
+
+                &.active {
+                    box-shadow: 0 0 0 1px #9aa6ceaa;
+
+                    .project-create__plugins__el__name {
+                        box-shadow: 0 1px #ccc;
+                        font-size: 1em;
+
+                        i {
+                            opacity: 1;
+                        }
+                    }
+                }
+
+                .project-create__plugins__el__name {
+                    line-height: 20px;
+                    vertical-align: middle;
+                    box-shadow: 0 1px #f0f0f0;
+                    transition: .15s ease;
+
+                    i {
+                        display: inline-block;
+                        position: relative;
+                        bottom: 1px;
+                        font-size: 12px;
+                        opacity: 0;
+                        transition: .15s ease;
+                    }
+                }
+
+                .project-create__plugins__el__description {
+                }
+            }
+        }
+    }
+
+    .project-create__done {
+        margin: 25px auto;
+        padding: 5px 15px;
+        font-size: 18px;
+    }
+}

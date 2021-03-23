@@ -42,6 +42,13 @@ export default {
                 },
                 description: 'Description',
             },
+            create: {
+                nameYourProject: 'Name your project',
+                done: 'Done',
+                description: 'Describe it...',
+                public: 'public',
+                createProject: 'Create a new project',
+            },
         },
         auth: {
             auth: {

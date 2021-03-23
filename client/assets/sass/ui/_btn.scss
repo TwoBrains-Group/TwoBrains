@@ -61,6 +61,10 @@
 
     box-shadow: 0 2px 4px 1px #f0f0f0;
 
+    &.material-btn--flat {
+        box-shadow: 0 0 0 1px #f0f0f0;
+    }
+
     &.anti {
         box-shadow: none;
     }

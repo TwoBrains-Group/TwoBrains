@@ -1,20 +1,9 @@
-const dividers = {
-    y: 31536000,
-    mth: 2592000,
-    d: 86400,
-    h: 3600,
-    m: 60,
-    s: 1,
-}
-
 /**
  * Localization helper class
  */
 class L10N {
     constructor(ctx) {
         this.ctx = ctx
-
-        this.timeL10N = this.ctx.$t('time')
     }
 
     format(template, params) {

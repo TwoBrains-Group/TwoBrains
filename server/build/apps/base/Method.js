@@ -11,11 +11,16 @@ const pool_1 = require("@modules/db/pool");
 class Method {
     constructor(props) {
         this.appName = '';
-        this.auth = props.auth || true;
         this.name = props.name || this.getName();
         this.useDB = props.useDB || true;
         this.formData = props.formData;
         this.formDataMult = props.formDataMult;
+        if ('auth' in props) {
+            this.auth = props.auth;
+        }
+        else {
+            this.auth = true;
+        }
     }
     async init(data) {
         this.appName = data.appName;

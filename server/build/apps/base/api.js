@@ -8,6 +8,8 @@ const templates_1 = require("@apps/base/templates");
 const logger_1 = __importDefault(require("@modules/logger"));
 const formidable_1 = __importDefault(require("formidable"));
 const ajv_1 = __importDefault(require("@modules/ajv"));
+const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
+const config_1 = require("@utils/config");
 class Api {
     constructor() {
         this.system = {};
@@ -83,24 +85,52 @@ class Api {
     }
     async callMethod(req, res, next) {
         const reqObj = req.body;
-        this.log.info(`Got request: ${JSON.stringify(reqObj, null, 2)}`);
         const method = this.getMethod(req);
+        let user = undefined;
+        if (method.auth) {
+            let token;
+            if (config_1.config.auth.useHeader && req.headers.authorization.split(' ')[0] === 'Bearer') {
+                console.log('use bearer');
+                token = req.headers.authorization.split(' ')[1].trim();
+                console.log('token', token);
+            }
+            else if (reqObj.token) {
+                token = reqObj.token;
+            }
+            else {
+                throw new errors_1.UnauthorizedError();
+            }
+            try {
+                await jsonwebtoken_1.default.verify(token, Buffer.from(process.env.JWT_SECRET, 'base64'), {
+                    algorithms: ['HS256'],
+                });
+                const jwtData = await jsonwebtoken_1.default.decode(token, {
+                    complete: true,
+                });
+                user = jwtData.payload.userData;
+                if (!user) {
+                    throw new errors_1.UnauthorizedError('invalid_payload');
+                }
+            }
+            catch (error) {
+                this.log.error(error);
+                throw new errors_1.UnauthorizedError('invalid_token');
+            }
+        }
         if (method.formData) {
             const form = new formidable_1.default.IncomingForm();
             form.parse(req.formData, async (err, fields, files) => {
                 if (err) {
                     return next(err);
                 }
-                let result = await method.runFormData({
+                const result = await method.runFormData({
                     ...req.body,
                     formData: {
                         fields,
                         files,
                     },
-                }, req.user && req.user.userData);
-                result = templates_1.getRes(result);
-                this.log.info(`Sent response: ${JSON.stringify(result, null, 2)}`);
-                res.json(result);
+                }, user);
+                return templates_1.getRes(result);
             });
         }
         else {
@@ -113,10 +143,8 @@ class Api {
                     throw new errors_1.InvalidParams();
                 }
             }
-            let result = await method.run(req.body, req.user && req.user.userData);
-            result = templates_1.getRes(result);
-            this.log.info(`Sent response: ${JSON.stringify(result, null, 2)}`);
-            res.json(result);
+            const result = await method.run(req.body, user);
+            return templates_1.getRes(result);
         }
     }
 }

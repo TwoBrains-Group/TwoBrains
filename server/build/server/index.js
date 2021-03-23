@@ -31,15 +31,19 @@ class Server {
         expApp.use(cors_1.default({
             origin: process.env.CORS_URL,
         }));
-        expApp.use(mws_1.default.jwt);
         this.log.info(`API listens on ${process.env.API_URI}`);
         this.expApp.post(process.env.API_URI, async (req, res, next) => {
             try {
-                await api_1.default.callMethod(req, res, next);
+                this.log.info(`Got request: ${JSON.stringify(req.body, null, 2)}`);
+                const result = await api_1.default.callMethod(req, res, next);
+                this.log.info(`Sent response: ${JSON.stringify(result, null, 2)}`);
+                res.json(result);
             }
             catch (err) {
+                this.log.error(`Got error: ${JSON.stringify(err, null, 2)}`);
                 res.json({
                     error: {
+                        name: err.name,
                         code: err.code,
                         message: err.message,
                         data: err.data,

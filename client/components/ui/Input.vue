@@ -127,15 +127,8 @@ export default {
             const val = this.$refs.input.value
             const len = val.length
 
-            console.log('test', this.regexp && !this.testRegexp())
-
-            if (this.regexp && !this.testRegexp()) {
-                console.log('AHAHAH')
-            }
-
             if (this.regexp && !this.testRegexp()) {
                 this.ring()
-                console.log('RING')
                 if (this.regexpErrMsg) {
                     this.$toast.error(this.regexpErrMsg)
                 }

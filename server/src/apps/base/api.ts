@@ -1,5 +1,5 @@
-import {InvalidParams} from '@apps/base/errors'
-import {Method, MethodInitData, Req} from '@apps/base/Method'
+import {InvalidParams, UnauthorizedError} from '@apps/base/errors'
+import {AuthUser, Method, MethodInitData, Req} from '@apps/base/Method'
 import {getRes} from '@apps/base/templates'
 import {Query} from '@modules/db/pool'
 import Logger from '@modules/logger'
@@ -7,6 +7,8 @@ import {JSONSchemaType} from 'ajv'
 import {NextFunction, Response} from 'express'
 import formidable, {Fields, Files} from 'formidable'
 import ajv from '@modules/ajv'
+import jwt from 'jsonwebtoken'
+import {config} from '@utils/config'
 
 export type ApiDir = Record<string, {
     queries: Record<string, string>,
@@ -128,11 +130,42 @@ class Api {
     async callMethod(req: any, res: Response, next: NextFunction) {
         const reqObj: Req = req.body
 
-        this.log.info(`Got request: ${JSON.stringify(reqObj, null, 2)}`)
-
         // TODO: Validate base
 
         const method = this.getMethod(req)
+
+        let user: AuthUser | undefined = undefined
+        if (method.auth) {
+            let token: string
+
+            if (config.auth.useHeader && req.headers.authorization.split(' ')[0] === 'Bearer') {
+                console.log('use bearer')
+                token = req.headers.authorization.split(' ')[1].trim()
+                console.log('token', token)
+            } else if (reqObj.token) {
+                token = reqObj.token
+            } else {
+                throw new UnauthorizedError()
+            }
+
+            try {
+                await jwt.verify(token, Buffer.from(process.env.JWT_SECRET!, 'base64'), {
+                    algorithms: ['HS256'],
+                })
+                const jwtData = await jwt.decode(token, {
+                    complete: true,
+                }) as Record<any, any>
+
+                user = jwtData.payload.userData
+
+                if (!user) {
+                    throw new UnauthorizedError('invalid_payload')
+                }
+            } catch (error) {
+                this.log.error(error)
+                throw new UnauthorizedError('invalid_token')
+            }
+        }
 
         if (method.formData) {
             const form = new formidable.IncomingForm()
@@ -142,19 +175,15 @@ class Api {
                     return next(err)
                 }
 
-                let result = await method.runFormData({
+                const result = await method.runFormData({
                     ...req.body,
                     formData: {
                         fields,
                         files,
                     },
-                }, req.user && req.user.userData)
+                }, user)
 
-                result = getRes(result)
-
-                this.log.info(`Sent response: ${JSON.stringify(result, null, 2)}`)
-
-                res.json(result)
+                return getRes(result)
             })
         } else {
             const valid = await method.validateSchema(reqObj.params)
@@ -167,12 +196,8 @@ class Api {
                 }
             }
 
-            let result = await method.run(req.body, req.user && req.user.userData)
-            result = getRes(result)
-
-            this.log.info(`Sent response: ${JSON.stringify(result, null, 2)}`)
-
-            res.json(result)
+            const result = await method.run(req.body, user)
+            return getRes(result)
         }
     }
 }

@@ -4,6 +4,7 @@ exports.UnauthorizedError = exports.AuthError = exports.MethodNotFound = exports
 class BaseError extends Error {
     constructor(message, code = -32000, data = {}) {
         super(message);
+        this.name = this.constructor.name;
         this.code = code || -32000;
         this.message = message;
         this.data = data || {};

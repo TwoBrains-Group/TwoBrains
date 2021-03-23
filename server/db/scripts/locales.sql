@@ -1,184 +1,186 @@
-INSERT INTO main.locales (code, label) values ('aa', 'Afar');
-INSERT INTO main.locales (code, label) values ('ab', 'Abkhazian');
-INSERT INTO main.locales (code, label) values ('ae', 'Avestan');
-INSERT INTO main.locales (code, label) values ('af', 'Afrikaans');
-INSERT INTO main.locales (code, label) values ('ak', 'Akan');
-INSERT INTO main.locales (code, label) values ('am', 'Amharic');
-INSERT INTO main.locales (code, label) values ('an', 'Aragonese');
-INSERT INTO main.locales (code, label) values ('ar', 'Arabic');
-INSERT INTO main.locales (code, label) values ('as', 'Assamese');
-INSERT INTO main.locales (code, label) values ('av', 'Avaric');
-INSERT INTO main.locales (code, label) values ('ay', 'Aymara');
-INSERT INTO main.locales (code, label) values ('az', 'Azerbaijani');
-INSERT INTO main.locales (code, label) values ('ba', 'Bashkir');
-INSERT INTO main.locales (code, label) values ('be', 'Belarusian');
-INSERT INTO main.locales (code, label) values ('bg', 'Bulgarian');
-INSERT INTO main.locales (code, label) values ('bh', 'Bihari languages');
-INSERT INTO main.locales (code, label) values ('bi', 'Bislama');
-INSERT INTO main.locales (code, label) values ('bm', 'Bambara');
-INSERT INTO main.locales (code, label) values ('bn', 'Bengali');
-INSERT INTO main.locales (code, label) values ('bo', 'Tibetan');
-INSERT INTO main.locales (code, label) values ('br', 'Breton');
-INSERT INTO main.locales (code, label) values ('bs', 'Bosnian');
-INSERT INTO main.locales (code, label) values ('ca', 'Catalan; Valencian');
-INSERT INTO main.locales (code, label) values ('ce', 'Chechen');
-INSERT INTO main.locales (code, label) values ('ch', 'Chamorro');
-INSERT INTO main.locales (code, label) values ('co', 'Corsican');
-INSERT INTO main.locales (code, label) values ('cr', 'Cree');
-INSERT INTO main.locales (code, label) values ('cs', 'Czech');
-INSERT INTO main.locales (code, label) values ('cu', 'Church Slavic; Old Slavonic; Church Slavonic; Old Bulgarian; Old Church Slavonic');
-INSERT INTO main.locales (code, label) values ('cv', 'Chuvash');
-INSERT INTO main.locales (code, label) values ('cy', 'Welsh');
-INSERT INTO main.locales (code, label) values ('da', 'Danish');
-INSERT INTO main.locales (code, label) values ('de', 'German');
-INSERT INTO main.locales (code, label) values ('dv', 'Divehi; Dhivehi; Maldivian');
-INSERT INTO main.locales (code, label) values ('dz', 'Dzongkha');
-INSERT INTO main.locales (code, label) values ('ee', 'Ewe');
-INSERT INTO main.locales (code, label) values ('el', 'Greek, Modern (1453-)');
-INSERT INTO main.locales (code, label) values ('en', 'English');
-INSERT INTO main.locales (code, label) values ('eo', 'Esperanto');
-INSERT INTO main.locales (code, label) values ('es', 'Spanish; Castilian');
-INSERT INTO main.locales (code, label) values ('et', 'Estonian');
-INSERT INTO main.locales (code, label) values ('eu', 'Basque');
-INSERT INTO main.locales (code, label) values ('fa', 'Persian');
-INSERT INTO main.locales (code, label) values ('ff', 'Fulah');
-INSERT INTO main.locales (code, label) values ('fi', 'Finnish');
-INSERT INTO main.locales (code, label) values ('fj', 'Fijian');
-INSERT INTO main.locales (code, label) values ('fo', 'Faroese');
-INSERT INTO main.locales (code, label) values ('fr', 'French');
-INSERT INTO main.locales (code, label) values ('fy', 'Western Frisian');
-INSERT INTO main.locales (code, label) values ('ga', 'Irish');
-INSERT INTO main.locales (code, label) values ('gd', 'Gaelic; Scottish Gaelic');
-INSERT INTO main.locales (code, label) values ('gl', 'Galician');
-INSERT INTO main.locales (code, label) values ('gn', 'Guarani');
-INSERT INTO main.locales (code, label) values ('gu', 'Gujarati');
-INSERT INTO main.locales (code, label) values ('gv', 'Manx');
-INSERT INTO main.locales (code, label) values ('ha', 'Hausa');
-INSERT INTO main.locales (code, label) values ('he', 'Hebrew');
-INSERT INTO main.locales (code, label) values ('hi', 'Hindi');
-INSERT INTO main.locales (code, label) values ('ho', 'Hiri Motu');
-INSERT INTO main.locales (code, label) values ('hr', 'Croatian');
-INSERT INTO main.locales (code, label) values ('ht', 'Haitian; Haitian Creole');
-INSERT INTO main.locales (code, label) values ('hu', 'Hungarian');
-INSERT INTO main.locales (code, label) values ('hy', 'Armenian');
-INSERT INTO main.locales (code, label) values ('hz', 'Herero');
-INSERT INTO main.locales (code, label) values ('ia', 'Interlingua (International Auxiliary Language Association)');
-INSERT INTO main.locales (code, label) values ('id', 'Indonesian');
-INSERT INTO main.locales (code, label) values ('ie', 'Interlingue; Occidental');
-INSERT INTO main.locales (code, label) values ('ig', 'Igbo');
-INSERT INTO main.locales (code, label) values ('ii', 'Sichuan Yi; Nuosu');
-INSERT INTO main.locales (code, label) values ('ik', 'Inupiaq');
-INSERT INTO main.locales (code, label) values ('io', 'Ido');
-INSERT INTO main.locales (code, label) values ('is', 'Icelandic');
-INSERT INTO main.locales (code, label) values ('it', 'Italian');
-INSERT INTO main.locales (code, label) values ('iu', 'Inuktitut');
-INSERT INTO main.locales (code, label) values ('ja', 'Japanese');
-INSERT INTO main.locales (code, label) values ('jv', 'Javanese');
-INSERT INTO main.locales (code, label) values ('ka', 'Georgian');
-INSERT INTO main.locales (code, label) values ('kg', 'Kongo');
-INSERT INTO main.locales (code, label) values ('ki', 'Kikuyu; Gikuyu');
-INSERT INTO main.locales (code, label) values ('kj', 'Kuanyama; Kwanyama');
-INSERT INTO main.locales (code, label) values ('kk', 'Kazakh');
-INSERT INTO main.locales (code, label) values ('kl', 'Kalaallisut; Greenlandic');
-INSERT INTO main.locales (code, label) values ('km', 'Central Khmer');
-INSERT INTO main.locales (code, label) values ('kn', 'Kannada');
-INSERT INTO main.locales (code, label) values ('ko', 'Korean');
-INSERT INTO main.locales (code, label) values ('kr', 'Kanuri');
-INSERT INTO main.locales (code, label) values ('ks', 'Kashmiri');
-INSERT INTO main.locales (code, label) values ('ku', 'Kurdish');
-INSERT INTO main.locales (code, label) values ('kv', 'Komi');
-INSERT INTO main.locales (code, label) values ('kw', 'Cornish');
-INSERT INTO main.locales (code, label) values ('ky', 'Kirghiz; Kyrgyz');
-INSERT INTO main.locales (code, label) values ('la', 'Latin');
-INSERT INTO main.locales (code, label) values ('lb', 'Luxembourgish; Letzeburgesch');
-INSERT INTO main.locales (code, label) values ('lg', 'Ganda');
-INSERT INTO main.locales (code, label) values ('li', 'Limburgan; Limburger; Limburgish');
-INSERT INTO main.locales (code, label) values ('ln', 'Lingala');
-INSERT INTO main.locales (code, label) values ('lo', 'Lao');
-INSERT INTO main.locales (code, label) values ('lt', 'Lithuanian');
-INSERT INTO main.locales (code, label) values ('lu', 'Luba-Katanga');
-INSERT INTO main.locales (code, label) values ('lv', 'Latvian');
-INSERT INTO main.locales (code, label) values ('mg', 'Malagasy');
-INSERT INTO main.locales (code, label) values ('mh', 'Marshallese');
-INSERT INTO main.locales (code, label) values ('mi', 'Maori');
-INSERT INTO main.locales (code, label) values ('mk', 'Macedonian');
-INSERT INTO main.locales (code, label) values ('ml', 'Malayalam');
-INSERT INTO main.locales (code, label) values ('mn', 'Mongolian');
-INSERT INTO main.locales (code, label) values ('mr', 'Marathi');
-INSERT INTO main.locales (code, label) values ('ms', 'Malay');
-INSERT INTO main.locales (code, label) values ('mt', 'Maltese');
-INSERT INTO main.locales (code, label) values ('my', 'Burmese');
-INSERT INTO main.locales (code, label) values ('na', 'Nauru');
-INSERT INTO main.locales (code, label) values ('nb', 'Bokmål, Norwegian; Norwegian Bokmål');
-INSERT INTO main.locales (code, label) values ('nd', 'Ndebele, North; North Ndebele');
-INSERT INTO main.locales (code, label) values ('ne', 'Nepali');
-INSERT INTO main.locales (code, label) values ('ng', 'Ndonga');
-INSERT INTO main.locales (code, label) values ('nl', 'Dutch; Flemish');
-INSERT INTO main.locales (code, label) values ('nn', 'Norwegian Nynorsk; Nynorsk, Norwegian');
-INSERT INTO main.locales (code, label) values ('no', 'Norwegian');
-INSERT INTO main.locales (code, label) values ('nr', 'Ndebele, South; South Ndebele');
-INSERT INTO main.locales (code, label) values ('nv', 'Navajo; Navaho');
-INSERT INTO main.locales (code, label) values ('ny', 'Chichewa; Chewa; Nyanja');
-INSERT INTO main.locales (code, label) values ('oc', 'Occitan (post 1500)');
-INSERT INTO main.locales (code, label) values ('oj', 'Ojibwa');
-INSERT INTO main.locales (code, label) values ('om', 'Oromo');
-INSERT INTO main.locales (code, label) values ('or', 'Oriya');
-INSERT INTO main.locales (code, label) values ('os', 'Ossetian; Ossetic');
-INSERT INTO main.locales (code, label) values ('pa', 'Panjabi; Punjabi');
-INSERT INTO main.locales (code, label) values ('pi', 'Pali');
-INSERT INTO main.locales (code, label) values ('pl', 'Polish');
-INSERT INTO main.locales (code, label) values ('ps', 'Pushto; Pashto');
-INSERT INTO main.locales (code, label) values ('pt', 'Portuguese');
-INSERT INTO main.locales (code, label) values ('qu', 'Quechua');
-INSERT INTO main.locales (code, label) values ('rm', 'Romansh');
-INSERT INTO main.locales (code, label) values ('rn', 'Rundi');
-INSERT INTO main.locales (code, label) values ('ro', 'Romanian; Moldavian; Moldovan');
-INSERT INTO main.locales (code, label) values ('ru', 'Russian');
-INSERT INTO main.locales (code, label) values ('rw', 'Kinyarwanda');
-INSERT INTO main.locales (code, label) values ('sa', 'Sanskrit');
-INSERT INTO main.locales (code, label) values ('sc', 'Sardinian');
-INSERT INTO main.locales (code, label) values ('sd', 'Sindhi');
-INSERT INTO main.locales (code, label) values ('se', 'Northern Sami');
-INSERT INTO main.locales (code, label) values ('sg', 'Sango');
-INSERT INTO main.locales (code, label) values ('si', 'Sinhala; Sinhalese');
-INSERT INTO main.locales (code, label) values ('sk', 'Slovak');
-INSERT INTO main.locales (code, label) values ('sl', 'Slovenian');
-INSERT INTO main.locales (code, label) values ('sm', 'Samoan');
-INSERT INTO main.locales (code, label) values ('sn', 'Shona');
-INSERT INTO main.locales (code, label) values ('so', 'Somali');
-INSERT INTO main.locales (code, label) values ('sq', 'Albanian');
-INSERT INTO main.locales (code, label) values ('sr', 'Serbian');
-INSERT INTO main.locales (code, label) values ('ss', 'Swati');
-INSERT INTO main.locales (code, label) values ('st', 'Sotho, Southern');
-INSERT INTO main.locales (code, label) values ('su', 'Sundanese');
-INSERT INTO main.locales (code, label) values ('sv', 'Swedish');
-INSERT INTO main.locales (code, label) values ('sw', 'Swahili');
-INSERT INTO main.locales (code, label) values ('ta', 'Tamil');
-INSERT INTO main.locales (code, label) values ('te', 'Telugu');
-INSERT INTO main.locales (code, label) values ('tg', 'Tajik');
-INSERT INTO main.locales (code, label) values ('th', 'Thai');
-INSERT INTO main.locales (code, label) values ('ti', 'Tigrinya');
-INSERT INTO main.locales (code, label) values ('tk', 'Turkmen');
-INSERT INTO main.locales (code, label) values ('tl', 'Tagalog');
-INSERT INTO main.locales (code, label) values ('tn', 'Tswana');
-INSERT INTO main.locales (code, label) values ('to', 'Tonga (Tonga Islands)');
-INSERT INTO main.locales (code, label) values ('tr', 'Turkish');
-INSERT INTO main.locales (code, label) values ('ts', 'Tsonga');
-INSERT INTO main.locales (code, label) values ('tt', 'Tatar');
-INSERT INTO main.locales (code, label) values ('tw', 'Twi');
-INSERT INTO main.locales (code, label) values ('ty', 'Tahitian');
-INSERT INTO main.locales (code, label) values ('ug', 'Uighur; Uyghur');
-INSERT INTO main.locales (code, label) values ('uk', 'Ukrainian');
-INSERT INTO main.locales (code, label) values ('ur', 'Urdu');
-INSERT INTO main.locales (code, label) values ('uz', 'Uzbek');
-INSERT INTO main.locales (code, label) values ('ve', 'Venda');
-INSERT INTO main.locales (code, label) values ('vi', 'Vietnamese');
-INSERT INTO main.locales (code, label) values ('vo', 'Volapük');
-INSERT INTO main.locales (code, label) values ('wa', 'Walloon');
-INSERT INTO main.locales (code, label) values ('wo', 'Wolof');
-INSERT INTO main.locales (code, label) values ('xh', 'Xhosa');
-INSERT INTO main.locales (code, label) values ('yi', 'Yiddish');
-INSERT INTO main.locales (code, label) values ('yo', 'Yoruba');
-INSERT INTO main.locales (code, label) values ('za', 'Zhuang; Chuang');
-INSERT INTO main.locales (code, label) values ('zh', 'Chinese');
-INSERT INTO main.locales (code, label) values ('zu', 'Zulu');
+INSERT INTO main.locales (code, label, translatable)
+VALUES
+    ('aa', 'Afar', false),
+    ('ab', 'Abkhazian', false),
+    ('ae', 'Avestan', false),
+    ('af', 'Afrikaans', false),
+    ('ak', 'Akan', false),
+    ('am', 'Amharic', false),
+    ('an', 'Aragonese', false),
+    ('ar', 'Arabic', false),
+    ('as', 'Assamese', false),
+    ('av', 'Avaric', false),
+    ('ay', 'Aymara', false),
+    ('az', 'Azerbaijani', false),
+    ('ba', 'Bashkir', false),
+    ('be', 'Belarusian', false),
+    ('bg', 'Bulgarian', false),
+    ('bh', 'Bihari languages', false),
+    ('bi', 'Bislama', false),
+    ('bm', 'Bambara', false),
+    ('bn', 'Bengali', false),
+    ('bo', 'Tibetan', false),
+    ('br', 'Breton', false),
+    ('bs', 'Bosnian', false),
+    ('ca', 'Catalan; Valencian', false),
+    ('ce', 'Chechen', false),
+    ('ch', 'Chamorro', false),
+    ('co', 'Corsican', false),
+    ('cr', 'Cree', false),
+    ('cs', 'Czech', false),
+    ('cu', 'Church Slavic; Old Slavonic; Church Slavonic; Old Bulgarian; Old Church Slavonic', false),
+    ('cv', 'Chuvash', false),
+    ('cy', 'Welsh', false),
+    ('da', 'Danish', false),
+    ('de', 'German', false),
+    ('dv', 'Divehi; Dhivehi; Maldivian', false),
+    ('dz', 'Dzongkha', false),
+    ('ee', 'Ewe', false),
+    ('el', 'Greek, Modern (1453-)', false),
+    ('en', 'English', true),
+    ('eo', 'Esperanto', false),
+    ('es', 'Spanish; Castilian', false),
+    ('et', 'Estonian', false),
+    ('eu', 'Basque', false),
+    ('fa', 'Persian', false),
+    ('ff', 'Fulah', false),
+    ('fi', 'Finnish', false),
+    ('fj', 'Fijian', false),
+    ('fo', 'Faroese', false),
+    ('fr', 'French', false),
+    ('fy', 'Western Frisian', false),
+    ('ga', 'Irish', false),
+    ('gd', 'Gaelic; Scottish Gaelic', false),
+    ('gl', 'Galician', false),
+    ('gn', 'Guarani', false),
+    ('gu', 'Gujarati', false),
+    ('gv', 'Manx', false),
+    ('ha', 'Hausa', false),
+    ('he', 'Hebrew', false),
+    ('hi', 'Hindi', false),
+    ('ho', 'Hiri Motu', false),
+    ('hr', 'Croatian', false),
+    ('ht', 'Haitian; Haitian Creole', false),
+    ('hu', 'Hungarian', false),
+    ('hy', 'Armenian', false),
+    ('hz', 'Herero', false),
+    ('ia', 'Interlingua (International Auxiliary Language Association)', false),
+    ('id', 'Indonesian', false),
+    ('ie', 'Interlingue; Occidental', false),
+    ('ig', 'Igbo', false),
+    ('ii', 'Sichuan Yi; Nuosu', false),
+    ('ik', 'Inupiaq', false),
+    ('io', 'Ido', false),
+    ('is', 'Icelandic', false),
+    ('it', 'Italian', false),
+    ('iu', 'Inuktitut', false),
+    ('ja', 'Japanese', false),
+    ('jv', 'Javanese', false),
+    ('ka', 'Georgian', false),
+    ('kg', 'Kongo', false),
+    ('ki', 'Kikuyu; Gikuyu', false),
+    ('kj', 'Kuanyama; Kwanyama', false),
+    ('kk', 'Kazakh', false),
+    ('kl', 'Kalaallisut; Greenlandic', false),
+    ('km', 'Central Khmer', false),
+    ('kn', 'Kannada', false),
+    ('ko', 'Korean', false),
+    ('kr', 'Kanuri', false),
+    ('ks', 'Kashmiri', false),
+    ('ku', 'Kurdish', false),
+    ('kv', 'Komi', false),
+    ('kw', 'Cornish', false),
+    ('ky', 'Kirghiz; Kyrgyz', false),
+    ('la', 'Latin', false),
+    ('lb', 'Luxembourgish; Letzeburgesch', false),
+    ('lg', 'Ganda', false),
+    ('li', 'Limburgan; Limburger; Limburgish', false),
+    ('ln', 'Lingala', false),
+    ('lo', 'Lao', false),
+    ('lt', 'Lithuanian', false),
+    ('lu', 'Luba-Katanga', false),
+    ('lv', 'Latvian', false),
+    ('mg', 'Malagasy', false),
+    ('mh', 'Marshallese', false),
+    ('mi', 'Maori', false),
+    ('mk', 'Macedonian', false),
+    ('ml', 'Malayalam', false),
+    ('mn', 'Mongolian', false),
+    ('mr', 'Marathi', false),
+    ('ms', 'Malay', false),
+    ('mt', 'Maltese', false),
+    ('my', 'Burmese', false),
+    ('na', 'Nauru', false),
+    ('nb', 'Bokmål, Norwegian; Norwegian Bokmål', false),
+    ('nd', 'Ndebele, North; North Ndebele', false),
+    ('ne', 'Nepali', false),
+    ('ng', 'Ndonga', false),
+    ('nl', 'Dutch; Flemish', false),
+    ('nn', 'Norwegian Nynorsk; Nynorsk, Norwegian', false),
+    ('no', 'Norwegian', false),
+    ('nr', 'Ndebele, South; South Ndebele', false),
+    ('nv', 'Navajo; Navaho', false),
+    ('ny', 'Chichewa; Chewa; Nyanja', false),
+    ('oc', 'Occitan (post 1500)', false),
+    ('oj', 'Ojibwa', false),
+    ('om', 'Oromo', false),
+    ('or', 'Oriya', false),
+    ('os', 'Ossetian; Ossetic', false),
+    ('pa', 'Panjabi; Punjabi', false),
+    ('pi', 'Pali', false),
+    ('pl', 'Polish', false),
+    ('ps', 'Pushto; Pashto', false),
+    ('pt', 'Portuguese', false),
+    ('qu', 'Quechua', false),
+    ('rm', 'Romansh', false),
+    ('rn', 'Rundi', false),
+    ('ro', 'Romanian; Moldavian; Moldovan', false),
+    ('ru', 'Russian', true),
+    ('rw', 'Kinyarwanda', false),
+    ('sa', 'Sanskrit', false),
+    ('sc', 'Sardinian', false),
+    ('sd', 'Sindhi', false),
+    ('se', 'Northern Sami', false),
+    ('sg', 'Sango', false),
+    ('si', 'Sinhala; Sinhalese', false),
+    ('sk', 'Slovak', false),
+    ('sl', 'Slovenian', false),
+    ('sm', 'Samoan', false),
+    ('sn', 'Shona', false),
+    ('so', 'Somali', false),
+    ('sq', 'Albanian', false),
+    ('sr', 'Serbian', false),
+    ('ss', 'Swati', false),
+    ('st', 'Sotho, Southern', false),
+    ('su', 'Sundanese', false),
+    ('sv', 'Swedish', false),
+    ('sw', 'Swahili', false),
+    ('ta', 'Tamil', false),
+    ('te', 'Telugu', false),
+    ('tg', 'Tajik', false),
+    ('th', 'Thai', false),
+    ('ti', 'Tigrinya', false),
+    ('tk', 'Turkmen', false),
+    ('tl', 'Tagalog', false),
+    ('tn', 'Tswana', false),
+    ('to', 'Tonga (Tonga Islands)', false),
+    ('tr', 'Turkish', false),
+    ('ts', 'Tsonga', false),
+    ('tt', 'Tatar', false),
+    ('tw', 'Twi', false),
+    ('ty', 'Tahitian', false),
+    ('ug', 'Uighur; Uyghur', false),
+    ('uk', 'Ukrainian', false),
+    ('ur', 'Urdu', false),
+    ('uz', 'Uzbek', false),
+    ('ve', 'Venda', false),
+    ('vi', 'Vietnamese', false),
+    ('vo', 'Volapük', false),
+    ('wa', 'Walloon', false),
+    ('wo', 'Wolof', false),
+    ('xh', 'Xhosa', false),
+    ('yi', 'Yiddish', false),
+    ('yo', 'Yoruba', false),
+    ('za', 'Zhuang; Chuang', false),
+    ('zh', 'Chinese', false),
+    ('zu', 'Zulu', false);

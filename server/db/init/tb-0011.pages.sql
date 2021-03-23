@@ -16,19 +16,19 @@ COMMENT ON COLUMN main.pages.page_id IS 'Page id primary key';
 COMMENT ON COLUMN main.pages.app_id IS 'App id foreign key';
 COMMENT ON COLUMN main.pages.name IS 'Page name';
 
--- pages_l10n --
-CREATE TABLE main.pages_l10n (
-    page_id INT2 NOT NULL,
-    locale_id INT2 NOT NULL,
-    data JSONB NOT NULL DEFAULT '{}',
-    CONSTRAINT pages_l10n_page_id_fkey FOREIGN KEY (page_id) REFERENCES main.pages(page_id),
-    CONSTRAINT pages_l10n_locale_id_fkey FOREIGN KEY (locale_id) REFERENCES main.locales(locale_id),
-    CONSTRAINT pages_l10n_page_id_locale_id UNIQUE (page_id, locale_id)
-);
-
-COMMENT ON TABLE main.pages_l10n IS 'Pages localization table';
-COMMENT ON COLUMN main.pages_l10n.page_id IS 'Page id';
-COMMENT ON COLUMN main.pages_l10n.locale_id IS 'Locale id';
-COMMENT ON COLUMN main.pages_l10n.data IS 'Page localized data';
+---- pages_l10n --
+--CREATE TABLE main.pages_l10n (
+--    page_id INT2 NOT NULL,
+--    locale_id INT2 NOT NULL,
+--    data JSONB NOT NULL DEFAULT '{}',
+--    CONSTRAINT pages_l10n_page_id_fkey FOREIGN KEY (page_id) REFERENCES main.pages(page_id),
+--    CONSTRAINT pages_l10n_locale_id_fkey FOREIGN KEY (locale_id) REFERENCES main.locales(locale_id),
+--    CONSTRAINT pages_l10n_page_id_locale_id UNIQUE (page_id, locale_id)
+--);
+--
+--COMMENT ON TABLE main.pages_l10n IS 'Pages localization table';
+--COMMENT ON COLUMN main.pages_l10n.page_id IS 'Page id';
+--COMMENT ON COLUMN main.pages_l10n.locale_id IS 'Locale id';
+--COMMENT ON COLUMN main.pages_l10n.data IS 'Page localized data';
 
 COMMIT;

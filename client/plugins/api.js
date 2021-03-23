@@ -18,14 +18,15 @@ export class Api {
     async send(req, getRes = true) {
         const headers = {}
 
-        // TODO!: Think about non-auth requested
-        headers.Authorization = `Bearer ${this.ctx.store.state.auth.token}`
+        // headers.Authorization = `Bearer ${this.ctx.store.state.auth.token}`
+        //
+        // if (req.formData) {
+        //     headers['Content-Type'] = 'multipart/form-data'
+        // } else {
+        //     headers['Content-Type'] = 'application/json'
+        // }
 
-        if (req.formData) {
-            headers['Content-Type'] = 'multipart/form-data'
-        } else {
-            headers['Content-Type'] = 'application/json'
-        }
+        req.token = this.ctx.store.state.auth.token
 
         try {
             const {data} = await axios.post(process.env.API_URI, req, {

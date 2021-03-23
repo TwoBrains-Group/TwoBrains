@@ -382,7 +382,7 @@
         "affectsGlobalScope": false
       },
       "../src/apps/base/errors.ts": {
-        "version": "5fe1dd0bdc9172c333ef1437c13bda0559ec81a5363bfa64cf7b75ef166dc099",
+        "version": "9f6eb46180b62d787c7a18457e35dc299da9a19a4daa87883a730c83088cec79",
         "signature": "32f5ba3b263f7768aec0169b930668dd69c8d6efbe9ac10496063f4ade93f29a",
         "affectsGlobalScope": false
       },
@@ -392,8 +392,8 @@
         "affectsGlobalScope": false
       },
       "../src/utils/config.ts": {
-        "version": "a3fcd412a656c7f83d507775c12b281df9a53d04cc2405c282ab762e92b40ec9",
-        "signature": "e328a76640be3282b0e501032adb1ae912be0af44f31f8fcae471353d2c40a5a",
+        "version": "81371a87d79047d656c960861fb65987ac23d872ba9a97a36b3feaf0b3e25a9a",
+        "signature": "8ec96a18f1b37b3123cf4d7aa34f84cfe98c91061e46cf40fbf82bb961ed80cd",
         "affectsGlobalScope": false
       },
       "../node_modules/chalk/index.d.ts": {
@@ -662,7 +662,7 @@
         "affectsGlobalScope": false
       },
       "../src/apps/base/Method.ts": {
-        "version": "c8857370fee85b42fdb83f3ec4f89f5ca29476ef0881cbad9d7fece0e3317ff9",
+        "version": "da4f38e663eae1128f0c98c7e816e42b6b72af47d954ad10042eeb7100833f2f",
         "signature": "6a4542d52a5dba24d3ad55e78162252ae62b5859ddb44c1008dab8ccfad4519b",
         "affectsGlobalScope": false
       },
@@ -707,13 +707,18 @@
         "affectsGlobalScope": false
       },
       "../src/modules/ajv/index.ts": {
-        "version": "280b49abab95f937f6fcf41aad0feb801a78eaf37c2f366d62e0aa3c1475e30a",
+        "version": "397a26a7221c5e76cc37bfc7e5a46d3211cfe569aa8f03f94323a5e59b9c6518",
         "signature": "d8f6534c060ebfa74839e77861c1f0e30815f67eb999c75b5c815429274f9e36",
         "affectsGlobalScope": false
       },
+      "../node_modules/@types/jsonwebtoken/index.d.ts": {
+        "version": "f67c920eba6ab8e4558cb9ab661d900188f101c5657e19b1e15829a1d491d46e",
+        "signature": "f67c920eba6ab8e4558cb9ab661d900188f101c5657e19b1e15829a1d491d46e",
+        "affectsGlobalScope": false
+      },
       "../src/apps/base/api.ts": {
-        "version": "bd5cfeab729682d3b6d5ca116ddb03bd5bc3dc645f64a815725ffda0f87aaec5",
-        "signature": "6ab6b9bb1e3d03d42fb26a6d115a56e6763a10e0224e9aae70f1b47d8b9815e9",
+        "version": "512b025f52b5273f171331035317d0b13a6b554f73a96fa2d6fa4cbd696bcee3",
+        "signature": "32eca2a69170c5d2511dcd24fd582b8154d4e7dd3fffff2a519440d42d4495fb",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/app-root-path/index.d.ts": {
@@ -781,23 +786,8 @@
         "signature": "a68969f643e0cb091046a9437b64cb1880a081fc07c70a4717b0edef2a38bc85",
         "affectsGlobalScope": false
       },
-      "../node_modules/@types/express-unless/index.d.ts": {
-        "version": "b1fbe17d300be84cbec570dbc95b2ac322f6c108054591b02195641f0608756f",
-        "signature": "b1fbe17d300be84cbec570dbc95b2ac322f6c108054591b02195641f0608756f",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@types/express-jwt/index.d.ts": {
-        "version": "a87f4567a59b12f1f7ce7f1381bac57b43ccee8f9e653c03bc214f4794fdd2bb",
-        "signature": "a87f4567a59b12f1f7ce7f1381bac57b43ccee8f9e653c03bc214f4794fdd2bb",
-        "affectsGlobalScope": true
-      },
-      "../src/server/mws/jwt.ts": {
-        "version": "91db7cdf89cbd62f7b3e0be54f3cf9d3571a7bc7721ba951d572def430fddb7c",
-        "signature": "f14ffe1cad7904b446e698ca3e37abc0cc39815e319fff5b1b7d30aa103bd085",
-        "affectsGlobalScope": false
-      },
       "../src/server/mws/error.ts": {
-        "version": "a911bb55849e3ff8b056f63b440f615a259dcec56c804b8f2bdd4c6ac0725602",
+        "version": "854785fb3d86bfb4ed2858fd94b84008399bbab31d6028f66e19f9e592a7b878",
         "signature": "c4561529fd60275e5f6fd2ae3c2a251b2fd3f60d3cbb8918b1f3fe1f5dba7615",
         "affectsGlobalScope": false
       },
@@ -807,23 +797,18 @@
         "affectsGlobalScope": false
       },
       "../src/server/mws/index.ts": {
-        "version": "9e01b2571c7121182ecbee01e2a533b8c55c091e3cab604d2b3912fccf99e3bf",
-        "signature": "5a728116a0070cbb8a4fa82d286c8c8dd5d330d4968e66c8dc22dd5d53499365",
+        "version": "5900e18a9930f39ba5702564921920a4906e96ec7592f9c27c5b9583572766bc",
+        "signature": "16c586d321b4110022aafbfd80975d9f13773eb77495852e3a678f4134cc7768",
         "affectsGlobalScope": false
       },
       "../src/server/index.ts": {
-        "version": "75684ee69a6465116839a67fbe617af6ed3db4e8664daefb4eb3a9aabac69129",
+        "version": "74a22ae6b8899f8484723fe338a2b7953997f95501894c6db8b484b23bd28bd2",
         "signature": "ad4fe2151d637cddf859a5bd85130fa4664a9d674b104a95dc22b529ba4522a9",
         "affectsGlobalScope": false
       },
       "../src/index.ts": {
         "version": "f1f22e41380d8691ac72f0902a9beebd9ba182993016f6acf3f6996a3552c60d",
         "signature": "142336091d093ceb2268a25d63638b5badf773ce5ac83c137f4f4dafb0d65f1e",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@types/jsonwebtoken/index.d.ts": {
-        "version": "f67c920eba6ab8e4558cb9ab661d900188f101c5657e19b1e15829a1d491d46e",
-        "signature": "f67c920eba6ab8e4558cb9ab661d900188f101c5657e19b1e15829a1d491d46e",
         "affectsGlobalScope": false
       },
       "../src/apps/auth/api/v1/methods/base-auth.ts": {
@@ -887,7 +872,7 @@
         "affectsGlobalScope": false
       },
       "../src/modules/pretty-time/index.ts": {
-        "version": "c3b1e3fa02f361f5d50f31703d5b7f72f06d6af3076c35db52b03469701a67ef",
+        "version": "e983061698755b5df88181f256727f30591a6531a28ae421d1ea82fa01069722",
         "signature": "621f700d73c790efd48b94580d45c39ad676c76798aa3e9855683ce990680c6d",
         "affectsGlobalScope": false
       },
@@ -1746,19 +1731,12 @@
       "../node_modules/@types/cors/index.d.ts": [
         "../node_modules/@types/node/http.d.ts"
       ],
-      "../node_modules/@types/express-jwt/index.d.ts": [
-        "../node_modules/@types/express-unless/index.d.ts",
-        "../node_modules/@types/express/index.d.ts"
-      ],
       "../node_modules/@types/express-serve-static-core/index.d.ts": [
         "../node_modules/@types/node/events.d.ts",
         "../node_modules/@types/node/http.d.ts",
         "../node_modules/@types/node/index.d.ts",
         "../node_modules/@types/qs/index.d.ts",
         "../node_modules/@types/range-parser/index.d.ts"
-      ],
-      "../node_modules/@types/express-unless/index.d.ts": [
-        "../node_modules/@types/express/index.d.ts"
       ],
       "../node_modules/@types/express/index.d.ts": [
         "../node_modules/@types/body-parser/index.d.ts",
@@ -2304,13 +2282,15 @@
       "../src/apps/base/api.ts": [
         "../node_modules/@types/express/index.d.ts",
         "../node_modules/@types/formidable/index.d.ts",
+        "../node_modules/@types/jsonwebtoken/index.d.ts",
         "../node_modules/ajv/dist/ajv.d.ts",
         "../src/apps/base/Method.ts",
         "../src/apps/base/errors.ts",
         "../src/apps/base/templates.ts",
         "../src/modules/ajv/index.ts",
         "../src/modules/db/pool.ts",
-        "../src/modules/logger/index.ts"
+        "../src/modules/logger/index.ts",
+        "../src/utils/config.ts"
       ],
       "../src/apps/base/index.ts": [
         "../node_modules/@types/express/index.d.ts",
@@ -2667,14 +2647,7 @@
       ],
       "../src/server/mws/index.ts": [
         "../src/server/mws/error.ts",
-        "../src/server/mws/jwt.ts",
         "../src/server/mws/not-supported.ts"
-      ],
-      "../src/server/mws/jwt.ts": [
-        "../node_modules/@types/express-jwt/index.d.ts",
-        "../node_modules/@types/express/index.d.ts",
-        "../src/apps/base/api.ts",
-        "../src/apps/base/errors.ts"
       ],
       "../src/server/mws/not-supported.ts": [
         "../node_modules/@types/express/index.d.ts",
@@ -2831,19 +2804,12 @@
       "../node_modules/@types/cors/index.d.ts": [
         "../node_modules/@types/node/http.d.ts"
       ],
-      "../node_modules/@types/express-jwt/index.d.ts": [
-        "../node_modules/@types/express-unless/index.d.ts",
-        "../node_modules/@types/express/index.d.ts"
-      ],
       "../node_modules/@types/express-serve-static-core/index.d.ts": [
         "../node_modules/@types/node/events.d.ts",
         "../node_modules/@types/node/http.d.ts",
         "../node_modules/@types/node/index.d.ts",
         "../node_modules/@types/qs/index.d.ts",
         "../node_modules/@types/range-parser/index.d.ts"
-      ],
-      "../node_modules/@types/express-unless/index.d.ts": [
-        "../node_modules/@types/express/index.d.ts"
       ],
       "../node_modules/@types/express/index.d.ts": [
         "../node_modules/@types/body-parser/index.d.ts",
@@ -3361,6 +3327,7 @@
         "../node_modules/@types/express/index.d.ts",
         "../node_modules/ajv/dist/ajv.d.ts",
         "../src/apps/base/Method.ts",
+        "../src/apps/base/templates.ts",
         "../src/modules/logger/index.ts"
       ],
       "../src/apps/base/index.ts": [
@@ -3518,11 +3485,6 @@
         "../node_modules/@types/express/index.d.ts",
         "../node_modules/@types/qs/index.d.ts"
       ],
-      "../src/server/mws/jwt.ts": [
-        "../node_modules/@types/express-serve-static-core/index.d.ts",
-        "../node_modules/@types/express/index.d.ts",
-        "../node_modules/@types/qs/index.d.ts"
-      ],
       "../src/server/mws/not-supported.ts": [
         "../node_modules/@types/express/index.d.ts"
       ]
@@ -3568,9 +3530,7 @@
       "../node_modules/@types/connect/index.d.ts",
       "../node_modules/@types/cookie-parser/index.d.ts",
       "../node_modules/@types/cors/index.d.ts",
-      "../node_modules/@types/express-jwt/index.d.ts",
       "../node_modules/@types/express-serve-static-core/index.d.ts",
-      "../node_modules/@types/express-unless/index.d.ts",
       "../node_modules/@types/express/index.d.ts",
       "../node_modules/@types/formidable/index.d.ts",
       "../node_modules/@types/jsonwebtoken/index.d.ts",
@@ -3833,7 +3793,6 @@
       "../src/server/index.ts",
       "../src/server/mws/error.ts",
       "../src/server/mws/index.ts",
-      "../src/server/mws/jwt.ts",
       "../src/server/mws/not-supported.ts",
       "../src/utils/config.ts",
       "../src/utils/data.ts",

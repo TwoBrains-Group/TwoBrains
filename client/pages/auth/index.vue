@@ -1,5 +1,5 @@
 <template>
-    <div class="auth-window">
+    <div id="page-auth">
         <header class="base-btn auth-window__header"
                 @click="switchAuthType()">
             <h3 class="auth-window__header_h">
@@ -120,7 +120,10 @@ export default {
 
         async auth(method, params) {
             try {
-                const {result: {userData}, token} = await this.$api.send({
+                const {
+                    result: {userData},
+                    token,
+                } = await this.$api.send({
                     app: 'auth',
                     method,
                     params,
@@ -132,10 +135,10 @@ export default {
                     token,
                 }
 
-                await this.$i18n.setLocale(authData.userData.locale)
-
                 this.$store.commit('auth/setAuth', authData)
                 cookie.set('auth', authData)
+                await this.$i18n.setLocale(userData.locale)
+
                 await this.$router.push('/')
             } catch (error) {
                 this.$toast.error(error.message, {

@@ -5,10 +5,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_jwt_1 = __importDefault(require("express-jwt"));
 const errors_1 = require("@apps/base/errors");
-const api_1 = __importDefault(require("@apps/base/api"));
-const unless = (req) => {
-    return !api_1.default.getMethod(req).auth;
-};
 exports.default = express_jwt_1.default({
     algorithms: ['HS256'],
     secret: Buffer.from(process.env.JWT_SECRET, 'base64'),

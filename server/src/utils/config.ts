@@ -11,6 +11,9 @@ export type Config = {
     },
     log: {
         level: string
+    },
+    auth: {
+        useHeader: boolean
     }
 }
 

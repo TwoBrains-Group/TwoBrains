@@ -1,5 +1,3 @@
-// TODO: Localization
-
 const months = [
     'January',
     'February',

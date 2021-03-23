@@ -15,13 +15,19 @@ export const mutations = {
 
         const {userData, token} = authData
 
-        state.userData = {...state.userData, ...userData}
+        state.userData = {
+            ...state.userData,
+            ...userData,
+        }
         state.token = token
     },
 
     setUserData(state, userData) {
-        state.userData = {...state.userData, ...userData}
-    }
+        state.userData = {
+            ...state.userData,
+            ...userData,
+        }
+    },
 }
 
 export const getters = {
@@ -37,10 +43,10 @@ export const actions = {
             const parsed = cookieParser.parse(req.headers.cookie)
             try {
                 auth = JSON.parse(parsed.auth)
+                commit('auth/setAuth', auth)
             } catch (err) {
                 console.log('No valid cookie found')
             }
         }
-        commit('auth/setAuth', auth)
-    }
+    },
 }

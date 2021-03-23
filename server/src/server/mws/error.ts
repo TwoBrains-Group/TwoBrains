@@ -15,6 +15,6 @@ export default (err: unknown, req: Request, res: Response, next: NextFunction): 
     }
 
     // FIXME: Add "unknown error" handling
-    console.log('ERROR:', err)
+    console.log('UNKNOWN ERROR:', err)
     next(err)
 }

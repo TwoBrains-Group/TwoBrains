@@ -133,4 +133,29 @@ export default {
             meow: 'bitch',
         },
     },
+
+    time: {
+        ranges: {
+            y: 'year',
+            mth: 'month',
+            d: 'day',
+            h: 'hour',
+            m: 'minute',
+            s: 'seconds',
+        },
+        months: [
+            'January',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June',
+            'July',
+            'August',
+            'September',
+            'October',
+            'November',
+            'December',
+        ],
+    },
 }

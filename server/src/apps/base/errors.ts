@@ -6,6 +6,7 @@ export class BaseError extends Error {
     constructor(message: string, code = -32000, data = {}) {
         super(message)
 
+        this.name = this.constructor.name
         this.code = code || -32000
         this.message = message
         this.data = data || {}

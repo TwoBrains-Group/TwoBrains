@@ -34,16 +34,22 @@ class Server {
             origin: process.env.CORS_URL!,
         }))
 
-        expApp.use(mws.jwt as RequestHandler)
-
         this.log.info(`API listens on ${process.env.API_URI}`)
         this.expApp.post(process.env.API_URI!, async (req, res, next) => {
             // FIXME: Strange shit, error mw not working
             try {
-                await api.callMethod(req, res, next)
+                this.log.info(`Got request: ${JSON.stringify(req.body, null, 2)}`)
+
+                const result = await api.callMethod(req, res, next)
+
+                this.log.info(`Sent response: ${JSON.stringify(result, null, 2)}`)
+
+                res.json(result)
             } catch (err) {
+                this.log.error(`Got error: ${JSON.stringify(err, null, 2)}`)
                 res.json({
                     error: {
+                        name: err.name,
                         code: err.code,
                         message: err.message,
                         data: err.data,

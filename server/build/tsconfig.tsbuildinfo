@@ -771,9 +771,14 @@
         "signature": "9cf3c7bc20fbe9c1c5ed8f787cb2237a5b4ad0c69b6ff608e2ad99fe1408e02a",
         "affectsGlobalScope": false
       },
+      "../src/apps/plugin/index.ts": {
+        "version": "53f467ba4519d323fd3ac396e7a881a9d17136153d9c0291e4dbf36ec0b961a2",
+        "signature": "a2e8908e64c0a584184574b81b33aa245ce1c0c16997f31a5dded9e7499c4cdd",
+        "affectsGlobalScope": false
+      },
       "../src/apps/index.ts": {
-        "version": "7d0e8270778fc7ad7a443584e93b0acc473b7b3ce63ac42d637ce0b3dd3f5c03",
-        "signature": "8f63ed3047ff6a1f1f0a5be930f89805a733408496f4a1652ecb9d33fbe96a02",
+        "version": "c8db2385bfa8e0d983ba992d9234386d5105b229a1f3cbdb8f4f90e86eb3af82",
+        "signature": "4b5312a34734555fe79f6f614015fda31cdd950c4afadc98ebc8731b6eefbeb3",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/cookie-parser/index.d.ts": {
@@ -1051,6 +1056,41 @@
         "signature": "9d782321f6dddb7c3a7bcffe73dc2006860da880f1d048af07fb284dffb796e1",
         "affectsGlobalScope": false
       },
+      "../src/apps/plugin/api/v1/methods/get-list.ts": {
+        "version": "093038e7aab1c8827bafcb6261f72852f1254baec60dbf9ce7deec9bd4d27660",
+        "signature": "a3f88919f483ba95d561c5b3649674bc7779d0d28fcd73cafcfd60a40a9f68e6",
+        "affectsGlobalScope": false
+      },
+      "../src/apps/plugin/api/v1/methods/index.ts": {
+        "version": "dcbc68fbc47be8bc939396574cb79c393a0d3d083dc4c70f4355660e9f2e89f0",
+        "signature": "d09fd1f2172720e194395a7585bf8783964690f767e8b425ec8e84cacfc1e64b",
+        "affectsGlobalScope": false
+      },
+      "../src/apps/plugin/api/v1/schemas/get-list.ts": {
+        "version": "aa3225f29bfa797bd801ebc2803d9261aca31f092cecd5d952bddbd6cf135e99",
+        "signature": "c3541f65be80154bae9094d32a50bda4533fead5887d6a1a00986f123c4c502c",
+        "affectsGlobalScope": false
+      },
+      "../src/apps/plugin/api/v1/schemas/index.ts": {
+        "version": "dcbc68fbc47be8bc939396574cb79c393a0d3d083dc4c70f4355660e9f2e89f0",
+        "signature": "8dfac130e596099f9cc5d1e4f1d6a232f69b5dad8f5a52e0fa059daf53336b82",
+        "affectsGlobalScope": false
+      },
+      "../src/apps/plugin/api/v1/queries.ts": {
+        "version": "34ee55bcf56bb51a00a165334e7f12dd23fc923af3995c032d08e1aefb7b640d",
+        "signature": "2e1f3ceed3ad7b2ba85bfc434c0a0983c61e6c32d5bc812ec4fc89b3b73ce3a6",
+        "affectsGlobalScope": false
+      },
+      "../src/apps/plugin/api/v1/index.ts": {
+        "version": "c79574dc5ab8914852f522e39a70388a09d85522e4b3be1907b51149563f57a5",
+        "signature": "875bde5e4a8dd91bfdc868e35ee2d805f6bb818f1d55cfd200aacd8bd80e3168",
+        "affectsGlobalScope": false
+      },
+      "../src/apps/plugin/api/index.ts": {
+        "version": "d5b596dbfca3aab7ccf574e1370c25990ad5ba1378a43adcd1c4a11f34f00af4",
+        "signature": "a4fbf7b36bc74c3d9f7f5a3af85357147ae8025ee2854302c66ef9e1d369158f",
+        "affectsGlobalScope": false
+      },
       "../src/apps/project/api/v1/methods/get-by-uid.ts": {
         "version": "26f2befbfaa44b422d19aba6f5223833c6c3bea02607f90f58398f1518724158",
         "signature": "43e433eba7b68f17f28a4887f521282396b07bf9d60834a2a8b4bfaba8c82a69",
@@ -1217,7 +1257,7 @@
         "affectsGlobalScope": false
       },
       "../src/apps/tag/api/v1/queries.ts": {
-        "version": "6cb02f64f78cbf7f9733c9c70eed5545cd0bc94d412486caaf62ae39aee4b2a7",
+        "version": "227a28c3baa22e4bbd06e86fef3d256aecb39fe7287883e0275ff3d7f353f5c3",
         "signature": "7191821a623cccff90f85b9a2334de4e4858f77cd45d25878c0718d5f1bb4962",
         "affectsGlobalScope": false
       },
@@ -2391,6 +2431,7 @@
         "../src/apps/idea/index.ts",
         "../src/apps/l10n/index.ts",
         "../src/apps/main/index.ts",
+        "../src/apps/plugin/index.ts",
         "../src/apps/project/index.ts",
         "../src/apps/search/index.ts",
         "../src/apps/tag/index.ts",
@@ -2424,6 +2465,27 @@
         "../src/apps/base/index.ts"
       ],
       "../src/apps/main/index.ts": [
+        "../src/apps/base/index.ts"
+      ],
+      "../src/apps/plugin/api/index.ts": [
+        "../src/apps/plugin/api/v1/index.ts"
+      ],
+      "../src/apps/plugin/api/v1/index.ts": [
+        "../src/apps/plugin/api/v1/methods/index.ts",
+        "../src/apps/plugin/api/v1/queries.ts",
+        "../src/apps/plugin/api/v1/schemas/index.ts"
+      ],
+      "../src/apps/plugin/api/v1/methods/get-list.ts": [
+        "../src/apps/base/Method.ts",
+        "../src/modules/db/pool.ts"
+      ],
+      "../src/apps/plugin/api/v1/methods/index.ts": [
+        "../src/apps/plugin/api/v1/methods/get-list.ts"
+      ],
+      "../src/apps/plugin/api/v1/schemas/index.ts": [
+        "../src/apps/plugin/api/v1/schemas/get-list.ts"
+      ],
+      "../src/apps/plugin/index.ts": [
         "../src/apps/base/index.ts"
       ],
       "../src/apps/project/api/index.ts": [
@@ -3391,6 +3453,12 @@
       "../src/apps/main/index.ts": [
         "../src/apps/base/index.ts"
       ],
+      "../src/apps/plugin/api/v1/methods/get-list.ts": [
+        "../src/apps/base/Method.ts"
+      ],
+      "../src/apps/plugin/index.ts": [
+        "../src/apps/base/index.ts"
+      ],
       "../src/apps/project/api/v1/methods/change-image.ts": [
         "../src/apps/base/Method.ts"
       ],
@@ -3726,6 +3794,14 @@
       "../src/apps/l10n/api/v1/schemas/load.ts",
       "../src/apps/l10n/index.ts",
       "../src/apps/main/index.ts",
+      "../src/apps/plugin/api/index.ts",
+      "../src/apps/plugin/api/v1/index.ts",
+      "../src/apps/plugin/api/v1/methods/get-list.ts",
+      "../src/apps/plugin/api/v1/methods/index.ts",
+      "../src/apps/plugin/api/v1/queries.ts",
+      "../src/apps/plugin/api/v1/schemas/get-list.ts",
+      "../src/apps/plugin/api/v1/schemas/index.ts",
+      "../src/apps/plugin/index.ts",
       "../src/apps/project/api/index.ts",
       "../src/apps/project/api/v1/index.ts",
       "../src/apps/project/api/v1/methods/change-image.ts",

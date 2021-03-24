@@ -128,5 +128,11 @@ export default {
         tags: {
             lol: 'кек',
         },
+        tagGroups: {
+            meow: 'bitch',
+        },
+        plugins: {
+            idea: 'Idea',
+        },
     },
 }

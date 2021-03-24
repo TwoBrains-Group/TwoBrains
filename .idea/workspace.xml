@@ -14,20 +14,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="edaaf9c1-6c17-4647-aa91-a795e595d129" name="Default Changelist" comment="save">
-      <change afterPath="$PROJECT_DIR$/client/assets/sass/components/ui/Checkbox.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/assets/sass/components/ui/Radio.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/assets/sass/pages/project/create.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/ui/Checkbox.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/project/create.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/assets/sass/components/ui/Switch.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/ui/ToggleSwitch.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/plugin/api/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/plugin/api/v1/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/plugin/api/v1/methods/get-list.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/plugin/api/v1/methods/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/plugin/api/v1/queries.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/plugin/api/v1/schemas/get-list.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/plugin/api/v1/schemas/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/plugin/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/sass/common/common.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/common/common.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/sass/components/ui/Input.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/components/ui/Input.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/sass/components/ui/Textarea.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/components/ui/Textarea.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/sass/ui/_basics.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/ui/_basics.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/sass/ui/_btn.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/ui/_btn.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/common/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/common/Header.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/sass/components/common/Header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/components/common/Header.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/sass/components/idea/Idea.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/components/idea/Idea.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/sass/components/ui/Checkbox.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/components/ui/Checkbox.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/sass/pages/idea/create.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/pages/idea/create.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/sass/pages/project/create.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/pages/project/create.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/tag/TagSearch.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/tag/TagSearch.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/ui/Input.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/ui/Input.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/config/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/l10n/en.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/l10n/en.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/plugins/l10n.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/plugins/l10n.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/l10n/ru.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/l10n/ru.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/project/create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/project/create.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/apps/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/tag/api/v1/queries.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/apps/tag/api/v1/queries.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/tsconfig.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/tsconfig.tsbuildinfo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/db/init/tb-0310.plugins.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/init/tb-0310.plugins.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/tag/api/v1/queries.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/tag/api/v1/queries.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +60,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsBowerSettings">
+    <node-interpreter value="project" />
+    <bower-package value="" />
+    <bower.json value="" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -84,11 +103,11 @@
     <property name="node.js.selected.package.standard" value="" />
     <property name="node.js.selected.package.stylelint" value="" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_interpreter_path" value="node" />
+    <property name="nodejs_interpreter_path" value="/opt/node/bin/node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.prettier.on.save" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.intentionPowerPack" />
-    <property name="ts.external.directory.path" value="C:\Users\PYJOHN\AppData\Local\JetBrains\Toolbox\apps\WebStorm\ch-0\202.7660.23\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
     <property name="vuejs.nuxt.types-notification-shown" value="true" />
   </component>
@@ -188,6 +207,8 @@
       <workItem from="1616484522037" duration="1671000" />
       <workItem from="1616512588042" duration="14574000" />
       <workItem from="1616533351189" duration="4405000" />
+      <workItem from="1616609793114" duration="5548000" />
+      <workItem from="1616617624846" duration="4124000" />
     </task>
     <task id="LOCAL-00001" summary=":bulb: Meow">
       <created>1612391364993</created>
@@ -407,12 +428,12 @@
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state x="860" y="260" key="IDE.errors.dialog/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614281611294" />
-    <state x="2064" y="167" key="SettingsEditor" timestamp="1616533600835">
+    <state x="2064" y="167" key="SettingsEditor" timestamp="1616618936235">
       <screen x="1280" y="0" width="2560" height="1080" />
     </state>
     <state x="784" y="162" key="SettingsEditor/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1615927135129" />
     <state x="784" y="162" key="SettingsEditor/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612147345234" />
-    <state x="2064" y="167" key="SettingsEditor/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1616533600835" />
+    <state x="2064" y="167" key="SettingsEditor/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1616618936235" />
     <state width="498" height="459" key="SwitcherDM" timestamp="1616512597431">
       <screen x="1280" y="0" width="2560" height="1080" />
     </state>
@@ -430,30 +451,30 @@
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state x="0" y="0" width="2166" height="1032" key="dock-window-1/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1612652780293" />
-    <state x="2267" y="267" width="634" height="675" key="find.popup" timestamp="1616536875971">
+    <state x="2267" y="267" width="634" height="675" key="find.popup" timestamp="1616620839434">
       <screen x="1280" y="0" width="2560" height="1080" />
     </state>
     <state x="987" y="260" width="594" height="656" key="find.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1616280650639" />
     <state x="3054" y="246" width="555" height="622" key="find.popup/0.0.2560.1050/2560.0.1280.994@2560.0.1280.994" timestamp="1615672963356" />
     <state x="987" y="260" width="594" height="656" key="find.popup/0.0.2560.1050/2560.0.1680.1020/-1280.4.1280.994@0.0.2560.1050" timestamp="1616341956787" />
     <state x="987" y="260" width="585" height="534" key="find.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612145569091" />
-    <state x="2267" y="267" width="634" height="675" key="find.popup/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1616536875971" />
+    <state x="2267" y="267" width="634" height="675" key="find.popup/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1616620839434" />
     <state width="600" height="440" key="javadoc.popup" timestamp="1614281174337">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state width="600" height="440" key="javadoc.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614281174337" />
-    <state x="2222" y="247" width="672" height="697" key="run.anything.popup" timestamp="1616530146360">
+    <state x="2222" y="247" width="672" height="697" key="run.anything.popup" timestamp="1616621110353">
       <screen x="1280" y="0" width="2560" height="1080" />
     </state>
     <state x="942" y="240" width="672" height="677" key="run.anything.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1616185594536" />
     <state x="3031" y="227" width="336" height="641" key="run.anything.popup/0.0.2560.1050/2560.0.1280.994@2560.0.1280.994" timestamp="1615669619272" />
     <state x="942" y="240" key="run.anything.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612128644928" />
-    <state x="2222" y="247" width="672" height="697" key="run.anything.popup/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1616530146360" />
-    <state x="2223" y="239" width="672" height="697" key="search.everywhere.popup" timestamp="1616528101536">
+    <state x="2222" y="247" width="672" height="697" key="run.anything.popup/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1616621110353" />
+    <state x="2223" y="239" width="672" height="697" key="search.everywhere.popup" timestamp="1616621219922">
       <screen x="1280" y="0" width="2560" height="1080" />
     </state>
     <state x="943" y="232" width="672" height="677" key="search.everywhere.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1616281564758" />
     <state x="943" y="232" width="672" height="678" key="search.everywhere.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612131512848" />
-    <state x="2223" y="239" width="672" height="697" key="search.everywhere.popup/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1616528101536" />
+    <state x="2223" y="239" width="672" height="697" key="search.everywhere.popup/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1616621219922" />
   </component>
 </project>

@@ -48,6 +48,7 @@ export default {
                 description: 'Describe it...',
                 public: 'public',
                 createProject: 'Create a new project',
+                addTags: 'Add tags',
             },
         },
         auth: {
@@ -138,6 +139,24 @@ export default {
         },
         tagGroups: {
             meow: 'bitch',
+        },
+        plugins: {
+            idea: {
+                name: 'Idea',
+                shortDescription: 'This plugin lets you create ideas on behalf of project',
+            },
+            test1: {
+                name: 'Test test test 1 1 1',
+                shortDescription: 'This is test plugin #1',
+            },
+            test2: {
+                name: 'Test test test 2 2 2',
+                shortDescription: 'This is test plugin #2',
+            },
+            test3: {
+                name: 'Test test test 3 3 3',
+                shortDescription: 'This is test plugin #3',
+            },
         },
     },
 

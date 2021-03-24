@@ -4,14 +4,14 @@ SET search_path TO main;
 -- plugins --
 CREATE TABLE main.plugins (
     plugin_id SMALLSERIAL NOT NULL,
-    name TEXT NOT NULL,
+    uid TEXT NOT NULL,
     CONSTRAINT plugins_plugin_id_pkey PRIMARY KEY (plugin_id),
-    CONSTRAINT plugins_name_ukey UNIQUE (name)
+    CONSTRAINT plugins_uid_ukey UNIQUE (uid)
 );
 
 COMMENT ON TABLE main.plugins IS 'Plugins table';
 COMMENT ON COLUMN main.plugins.plugin_id IS 'Plugin id primary key';
-COMMENT ON COLUMN main.plugins.name IS 'Plugin name';
+COMMENT ON COLUMN main.plugins.uid IS 'Plugin uid';
 
 -- plugins_l10n --
 CREATE TABLE main.plugins_l10n (

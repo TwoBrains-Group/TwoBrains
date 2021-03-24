@@ -33,11 +33,14 @@ export default {
         FROM
             main.tags AS t
             LEFT JOIN main.tag_groups AS tg ON t.tag_group_id = tg.tag_group_id
-            INNER JOIN main.ideas_tags AS it ON t.tag_id = it.tag_id
+            LEFT JOIN main.ideas_tags AS it ON t.tag_id = it.tag_id
+            LEFT JOIN main.projects_tags AS pt ON t.tag_id = pt.tag_id
         GROUP BY
             t.tag_id,
             tg.tag_group_id
         ORDER BY
-            COUNT(it.tag_id) DESC
+            COUNT(it.tag_id) DESC,
+            COUNT(pt.tag_id) DESC,
+            random()
         LIMIT :count;`,
 }

@@ -6,6 +6,7 @@ import l10n from './l10n'
 import project from './project'
 import tag from './tag'
 import search from './search'
+import plugin from './plugin'
 
 export default {
     main,
@@ -16,4 +17,5 @@ export default {
     project,
     tag,
     search,
+    plugin,
 }

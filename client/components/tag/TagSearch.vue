@@ -1,6 +1,6 @@
 <template>
     <div class="tag-search">
-        <h4 class="tag-search__header" v-if="header">{{ header }}</h4>
+        <h6 class="tag-search__header" v-if="header">{{ header }}</h6>
         <div class="tag-search__search-bar">
             <Input type="text" @input="search"/>
         </div>

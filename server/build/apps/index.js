@@ -11,6 +11,7 @@ const l10n_1 = __importDefault(require("./l10n"));
 const project_1 = __importDefault(require("./project"));
 const tag_1 = __importDefault(require("./tag"));
 const search_1 = __importDefault(require("./search"));
+const plugin_1 = __importDefault(require("./plugin"));
 exports.default = {
     main: main_1.default,
     user: user_1.default,
@@ -20,4 +21,5 @@ exports.default = {
     project: project_1.default,
     tag: tag_1.default,
     search: search_1.default,
+    plugin: plugin_1.default,
 };

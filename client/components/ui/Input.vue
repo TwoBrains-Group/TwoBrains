@@ -144,6 +144,7 @@ export default {
         },
 
         clear() {
+            this.value = ''
             this.$refs.input.value = ''
         },
 

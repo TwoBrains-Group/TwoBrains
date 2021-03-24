@@ -4,7 +4,7 @@
     width: 600px;
     height: max-content;
     margin: 10px auto 0 auto;
-    padding: 10px;
+    padding: 5px 5px 25px;
     box-sizing: border-box;
 
     box-shadow: -1px 0 #f0f0f0, 1px 0 #f0f0f0;
@@ -14,14 +14,18 @@
         padding: 8px 0;
     }
 
-    .project-create__main {
-        display: block;
+    .project-create__wrapper {
+        display: grid;
         position: relative;
         width: 500px;
         height: max-content;
         margin: 0 auto;
 
-        .project-create__main__name {
+        grid-template-columns: 100%;
+        grid-template-rows: max-content;
+        grid-gap: 10px;
+
+        .project-create__wrapper__name {
             width: 500px;
             margin: 0 auto;
         }
@@ -31,7 +35,8 @@
             margin: 0 auto;
 
             textarea {
-                height: 400px;
+                height: 150px;
+                min-height: 150px;
                 max-height: 500px;
             }
         }
@@ -39,25 +44,64 @@
 
     .project-create__plugins {
         width: 100%;
-        padding: 10px;
+        //padding: 10px;
         box-sizing: border-box;
 
         box-shadow: 0 0 0 1px #f0f0f0;
         border-radius: 10px;
+        overflow: hidden;
 
         .project-create__plugins__header {
-            padding: 6px 0;
-            text-indent: 10px;
+            display: block;
+            position: relative;
+            padding: 10px 0 5px;
+            text-indent: 15px;
+            cursor: pointer;
+
+            .added-plugin {
+                font-size: 14px;
+                font-weight: normal;
+                box-shadow: inset 0 -1px 1px -1px #333;
+            }
+
+            i {
+                position: absolute;
+                width: max-content;
+                top: 0;
+                right: 10px;
+                height: 20px;
+                line-height: 30px;
+                vertical-align: middle;
+                font-size: 12px;
+            }
         }
 
         .list {
             display: grid;
-            height: max-content;
-            max-height: 250px;
+            height: 0;
+            max-height: 160px;
+            padding: 0 10px;
 
             grid-template-columns: 100%;
             grid-template-rows: max-content;
-            grid-gap: 5px;
+            grid-gap: 6px;
+
+            transition: .15s ease;
+            box-shadow: inset 0 3px 3px -1px #f0f0f0;
+
+            &[data-debounce='true'] {
+                box-shadow: inset 0 1px 2px -1px #ccc;
+            }
+
+            &:after {
+                content: '';
+                height: 5px;
+            }
+
+            &.show {
+                height: max-content;
+                padding: 10px;
+            }
 
             .project-create__plugins__el {
                 display: grid;
@@ -84,12 +128,17 @@
                         font-size: 1em;
 
                         i {
-                            opacity: 1;
+                            color: #333;
                         }
+                    }
+
+                    &:hover {
+                        box-shadow: 0 0 0 1px #9aa6ceaa, 0 1px 5px #ddd;
                     }
                 }
 
                 .project-create__plugins__el__name {
+                    position: relative;
                     line-height: 20px;
                     vertical-align: middle;
                     box-shadow: 0 1px #f0f0f0;
@@ -97,23 +146,31 @@
 
                     i {
                         display: inline-block;
-                        position: relative;
-                        bottom: 1px;
+                        position: absolute;
+                        right: -5px;
+                        bottom: 3px;
+                        width: 12px;
+                        height: 12px;
+                        margin: 0 5px;
                         font-size: 12px;
-                        opacity: 0;
+                        opacity: 1;
                         transition: .15s ease;
+                        border-radius: 50%;
+                        color: transparent;
+                        box-shadow: inset 0 0 0 1px #f0f0f0;
                     }
                 }
 
                 .project-create__plugins__el__description {
+                    font-size: 14px;
                 }
             }
         }
     }
 
     .project-create__done {
-        margin: 25px auto;
-        padding: 5px 15px;
-        font-size: 18px;
+        margin: 25px auto 0;
+        padding: 8px 20px;
+        font-size: 19px;
     }
 }

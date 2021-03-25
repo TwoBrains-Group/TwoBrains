@@ -14,9 +14,10 @@ class Create extends Method {
         const {
             name,
             tags,
+            plugins,
         } = params
 
-        const uid = name.replace(/\s+/, '_')
+        const uid = name.replace(/\s+/, '_').toLowerCase()
         const image = DEFAULT_IMAGE
         const coverImage = DEFAULT_COVER_IMAGE
 
@@ -36,12 +37,10 @@ class Create extends Method {
             tags,
         })
 
-        for (const name of defaultPlugins) {
-            await this.query('bindPlugins', {
-                id,
-                name,
-            })
-        }
+        await this.query('bindPlugin', {
+            id,
+            plugins: [...defaultPlugins, ...plugins],
+        })
 
         return {
             id,

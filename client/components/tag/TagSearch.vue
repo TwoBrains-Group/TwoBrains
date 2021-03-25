@@ -1,8 +1,8 @@
 <template>
     <div class="tag-search">
-        <h6 class="tag-search__header" v-if="header">{{ header }}</h6>
+        <h6 class="tag-search__header" v-if="header">{{ header || l10n.defaultHeader }}</h6>
         <div class="tag-search__search-bar">
-            <Input type="text" @input="search"/>
+            <Input type="text" @input="search" size="small" :input-on-unchanged="false"/>
         </div>
 
         <div class="tag-search__list">
@@ -12,6 +12,7 @@
                  :class="{active: addedTags.has(tag.id)}">
                 <span class="group" v-if="tag.groupLabel">{{ tag.groupLabel }}:</span>
                 {{ tag.label }}
+                <i class="fas fa-check"></i>
             </div>
         </div>
     </div>
@@ -42,6 +43,7 @@ export default {
             l10n: {
                 tags: this.$t('entities.tags'),
                 tagGroups: this.$t('entities.tagGroups'),
+                ...this.$t('cmp.*.TagSearch'),
             },
 
             tags: [],
@@ -67,8 +69,25 @@ export default {
     },
 
     methods: {
-        async search() {
+        async search(value) {
+            const params = {
+                text: value,
+            }
 
+            try {
+                const {tags} = await this.$api.send({
+                    app: 'tag',
+                    method: 'search',
+                    params,
+                    v: 1,
+                })
+
+                this.tags = tags
+
+                // TODO!: Show added tags
+            } catch (error) {
+                this.$toast.error('Failed to load tags')
+            }
         },
 
         toggleTag(id) {

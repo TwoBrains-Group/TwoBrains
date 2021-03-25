@@ -14,7 +14,7 @@
         width: 100%;
         height: 35px;
         box-sizing: border-box;
-        padding: 5px;
+        padding: 5px 10px;
         margin: 0 auto;
 
         text-align: center;
@@ -33,6 +33,20 @@
 
         &:focus {
             box-shadow: 0 4px 10px -1px #f0f0f0;
+        }
+    }
+
+    &.small {
+        input {
+            height: 28px;
+        }
+    }
+
+    &.normal {}
+
+    &.big {
+        input {
+            height: 40px;
         }
     }
 

@@ -85,7 +85,7 @@ exports.default = {
         FROM
             main.plugins AS p
         WHERE
-            p.name = :name;`,
+            p.uid = :uid;`,
     changeImage: `
         UPDATE
             main.projects

@@ -1,5 +1,12 @@
 <template>
-    <div class="ui-input" :class="{ringError, warn}">
+    <div class="ui-input"
+         :class="{
+            ringError,
+            warn,
+            small: size === 'small',
+            normal: size === 'normal',
+            big: size === 'big',
+         }">
         <input :type="type"
                @focusin="focused = true"
                @focusout="focused = false"
@@ -62,6 +69,23 @@ export default {
         enterOnUnchanged: {
             type: Boolean,
         },
+        inputOnUnchanged: {
+            type: Boolean,
+            default: true,
+        },
+        size: {
+            type: String,
+            default: 'normal',
+            validator(val) {
+                return ['small', 'normal', 'big'].includes(val)
+            },
+        },
+    },
+
+    watch: {
+        oldValue() {
+            console.log('OLD VALUE CHANGED')
+        },
     },
 
     data() {
@@ -74,7 +98,7 @@ export default {
             lenError: false,
             ringError: false,
             warn: false,
-            oldEnterValue: '',
+            oldValue: '',
         }
     },
 
@@ -111,7 +135,10 @@ export default {
                 this.warn = !this.testRegexp()
             }
 
-            this.$emit('input', val)
+            if (this.inputOnUnchanged || val !== this.oldValue) {
+                this.$emit('input', val)
+                this.oldValue = val
+            }
         },
 
         ring() {
@@ -155,10 +182,10 @@ export default {
         applyEnter() {
             if (this.enter) {
                 const value = this.$refs.input.value
-                if (this.enterOnUnchanged || value !== this.oldEnterValue) {
+                if (this.enterOnUnchanged || value !== this.oldValue) {
                     this.enter(value)
                 }
-                this.oldEnterValue = value
+                this.oldValue = value
             }
         },
     },

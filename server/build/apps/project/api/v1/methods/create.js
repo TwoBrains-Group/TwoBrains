@@ -9,8 +9,8 @@ class Create extends Method_1.Method {
     async run(req, user) {
         const { params } = req;
         const { id: loggedInUserId } = user;
-        const { name, tags, } = params;
-        const uid = name.replace(/\s+/, '_');
+        const { name, tags, plugins, } = params;
+        const uid = name.replace(/\s+/, '_').toLowerCase();
         const image = DEFAULT_IMAGE;
         const coverImage = DEFAULT_COVER_IMAGE;
         const id = await this.query('create', {
@@ -27,12 +27,10 @@ class Create extends Method_1.Method {
             id,
             tags,
         });
-        for (const name of defaultPlugins) {
-            await this.query('bindPlugins', {
-                id,
-                name,
-            });
-        }
+        await this.query('bindPlugin', {
+            id,
+            plugins: [...defaultPlugins, ...plugins],
+        });
         return {
             id,
         };

@@ -128,6 +128,14 @@ export default {
         }
     },
 
+    watch: {
+        $route() {
+            this.showUserMenu = false
+            this.showPlusMenu = false
+            this.showSearch = false
+        },
+    },
+
     computed: {
         ...mapGetters('auth', [
             'loggedInUser',

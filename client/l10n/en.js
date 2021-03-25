@@ -96,6 +96,10 @@ export default {
                 tooLongBy: 'Too long by {count} characters',
                 charactersLeft: '{count} characters left',
             },
+            TagSearch: {
+                defaultHeader: 'Add tags',
+                searchTags: 'Search tags...',
+            },
         },
         idea: {
             IdeaComment: {

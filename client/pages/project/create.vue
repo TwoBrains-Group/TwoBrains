@@ -2,9 +2,10 @@
     <div id="project-create">
         <div class="project-create__wrapper">
             <h3 class="project-create__header">{{ l10n.createProject }}</h3>
-            <Input class="project-create__wrapper__name" :placeholder="l10n.nameYourProject"/>
 
-            <Textarea :placeholder="l10n.description"/>
+            <Input v-model="name" class="project-create__wrapper__name" :placeholder="l10n.nameYourProject"/>
+
+            <Textarea v-model="description" :placeholder="l10n.description"/>
 
             <!--            <Checkbox :label="l10n.public" init-checked outlined/>-->
             <ToggleSwitch :left-label="'private'" :right-label="l10n.public" outlined/>
@@ -36,7 +37,7 @@
                 </Debounce>
             </div>
 
-            <TagSearch :header="l10n.addTags"/>
+            <TagSearch ref="tagSearch" :header="l10n.addTags"/>
         </div>
 
         <div class="material-btn material-btn--flat project-create__done" @click="done">
@@ -74,6 +75,9 @@ export default {
             l10n: {
                 ...this.$t('page.project.create'),
             },
+
+            name: '',
+            description: '',
             addedPlugins: new Set(),
             addedPluginsUids: new Set(),
             plugins: [],
@@ -100,7 +104,25 @@ export default {
 
     methods: {
         async done() {
+            const params = {
+                name: this.name,
+                description: this.description,
+                tags: this.$refs.tagSearch.addedTags,
+                plugins: this.addedPlugins,
+            }
 
+            try {
+                const {uid} = await this.$api.send({
+                    app: 'project',
+                    method: 'create',
+                    params,
+                    v: 1,
+                })
+
+                await this.$router.push(`/idea/${uid}`)
+            } catch (error) {
+                this.$toast.error('Failed to create project')
+            }
         },
 
         togglePlugin(id, uid) {

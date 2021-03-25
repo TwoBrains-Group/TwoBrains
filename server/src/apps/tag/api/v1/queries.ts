@@ -43,4 +43,23 @@ export default {
             COUNT(pt.tag_id) DESC,
             random()
         LIMIT :count;`,
+
+    search: `
+        SELECT
+             t.tag_id AS "id"
+            ,t.label AS "label"
+            ,tg.label AS "groupLabel"
+            ,ts_rank_cd(t.tsv, q) AS tag_rank
+            ,ts_rank_cd(tg.tsv, q) AS tag_group_rank
+        FROM
+            main.tags AS t
+            LEFT JOIN main.tag_groups AS tg ON t.tag_group_id = tg.tag_group_id,
+            to_tsquery('simple', :searchQuery || ':*') AS q
+        WHERE
+            t.tsv @@ q
+            OR tg.tsv @@ q
+        ORDER BY
+            tag_rank,
+            tag_group_rank
+        LIMIT :limit;`,
 }

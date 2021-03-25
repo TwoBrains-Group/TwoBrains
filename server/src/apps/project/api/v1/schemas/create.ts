@@ -1,3 +1,5 @@
+import {projectNamePatternString, projectDescrPatternString} from '@utils/data'
+
 export default {
     type: 'object',
     additionalProperties: false,
@@ -7,6 +9,11 @@ export default {
     properties: {
         name: {
             type: 'string',
+            pattern: projectNamePatternString,
+        },
+        description: {
+            type: 'string',
+            pattern: projectDescrPatternString,
         },
         tags: {
             type: 'array',
@@ -14,11 +21,11 @@ export default {
                 type: 'string',
             },
         },
-        // plugins: {
-        //     type: 'array',
-        //     items: {
-        //         type: 'string',
-        //     },
-        // },
+        plugins: {
+            type: 'array',
+            items: {
+                type: 'string',
+            },
+        },
     },
 }

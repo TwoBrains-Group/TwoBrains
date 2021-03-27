@@ -10,14 +10,14 @@ CREATE TABLE main.projects (
     name TEXT NOT NULL,
     uid TEXT NOT NULL,
     user_id INT4 NOT NULL,
-    image TEXT NOT NULL,
-    cover_image TEXT NOT NULL,
+    image TEXT DEFAULT NULL,
+    cover_image TEXT DEFAULT NULL,
     description TEXT NOT NULL DEFAULT '',
     creation_datetime TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
     deleted TIMESTAMP WITH TIME ZONE DEFAULT NULL,
     CONSTRAINT projects_project_id_pkey PRIMARY KEY (project_id),
     CONSTRAINT projects_user_id_fkey FOREIGN KEY (user_id) REFERENCES main.users(user_id),
-    CONSTRAINT projects_uid_ukey UNIQUE (uid)
+    CONSTRAINT projects_user_id_uid_ukey UNIQUE (user_id, uid)
 );
 
 COMMENT ON TABLE main.projects IS 'Projects table';

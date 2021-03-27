@@ -13,7 +13,7 @@ exports.default = {
             pattern: data_1.projectNamePatternString,
         },
         description: {
-            type: 'string',
+            type: ['string', 'null'],
             pattern: data_1.projectDescrPatternString,
         },
         tags: {

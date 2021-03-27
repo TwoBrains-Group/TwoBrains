@@ -6,6 +6,7 @@
             small: size === 'small',
             normal: size === 'normal',
             big: size === 'big',
+            focused,
          }">
         <input :type="type"
                @focusin="focused = true"
@@ -15,6 +16,10 @@
                ref="input"
                :value="value"
                @keyup.enter="applyEnter">
+
+        <div class="ui-input__hint" v-if="keyHint">
+            {{ keyHint }}
+        </div>
 
         <div class="ui-input__len-info"
              :class="{warn: lenWarn, error: lenError || ringError, show: focused && lenInfo.length}">{{ lenInfo }}
@@ -73,18 +78,15 @@ export default {
             type: Boolean,
             default: true,
         },
+        keyHint: {
+            type: String,
+        },
         size: {
             type: String,
             default: 'normal',
             validator(val) {
                 return ['small', 'normal', 'big'].includes(val)
             },
-        },
-    },
-
-    watch: {
-        oldValue() {
-            console.log('OLD VALUE CHANGED')
         },
     },
 
@@ -150,20 +152,24 @@ export default {
             this.ringError = true
         },
 
-        test() {
+        test(ring = true) {
             const val = this.$refs.input.value
             const len = val.length
 
             if (this.regexp && !this.testRegexp()) {
-                this.ring()
-                if (this.regexpErrMsg) {
-                    this.$toast.error(this.regexpErrMsg)
+                if (ring) {
+                    this.ring()
+                    if (this.regexpErrMsg) {
+                        this.$toast.error(this.regexpErrMsg)
+                    }
                 }
                 return false
             }
 
             if (len < this.minLen || len > this.maxLen) {
-                this.ring()
+                if (ring) {
+                    this.ring()
+                }
                 return false
             }
 

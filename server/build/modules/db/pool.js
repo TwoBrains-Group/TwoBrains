@@ -19,7 +19,7 @@ exports.queryDefaultOptions = {
     queryDebugLog: false,
     unusedToNull: [],
 };
-exports.prepareQuery = (queryName, queryString, params = {}, options = {}) => {
+const prepareQuery = (queryName, queryString, params = {}, options = {}) => {
     const values = [];
     let paramIndex = 0;
     const unusedQueryParams = [];
@@ -51,6 +51,7 @@ exports.prepareQuery = (queryName, queryString, params = {}, options = {}) => {
         values,
     };
 };
+exports.prepareQuery = prepareQuery;
 class Pool extends pg_pool_1.default {
     constructor(options) {
         super({

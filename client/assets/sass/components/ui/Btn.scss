@@ -1,0 +1,7 @@
+.material-btn {
+    &.disabled {
+        pointer-events: none;
+        box-shadow: inset 0 0 25px #f0f0f0;
+        color: #aaa
+    }
+}

@@ -3,9 +3,17 @@
         <div class="project-create__wrapper">
             <h3 class="project-create__header">{{ l10n.createProject }}</h3>
 
-            <Input v-model="name" class="project-create__wrapper__name" :placeholder="l10n.nameYourProject"/>
+            <Input v-model="name"
+                   class="project-create__wrapper__name"
+                   :placeholder="l10n.nameYourProject"
+                   ref="name"
+                   :min-len="1" :max-len="128"/>
 
-            <Textarea v-model="description" :placeholder="l10n.description"/>
+            <Textarea v-model="description"
+                      :placeholder="l10n.description"
+                      ref="description"
+                      :min-len="1"
+                      :max-len="5000"/>
 
             <!--            <Checkbox :label="l10n.public" init-checked outlined/>-->
             <ToggleSwitch :left-label="'private'" :right-label="l10n.public" outlined/>
@@ -40,9 +48,11 @@
             <TagSearch ref="tagSearch" :header="l10n.addTags"/>
         </div>
 
-        <div class="material-btn material-btn--flat project-create__done" @click="done">
+        <Btn class="material-btn material-btn--flat project-create__done"
+             @click.native="done"
+             :disabled="doneDisabled">
             {{ l10n.done }}
-        </div>
+        </Btn>
     </div>
 </template>
 
@@ -55,13 +65,15 @@ import Input from '@/components/ui/Input'
 import Textarea from '@/components/ui/Textarea'
 import Checkbox from '@/components/ui/Checkbox'
 import ToggleSwitch from '@/components/ui/ToggleSwitch'
-import TagSearch from '~/components/tag/TagSearch'
-import Debounce from '~/components/ui/Debounce'
+import TagSearch from '@/components/tag/TagSearch'
+import Debounce from '@/components/ui/Debounce'
+import Btn from '@/components/ui/Btn'
 
 export default {
     name: 'project-create',
 
     components: {
+        Btn,
         Debounce,
         TagSearch,
         ToggleSwitch,
@@ -82,7 +94,14 @@ export default {
             addedPluginsUids: new Set(),
             plugins: [],
             showPlugins: false,
+            doneDisabled: true,
         }
+    },
+
+    mounted() {
+        this.$refs.name.$on('input', val => {
+            this.doneDisabled = !this.$refs.name.test(false)
+        })
     },
 
     async fetch() {
@@ -106,20 +125,20 @@ export default {
         async done() {
             const params = {
                 name: this.name,
-                description: this.description,
-                tags: this.$refs.tagSearch.addedTags,
-                plugins: this.addedPlugins,
+                description: this.description.length ? this.description : null,
+                tags: [...this.$refs.tagSearch.addedTags],
+                plugins: [...this.addedPlugins],
             }
 
             try {
-                const {uid} = await this.$api.send({
+                const {url} = await this.$api.send({
                     app: 'project',
                     method: 'create',
                     params,
                     v: 1,
                 })
 
-                await this.$router.push(`/idea/${uid}`)
+                await this.$router.push(url)
             } catch (error) {
                 this.$toast.error('Failed to create project')
             }

@@ -35,7 +35,8 @@
 
                             <nuxt-link :to="userUrl(user)"
                                        class="btn main-header__search__results__section__el main-header__search__results__section__el--user"
-                                       v-for="user of searchResults.users">
+                                       v-for="user of searchResults.users"
+                                       :key="user.uid">
                                 <div class="avatar">
                                     <img :src="user.avatar" alt="avatar">
                                 </div>
@@ -51,7 +52,8 @@
 
                             <nuxt-link :to="ideaUrl(idea)"
                                        class="btn main-header__search__results__section__el main-header__search__results__section__el--idea"
-                                       v-for="idea of searchResults.ideas">
+                                       v-for="idea of searchResults.ideas"
+                                       :key="idea.id">
                                 <span class="preview">
                                     {{ idea.name }}
                                 </span>
@@ -60,11 +62,11 @@
                     </div>
                 </div>
 
-                <div class="btn main-header__plus" @click="showPlusMenu = !showPlusMenu">
+                <div class="btn main-header__plus" @click="togglePlusMenu">
                     <i class="fas fa-plus"></i>
                 </div>
 
-                <div class="main-header__user-btn btn" @click="showUserMenu = !showUserMenu">
+                <div class="main-header__user-btn btn" @click="toggleUserMenu">
                     <div class="main-header__user-btn__avatar">
                         <img :src="loggedInUser.avatar" alt="avatar">
                     </div>
@@ -111,8 +113,6 @@ export default {
     },
 
     data() {
-        console.log(`l10n ${JSON.stringify(this.$t('cmp.*.Header'), null, 2)}`)
-
         return {
             l10n: this.$t('cmp.*.Header'),
 
@@ -154,6 +154,8 @@ export default {
         },
 
         toggleSearch() {
+            this.showPlusMenu = false
+            this.showUserMenu = false
             this.showSearch = !this.showSearch
             if (this.showSearch) {
                 this.$refs.search.focus()
@@ -163,6 +165,18 @@ export default {
                     ideas: {},
                 }
             }
+        },
+
+        togglePlusMenu() {
+            this.showSearch = false
+            this.showUserMenu = false
+            this.showPlusMenu = !this.showPlusMenu
+        },
+
+        toggleUserMenu() {
+            this.showSearch = false
+            this.showPlusMenu = false
+            this.showUserMenu = !this.showUserMenu
         },
 
         closeSearch() {
@@ -182,7 +196,6 @@ export default {
         },
 
         async search(value) {
-            console.log('SEARCH')
             if (!value.length) {
                 return
             }
@@ -203,8 +216,6 @@ export default {
                                       !Object.keys(searchResults.users).length
 
                 this.searchResults = searchResults
-
-                console.log('SEARCH results:', searchResults)
             } catch (error) {
                 this.$toast.error('Failed to search')
             }

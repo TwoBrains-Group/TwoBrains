@@ -70,6 +70,10 @@ export default {
 
     methods: {
         async search(value) {
+            if (!value.length) {
+                return
+            }
+
             const params = {
                 text: value,
             }

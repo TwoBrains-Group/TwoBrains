@@ -1,5 +1,6 @@
 import {AuthUser, Method, MethodRes, Req} from '@apps/base/Method'
 import {QueryReturnType} from '@modules/db/pool'
+import {nanoid} from 'nanoid'
 
 const DEFAULT_IMAGE = `http://${process.env.HOST}:${process.env.PORT}${process.env.UPLOADS_DIR}/project/default_image.png`
 const DEFAULT_COVER_IMAGE = `http://${process.env.HOST}:${process.env.PORT}${process.env.UPLOADS_DIR}/project/default_cover_image.png`
@@ -11,18 +12,25 @@ class Create extends Method {
         const {params} = req
         const {id: loggedInUserId} = user
 
-        const {
+        const {tags} = params
+        let {
             name,
-            tags,
-            plugins,
+            description = null,
         } = params
 
-        const uid = name.replace(/\s+/, '_').toLowerCase()
+        name = name.trim()
+        description = description && description.trim()
+
+        let {plugins} = params
+        plugins = [...defaultPlugins, ...plugins]
+
+        const uid = `${name.replace(/\s+/, '_')}_${nanoid(8)}`.toLowerCase()
         const image = DEFAULT_IMAGE
         const coverImage = DEFAULT_COVER_IMAGE
 
         const id = await this.query('create', {
             name,
+            description,
             uid,
             image,
             coverImage,
@@ -32,18 +40,31 @@ class Create extends Method {
             returnField: 'id',
         })
 
-        await this.query('bindTags', {
+        if (tags.length) {
+            await this.query('bindTags', {
+                id,
+                tags,
+            })
+        }
+
+        if (plugins.length) {
+            await this.query('bindPlugin', {
+                id,
+                plugins,
+            })
+        }
+
+        const creatorUid = await this.query('getCreatorUid', {
             id,
-            tags,
+        }, {
+            returnType: QueryReturnType.Row,
+            returnField: 'uid',
         })
 
-        await this.query('bindPlugin', {
-            id,
-            plugins: [...defaultPlugins, ...plugins],
-        })
+        const url = `/user/${creatorUid}/project/${uid}`
 
         return {
-            id,
+            url,
         }
     }
 }

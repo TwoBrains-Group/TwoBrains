@@ -13,5 +13,4 @@ exports.default = (err, req, res, next) => {
             });
     }
     console.log('UNKNOWN ERROR:', err);
-    next(err);
 };

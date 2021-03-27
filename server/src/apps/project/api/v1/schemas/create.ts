@@ -12,7 +12,7 @@ export default {
             pattern: projectNamePatternString,
         },
         description: {
-            type: 'string',
+            type: ['string', 'null'],
             pattern: projectDescrPatternString,
         },
         tags: {

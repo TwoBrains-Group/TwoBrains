@@ -72,8 +72,9 @@ exports.default = {
         RETURNING
             idea_id AS "id";`,
     create: `
-        INSERT INTO main.projects (name, uid, user_id, image, cover_image)
-        VALUES (:name, :uid, :loggedInUserId, :image, :coverImage);`,
+        INSERT INTO main.projects (name, uid, user_id)
+        VALUES (:name, :uid, :loggedInUserId)
+        RETURNING project_id AS "id";`,
     bindTags: `
         INSERT INTO main.projects_tags (project_id, tag_id)
         VALUES (:id, unnest(:tags));`,
@@ -93,4 +94,19 @@ exports.default = {
             image = :image
         WHERE
             project_id = :id;`,
+    getCreatorUid: `
+        SELECT
+            u.uid AS "uid"
+        FROM
+            main.projects AS p
+            INNER JOIN main.users AS u ON p.user_id = u.user_id
+        WHERE
+            p.project_id = :id;`,
+    checkDuplicate: `
+        SELECT
+            p.uid
+        FROM
+            main.projects AS p
+        WHERE
+            p.user_id = :loggedInUserId;`,
 };

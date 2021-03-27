@@ -17,7 +17,7 @@ exports.default = {
             ) AS "creator"
             ,json_agg(json_build_object(
                 'id', pls.plugin_id,
-                'name', pls.name
+                'uid', pls.uid
             )) AS "plugins"
         FROM
             main.projects AS p
@@ -27,6 +27,7 @@ exports.default = {
             LEFT JOIN main.plugins AS pls ON pls.plugin_id = pp.plugin_id
         WHERE
             p.uid = :uid
+            AND u.uid = :userUid
         GROUP BY
              p.project_id
             ,pl.user_id

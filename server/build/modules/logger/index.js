@@ -31,7 +31,7 @@ const LOG_SETTINGS = {
         priority: 1,
     },
 };
-const lf = (strings, ...ipValues) => {
+exports.lf = (strings, ...ipValues) => {
     return strings.reduce((total, current, index) => {
         total += current;
         if (index in ipValues) {
@@ -49,7 +49,6 @@ const lf = (strings, ...ipValues) => {
         return total;
     }, '');
 };
-exports.lf = lf;
 class Logger {
     constructor(options) {
         this.options = options;

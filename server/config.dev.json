@@ -10,5 +10,9 @@
     },
     "auth": {
         "useHeader": false
+    },
+    "project": {
+        "defaultImage": "/project/default_image.png",
+        "defaultCoverImage": "/project/default_cover_image.png"
     }
 }

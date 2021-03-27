@@ -3,21 +3,21 @@
          :class="{hover}"
          @mouseover="hover = true"
          @mouseleave="hover = false">
-        <nuxt-link :to="url"  class="project__aside">
-            <div class="project__aside__image">
+        <div class="project__body">
+            <div class="project__body__image">
                 <img :src="image" alt="Project image">
             </div>
 
-            <div class="project__aside__name">
-                {{ name }}
-            </div>
-        </nuxt-link>
-
-        <nuxt-link class="project__info" :to="url">
-            <p class="sb sb--small project__info__description">
-                {{ description.slice(0, descriptionLimit) }} {{description.length > descriptionLimit ? '...' : ''}}
-            </p>
-        </nuxt-link>
+            <nuxt-link class="project__body__info" :to="url">
+                <div class="project__body__info__name">
+                    {{ name }}
+                </div>
+                <p class="sb sb--small project__body__info__description">
+                    {{ description.slice(0, descriptionLimit) }}
+                    {{ description.length > descriptionLimit ? '...' : '' }}
+                </p>
+            </nuxt-link>
+        </div>
 
         <div class="project__footer" @mouseover.stop @mouseover="hover = false">
             <div class="project__footer__creator">
@@ -54,7 +54,7 @@ export default {
 
             l10n: this.$t('cmp.project.Project'),
 
-            url: `/project/${this.uid}`,
+            url: `/user/${this.creator.uid}/project/${this.uid}`,
             hover: false,
             descriptionLimit: 696,
         }

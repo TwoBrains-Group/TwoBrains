@@ -18,4 +18,4 @@ export type Config = {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-export const config: Config = require(configFilePath)
+export const config: Record<any, any> = require(configFilePath)

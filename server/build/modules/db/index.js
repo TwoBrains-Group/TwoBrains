@@ -3,7 +3,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Pool = void 0;
 const BaseModule_1 = require("@modules/BaseModule");
 const instance_1 = __importDefault(require("@modules/db/instance"));
 process.env.PG_OPTIONS = '-c search_path=main';

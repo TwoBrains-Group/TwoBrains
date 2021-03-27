@@ -392,8 +392,8 @@
         "affectsGlobalScope": false
       },
       "../src/utils/config.ts": {
-        "version": "81371a87d79047d656c960861fb65987ac23d872ba9a97a36b3feaf0b3e25a9a",
-        "signature": "8ec96a18f1b37b3123cf4d7aa34f84cfe98c91061e46cf40fbf82bb961ed80cd",
+        "version": "9466ca5959b2064dec71609c2c8571ddcc9aaaf0a2a64ce1a887144920def225",
+        "signature": "e6726fa5b9970c36fac78bc522ffb08e7c6c2f537f9c7bcf30f61863492d2e86",
         "affectsGlobalScope": false
       },
       "../node_modules/chalk/index.d.ts": {
@@ -1091,18 +1091,23 @@
         "signature": "a4fbf7b36bc74c3d9f7f5a3af85357147ae8025ee2854302c66ef9e1d369158f",
         "affectsGlobalScope": false
       },
+      "../src/apps/project/api/v1/modules/prepare.ts": {
+        "version": "d16dd6172c2a22b24bfecfd97c73361fdd7a744237838d67d61759cc0c771463",
+        "signature": "94b74356691e317f713bbc718865e915a64155725e53fe6430826d3d231bb3cf",
+        "affectsGlobalScope": false
+      },
       "../src/apps/project/api/v1/methods/get-by-uid.ts": {
-        "version": "26f2befbfaa44b422d19aba6f5223833c6c3bea02607f90f58398f1518724158",
+        "version": "267a09e90c0e826b1343c17dc60f6fa48409ba14ce7b164507c0598b8bb2a368",
         "signature": "43e433eba7b68f17f28a4887f521282396b07bf9d60834a2a8b4bfaba8c82a69",
         "affectsGlobalScope": false
       },
       "../src/apps/project/api/v1/methods/get-list.ts": {
-        "version": "47260a7a104ec4c019ed9789988b4c7e797e95882a604ca08ebe5ec365c55e3e",
+        "version": "69a13fa08e2eb1a2238ba1f9c02283337f246fca56414fc1bc4c3a25c8621b53",
         "signature": "6e6a30b6ffc64c962fd79967f8acf9fc17d90fb491ba99fc2f9e3393f9a273b3",
         "affectsGlobalScope": false
       },
       "../src/apps/project/api/v1/methods/create.ts": {
-        "version": "76356bf3b27650c14b913a701b9c9802c4698634b6210db9d70789b7bde4cdb8",
+        "version": "0eef4f101bf241e2cf09bbb4bc9b791d91e8bb09cb235bf0d0775ddeb1faaf0c",
         "signature": "8283cc05abd59551263118a8a2f134d7284d6f11465ec1e4d4c37fa9c21d474f",
         "affectsGlobalScope": false
       },
@@ -1112,8 +1117,8 @@
         "affectsGlobalScope": false
       },
       "../src/apps/project/api/v1/schemas/get-by-uid.ts": {
-        "version": "cf91c0b94fcf527b137e16d1f3b41ff8ec70ec477e016cad047f8c6cd40e8d55",
-        "signature": "59ff9c439c4a6e0d0d3d1c7e75a0565a95e38a1cb59e0d2d5cbe66806b07754c",
+        "version": "0e3e3c404d4522e7d6bc08a08af48812f506bf7619c1fd13dc27c7b5c6b902f2",
+        "signature": "5becb3ab20d08be2bfc91e2fc6a7f24dcb26362eafe59edfd7294a9433b33004",
         "affectsGlobalScope": false
       },
       "../src/apps/project/api/v1/schemas/get-list.ts": {
@@ -1128,22 +1133,22 @@
       },
       "../src/apps/project/api/v1/schemas/index.ts": {
         "version": "285a26552e3afe3fa5ecb2adb8dec61f3d424d55795ced4e9e5d5048ac1135e6",
-        "signature": "e25b0c2924f4526ef08967ad0e9e8ea05738af3f81729be62559323ded8c93d4",
+        "signature": "810f9c2d6020d5b037f80d782fd4b5677a61d4add04799b6912985f4b9f2b168",
         "affectsGlobalScope": false
       },
       "../src/apps/project/api/v1/queries.ts": {
-        "version": "4aa5623ba5762203340d282647c018be464f3b8785ee2703bd24ea52ce1da923",
+        "version": "e747957ef69547aca4acdf7013d308d0b8a8ec44c6bdfb3b782e34d032019721",
         "signature": "5bbf0477ae10b6c10a1f0308e16484487d536b31f6de9949bd7fe4b9f6a92d86",
         "affectsGlobalScope": false
       },
       "../src/apps/project/api/v1/index.ts": {
         "version": "c79574dc5ab8914852f522e39a70388a09d85522e4b3be1907b51149563f57a5",
-        "signature": "4655a4ff6a7fe9376201c1e13a120b951f564cb6759db6c856ee8e676a826ce5",
+        "signature": "bdb51af022baca82d58fd97ba3cc3ccfe1436d24465b488e20901fe0371508b0",
         "affectsGlobalScope": false
       },
       "../src/apps/project/api/index.ts": {
         "version": "d5b596dbfca3aab7ccf574e1370c25990ad5ba1378a43adcd1c4a11f34f00af4",
-        "signature": "ff12fea59158fea0fe298f986fe99f9721be03f34a45f383b6438eaf3eb3e194",
+        "signature": "663447158ec8c39e087c7311a001d3a9a6fdd8ae99fd38a3430f40d1f65d8b94",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/sharp/index.d.ts": {
@@ -2522,16 +2527,21 @@
       ],
       "../src/apps/project/api/v1/methods/get-by-uid.ts": [
         "../src/apps/base/Method.ts",
+        "../src/apps/project/api/v1/modules/prepare.ts",
         "../src/modules/db/pool.ts"
       ],
       "../src/apps/project/api/v1/methods/get-list.ts": [
         "../src/apps/base/Method.ts",
+        "../src/apps/project/api/v1/modules/prepare.ts",
         "../src/modules/db/pool.ts"
       ],
       "../src/apps/project/api/v1/methods/index.ts": [
         "../src/apps/project/api/v1/methods/create.ts",
         "../src/apps/project/api/v1/methods/get-by-uid.ts",
         "../src/apps/project/api/v1/methods/get-list.ts"
+      ],
+      "../src/apps/project/api/v1/modules/prepare.ts": [
+        "../src/utils/config.ts"
       ],
       "../src/apps/project/api/v1/schemas/create.ts": [
         "../src/utils/data.ts"
@@ -3832,6 +3842,7 @@
       "../src/apps/project/api/v1/methods/get-by-uid.ts",
       "../src/apps/project/api/v1/methods/get-list.ts",
       "../src/apps/project/api/v1/methods/index.ts",
+      "../src/apps/project/api/v1/modules/prepare.ts",
       "../src/apps/project/api/v1/queries.ts",
       "../src/apps/project/api/v1/schemas/create.ts",
       "../src/apps/project/api/v1/schemas/get-by-uid.ts",

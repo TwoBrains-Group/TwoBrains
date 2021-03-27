@@ -13,8 +13,35 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="edaaf9c1-6c17-4647-aa91-a795e595d129" name="Default Changelist" comment="save">
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    <list default="true" id="edaaf9c1-6c17-4647-aa91-a795e595d129" name="Default Changelist" comment="kek">
+      <change afterPath="$PROJECT_DIR$/server/src/apps/project/api/v1/modules/prepare.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/sass/common/common.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/common/common.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/sass/components/project/Project.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/components/project/Project.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/project/Project.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/project/Project.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/project/_uid/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/user/_uid/project/_projectUid.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/user/_uid/project/_uid.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/base/templates.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/apps/base/templates.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/modules/prepare-ideas.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/modules/prepare-ideas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/project/api/v1/methods/create.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/apps/project/api/v1/methods/create.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/project/api/v1/methods/get-by-uid.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/apps/project/api/v1/methods/get-by-uid.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/project/api/v1/methods/get-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/apps/project/api/v1/methods/get-list.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/project/api/v1/queries.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/apps/project/api/v1/queries.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/project/api/v1/schemas/get-by-uid.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/apps/project/api/v1/schemas/get-by-uid.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/modules/prepare-user.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/modules/prepare-user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/modules/db/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/modules/db/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/modules/db/pool.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/modules/db/pool.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/modules/logger/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/modules/logger/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/tsconfig.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/tsconfig.tsbuildinfo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/utils/dotenv.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/utils/dotenv.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/config.dev.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/config.dev.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/project/api/v1/methods/create.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/project/api/v1/methods/create.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/project/api/v1/methods/get-by-uid.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/project/api/v1/methods/get-by-uid.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/project/api/v1/methods/get-list.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/project/api/v1/methods/get-list.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/project/api/v1/queries.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/project/api/v1/queries.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/project/api/v1/schemas/get-by-uid.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/project/api/v1/schemas/get-by-uid.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/utils/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +212,7 @@
       <workItem from="1616695057646" duration="9435000" />
       <workItem from="1616790631150" duration="2464000" />
       <workItem from="1616845176006" duration="8324000" />
-      <workItem from="1616859627576" duration="6235000" />
+      <workItem from="1616859627576" duration="15879000" />
     </task>
     <task id="LOCAL-00001" summary=":bulb: Meow">
       <created>1612391364993</created>
@@ -320,7 +347,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616869853796</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="kek">
+      <created>1616876223131</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1616876223131</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -363,7 +397,8 @@
     <MESSAGE value=":recycle: Templates refactoring" />
     <MESSAGE value=":memo: meow, meow, front-front-front" />
     <MESSAGE value="save" />
-    <option name="LAST_COMMIT_MESSAGE" value="save" />
+    <MESSAGE value="kek" />
+    <option name="LAST_COMMIT_MESSAGE" value="kek" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2289" y="243" width="936" height="707" key="#ESLint" timestamp="1616528827281">
@@ -432,11 +467,11 @@
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1612675894670" />
     <state width="498" height="459" key="SwitcherDM/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1616512597431" />
-    <state x="2152" y="261" width="804" height="536" key="Vcs.Push.Dialog.v2" timestamp="1616869857502">
+    <state x="2152" y="261" width="804" height="536" key="Vcs.Push.Dialog.v2" timestamp="1616876227104">
       <screen x="1280" y="0" width="2560" height="1080" />
     </state>
     <state x="872" y="254" key="Vcs.Push.Dialog.v2/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614575292567" />
-    <state x="2152" y="261" width="804" height="536" key="Vcs.Push.Dialog.v2/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1616869857502" />
+    <state x="2152" y="261" width="804" height="536" key="Vcs.Push.Dialog.v2/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1616876227104" />
     <state x="880" y="135" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1614106952315">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
@@ -445,25 +480,25 @@
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state x="0" y="0" width="2166" height="1032" key="dock-window-1/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1612652780293" />
-    <state x="2267" y="267" width="634" height="675" key="find.popup" timestamp="1616864064616">
+    <state x="2267" y="267" width="634" height="675" key="find.popup" timestamp="1616879650304">
       <screen x="1280" y="0" width="2560" height="1080" />
     </state>
     <state x="987" y="260" width="594" height="656" key="find.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1616280650639" />
     <state x="3054" y="246" width="555" height="622" key="find.popup/0.0.2560.1050/2560.0.1280.994@2560.0.1280.994" timestamp="1615672963356" />
     <state x="987" y="260" width="594" height="656" key="find.popup/0.0.2560.1050/2560.0.1680.1020/-1280.4.1280.994@0.0.2560.1050" timestamp="1616341956787" />
     <state x="987" y="260" width="585" height="534" key="find.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612145569091" />
-    <state x="2267" y="267" width="634" height="675" key="find.popup/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1616864064616" />
+    <state x="2267" y="267" width="634" height="675" key="find.popup/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1616879650304" />
     <state width="600" height="440" key="javadoc.popup" timestamp="1614281174337">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state width="600" height="440" key="javadoc.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614281174337" />
-    <state x="2222" y="247" width="672" height="697" key="run.anything.popup" timestamp="1616863088837">
+    <state x="2222" y="247" width="672" height="697" key="run.anything.popup" timestamp="1616879206340">
       <screen x="1280" y="0" width="2560" height="1080" />
     </state>
     <state x="942" y="240" width="672" height="677" key="run.anything.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1616185594536" />
     <state x="3031" y="227" width="336" height="641" key="run.anything.popup/0.0.2560.1050/2560.0.1280.994@2560.0.1280.994" timestamp="1615669619272" />
     <state x="942" y="240" key="run.anything.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612128644928" />
-    <state x="2222" y="247" width="672" height="697" key="run.anything.popup/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1616863088837" />
+    <state x="2222" y="247" width="672" height="697" key="run.anything.popup/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1616879206340" />
     <state x="2223" y="239" width="672" height="697" key="search.everywhere.popup" timestamp="1616864934787">
       <screen x="1280" y="0" width="2560" height="1080" />
     </state>

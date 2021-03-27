@@ -46,7 +46,7 @@ import {ideaFetching} from '@/constants/fetching'
 import IdeaList from '@/components/idea/IdeaList'
 
 export default {
-    name: 'project',
+    name: 'user-project',
 
     components: {
         IdeaList,
@@ -66,7 +66,8 @@ export default {
 
     async fetch() {
         const params = {
-            uid: this.$route.params.uid,
+            userUid: this.$route.params.uid,
+            uid: this.$route.params.projectUid,
         }
 
         try {

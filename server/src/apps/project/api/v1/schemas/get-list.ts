@@ -9,5 +9,11 @@ export default {
         offset: {
             type: 'number',
         },
+        tagsLimit: {
+            type: 'number',
+        },
+        userUid: {
+            type: 'string',
+        },
     },
 }

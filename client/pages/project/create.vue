@@ -15,7 +15,6 @@
                       :min-len="1"
                       :max-len="5000"/>
 
-            <!--            <Checkbox :label="l10n.public" init-checked outlined/>-->
             <ToggleSwitch :left-label="'private'" :right-label="l10n.public" outlined/>
 
             <div class="project-create__plugins">
@@ -126,8 +125,8 @@ export default {
             const params = {
                 name: this.name,
                 description: this.description.length ? this.description : null,
-                tags: [...this.$refs.tagSearch.addedTags],
-                plugins: [...this.addedPlugins],
+                tags: [...this.$refs.tagSearch.addedTags].map(t => t.toString()),
+                plugins: [...this.addedPlugins].map(p => p.toString()),
             }
 
             try {

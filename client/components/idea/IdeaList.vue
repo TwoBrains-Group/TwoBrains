@@ -2,7 +2,11 @@
     <div class="idea-list">
         <Idea v-for="idea in ideas" :key="idea.id" v-bind="idea"/>
 
-        <InfiniteScroll :no-result="l10n.noResult" :no-more="l10n.noMore" @fetch="infiniteScroll"/>
+        <InfiniteScroll :no-result="l10n.noIdeasHere + ' 😞'"
+                        no-result-link-url="/idea/create"
+                        :no-result-link-text="l10n.addOne"
+                        :no-more="false"
+                        @fetch="infiniteScroll"/>
     </div>
 </template>
 

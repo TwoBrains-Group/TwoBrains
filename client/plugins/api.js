@@ -33,8 +33,8 @@ export class Api {
                 headers,
             })
 
-            !isProd && console.log('Sent request:', req)
-            !isProd && console.log('Got response:', data)
+            !isProd && console.log('Sent request:', JSON.stringify(req, null, 2))
+            !isProd && console.log('Got response:', JSON.stringify(data, null, 2))
 
             if (!data) {
                 throw new Error('No response')

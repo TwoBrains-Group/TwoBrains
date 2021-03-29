@@ -43,5 +43,20 @@ COMMENT ON COLUMN main.projects_plugins.project_id IS 'Project id foreign key';
 COMMENT ON COLUMN main.projects_plugins.plugin_id IS 'Project plugin id foreign key';
 COMMENT ON COLUMN main.projects_plugins.creation_datetime IS 'Project plugin added timestamp';
 
+-- data --
+INSERT INTO main.plugins (uid)
+VALUES ('idea'), ('todo');
+
+INSERT INTO main.plugins_l10n (plugin_id, data, locale_id)
+VALUES ((SELECT plugin_id FROM main.plugins WHERE uid = 'idea'), '{
+    "label": "Ideas",
+    "description": "This plugin let''s create ideas on behalf of project"
+}', (SELECT locale_id FROM main.locales WHERE code = 'en'));
+
+INSERT INTO main.plugins_l10n (plugin_id, data, locale_id)
+VALUES ((SELECT plugin_id FROM main.plugins WHERE uid = 'idea'), '{
+    "label": "Идеи",
+    "description": "Этот плагин дает возможность создавать идеи от имени проекта"
+}', (SELECT locale_id FROM main.locales WHERE code = 'ru'));
 
 COMMIT;

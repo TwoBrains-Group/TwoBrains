@@ -20,6 +20,21 @@
         </div>
 
         <div class="project__footer" @mouseover.stop @mouseover="hover = false">
+            <div class="btn project__footer__like"
+                 :class="{liked: liked$}"
+                 @click="like">
+                <i class="fa-star" :class="liked$ ? 'fas' : 'far'"></i> <span>{{ likesCount$ }}</span>
+            </div>
+
+            <div class="project__footer__tags">
+                <div class="btn project__footer__tags__el"
+                     v-for="tag of tags"
+                     :key="tag.id">
+                    <span class="group">{{ tag.groupLabel }}:</span>
+                    {{ tag.label }}
+                </div>
+            </div>
+
             <div class="project__footer__creator">
                 {{ `${l10n.createdBy} ` }}
                 <nuxt-link class="project__footer__creator__link" :to="'/user/' + creator.uid">
@@ -46,6 +61,9 @@ export default {
         'description',
         'creationDatetime',
         'creator',
+        'tags',
+        'liked',
+        'likesCount',
     ],
 
     data() {
@@ -57,7 +75,35 @@ export default {
             url: `/user/${this.creator.uid}/project/${this.uid}`,
             hover: false,
             descriptionLimit: 696,
+
+            liked$: this.liked,
+            likesCount$: this.likesCount,
         }
+    },
+
+    methods: {
+        async like() {
+            try {
+                const params = {
+                    id: this.id,
+                }
+
+                const {
+                    liked,
+                    likesCount,
+                } = await this.$api.send({
+                    app: 'project',
+                    method: 'like',
+                    params,
+                    v: 1,
+                })
+
+                this.liked$ = liked
+                this.likesCount$ = likesCount
+            } catch (error) {
+                this.$toast.error('Failed to like project')
+            }
+        },
     },
 }
 </script>

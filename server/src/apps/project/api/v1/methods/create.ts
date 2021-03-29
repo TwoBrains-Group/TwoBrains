@@ -23,6 +23,8 @@ class Create extends Method {
 
         const uid = `${name.replace(/\s+/, '_')}_${nanoid(8)}`.toLowerCase()
 
+        console.log(`name ${name}, descr ${description}, plugins ${JSON.stringify(plugins, null, 2)}`)
+
         const id = await this.query('create', {
             name,
             description,

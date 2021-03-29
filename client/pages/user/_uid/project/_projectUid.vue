@@ -10,6 +10,14 @@
                 {{ project.name }}
             </div>
 
+            <div class="project__header__btns">
+                <div class="btn project__header__btns__el project__header__btns__el--star"
+                     :class="{liked}"
+                     @click="like">
+                    <i class="fa-star" :class="liked ? 'fas' : 'far'"></i> <span>{{ likesCount }}</span>
+                </div>
+            </div>
+
             <div class="project__header__plugins" v-if="project.plugins.length">
                 <div class="btn project__header__plugins__el"
                      v-for="plugin in [{name: 'home'}, ...project.plugins]"
@@ -24,7 +32,8 @@
                 <IdeaList relation="user"/>
             </div>
 
-            <div class="project__body__section project__body__section--main" v-else-if="!section.length || section === 'home'">
+            <div class="project__body__section project__body__section--main"
+                 v-else-if="!section.length || section === 'home'">
                 <div class="project__body__section--main__descr">
                     <h3 class="project__body__section--main__descr__h">{{ l10n.description }}</h3>
                     <p class="project__body__section--main__descr__p">
@@ -61,6 +70,8 @@ export default {
             project: {},
             section: 'home',
             ideas: [],
+            liked: false,
+            likesCount: 0,
         }
     },
 
@@ -84,6 +95,8 @@ export default {
             }
 
             this.project = project
+            this.liked = project.liked
+            this.likesCount = project.likesCount
         } catch (error) {
             this.$toast.error('Failed to load project')
         }
@@ -111,6 +124,29 @@ export default {
                 this.ideas = ideas
             } catch (error) {
                 this.$toast.error('Failed to load ideas')
+            }
+        },
+
+        async like() {
+            try {
+                const params = {
+                    id: this.project.id,
+                }
+
+                const {
+                    liked,
+                    likesCount,
+                } = await this.$api.send({
+                    app: 'project',
+                    method: 'like',
+                    params,
+                    v: 1,
+                })
+
+                this.liked = liked
+                this.likesCount = likesCount
+            } catch (error) {
+                this.$toast.error('Failed to like project')
             }
         },
     },

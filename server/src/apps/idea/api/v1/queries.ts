@@ -168,7 +168,6 @@ export default {
             user_id = :userId::int8
             AND idea_id = :ideaId::int8;`,
 
-
     // Comments //
     getComments: `
         SELECT

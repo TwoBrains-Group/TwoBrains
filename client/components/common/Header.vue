@@ -7,7 +7,10 @@
         </div>
 
         <nuxt-link to="/" class="main-header__logo btn">
-            <img class="main-header__logo__img" src="~static/img/TwoBrains.svg" alt="TwoBrains">
+            <span class="logo-text">
+                <span class="T">T</span><span>wo</span><span class="B">B</span><span>rains</span>
+            </span>
+<!--            <img class="main-header__logo__img" src="~static/img/TwoBrains.svg" alt="TwoBrains">-->
         </nuxt-link>
 
         <client-only>

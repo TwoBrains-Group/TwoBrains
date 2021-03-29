@@ -17,7 +17,7 @@
 
                 <nuxt-link :to="'/idea/' + id" class="idea__block__creation-datetime" v-tooltip="{
                     content: creationDatetime,
-                    offset: 0,
+                    offset: 0
                 }">
                     {{ prettyCreationDatetime }}
                 </nuxt-link>

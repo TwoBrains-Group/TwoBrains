@@ -13,6 +13,7 @@ export default {
             },
             _uid: {
                 ideas: 'Ideas',
+                projects: 'Projects',
                 follow: 'Follow',
                 settings: 'Settings',
                 unfollow: 'Unfollow',

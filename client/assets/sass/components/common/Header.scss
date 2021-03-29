@@ -37,11 +37,16 @@
     }
 
     .main-header__logo {
-        height: 30px;
-        padding: 5px 10px;
-        line-height: 28px;
-        vertical-align: middle;
-        text-align: center;
+        .logo-text {
+            display: block;
+            position: relative;
+            height: 30px;
+            padding: 5px 10px;
+            line-height: 30px;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 30px;
+        }
     }
 
     .main-header__logo__img {

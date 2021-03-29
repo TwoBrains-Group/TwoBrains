@@ -12,5 +12,8 @@ export default {
         uid: {
             type: 'string',
         },
+        tagsLimit: {
+            type: 'number',
+        },
     },
 }

@@ -21,19 +21,14 @@ class GetList extends Method {
             limit,
             loggedInUserId,
             relation,
+            tagsLimit,
         }
 
         if (userUid) {
             params.userUid = userUid
         }
 
-        let ideas = await this.query('getList', {
-            offset,
-            limit,
-            loggedInUserId,
-            relation,
-            tagsLimit,
-        }, {
+        let ideas = await this.query('getList', params, {
             returnType: QueryReturnType.Rows,
         })
 

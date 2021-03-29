@@ -2,12 +2,15 @@ import {AuthUser, Method, MethodRes, Req} from '@apps/base/Method'
 import {QueryReturnType} from '@modules/db/pool'
 import {prepareProject} from '../modules/prepare'
 
+const DEFAULT_TAGS_LIMIT = 10
+
 class GetByUid extends Method {
     async run(req: Req, user: AuthUser): Promise<MethodRes> {
         const {params} = req
         const {
             userUid,
             uid,
+            tagsLimit = DEFAULT_TAGS_LIMIT,
         } = params
         const {id: loggedInUserId} = user
 
@@ -15,6 +18,7 @@ class GetByUid extends Method {
             userUid,
             uid,
             loggedInUserId,
+            tagsLimit,
         }, {
             returnType: QueryReturnType.Row,
         })

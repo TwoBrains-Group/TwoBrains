@@ -13,17 +13,12 @@ class GetList extends Method_1.Method {
             limit,
             loggedInUserId,
             relation,
+            tagsLimit,
         };
         if (userUid) {
             params.userUid = userUid;
         }
-        let ideas = await this.query('getList', {
-            offset,
-            limit,
-            loggedInUserId,
-            relation,
-            tagsLimit,
-        }, {
+        let ideas = await this.query('getList', params, {
             returnType: pool_1.QueryReturnType.Rows,
         });
         ideas = prepare_ideas_1.prepareIdeas(ideas);

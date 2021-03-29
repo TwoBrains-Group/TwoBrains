@@ -17,6 +17,19 @@ COMMENT ON COLUMN main.tag_groups.tag_group_id IS 'Tag group id';
 COMMENT ON COLUMN main.tag_groups.label IS 'Tag group label';
 COMMENT ON COLUMN main.tag_groups.tsv IS 'Tag tsvector for search';
 
+CREATE TABLE main.tag_groups_l10n (
+    tag_group_id INT2 NOT NULL,
+    data JSONB NOT NULL DEFAULT '{}',
+    locale_id INT2 NOT NULL,
+    CONSTRAINT tag_groups_l10n_tag_group_id_fkey FOREIGN KEY (tag_group_id) REFERENCES main.tag_groups(tag_group_id),
+    CONSTRAINT tag_groups_l10n_locale_id_fkey FOREIGN KEY (locale_id) REFERENCES main.locales(locale_id)
+);
+
+COMMENT ON TABLE main.tag_groups_l10n IS 'Tag groups localized data';
+COMMENT ON COLUMN main.tag_groups_l10n.tag_group_id IS 'Tag group id';
+COMMENT ON COLUMN main.tag_groups_l10n.data IS 'Tag group localized data';
+COMMENT ON COLUMN main.tag_groups_l10n.locale_id IS 'Tag group l10n locale id';
+
 -- tag_groups_tsv_idx --
 CREATE INDEX tag_groups_tsv_idx ON main.tag_groups USING gin(tsv);
 
@@ -49,6 +62,19 @@ COMMENT ON TABLE main.tags IS 'Tags table';
 COMMENT ON COLUMN main.tags.tag_id IS 'Tag id';
 COMMENT ON COLUMN main.tags.label IS 'Tag label';
 COMMENT ON COLUMN main.tags.tag_group_id IS 'Tag group id';
+
+CREATE TABLE main.tags_l10n (
+    tag_id INT2 NOT NULL,
+    data JSONB NOT NULL DEFAULT '{}',
+    locale_id INT2 NOT NULL,
+    CONSTRAINT tags_l10n_tag_id_fkey FOREIGN KEY (tag_id) REFERENCES main.tags(tag_id),
+    CONSTRAINT tags_l10n_locale_id_fkey FOREIGN KEY (locale_id) REFERENCES main.locales(locale_id)
+);
+
+COMMENT ON TABLE main.tags_l10n IS 'Tags localized data table';
+COMMENT ON COLUMN main.tags_l10n.tag_id IS 'Tags l10n tag id';
+COMMENT ON COLUMN main.tags_l10n.data IS 'Tag localized data';
+COMMENT ON COLUMN main.tags_l10n.locale_id IS 'Tag l10n locale id';
 
 -- tags_tsv_idx --
 CREATE INDEX tags_tsv_idx ON main.tags USING gin(tsv);

@@ -4,12 +4,10 @@
     width: 100%;
     height: 130px;
 
-    margin: 10px auto;
-
     grid-template-columns: 100%;
     grid-template-rows: 100px 30px;
 
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: 0 3px 6px -1px #f0f0f0;
     transition: box-shadow .2s ease-out;
     cursor: default;
@@ -55,17 +53,79 @@
             .project__body__info__description {
                 padding: 5px;
                 font-size: 14px;
+                font-weight: 300;
             }
         }
     }
 
     .project__footer {
-        display: flex;
+        display: grid;
         padding: 5px 0;
-        flex-direction: row;
-        flex-flow: row-reverse;
+
+        grid-template-columns: 100px auto max-content;
+        grid-template-rows: 20px;
 
         box-shadow: 0 -1px 1px -1px #aaa;
+
+        .project__footer__like {
+            width: max-content;
+            font-size: 14px;
+            padding: 0 10px;
+            margin: 0 auto;
+            line-height: 20px;
+            vertical-align: middle;
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 0 0 0 1px #f0f0f0;
+
+            span {
+                line-height: 22px;
+                vertical-align: middle;
+                font-weight: 500;
+            }
+
+            &.liked {
+                i {
+                    color: #FFD700;
+                    text-shadow: 0 0 1px mix(#FFD700, #000, 80%);
+                }
+            }
+
+            i {
+                transition: .15s ease;
+            }
+
+            &:hover {
+                i {
+                    color: #FFD700;
+                    text-shadow: 0 0 10px #fff;
+                }
+            }
+        }
+
+        .project__footer__tags {
+            display: grid;
+
+            grid-template-columns: max-content;
+            grid-template-rows: 100%;
+
+            .project__footer__tags__el {
+                padding: 0 10px;
+                font-size: 14px;
+                line-height: 20px;
+                vertical-align: middle;
+                border-radius: 5px;
+                box-shadow: inset 0 0 0 1px #f0f0f0;
+
+                &:hover {
+                    box-shadow: 0 2px 4px -1px #ddd;
+                }
+
+                .group {
+                    font-weight: 500;
+                }
+            }
+        }
 
         .project__footer__creator {
             padding: 0 10px;

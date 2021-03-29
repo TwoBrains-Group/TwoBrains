@@ -23,7 +23,7 @@
         height: max-content;
         padding: 10px;
 
-        grid-template-columns: repeat(2, minmax(max-content, 1fr));
+        grid-template-columns: repeat(2, 1fr);
         grid-gap: 8px;
 
         .tag-search__list__el {
@@ -33,6 +33,12 @@
             border-radius: 6px;
             box-shadow: 0 2px 5px -2px #ccc;
             text-align: center;
+            font-size: 15px;
+
+            .group {
+                font-size: 16px;
+                font-weight: 500;
+            }
 
             &:not(:hover) {
                 background: #fff;

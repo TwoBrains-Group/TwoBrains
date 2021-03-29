@@ -15,6 +15,7 @@ class Create extends Method_1.Method {
         let { plugins } = params;
         plugins = [...defaultPlugins, ...plugins];
         const uid = `${name.replace(/\s+/, '_')}_${nanoid_1.nanoid(8)}`.toLowerCase();
+        console.log(`name ${name}, descr ${description}, plugins ${JSON.stringify(plugins, null, 2)}`);
         const id = await this.query('create', {
             name,
             description,

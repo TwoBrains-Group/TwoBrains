@@ -1,0 +1,9 @@
+.project-list {
+    display: grid;
+    position: relative;
+
+    grid-template-columns: 100%;
+    grid-template-rows: 130px;
+
+    grid-gap: 5px;
+}

@@ -5,7 +5,6 @@
         <InfiniteScroll :no-result="l10n.noIdeasHere + ' 😞'"
                         no-result-link-url="/idea/create"
                         :no-result-link-text="l10n.addOne"
-                        :no-more="false"
                         @fetch="infiniteScroll"/>
     </div>
 </template>

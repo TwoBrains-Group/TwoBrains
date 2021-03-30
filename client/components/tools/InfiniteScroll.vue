@@ -9,10 +9,10 @@
                 <Spinner/>
             </div>
 
-            <h5 slot="no-more" :class="!noMore ? 'hide-no-more' : ''">{{ noMore$ }}</h5>
+            <h5 slot="no-more" :class="!noMore ? 'hide-no-more' : ''">{{ noMore }}</h5>
 
             <h5 slot="no-results" :class="!noResult ? 'hide-no-result' : ''">
-                {{ noResult$ }}
+                {{ noResult }}
             </h5>
 
             <nuxt-link slot="no-results"
@@ -36,8 +36,12 @@ export default {
 
     props: {
         // 'distance',
-        noResult: {},
-        noMore: {},
+        noResult: {
+            type: String,
+        },
+        noMore: {
+            type: String,
+        },
         noResultLinkUrl: {
             type: String,
         },
@@ -54,8 +58,6 @@ export default {
 
     data() {
         return {
-            noMore$: this.noMore || 'No more...',
-            noResult$: this.noResult || 'Nothing here 😞',
             fetched: true,
         }
     },

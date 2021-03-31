@@ -1,4 +1,50 @@
-import fs from 'fs'
+const fs = require('fs')
+const en = require('./l10n/en')
+const ru = require('./l10n/ru')
+
+const loc = {en, ru}
+const allData = {...en, ...ru}
+
+const getKeys = (obj, depth = 1) => {
+    if (typeof obj !== 'object') return obj
+
+    const keys = []
+    if (depth === 1) {
+        return Object.keys(obj)
+    } else {
+        keys.push(...Object.values(obj).reduce((acc, so) => [...acc, ...getKeys(so, depth - 1)], []))
+    }
+    return keys
+}
+
+const apps = [...new Set([...Object.keys(allData).filter(app => !app.startsWith('_'))])]
+const pages = Object.values(allData).reduce((acc, a) => [...acc, ...Object.keys(a)], [])
+const cmps = Object.values(allData).reduce((acc, a) => {
+    console.log('acc', acc)
+    return acc.push(Object.values(a).reduce((pacc, p) => {
+        console.log(p)
+    }, []))
+}, [])
+
+const getAppName = a => `${a === '*' ? 'any' : a}_app`
+const getPageName = p => `${p === '*' ? 'any' : p}_page`
+const getLocaleName = l => `${l}_locale`
+const getCmpName = c => `${c}_cmp`
+
+const appsDecl = apps.map(a => {
+    return `${getAppName(a)} INT2;`
+}).join('\n')
+
+const pagesDecl = pages.map(p => {
+    return `${getPageName(p)} INT2;`
+}).join('\n')
+
+const localesDecl = Object.keys(loc).map(l => {
+    return `${getLocaleName(l)} INT2 = (SELECT locale_id
+                                     FROM main.locales
+                                     WHERE code = '${l}');`
+}).join('\n')
+
 
 const query = `
 BEGIN TRANSACTION;

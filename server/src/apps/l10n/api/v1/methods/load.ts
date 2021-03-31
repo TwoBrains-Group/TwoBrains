@@ -6,17 +6,17 @@ class Load extends Method {
         const {params} = req
         const {locale} = params
 
-        const cmp = await this.query('loadComponents', {
+        const cmp = await this.query('getComponentsL10n', {
             locale,
         }, {
-            returnType: QueryReturnType.Rows,
+            returnType: QueryReturnType.Row,
             returnField: 'data',
         })
 
-        const page = await this.query('loadPages', {
+        const page = await this.query('getPagesL10n', {
             locale,
         }, {
-            returnType: QueryReturnType.Rows,
+            returnType: QueryReturnType.Row,
             returnField: 'data',
         })
 
@@ -29,4 +29,5 @@ class Load extends Method {
 
 export default new Load({
     name: 'load',
+    auth: false,
 })

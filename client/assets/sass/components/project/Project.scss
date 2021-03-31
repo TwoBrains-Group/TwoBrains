@@ -131,12 +131,13 @@
             padding: 0 10px;
             line-height: 20px;
             vertical-align: middle;
+            font-size: 14px;
+            color: #666;
 
             .project__footer__creator__link {
                 font-weight: 600;
 
                 transition: color .15s ease;
-                font-size: 15px;
                 &:hover {
                     color: #9aa6ce;
                 }

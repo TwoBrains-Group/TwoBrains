@@ -6,16 +6,16 @@ class Load extends Method_1.Method {
     async run(req) {
         const { params } = req;
         const { locale } = params;
-        const cmp = await this.query('loadComponents', {
+        const cmp = await this.query('getComponentsL10n', {
             locale,
         }, {
-            returnType: pool_1.QueryReturnType.Rows,
+            returnType: pool_1.QueryReturnType.Row,
             returnField: 'data',
         });
-        const page = await this.query('loadPages', {
+        const page = await this.query('getPagesL10n', {
             locale,
         }, {
-            returnType: pool_1.QueryReturnType.Rows,
+            returnType: pool_1.QueryReturnType.Row,
             returnField: 'data',
         });
         return {
@@ -26,4 +26,5 @@ class Load extends Method_1.Method {
 }
 exports.default = new Load({
     name: 'load',
+    auth: false,
 });

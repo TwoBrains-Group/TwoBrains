@@ -13,13 +13,26 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="edaaf9c1-6c17-4647-aa91-a795e595d129" name="Default Changelist" comment="save l10n changes">
+    <list default="true" id="edaaf9c1-6c17-4647-aa91-a795e595d129" name="Default Changelist" comment="save l10n script">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.eslintignore" beforeDir="false" afterPath="$PROJECT_DIR$/server/.eslintignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/sass/components/project/Project.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/components/project/Project.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/l10n/load.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/l10n/load.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/base/templates.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/apps/base/templates.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/modules/prepare-ideas.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/modules/prepare-ideas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/methods/load.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/methods/load.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/queries.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/queries.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/modules/prepare-user.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/modules/prepare-user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/modules/db/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/modules/db/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/modules/db/pool.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/modules/db/pool.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/modules/logger/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/modules/logger/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/tsconfig.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/tsconfig.tsbuildinfo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/utils/dotenv.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/utils/dotenv.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/db/scripts/l10n.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/scripts/l10n.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/db/scripts/l10n.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/scripts/l10n.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/db/scripts/l10n/en.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/scripts/l10n/en.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/db/scripts/l10n/ru.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/scripts/l10n/ru.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/l10n/api/v1/methods/load.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/l10n/api/v1/methods/load.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/l10n/api/v1/queries.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/l10n/api/v1/queries.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +97,7 @@
     <property name="nodejs_interpreter_path" value="/opt/node/bin/node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.prettier.on.save" value="true" />
-    <property name="settings.editor.selected.configurable" value="xpath.settings" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
     <property name="vuejs.nuxt.types-notification-shown" value="true" />
@@ -193,7 +206,7 @@
       <workItem from="1616859627576" duration="15879000" />
       <workItem from="1616935875188" duration="36917000" />
       <workItem from="1617130146698" duration="3700000" />
-      <workItem from="1617177862607" duration="5571000" />
+      <workItem from="1617177862607" duration="15538000" />
     </task>
     <task id="LOCAL-00001" summary=":bulb: Meow">
       <created>1612391364993</created>
@@ -356,7 +369,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617212112830</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="save l10n script">
+      <created>1617214830391</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1617214830391</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -403,7 +423,8 @@
     <MESSAGE value="чекибрыки в дамки" />
     <MESSAGE value="Save old l10n.load" />
     <MESSAGE value="save l10n changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="save l10n changes" />
+    <MESSAGE value="save l10n script" />
+    <option name="LAST_COMMIT_MESSAGE" value="save l10n script" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2289" y="243" width="936" height="707" key="#ESLint" timestamp="1616528827281">
@@ -466,12 +487,12 @@
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state x="860" y="260" key="IDE.errors.dialog/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614281611294" />
-    <state x="2064" y="167" key="SettingsEditor" timestamp="1616958510781">
+    <state x="2064" y="167" key="SettingsEditor" timestamp="1617215754124">
       <screen x="1280" y="0" width="2560" height="1080" />
     </state>
     <state x="784" y="162" key="SettingsEditor/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1615927135129" />
     <state x="784" y="162" key="SettingsEditor/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612147345234" />
-    <state x="2064" y="167" key="SettingsEditor/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1616958510781" />
+    <state x="2064" y="167" key="SettingsEditor/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1617215754124" />
     <state width="498" height="459" key="SwitcherDM" timestamp="1616512597431">
       <screen x="1280" y="0" width="2560" height="1080" />
     </state>
@@ -491,14 +512,14 @@
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state x="0" y="0" width="2166" height="1032" key="dock-window-1/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1612652780293" />
-    <state x="2267" y="267" width="634" height="675" key="find.popup" timestamp="1617139748529">
+    <state x="2267" y="267" width="634" height="675" key="find.popup" timestamp="1617225757976">
       <screen x="1280" y="0" width="2560" height="1080" />
     </state>
     <state x="987" y="260" width="594" height="656" key="find.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1616280650639" />
     <state x="3054" y="246" width="555" height="622" key="find.popup/0.0.2560.1050/2560.0.1280.994@2560.0.1280.994" timestamp="1615672963356" />
     <state x="987" y="260" width="594" height="656" key="find.popup/0.0.2560.1050/2560.0.1680.1020/-1280.4.1280.994@0.0.2560.1050" timestamp="1616341956787" />
     <state x="987" y="260" width="585" height="534" key="find.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612145569091" />
-    <state x="2267" y="267" width="634" height="675" key="find.popup/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1617139748529" />
+    <state x="2267" y="267" width="634" height="675" key="find.popup/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1617225757976" />
     <state width="600" height="440" key="javadoc.popup" timestamp="1614281174337">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
@@ -510,11 +531,11 @@
     <state x="3031" y="227" width="336" height="641" key="run.anything.popup/0.0.2560.1050/2560.0.1280.994@2560.0.1280.994" timestamp="1615669619272" />
     <state x="942" y="240" key="run.anything.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612128644928" />
     <state x="2222" y="247" width="672" height="697" key="run.anything.popup/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1616980060430" />
-    <state x="2223" y="239" width="672" height="697" key="search.everywhere.popup" timestamp="1616962801248">
+    <state x="2223" y="239" width="672" height="697" key="search.everywhere.popup" timestamp="1617218896618">
       <screen x="1280" y="0" width="2560" height="1080" />
     </state>
     <state x="943" y="232" width="672" height="677" key="search.everywhere.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1616281564758" />
     <state x="943" y="232" width="672" height="678" key="search.everywhere.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612131512848" />
-    <state x="2223" y="239" width="672" height="697" key="search.everywhere.popup/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1616962801248" />
+    <state x="2223" y="239" width="672" height="697" key="search.everywhere.popup/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1617218896618" />
   </component>
 </project>

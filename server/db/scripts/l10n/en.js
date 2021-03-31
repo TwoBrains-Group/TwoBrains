@@ -66,4 +66,127 @@ module.exports = {
             },
         },
     },
+
+    cmp: {
+        '*': {
+            MainMenu: {
+                home: 'Home',
+                about: 'About',
+                ideas: 'Ideas',
+                projects: 'Projects',
+            },
+            Header: {
+                logout: 'Log out',
+                profile: 'Profile',
+                settings: 'Settings',
+                search: 'Search...',
+                users: 'Users',
+                ideas: 'Ideas',
+                noSearchResult: 'No result',
+            },
+            InputFile: {
+                chooseFile: 'Choose file...',
+            },
+            Textarea: {
+                moreToGo: '{count} more to go',
+                tooLongBy: 'Too long by {count} characters',
+                charactersLeft: '{count} characters left',
+            },
+            Input: {
+                moreToGo: '{count} more to go',
+                tooLongBy: 'Too long by {count} characters',
+                charactersLeft: '{count} characters left',
+            },
+            TagSearch: {
+                defaultHeader: 'Add tags',
+                searchTags: 'Search tags...',
+            },
+        },
+        idea: {
+            IdeaComment: {
+                edit: 'Edit',
+                reply: 'Reply',
+                delete: 'Delete',
+                showReplies: 'Show replies',
+                closeReplies: 'Close replies',
+                failedToReply: 'Failed to reply',
+                failedToLikeComment: 'Failed to like comment',
+                failedToLoadReplies: 'Failed to load replies',
+                failedToDeleteComment: 'Failed to delete comment',
+                replySuccessfullyAdded: 'Reply successfully added',
+                commentSuccessfullyDeleted: 'Comment successfully deleted',
+            },
+            WriteComment: {
+                writeAComment: 'Write a comment...',
+                commentSuccessfullyAdded: 'Comment successfully added',
+            },
+            Idea: {
+                edit: 'Edit',
+                delete: 'Delete',
+                failedToLoadComments: 'Failed to load comments',
+            },
+            IdeaList: {
+                noMore: 'No more...',
+                noResult: 'No ideas here',
+                failedToLoadIdeas: 'Failed to load ideas',
+            },
+        },
+        project: {
+            Project: {
+                createdBy: 'Created by',
+            },
+        },
+    },
+
+    entities: {
+        tags: {
+            lol: 'kek',
+        },
+        tagGroups: {
+            meow: 'bitch',
+        },
+        plugins: {
+            idea: {
+                name: 'Idea',
+                shortDescription: 'This plugin lets you create ideas on behalf of project',
+            },
+            test1: {
+                name: 'Test test test 1 1 1',
+                shortDescription: 'This is test plugin #1',
+            },
+            test2: {
+                name: 'Test test test 2 2 2',
+                shortDescription: 'This is test plugin #2',
+            },
+            test3: {
+                name: 'Test test test 3 3 3',
+                shortDescription: 'This is test plugin #3',
+            },
+        },
+    },
+
+    time: {
+        ranges: {
+            y: 'year',
+            mth: 'month',
+            d: 'day',
+            h: 'hour',
+            m: 'minute',
+            s: 'seconds',
+        },
+        months: [
+            'January',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June',
+            'July',
+            'August',
+            'September',
+            'October',
+            'November',
+            'December',
+        ],
+    },
 }

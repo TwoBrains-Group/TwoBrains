@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = {
-    getComponentData: `
+    getComponentsL10n: `
         WITH cmps AS (
             SELECT
                  jsonb_build_object(c.name, jsonb_object_agg(data.key, data.value)) AS data
@@ -33,7 +33,7 @@ exports.default = {
             COALESCE(jsonb_object_agg(apps.app_name, apps.data), '{}')::jsonb AS "data"
         FROM
             apps;`,
-    getPageData: `
+    getPagesL10n: `
         WITH pages AS (
             SELECT
                  jsonb_build_object(p.name, jsonb_object_agg(data.key, data.value)) AS data
@@ -73,28 +73,4 @@ exports.default = {
         WHERE
             l.state = 'enabled'::main.state
             AND l.translatable = :translatable;`,
-    getAllComponentsData: `
-        SELECT
-            json_object_agg(
-                a.name || '_' || c.name, cl10n.data
-            )::jsonb AS "data"
-        FROM
-            main.components_l10n AS cl10n
-            INNER JOIN main.locales AS l ON cl10n.locale_id = l.locale_id
-            INNER JOIN main.components AS c ON cl10n.component_id = c.component_id
-            INNER JOIN main.apps AS a ON c.app_id = a.app_id
-        WHERE
-            l.code = :locale;`,
-    getAllPagesData: `
-        SELECT
-            json_object_agg(
-                a.name || '_' || p.name, pl10n.data
-            )::jsonb AS "data"
-        FROM
-            main.pages_l10n AS pl10n
-            INNER JOIN main.locales AS l ON pl10n.locale_id = l.locale_id
-            INNER JOIN main.pages AS p ON pl10n.page_id = p.page_id
-            INNER JOIN main.apps AS a ON p.app_id = a.app_id
-        WHERE
-            l.code = :locale;`,
 };

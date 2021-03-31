@@ -1,5 +1,6 @@
-TRUNCATE TABLE main.apps CASCADE;
+import fs from 'fs'
 
+const query = `
 BEGIN TRANSACTION;
 SET search_path TO main;
 
@@ -335,3 +336,5 @@ $$
 $$;
 
 COMMIT;
+
+`

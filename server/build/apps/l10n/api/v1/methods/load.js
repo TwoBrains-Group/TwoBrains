@@ -5,44 +5,23 @@ const pool_1 = require("@modules/db/pool");
 class Load extends Method_1.Method {
     async run(req) {
         const { params } = req;
-        const { locale, } = params;
-        const data = {
-            components: {},
-            pages: {},
-        };
-        data.components = await this.query('getAllComponentsData', {
+        const { locale } = params;
+        const cmp = await this.query('loadComponents', {
             locale,
         }, {
-            returnType: pool_1.QueryReturnType.Row,
+            returnType: pool_1.QueryReturnType.Rows,
             returnField: 'data',
         });
-        data.pages = await this.query('getAllPagesData', {
+        const page = await this.query('loadPages', {
             locale,
         }, {
-            returnType: pool_1.QueryReturnType.Row,
+            returnType: pool_1.QueryReturnType.Rows,
             returnField: 'data',
         });
         return {
-            data,
+            cmp,
+            page,
         };
-    }
-    async loadComponentData(params, locale) {
-        return await this.query('getComponentData', {
-            ...params,
-            locale,
-        }, {
-            returnType: pool_1.QueryReturnType.Row,
-            returnField: 'data',
-        });
-    }
-    async loadPageData(params, locale) {
-        return await this.query('getPageData', {
-            ...params,
-            locale,
-        }, {
-            returnType: pool_1.QueryReturnType.Row,
-            returnField: 'data',
-        });
     }
 }
 exports.default = new Load({

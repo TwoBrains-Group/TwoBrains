@@ -130,7 +130,7 @@ class Api {
     async callMethod(req: any, res: Response, next: NextFunction) {
         const reqObj: Req = req.body
 
-        // TODO: Validate base
+        // TODO: Validate api
 
         const method = this.getMethod(req)
 

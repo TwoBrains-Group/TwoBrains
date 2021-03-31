@@ -14,7 +14,7 @@ class BaseAuth extends Method {
     }
 
     async getToken(userId: number): Promise<getTokenResult> {
-        // TODO: Move JWT logic to module or base method
+        // TODO: Move JWT logic to module or api method
         const userData: Record<string, unknown> = await this.query('getUserData', {
             userId,
         }, {

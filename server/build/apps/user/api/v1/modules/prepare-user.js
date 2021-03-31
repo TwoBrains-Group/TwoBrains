@@ -1,13 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.prepareFollowingStatus = exports.prepareUser = void 0;
-exports.prepareUser = (user) => {
+const prepareUser = (user) => {
     exports.prepareFollowingStatus(user);
     delete user.following;
     delete user.followingYou;
     delete user.mutualFollowing;
 };
-exports.prepareFollowingStatus = (entity) => {
+exports.prepareUser = prepareUser;
+const prepareFollowingStatus = (entity) => {
     if (entity.mutualFollowing) {
         entity.followingStatus = 'mutual_following';
         entity.followingAction = 'unfollow';
@@ -25,3 +26,4 @@ exports.prepareFollowingStatus = (entity) => {
         entity.followingAction = 'follow';
     }
 };
+exports.prepareFollowingStatus = prepareFollowingStatus;

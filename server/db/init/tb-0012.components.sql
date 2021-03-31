@@ -15,6 +15,8 @@ COMMENT ON TABLE main.components IS 'Components table';
 COMMENT ON COLUMN main.components.app_id IS 'Component app id';
 COMMENT ON COLUMN main.components.name IS 'Component name';
 
+CREATE INDEX components_app_id_idx ON main.components (app_id);
+
 -- components_l10n --
 CREATE TABLE main.components_l10n (
     component_id INT2 NOT NULL,
@@ -29,5 +31,7 @@ COMMENT ON TABLE main.components_l10n IS 'Components localization table';
 COMMENT ON COLUMN main.components_l10n.component_id IS 'Component id';
 COMMENT ON COLUMN main.components_l10n.locale_id IS 'Locale id';
 COMMENT ON COLUMN main.components_l10n.data IS 'Component localized data';
+
+CREATE INDEX components_l10n_component_id_idx ON main.components_l10n (component_id);
 
 COMMIT;

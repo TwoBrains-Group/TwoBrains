@@ -1,29 +1,69 @@
 export default {
     getComponentData: `
+        WITH cmps AS (
+            SELECT
+                 jsonb_build_object(c.name, jsonb_object_agg(data.key, data.value)) AS data
+                ,c.app_id
+            FROM
+                main.components AS c
+                INNER JOIN main.components_l10n AS cl10n ON c.component_id = cl10n.component_id
+                INNER JOIN main.locales AS l ON cl10n.locale_id = l.locale_id,
+                jsonb_each(cl10n.data) AS data
+            WHERE
+                l.code = :locale
+                AND l.translatable IS TRUE
+            GROUP BY
+                c.name,
+                c.app_id
+        ),
+        apps AS (
+            SELECT
+                 a.name AS app_name
+                ,jsonb_object_agg(data.key, data.value) AS data
+            FROM
+                cmps
+                INNER JOIN main.apps AS a ON a.app_id = cmps.app_id,
+                jsonb_each(cmps.data) AS data
+            GROUP BY
+                a.name
+        )
         SELECT
-            cl10n.data::jsonb AS "data"
+            COALESCE(jsonb_object_agg(apps.app_name, apps.data), '{}')::jsonb AS "data"
         FROM
-            main.components_l10n AS cl10n
-            INNER JOIN main.locales AS l ON l.code = :locale
-            INNER JOIN main.components AS c ON cl10n.component_id = c.component_id
-            INNER JOIN main.apps AS a ON a.app_id = c.app_id
-        WHERE
-            cl10n.locale_id = l.locale_id
-            AND a.name = :app
-            AND c.name = :name;`,
+            apps;`,
 
     getPageData: `
+        WITH pages AS (
+            SELECT
+                 jsonb_build_object(p.name, jsonb_object_agg(data.key, data.value)) AS data
+                ,p.app_id
+            FROM
+                main.pages AS p
+                INNER JOIN main.pages_l10n AS pl10n ON p.page_id = pl10n.page_id
+                INNER JOIN main.locales AS l ON pl10n.locale_id = l.locale_id,
+                jsonb_each(pl10n.data) AS data
+            WHERE
+                l.code = :locale
+                AND l.translatable IS TRUE
+            GROUP BY
+                p.name,
+                p.app_id
+        ),
+        apps AS (
+            SELECT
+                 a.name AS app_name
+                ,jsonb_object_agg(data.key, data.value) AS data
+            FROM
+                pages
+                INNER JOIN main.apps AS a ON a.app_id = pages.app_id,
+                jsonb_each(pages.data) AS data
+            GROUP BY
+                a.name
+        )
         SELECT
-            pl10n.data::jsonb AS "data"
+            COALESCE(jsonb_object_agg(apps.app_name, apps.data), '{}')::jsonb AS "data"
         FROM
-            main.pages_l10n AS pl10n
-            INNER JOIN main.locales AS l ON l.locale_id = pl10n.locale_id
-            INNER JOIN main.pages AS p ON pl10n.page_id = p.page_id
-            INNER JOIN main.apps AS a ON a.app_id = p.app_id
-        WHERE
-            a.name = :app
-            AND p.name = :name
-            AND l.code = :locale;`,
+            apps;`,
 
     getLocales: `
         SELECT

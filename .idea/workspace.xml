@@ -13,17 +13,33 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="edaaf9c1-6c17-4647-aa91-a795e595d129" name="Default Changelist" comment="чекибрыки в дамки">
-      <change afterPath="$PROJECT_DIR$/client/l10n/load.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/db/test-data/tb-td-1000.l10n.sql" afterDir="false" />
+    <list default="true" id="edaaf9c1-6c17-4647-aa91-a795e595d129" name="Default Changelist" comment="Save old l10n.load">
+      <change afterPath="$PROJECT_DIR$/server/_docs/api/method.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/_docs/api/request.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/_docs/apps/l10n/methods/load.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/db/scripts/l10n.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/db/scripts/l10n/en.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/db/scripts/l10n/ru.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/sass/pages/idea/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/pages/idea/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/idea/IdeaList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/idea/IdeaList.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/tools/InfiniteScroll.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/tools/InfiniteScroll.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/config/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/l10n/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/db/init/tb-0011.pages.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/init/tb-0011.pages.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/l10n/load.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/l10n/load.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/base/templates.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/apps/base/templates.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/modules/prepare-ideas.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/modules/prepare-ideas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/methods/load.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/methods/load.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/queries.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/queries.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/schemas/load.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/schemas/load.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/modules/prepare-user.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/modules/prepare-user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/modules/db/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/modules/db/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/modules/db/pool.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/modules/db/pool.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/modules/logger/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/modules/logger/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/tsconfig.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/tsconfig.tsbuildinfo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/utils/dotenv.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/utils/dotenv.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/db/init/tb-0012.components.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/init/tb-0012.components.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/db/test-data/tb-td-1000.l10n.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/scripts/l10n.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/auth/api/v1/methods/base-auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/auth/api/v1/methods/base-auth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/base/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/base/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/l10n/api/v1/methods/load.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/l10n/api/v1/methods/load.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/l10n/api/v1/queries.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/l10n/api/v1/queries.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/l10n/api/v1/schemas/load.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/l10n/api/v1/schemas/load.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +88,7 @@
     <property name="javascript.nodejs.core.library.configured.version" value="15.11.0" />
     <property name="javascript.nodejs.core.library.typings.version" value="14.14.35" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../services/call_pay_system_service" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.stylelint" value="true" />
@@ -196,7 +212,8 @@
       <workItem from="1616845176006" duration="8324000" />
       <workItem from="1616859627576" duration="15879000" />
       <workItem from="1616935875188" duration="36917000" />
-      <workItem from="1617130146698" duration="2375000" />
+      <workItem from="1617130146698" duration="3700000" />
+      <workItem from="1617177862607" duration="3004000" />
     </task>
     <task id="LOCAL-00001" summary=":bulb: Meow">
       <created>1612391364993</created>
@@ -345,7 +362,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616996967224</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Save old l10n.load">
+      <created>1617140099743</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1617140099743</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -390,7 +414,8 @@
     <MESSAGE value="save" />
     <MESSAGE value="kek" />
     <MESSAGE value="чекибрыки в дамки" />
-    <option name="LAST_COMMIT_MESSAGE" value="чекибрыки в дамки" />
+    <MESSAGE value="Save old l10n.load" />
+    <option name="LAST_COMMIT_MESSAGE" value="Save old l10n.load" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2289" y="243" width="936" height="707" key="#ESLint" timestamp="1616528827281">
@@ -407,6 +432,10 @@
     </state>
     <state x="1064" y="153" key="#JSON/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1612557303085" />
     <state x="1064" y="153" key="#JSON/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612126501334" />
+    <state x="2370" y="409" width="677" height="530" key="#Markdown" timestamp="1617140353374">
+      <screen x="1280" y="0" width="2560" height="1080" />
+    </state>
+    <state x="2370" y="409" width="677" height="530" key="#Markdown/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1617140353374" />
     <state x="995" y="314" width="563" height="426" key="#Node.js_and_NPM" timestamp="1612125491088">
       <screen x="0" y="0" width="2560" height="1052" />
     </state>
@@ -429,22 +458,22 @@
       <screen x="0" y="0" width="2560" height="1052" />
     </state>
     <state x="738" y="185" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612125479031" />
-    <state x="2314" y="328" width="510" height="426" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1616864902588">
+    <state x="2314" y="328" width="510" height="426" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1617140290294">
       <screen x="1280" y="0" width="2560" height="1080" />
     </state>
     <state x="1034" y="319" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1616008611627" />
     <state x="1034" y="320" width="508" height="414" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612140347437" />
-    <state x="2314" y="328" width="510" height="426" key="#com.intellij.fileTypes.FileTypeChooser/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1616864902588" />
+    <state x="2314" y="328" width="510" height="426" key="#com.intellij.fileTypes.FileTypeChooser/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1617140290294" />
     <state x="935" y="308" width="683" height="683" key="EditFileWatcherDialog" timestamp="1612141018555">
       <screen x="0" y="0" width="2560" height="1052" />
     </state>
     <state x="935" y="308" width="683" height="683" key="EditFileWatcherDialog/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612141018555" />
-    <state x="2343" y="292" width="428" height="484" key="FileChooserDialogImpl" timestamp="1616493120459">
+    <state x="2274" y="256" width="541" height="617" key="FileChooserDialogImpl" timestamp="1617177925851">
       <screen x="1280" y="0" width="2560" height="1080" />
     </state>
     <state x="1063" y="284" key="FileChooserDialogImpl/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1615319139228" />
     <state x="1063" y="285" width="428" height="484" key="FileChooserDialogImpl/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612140942406" />
-    <state x="2343" y="292" width="428" height="484" key="FileChooserDialogImpl/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1616493120459" />
+    <state x="2274" y="256" width="541" height="617" key="FileChooserDialogImpl/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1617177925851" />
     <state x="860" y="260" key="IDE.errors.dialog" timestamp="1614281611294">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>

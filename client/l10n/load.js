@@ -3,7 +3,7 @@ import {Api} from '@/plugins/api'
 export default async (ctx, locale) => {
     const api = new Api(ctx)
 
-    return await api.send({
+    const {data} = await api.send({
         app: 'l10n',
         method: 'load',
         params: {
@@ -11,4 +11,6 @@ export default async (ctx, locale) => {
         },
         v: 1,
     })
+
+    return data
 }

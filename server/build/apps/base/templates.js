@@ -6,7 +6,7 @@ exports.template = {
     method: 'unknown',
     v: 0,
 };
-exports.getRes = (res) => {
+const getRes = (res) => {
     if (!res) {
         throw new Error('Result is null or undefined');
     }
@@ -21,3 +21,4 @@ exports.getRes = (res) => {
         result: res,
     };
 };
+exports.getRes = getRes;

@@ -13,26 +13,63 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="edaaf9c1-6c17-4647-aa91-a795e595d129" name="Default Changelist" comment="save l10n script">
+    <list default="true" id="edaaf9c1-6c17-4647-aa91-a795e595d129" name="Default Changelist" comment=":ambulance: LOCALIZATION LAZY LOAD!!!">
+      <change afterPath="$PROJECT_DIR$/client/components/ui/Form.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/constants/Input.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/sass/components/project/Project.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/components/project/Project.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/l10n/load.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/l10n/load.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/sass/components/idea/Idea.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/components/idea/Idea.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/sass/components/idea/IdeaList.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/components/idea/IdeaList.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/sass/pages/idea/create.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/pages/idea/create.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/sass/pages/idea/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/pages/idea/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/sass/pages/idea/single.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/pages/idea/single.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/sass/pages/info/about.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/pages/info/about.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/sass/pages/project/create.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/pages/project/create.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/sass/pages/project/list.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/pages/project/list.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/sass/pages/project/single.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/pages/project/single.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/sass/pages/user/profile.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/pages/user/profile.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/sass/pages/user/settings.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/pages/user/settings.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/sass/ui/_tools.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/ui/_tools.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/idea/IdeaList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/idea/IdeaList.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/idea/WriteComment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/idea/WriteComment.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/tools/InfiniteScroll.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/tools/InfiniteScroll.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/ui/Input.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/ui/Input.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/nuxt.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/nuxt.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/idea/_id.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/idea/_id.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/idea/create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/idea/create.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/idea/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/idea/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/info/about.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/info/about.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/project/create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/project/create.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/user/_uid/project/_projectUid.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/user/_uid/project/_projectUid.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/user/settings.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/user/settings.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/.eslintignore" beforeDir="false" afterPath="$PROJECT_DIR$/server/.eslintignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/base/Method.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/apps/base/Method.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/base/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/apps/base/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/base/errors.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/apps/base/errors.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/build/apps/base/templates.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/apps/base/templates.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/get-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/get-list.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/modules/prepare-ideas.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/modules/prepare-ideas.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/methods/load.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/methods/load.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/queries.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/queries.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/get-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/get-list.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/modules/prepare-user.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/apps/user/api/v1/modules/prepare-user.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/build/modules/db/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/modules/db/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/build/modules/db/pool.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/modules/db/pool.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/build/modules/logger/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/modules/logger/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/modules/pretty-time/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/modules/pretty-time/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/server/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/server/mws/error.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/server/mws/error.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/build/tsconfig.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/tsconfig.tsbuildinfo" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/build/utils/dotenv.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/utils/dotenv.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/db/scripts/l10n.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/scripts/l10n.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/db/scripts/l10n.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/scripts/l10n.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/db/scripts/l10n/en.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/scripts/l10n/en.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/db/scripts/l10n/ru.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/scripts/l10n/ru.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/l10n/api/v1/methods/load.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/l10n/api/v1/methods/load.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/l10n/api/v1/queries.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/l10n/api/v1/queries.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/base/Method.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/base/Method.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/base/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/base/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/base/errors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/base/errors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-list.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-list.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/schemas/get-list.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/schemas/get-list.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/modules/pretty-time/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/modules/pretty-time/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/server/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/server/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/server/mws/error.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/server/mws/error.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +118,7 @@
     <property name="javascript.nodejs.core.library.configured.version" value="15.11.0" />
     <property name="javascript.nodejs.core.library.typings.version" value="14.14.35" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../services/call_pay_system_service" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../services/operational_reporting_service" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.stylelint" value="true" />
@@ -206,7 +243,8 @@
       <workItem from="1616859627576" duration="15879000" />
       <workItem from="1616935875188" duration="36917000" />
       <workItem from="1617130146698" duration="3700000" />
-      <workItem from="1617177862607" duration="15538000" />
+      <workItem from="1617177862607" duration="16128000" />
+      <workItem from="1617268056234" duration="11660000" />
     </task>
     <task id="LOCAL-00001" summary=":bulb: Meow">
       <created>1612391364993</created>
@@ -376,7 +414,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617214830391</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary=":ambulance: LOCALIZATION LAZY LOAD!!!">
+      <created>1617225805541</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1617225805541</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -424,7 +469,8 @@
     <MESSAGE value="Save old l10n.load" />
     <MESSAGE value="save l10n changes" />
     <MESSAGE value="save l10n script" />
-    <option name="LAST_COMMIT_MESSAGE" value="save l10n script" />
+    <MESSAGE value=":ambulance: LOCALIZATION LAZY LOAD!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value=":ambulance: LOCALIZATION LAZY LOAD!!!" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2289" y="243" width="936" height="707" key="#ESLint" timestamp="1616528827281">
@@ -477,12 +523,12 @@
       <screen x="0" y="0" width="2560" height="1052" />
     </state>
     <state x="935" y="308" width="683" height="683" key="EditFileWatcherDialog/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612141018555" />
-    <state x="2274" y="256" width="541" height="617" key="FileChooserDialogImpl" timestamp="1617177925851">
+    <state x="2274" y="256" width="541" height="617" key="FileChooserDialogImpl" timestamp="1617293391246">
       <screen x="1280" y="0" width="2560" height="1080" />
     </state>
     <state x="1063" y="284" key="FileChooserDialogImpl/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1615319139228" />
     <state x="1063" y="285" width="428" height="484" key="FileChooserDialogImpl/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612140942406" />
-    <state x="2274" y="256" width="541" height="617" key="FileChooserDialogImpl/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1617177925851" />
+    <state x="2274" y="256" width="541" height="617" key="FileChooserDialogImpl/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1617293391246" />
     <state x="860" y="260" key="IDE.errors.dialog" timestamp="1614281611294">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
@@ -512,25 +558,25 @@
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state x="0" y="0" width="2166" height="1032" key="dock-window-1/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1612652780293" />
-    <state x="2267" y="267" width="634" height="675" key="find.popup" timestamp="1617225757976">
+    <state x="2267" y="267" width="634" height="675" key="find.popup" timestamp="1617310388192">
       <screen x="1280" y="0" width="2560" height="1080" />
     </state>
     <state x="987" y="260" width="594" height="656" key="find.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1616280650639" />
     <state x="3054" y="246" width="555" height="622" key="find.popup/0.0.2560.1050/2560.0.1280.994@2560.0.1280.994" timestamp="1615672963356" />
     <state x="987" y="260" width="594" height="656" key="find.popup/0.0.2560.1050/2560.0.1680.1020/-1280.4.1280.994@0.0.2560.1050" timestamp="1616341956787" />
     <state x="987" y="260" width="585" height="534" key="find.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612145569091" />
-    <state x="2267" y="267" width="634" height="675" key="find.popup/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1617225757976" />
+    <state x="2267" y="267" width="634" height="675" key="find.popup/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1617310388192" />
     <state width="600" height="440" key="javadoc.popup" timestamp="1614281174337">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state width="600" height="440" key="javadoc.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614281174337" />
-    <state x="2222" y="247" width="672" height="697" key="run.anything.popup" timestamp="1616980060430">
+    <state x="2222" y="247" width="672" height="697" key="run.anything.popup" timestamp="1617309680365">
       <screen x="1280" y="0" width="2560" height="1080" />
     </state>
     <state x="942" y="240" width="672" height="677" key="run.anything.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1616185594536" />
     <state x="3031" y="227" width="336" height="641" key="run.anything.popup/0.0.2560.1050/2560.0.1280.994@2560.0.1280.994" timestamp="1615669619272" />
     <state x="942" y="240" key="run.anything.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612128644928" />
-    <state x="2222" y="247" width="672" height="697" key="run.anything.popup/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1616980060430" />
+    <state x="2222" y="247" width="672" height="697" key="run.anything.popup/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1617309680365" />
     <state x="2223" y="239" width="672" height="697" key="search.everywhere.popup" timestamp="1617218896618">
       <screen x="1280" y="0" width="2560" height="1080" />
     </state>

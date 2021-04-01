@@ -38,7 +38,6 @@ export default {
         },
         userUid: {
             type: String,
-            default: null,
         },
     },
 

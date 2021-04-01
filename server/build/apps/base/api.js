@@ -7,7 +7,6 @@ const errors_1 = require("@apps/base/errors");
 const templates_1 = require("@apps/base/templates");
 const logger_1 = __importDefault(require("@modules/logger"));
 const formidable_1 = __importDefault(require("formidable"));
-const ajv_1 = __importDefault(require("@modules/ajv"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const config_1 = require("@utils/config");
 class Api {
@@ -53,11 +52,10 @@ class Api {
                 if (!schema && !method.formData) {
                     throw new Error(`Cannot find schema for method: ${appName}/${method.getName()}`);
                 }
-                const validateSchema = ajv_1.default.compile(schema);
                 const methodInitData = {
                     appName,
                     queries,
-                    validateSchema,
+                    schema,
                 };
                 try {
                     await method.init(methodInitData);
@@ -134,15 +132,7 @@ class Api {
             });
         }
         else {
-            const valid = await method.validateSchema(reqObj.params);
-            if (!valid) {
-                if (method.validateSchema.errors) {
-                    return next(new errors_1.InvalidParams(method.validateSchema.errors));
-                }
-                else {
-                    throw new errors_1.InvalidParams();
-                }
-            }
+            await method.validate(req.body);
             const result = await method.run(req.body, user);
             return templates_1.getRes(result);
         }

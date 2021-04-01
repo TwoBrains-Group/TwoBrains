@@ -22,10 +22,7 @@ class GetList extends Method {
             loggedInUserId,
             relation,
             tagsLimit,
-        }
-
-        if (userUid) {
-            params.userUid = userUid
+            userUid,
         }
 
         let ideas = await this.query('getList', params, {

@@ -24,6 +24,7 @@
         <div class="ui-input__len-info"
              :class="{warn: lenWarn, error: lenError || ringError, show: focused && lenInfo.length}">{{ lenInfo }}
         </div>
+
     </div>
 </template>
 
@@ -32,6 +33,8 @@
 </style>
 
 <script>
+import InputConstants from '@/constants/Input'
+
 export default {
     name: 'Input',
 
@@ -88,6 +91,15 @@ export default {
                 return ['small', 'normal', 'big'].includes(val)
             },
         },
+        preset: {
+            type: String,
+            validator(val) {
+                if (val) {
+                    return Object.keys(InputConstants.presets).includes(val)
+                }
+                return true
+            },
+        },
     },
 
     data() {
@@ -101,8 +113,16 @@ export default {
             ringError: false,
             warn: false,
             oldValue: '',
+            preset$: null,
         }
     },
+
+    // TODO: Presets
+    // created() {
+    //     if (this.preset) {
+    //         this.preset$ = InputConstants.presets[this.preset]
+    // }
+    // },
 
     methods: {
         testRegexp() {

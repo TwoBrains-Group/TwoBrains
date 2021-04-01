@@ -1,5 +1,8 @@
 .idea-list {
-    display: block;
-    position: relative;
+    display: grid;
     width: 100%;
+
+    grid-template-columns: 100%;
+    grid-template-rows: max-content;
+    grid-gap: 5px;
 }

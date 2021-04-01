@@ -8,6 +8,8 @@ const errors_1 = require("@utils/errors");
 const logger_1 = __importDefault(require("@modules/logger"));
 const db_1 = __importDefault(require("@modules/db"));
 const pool_1 = require("@modules/db/pool");
+const ajv_1 = __importDefault(require("@modules/ajv"));
+const errors_2 = require("@apps/base/errors");
 class Method {
     constructor(props) {
         this.appName = '';
@@ -25,7 +27,8 @@ class Method {
     async init(data) {
         this.appName = data.appName;
         this.queries = data.queries;
-        this.validateSchema = data.validateSchema;
+        this.schema = data.schema;
+        this.validateSchema = ajv_1.default.compile(this.schema);
         this.log = new logger_1.default({
             owner: this.getPath(),
         });
@@ -34,6 +37,13 @@ class Method {
         }
         await this._init();
         this.log.info(`Method ${this.getPath()} inited`);
+    }
+    async validate({ params }) {
+        const valid = await this.validateSchema(params);
+        if (!valid) {
+            console.log(this.validateSchema.errors);
+            throw new errors_2.InvalidParams(ajv_1.default.errors || this.validateSchema.errors);
+        }
     }
     async _init() { }
     async run(req, user) {

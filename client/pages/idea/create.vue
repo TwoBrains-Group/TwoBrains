@@ -1,5 +1,5 @@
 <template>
-    <div id="page-idea-new">
+    <Form id="page-idea-create" @apply="done">
         <div class="new-idea-form">
             <Input type="text"
                    class="new-idea-form__name"
@@ -21,7 +21,7 @@
                 {{ l10n.done }}
             </div>
         </div>
-    </div>
+    </Form>
 </template>
 
 <style lang="scss">
@@ -32,11 +32,13 @@
 import TagSearch from '@/components/tag/TagSearch'
 import Input from '@/components/ui/Input'
 import Textarea from '@/components/ui/Textarea'
+import Form from '@/components/ui/Form'
 
 export default {
     name: 'create',
 
     components: {
+        Form,
         TagSearch,
         Input,
         Textarea,

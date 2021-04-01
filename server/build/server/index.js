@@ -40,14 +40,15 @@ class Server {
                 res.json(result);
             }
             catch (err) {
-                this.log.error(`Got error: ${JSON.stringify(err, null, 2)}`);
+                const errorObject = {
+                    name: err.name,
+                    message: err.message,
+                    code: err.code,
+                    data: err.data,
+                };
+                this.log.error('Got error:', JSON.stringify(errorObject, null, 2));
                 res.json({
-                    error: {
-                        name: err.name,
-                        code: err.code,
-                        message: err.message,
-                        data: err.data,
-                    },
+                    error: errorObject,
                 });
             }
         });

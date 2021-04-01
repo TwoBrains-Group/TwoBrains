@@ -1,6 +1,6 @@
 <template>
     <Spinner v-if="$fetchState.pending"/>
-    <div v-else id="page-project-uid">
+    <div v-else id="page-user-_uid-project-_projectUid">
         <header class="project__header">
             <div class="project__header__image">
                 <img :src="project.image" alt="project image">

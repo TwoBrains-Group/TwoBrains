@@ -3,7 +3,10 @@ const sqlFormatter = require('sql-formatter')
 const en = require('./l10n/en')
 const ru = require('./l10n/ru')
 
-const l10n = {en, ru}
+const l10n = {
+    en,
+    ru,
+}
 const localesNames = Object.keys(l10n)
 
 const normType = v => v === null ? 'null' : typeof v
@@ -126,6 +129,8 @@ const query = `
 BEGIN TRANSACTION;
 SET search_path TO main;
 
+TRUNCATE main.apps CASCADE;
+
 DO
 $$
     DECLARE
@@ -161,4 +166,6 @@ END $$;
 
 COMMIT;`
 
-fs.writeFileSync(`${__dirname}/l10n.sql`, query.trim().replace(/"(.*)'(.*)"/gm, '"$1\'\'$2"').replace(/}'\);/gm, '\t\t}\');'), {encoding: 'utf8'})
+fs.writeFileSync(`${__dirname}/l10n.sql`, query.trim().replace(/"(.*)'(.*)"/gm, '"$1\'\'$2"').replace(/}'\);/gm, '\t\t}\');'), {
+    encoding: 'utf8',
+})

@@ -4,19 +4,22 @@ exports.UnauthorizedError = exports.AuthError = exports.MethodNotFound = exports
 class BaseError extends Error {
     constructor(message, code = -32000, data = {}) {
         super(message);
+        this.message = message;
         this.name = this.constructor.name;
         this.code = code || -32000;
-        this.message = message;
         this.data = data || {};
     }
 }
 exports.BaseError = BaseError;
 const prepareSchemaError = (errors) => errors.reduce((acc, el) => {
-    return acc + `'${el.dataPath.replace(/\//, '')}' ${el.message},\n`;
-}, '');
+    acc.push(`'${el.dataPath.replace(/\//, '')}' ${el.message}`);
+    return acc;
+}, []).join('\n');
 class InvalidParams extends BaseError {
-    constructor(errors = 'Invalid params') {
-        super(Array.isArray(errors) ? prepareSchemaError(errors) : errors);
+    constructor(errors) {
+        super(Array.isArray(errors) ? prepareSchemaError(errors) : 'Invalid params', -32602, {
+            errors,
+        });
     }
 }
 exports.InvalidParams = InvalidParams;

@@ -7,6 +7,7 @@ export default (err: unknown, req: Request, res: Response, next: NextFunction): 
         !res.headersSent
         && res.type('json').status(200).send({
             error: {
+                name: err.name,
                 code: err.code,
                 message: err.message,
                 data: err.data,

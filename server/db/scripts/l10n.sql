@@ -129,8 +129,10 @@ $$
 			"done": "Done",
 			"description": "Describe it...",
 			"public": "public",
+			"private": "private",
 			"createProject": "Create a new project",
-			"addTags": "Add tags"
+			"addTags": "Add tags",
+			"addPlugins": "Add plugins"
 		}');
 
 		-- auth_auth --
@@ -156,7 +158,8 @@ $$
 			"changeNickname": "Изменить никнейм",
 			"changePassword": "Изменить пароль",
 			"uidDescription": "Этот идентификатор будет вашим url адресом",
-			"failedToLoadLocales": "Не удалось загрузить языки"
+			"failedToLoadLocales": "Не удалось загрузить языки",
+			"newUniqueIdentifier": "Новый уникальный идентификатор"
 		}');
 
 		INSERT INTO main.pages_l10n (page_id, locale_id, data)
@@ -168,7 +171,8 @@ $$
 			"following": "Подписан",
 			"followingYou": "Подписан на вас",
 			"mutuallyFollow": "Стать друзьями",
-			"mutualFollowing": "Вы друзья"
+			"mutualFollowing": "Вы друзья",
+			"projects": "Проекты"
 		}');
 
 		INSERT INTO main.pages_l10n (page_id, locale_id, data)
@@ -192,6 +196,17 @@ $$
 						"idea": "Идеи"
 			},
 			"description": "Описание"
+		}');
+
+		INSERT INTO main.pages_l10n (page_id, locale_id, data)
+		VALUES (project_app_create_page, ru_locale, '{
+			"nameYourProject": "Назовите свой проект",
+			"done": "Готово",
+			"description": "Опишите проект...",
+			"public": "публичный",
+			"private": "личный",
+			"createProject": "Создать проект",
+			"addTags": "Добавить теги"
 		}');
 
 		INSERT INTO main.pages_l10n (page_id, locale_id, data)
@@ -354,6 +369,12 @@ $$
 			"moreToGo": "Ещё {count} символов",
 			"tooLongBy": "Слишком длинный на {count} символов",
 			"charactersLeft": "{count} символов осталось"
+		}');
+
+		INSERT INTO main.components_l10n (component_id, locale_id, data)
+		VALUES (any_app_TagSearch_cmp, ru_locale, '{
+			"defaultHeader": "Добавить теги",
+			"searchTags": "Искать теги"
 		}');
 
 		INSERT INTO main.components_l10n (component_id, locale_id, data)

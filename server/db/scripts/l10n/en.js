@@ -48,8 +48,10 @@ module.exports = {
                 done: 'Done',
                 description: 'Describe it...',
                 public: 'public',
+                private: 'private',
                 createProject: 'Create a new project',
                 addTags: 'Add tags',
+                addPlugins: 'Add plugins',
             },
         },
         auth: {

@@ -1,5 +1,5 @@
 <template>
-    <div class="user-settings">
+    <div id="page-user-settings">
         <div class="user-settings__blocks">
             <div class="user-settings__block">
                 <div class="user-settings__block__element">

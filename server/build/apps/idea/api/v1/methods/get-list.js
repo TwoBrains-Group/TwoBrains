@@ -14,10 +14,8 @@ class GetList extends Method_1.Method {
             loggedInUserId,
             relation,
             tagsLimit,
+            userUid,
         };
-        if (userUid) {
-            params.userUid = userUid;
-        }
         let ideas = await this.query('getList', params, {
             returnType: pool_1.QueryReturnType.Rows,
         });

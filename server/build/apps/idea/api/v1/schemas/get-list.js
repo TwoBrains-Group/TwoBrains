@@ -20,7 +20,11 @@ exports.default = {
                 }],
         },
         userUid: {
-            type: 'string',
+            anyOf: [{
+                    type: 'string',
+                }, {
+                    type: 'null',
+                }],
         },
         tagsLimit: {
             type: 'number',

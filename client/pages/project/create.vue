@@ -1,5 +1,5 @@
 <template>
-    <div id="project-create">
+    <Form id="page-project-create" @apply="done">
         <div class="project-create__wrapper">
             <h3 class="project-create__header">{{ l10n.createProject }}</h3>
 
@@ -15,15 +15,15 @@
                       :min-len="1"
                       :max-len="5000"/>
 
-            <ToggleSwitch :left-label="'private'" :right-label="l10n.public" outlined/>
+            <ToggleSwitch :left-label="l10n.private" :right-label="l10n.public" outlined/>
 
             <div class="project-create__plugins">
                 <h6 class="project-create__plugins__header" @click="showPlugins = !showPlugins">
-                    Add plugins
-<!--                    {{addedPluginsUids.size > 0 ? ':' : ''}}-->
-<!--                    <span class="added-plugin" v-for="puid of addedPluginsUids">-->
-<!--                        {{ $t(`entities.plugins.${puid}.name`) }}-->
-<!--                    </span>-->
+                    {{ l10n.addPlugins }}
+                    <!--                    {{addedPluginsUids.size > 0 ? ':' : ''}}-->
+                    <!--                    <span class="added-plugin" v-for="puid of addedPluginsUids">-->
+                    <!--                        {{ $t(`entities.plugins.${puid}.name`) }}-->
+                    <!--                    </span>-->
                     <i class="fas" :class="{'fa-plus': !showPlugins, 'fa-minus': showPlugins}"></i>
                 </h6>
 
@@ -52,7 +52,7 @@
              :disabled="doneDisabled">
             {{ l10n.done }}
         </Btn>
-    </div>
+    </Form>
 </template>
 
 <style lang="scss">
@@ -67,11 +67,13 @@ import ToggleSwitch from '@/components/ui/ToggleSwitch'
 import TagSearch from '@/components/tag/TagSearch'
 import Debounce from '@/components/ui/Debounce'
 import Btn from '@/components/ui/Btn'
+import Form from '@/components/ui/Form'
 
 export default {
     name: 'project-create',
 
     components: {
+        Form,
         Btn,
         Debounce,
         TagSearch,

@@ -72,7 +72,6 @@ export default {
                 return
             }
             this.fetched = false
-            console.log('state', $state)
             this.$emit('fetch', $state)
         },
 

@@ -1,6 +1,5 @@
 .idea {
     display: grid;
-    margin-bottom: 10px;
 
     grid-template-columns: 100%;
     grid-template-rows: max-content max-content;
@@ -94,7 +93,7 @@
                 vertical-align: middle;
                 font-size: 14px;
                 color: #aaa;
-                transition: color .15s ease;
+                transition: color .25s ease;
                 cursor: pointer;
 
                 &:hover {

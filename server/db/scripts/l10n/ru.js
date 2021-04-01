@@ -9,6 +9,7 @@ module.exports = {
                 changePassword: 'Изменить пароль',
                 uidDescription: 'Этот идентификатор будет вашим url адресом',
                 failedToLoadLocales: 'Не удалось загрузить языки',
+                newUniqueIdentifier: 'Новый уникальный идентификатор',
             },
             _uid: {
                 ideas: 'Идеи',
@@ -19,6 +20,7 @@ module.exports = {
                 followingYou: 'Подписан на вас',
                 mutuallyFollow: 'Стать друзьями',
                 mutualFollowing: 'Вы друзья',
+                projects: 'Проекты',
             },
         },
         idea: {
@@ -40,6 +42,15 @@ module.exports = {
                     idea: 'Идеи',
                 },
                 description: 'Описание',
+            },
+            create: {
+                nameYourProject: 'Назовите свой проект',
+                done: 'Готово',
+                description: 'Опишите проект...',
+                public: 'публичный',
+                private: 'личный',
+                createProject: 'Создать проект',
+                addTags: 'Добавить теги',
             },
         },
         auth: {
@@ -86,6 +97,10 @@ module.exports = {
                 moreToGo: 'Ещё {count} символов',
                 tooLongBy: 'Слишком длинный на {count} символов',
                 charactersLeft: '{count} символов осталось',
+            },
+            TagSearch: {
+                defaultHeader: 'Добавить теги',
+                searchTags: 'Искать теги',
             },
         },
         idea: {

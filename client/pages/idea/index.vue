@@ -1,5 +1,5 @@
 <template>
-    <div id="page-ideas">
+    <div id="page-idea">
         <IdeaList/>
     </div>
 </template>

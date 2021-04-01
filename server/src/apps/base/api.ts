@@ -88,12 +88,10 @@ class Api {
                     throw new Error(`Cannot find schema for method: ${appName}/${method.getName()}`)
                 }
 
-                const validateSchema = ajv.compile(schema)
-
                 const methodInitData: MethodInitData = {
                     appName,
                     queries,
-                    validateSchema,
+                    schema,
                 }
 
                 try {
@@ -186,16 +184,7 @@ class Api {
                 return getRes(result)
             })
         } else {
-            const valid = await method.validateSchema(reqObj.params)
-
-            if (!valid) {
-                if (method.validateSchema.errors) {
-                    return next(new InvalidParams(method.validateSchema.errors))
-                } else {
-                    throw new InvalidParams()
-                }
-            }
-
+            await method.validate(req.body)
             const result = await method.run(req.body, user)
             return getRes(result)
         }

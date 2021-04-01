@@ -1,5 +1,5 @@
 <template>
-    <div class="idea__comments__write-comment">
+    <Form class="idea__comments__write-comment" @apply="done">
         <div class="idea__comments__write-comment__text">
             <Textarea v-model="text"
                       ref="textarea"
@@ -13,7 +13,7 @@
              @click="done">
             <i class="fas fa-paper-plane"></i>
         </div>
-    </div>
+    </Form>
 </template>
 
 <style lang="scss">
@@ -22,11 +22,13 @@
 
 <script>
 import Textarea from '@/components/ui/Textarea'
+import Form from '@/components/ui/Form'
 
 export default {
     name: 'WriteComment',
 
     components: {
+        Form,
         Textarea,
     },
 

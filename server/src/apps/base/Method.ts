@@ -4,7 +4,10 @@ import {default as DB} from '@modules/db'
 import {Query, queryDefaultOptions, QueryOptions, QueryParams} from '@modules/db/pool'
 import {Req, MethodRes, FormDataReq} from '@apps/base/templates'
 import DBInstance from '@modules/db/instance'
-import {ValidateFunction} from 'ajv'
+import ajv from '@modules/ajv'
+import {JSONSchemaType, ValidateFunction} from 'ajv'
+import {InvalidParams} from '@apps/base/errors'
+import {Request} from 'express'
 
 export type MethodProps = {
     useDB?: boolean
@@ -17,7 +20,7 @@ export type MethodProps = {
 export type MethodInitData = {
     queries?: Record<string, string>
     appName: string
-    validateSchema: ValidateFunction
+    schema: JSONSchemaType<any>
 }
 
 export type AuthUser = {
@@ -25,16 +28,17 @@ export type AuthUser = {
 }
 
 export abstract class Method {
-    appName: string
-    log: Logger
-    db?: DBInstance
+    protected appName: string
+    protected log: Logger
+    protected db?: DBInstance
     useDB: boolean
     auth: boolean
     name: string
     formData?: boolean
     formDataMult?: boolean
     private queries?: Record<string, Query>
-    validateSchema: ValidateFunction
+    private schema: JSONSchemaType<any>
+    private validateSchema: ValidateFunction
 
     constructor(props: MethodProps) {
         this.appName = ''
@@ -53,7 +57,9 @@ export abstract class Method {
     async init(data: MethodInitData): Promise<void> {
         this.appName = data.appName
         this.queries = data.queries
-        this.validateSchema = data.validateSchema
+        this.schema = data.schema
+
+        this.validateSchema = ajv.compile(this.schema)
 
         this.log = new Logger({
             owner: this.getPath(),
@@ -66,6 +72,15 @@ export abstract class Method {
         await this._init()
 
         this.log.info(`Method ${this.getPath()} inited`)
+    }
+
+    async validate({params}: Request): Promise<void> {
+        const valid = await this.validateSchema(params)
+
+        if (!valid) {
+            console.log(this.validateSchema.errors)
+            throw new InvalidParams(ajv.errors || this.validateSchema.errors)
+        }
     }
 
     // eslint-disable-next-line @typescript-eslint/no-empty-function

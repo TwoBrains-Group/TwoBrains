@@ -1,5 +1,5 @@
 <template>
-    <div class="about">
+    <div id="page-info-about">
         <h1>
             What is TwoBrains
         </h1>
@@ -22,7 +22,7 @@
 </template>
 
 <style lang="scss">
-@import '~assets/sass/pages/info/about.scss';
+@import '~assets/sass/pages/info/about';
 </style>
 
 <script>

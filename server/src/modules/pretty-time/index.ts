@@ -90,9 +90,12 @@ class PrettyTime {
         const y = date.getFullYear()
         const m = date.getMonth()
         const d = date.getDay()
+        const h = date.getHours()
+        const min = date.getMinutes()
+        const s = date.getSeconds()
 
         const month = months[m]
-        return `${d} ${month}, ${y}`
+        return `${h}:${min}:${s} ${d} ${month}, ${y}`
     }
 }
 

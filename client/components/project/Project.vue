@@ -18,6 +18,7 @@
                          @click="share">
                         <i class="fas fa-share-alt"></i>
                     </div>
+                    <Share :link="url"/>
                     <div class="btn project__body__info__btns__el project__body__info__btns__options"
                          @click="toggleOptions">
                         <i class="fas fa-ellipsis-h"></i>
@@ -68,9 +69,13 @@
 </style>
 
 <script>
+import Share from '@/components/ui/Share'
+
 export default {
     name: 'project',
-
+    components: {
+        Share,
+    },
     props: [
         'id',
         'uid',
@@ -85,6 +90,7 @@ export default {
     ],
 
     data() {
+
         return {
             app: 'project',
 

@@ -8,15 +8,33 @@
                 <img :src="image" alt="Project image">
             </div>
 
-            <nuxt-link class="project__body__info" :to="url">
-                <div class="project__body__info__name">
+            <div class="project__body__info">
+                <nuxt-link :to="url" class="project__body__info__name">
                     {{ name }}
+                </nuxt-link>
+
+                <div class="project__body__info__btns">
+                    <div class="btn project__body__info__btns__el project__body__info__btns__share"
+                         @click="share">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <div class="btn project__body__info__btns__el project__body__info__btns__options"
+                         @click="toggleOptions">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </div>
                 </div>
-                <p class="sb sb--small project__body__info__description">
-                    {{ description.slice(0, descriptionLimit) }}
-                    {{ description.length > descriptionLimit ? '...' : '' }}
-                </p>
-            </nuxt-link>
+
+<!--                <div class="project__body__info__options">-->
+<!--                    <div class="btn project__body__info__options__el">Delete</div>-->
+<!--                </div>-->
+
+                <nuxt-link :to="url">
+                    <p class="sb sb--small project__body__info__description">
+                        {{ description.slice(0, descriptionLimit) }}
+                        {{ description.length > descriptionLimit ? '...' : '' }}
+                    </p>
+                </nuxt-link>
+            </div>
         </div>
 
         <div class="project__footer" @mouseover.stop @mouseover="hover = false">
@@ -78,6 +96,7 @@ export default {
 
             liked$: this.liked,
             likesCount$: this.likesCount,
+            showOptions: false,
         }
     },
 
@@ -103,6 +122,15 @@ export default {
             } catch (error) {
                 this.$toast.error('Failed to like project')
             }
+        },
+
+        toggleOptions() {
+            this.showOptions = !this.showOptions
+            this.$toast.info('TODO: Options menu')
+        },
+
+        share() {
+            this.$toast.info('TODO: Share project')
         },
     },
 }

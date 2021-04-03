@@ -25,6 +25,7 @@ export default {
 
     methods: {
         apply() {
+            console.log('APPLY')
             this.$emit('apply')
         },
     },

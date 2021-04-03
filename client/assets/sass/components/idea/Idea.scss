@@ -266,7 +266,7 @@
         transition: .1s ease-out;
 
         &.show {
-            padding: 5px 0;
+            padding-top: 5px;
             max-height: 400px;
             overflow-y: auto;
         }

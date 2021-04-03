@@ -38,7 +38,7 @@ export default {
             {
                 rel: 'icon',
                 type: 'image/png',
-                href: '/img/favicon.png',
+                href: '/img/TB.png',
             },
         ],
         script: [

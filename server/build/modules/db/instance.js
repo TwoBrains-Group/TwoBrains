@@ -10,6 +10,7 @@ const logger_1 = __importDefault(require("@modules/logger"));
 const nanoid_1 = require("nanoid");
 const sql_formatter_1 = require("sql-formatter");
 const config_1 = require("@utils/config");
+const errors_2 = require("@apps/base/errors");
 const { db: { connection } } = config_1.config;
 class DBInstance {
     init() {
@@ -38,7 +39,11 @@ class DBInstance {
             ...pool_1.queryDefaultOptions,
             ...options,
         };
-        const { returnType, returnField, queryDebugLog } = options;
+        const { returnType, returnField, queryDebugLog, check } = options;
+        let { checkError } = options;
+        if (!(checkError instanceof Error)) {
+            checkError = new errors_2.InternalError(checkError);
+        }
         if (queryDebugLog) {
             this.log.debug(`(query debug log) ${queryName}: Full params: ${JSON.stringify(params, null, 2)}`);
         }
@@ -66,15 +71,16 @@ class DBInstance {
             const result = await this.pool.exec(preparedQuery);
             const { rows } = result;
             this.log.debug(`DB result: ${JSON.stringify(rows, null, 2)}`);
-            if (!rows && returnType !== pool_1.QueryReturnType.None) {
-                this.log.error('Got no rows when expected');
-                return null;
-            }
             if (returnType === pool_1.QueryReturnType.Row) {
                 if (!rows.length) {
-                    return null;
+                    if (check) {
+                        throw checkError;
+                    }
                 }
                 return returnField ? rows[0][returnField] : rows[0];
+            }
+            if (check) {
+                throw checkError;
             }
             return rows;
         }

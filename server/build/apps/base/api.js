@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const errors_1 = require("@apps/base/errors");
+const Method_1 = require("@apps/base/Method");
 const templates_1 = require("@apps/base/templates");
 const logger_1 = __importDefault(require("@modules/logger"));
 const formidable_1 = __importDefault(require("formidable"));
@@ -84,6 +85,7 @@ class Api {
     async callMethod(req, res, next) {
         const reqObj = req.body;
         const method = this.getMethod(req);
+        method.emit(Method_1.METHOD_EVENTS.BEFORE_AUTH_CHECK, req);
         let user = undefined;
         if (method.auth) {
             let token;
@@ -115,6 +117,7 @@ class Api {
                 throw new errors_1.UnauthorizedError('invalid_token');
             }
         }
+        method.emit(Method_1.METHOD_EVENTS.BEFORE, req, user);
         if (method.formData) {
             const form = new formidable_1.default.IncomingForm();
             form.parse(req.formData, async (err, fields, files) => {
@@ -128,12 +131,14 @@ class Api {
                         files,
                     },
                 }, user);
+                method.emit(Method_1.METHOD_EVENTS.AFTER, req, result);
                 return templates_1.getRes(result);
             });
         }
         else {
             await method.validate(req.body);
             const result = await method.run(req.body, user);
+            method.emit(Method_1.METHOD_EVENTS.AFTER, req, result);
             return templates_1.getRes(result);
         }
     }

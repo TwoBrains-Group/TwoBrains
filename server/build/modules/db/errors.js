@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UnusedQueryParams = exports.DBError = void 0;
-class DBError extends Error {
+const errors_1 = require("@apps/base/errors");
+class DBError extends errors_1.InternalError {
     constructor(message, fatal = true) {
         super();
         this.message = message;

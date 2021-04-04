@@ -8,6 +8,7 @@ import ajv from '@modules/ajv'
 import {JSONSchemaType, ValidateFunction} from 'ajv'
 import {InvalidParams} from '@apps/base/errors'
 import {Request} from 'express'
+import EventEmitter from 'events'
 
 export type MethodProps = {
     useDB?: boolean
@@ -27,7 +28,13 @@ export type AuthUser = {
     id: string
 }
 
-export abstract class Method {
+export const METHOD_EVENTS = {
+    BEFORE: 'before',
+    AFTER: 'after',
+    BEFORE_AUTH_CHECK: 'BEFORE_AUTH_CHECK',
+}
+
+export abstract class Method extends EventEmitter {
     protected appName: string
     protected log: Logger
     protected db?: DBInstance
@@ -41,6 +48,8 @@ export abstract class Method {
     private validateSchema: ValidateFunction
 
     constructor(props: MethodProps) {
+        super()
+
         this.appName = ''
         this.name = props.name || this.getName()
         this.useDB = props.useDB || true

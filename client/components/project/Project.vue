@@ -18,16 +18,21 @@
                          @click="share">
                         <i class="fas fa-share-alt"></i>
                     </div>
-                    <Share :link="url"/>
+                    <Share :link="url" v-show="showShare"/>
                     <div class="btn project__body__info__btns__el project__body__info__btns__options"
                          @click="toggleOptions">
                         <i class="fas fa-ellipsis-h"></i>
                     </div>
+                    <div class="options">
+                        <nuxt-link v-if="isMine" class="options__el" :to="url + '/settings'">
+                            {{ l10n.settings }}
+                        </nuxt-link>
+                    </div>
                 </div>
 
-<!--                <div class="project__body__info__options">-->
-<!--                    <div class="btn project__body__info__options__el">Delete</div>-->
-<!--                </div>-->
+                <!--                <div class="project__body__info__options">-->
+                <!--                    <div class="btn project__body__info__options__el">Delete</div>-->
+                <!--                </div>-->
 
                 <nuxt-link :to="url">
                     <p class="sb sb--small project__body__info__description">
@@ -76,21 +81,44 @@ export default {
     components: {
         Share,
     },
-    props: [
-        'id',
-        'uid',
-        'name',
-        'image',
-        'description',
-        'creationDatetime',
-        'creator',
-        'tags',
-        'liked',
-        'likesCount',
-    ],
+
+    props: {
+        id: {
+            type: String,
+        },
+        uid: {
+            type: String,
+        },
+        name: {
+            type: String,
+        },
+        image: {
+            type: String,
+        },
+        description: {
+            type: String,
+        },
+        creationDatetime: {
+            type: String,
+        },
+        creator: {
+            type: String,
+        },
+        tags: {
+            type: Array,
+        },
+        liked: {
+            type: Boolean,
+        },
+        likesCount: {
+            type: Number,
+        },
+        rights: {
+            type: Object,
+        },
+    },
 
     data() {
-
         return {
             app: 'project',
 
@@ -102,7 +130,9 @@ export default {
 
             liked$: this.liked,
             likesCount$: this.likesCount,
+
             showOptions: false,
+            showShare: false,
         }
     },
 
@@ -136,7 +166,7 @@ export default {
         },
 
         share() {
-            this.$toast.info('TODO: Share project')
+            this.showShare = !this.showShare
         },
     },
 }

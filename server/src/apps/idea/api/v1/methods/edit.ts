@@ -1,6 +1,6 @@
 import {AuthUser, Method, MethodRes, Req} from '@apps/base/Method'
 import {QueryReturnType} from '@modules/db/pool'
-import {AuthError} from '@apps/base/errors'
+import {AccessDeniedError} from '@apps/base/errors'
 
 class Edit extends Method {
     async run(req: Req, user: AuthUser): Promise<MethodRes> {
@@ -22,7 +22,7 @@ class Edit extends Method {
         })
 
         if (!checkAuthor) {
-            throw new AuthError('You cannot edit idea that not belongs to you')
+            throw new AccessDeniedError('You cannot edit idea that not belongs to you')
         }
 
         const ideaId = await this.query('edit', {

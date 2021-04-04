@@ -9,7 +9,7 @@ class Create extends Method {
         const {params} = req
         const {id: loggedInUserId} = user
 
-        const {tags} = params
+        const {tags, visibility} = params
         let {
             name,
             description = null,
@@ -23,16 +23,21 @@ class Create extends Method {
 
         const uid = `${name.replace(/\s+/, '_')}_${nanoid(8)}`.toLowerCase()
 
-        console.log(`name ${name}, descr ${description}, plugins ${JSON.stringify(plugins, null, 2)}`)
-
         const id = await this.query('create', {
             name,
             description,
             uid,
             loggedInUserId,
+            visibility,
         }, {
             returnType: QueryReturnType.Row,
             returnField: 'id',
+        })
+
+        await this.query('addUser', {
+            id,
+            userId: loggedInUserId,
+            role: 'admin',
         })
 
         if (tags.length) {

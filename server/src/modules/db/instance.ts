@@ -5,6 +5,8 @@ import Logger from '@modules/logger'
 import {nanoid} from 'nanoid'
 import {format as formatSql} from 'sql-formatter'
 import {config} from '@utils/config'
+import {InternalError} from '@apps/base/errors'
+
 const {db: {connection}} = config
 
 class DBInstance {
@@ -47,7 +49,11 @@ class DBInstance {
             ...options,
         }
 
-        const {returnType, returnField, queryDebugLog} = options
+        const {returnType, returnField, queryDebugLog, check} = options
+        let {checkError} = options
+        if (!(checkError instanceof Error)) {
+            checkError = new InternalError(checkError)
+        }
 
         if (queryDebugLog) {
             this.log.debug(`(query debug log) ${queryName}: Full params: ${JSON.stringify(params, null, 2)}`)
@@ -83,17 +89,18 @@ class DBInstance {
 
             this.log.debug(`DB result: ${JSON.stringify(rows, null, 2)}`)
 
-            if (!rows && returnType !== QueryReturnType.None) {
-                this.log.error('Got no rows when expected')
-                return null
-            }
-
             if (returnType === QueryReturnType.Row) {
                 if (!rows.length) {
-                    return null
+                    if (check) {
+                        throw checkError
+                    }
                 }
 
                 return returnField ? rows[0][returnField] : rows[0]
+            }
+
+            if (check) {
+                throw checkError
             }
 
             return rows

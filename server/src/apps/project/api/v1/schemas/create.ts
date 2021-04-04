@@ -5,6 +5,10 @@ export default {
     additionalProperties: false,
     required: [
         'name',
+        'description',
+        'tags',
+        'plugins',
+        'visibility',
     ],
     properties: {
         name: {
@@ -26,6 +30,9 @@ export default {
             items: {
                 type: 'string',
             },
+        },
+        visibility: {
+            type: 'boolean',
         },
     },
 }

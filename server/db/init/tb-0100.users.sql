@@ -1,6 +1,19 @@
 BEGIN TRANSACTION;
 SET search_path TO main;
 
+-- user_role --
+CREATE TYPE main.user_role AS ENUM ('admin', 'moderator', 'party');
+
+-- user_role_rights --
+CREATE TABLE main.user_role_rights (
+    "role" main.user_role NOT NULL DEFAULT 'party'::main.user_role,
+    "right" TEXT NOT NULL
+);
+
+COMMENT ON TABLE main.user_role_rights IS 'User role rights';
+COMMENT ON COLUMN main.user_role_rights."role" IS 'User role';
+COMMENT ON COLUMN main.user_role_rights."right" IS 'User role right';
+
 -- users --
 DROP TABLE IF EXISTS main.users;
 CREATE TABLE main.users (

@@ -6,7 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Pool = exports.prepareQuery = exports.queryDefaultOptions = exports.QueryReturnType = void 0;
 const pg_1 = require("pg");
 const pg_pool_1 = __importDefault(require("pg-pool"));
-const errors_1 = require("./errors");
+const errors_1 = require("@apps/base/errors");
+const errors_2 = require("./errors");
 var QueryReturnType;
 (function (QueryReturnType) {
     QueryReturnType[QueryReturnType["Row"] = 0] = "Row";
@@ -18,14 +19,16 @@ exports.queryDefaultOptions = {
     returnField: undefined,
     queryDebugLog: false,
     unusedToNull: [],
+    check: false,
+    checkError: new errors_1.NotFoundError(),
 };
-const prepareQuery = (queryName, queryString, params = {}, options = {}) => {
+exports.prepareQuery = (queryName, queryString, params = {}, options = {}) => {
     const values = [];
     let paramIndex = 0;
     const unusedQueryParams = [];
     let text = queryString;
     for (const param of Object.keys(params)) {
-        const pattern = new RegExp(`/\\*\\s*${param}:([^\\*]*)\\*/`, 'gm');
+        const pattern = new RegExp(`/\\*\\s*${param}:([^*]*)\\*/`, 'gm');
         text = text.replace(pattern, '$1');
     }
     text = text.replace(/\/\*[\s\S]*?\*\//gms, '');
@@ -44,14 +47,13 @@ const prepareQuery = (queryName, queryString, params = {}, options = {}) => {
         return text;
     }).trim();
     if (unusedQueryParams.length) {
-        throw new errors_1.UnusedQueryParams(unusedQueryParams, queryName);
+        throw new errors_2.UnusedQueryParams(unusedQueryParams, queryName);
     }
     return {
         text,
         values,
     };
 };
-exports.prepareQuery = prepareQuery;
 class Pool extends pg_pool_1.default {
     constructor(options) {
         super({

@@ -7,9 +7,11 @@ const get_by_uid_1 = __importDefault(require("./get-by-uid"));
 const get_list_1 = __importDefault(require("./get-list"));
 const create_1 = __importDefault(require("./create"));
 const like_1 = __importDefault(require("./like"));
+const archive_1 = __importDefault(require("./archive"));
 exports.default = {
     getByUid: get_by_uid_1.default,
     getList: get_list_1.default,
     create: create_1.default,
     like: like_1.default,
+    archive: archive_1.default,
 };

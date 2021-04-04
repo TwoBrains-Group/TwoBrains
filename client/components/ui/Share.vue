@@ -12,13 +12,12 @@
         </div>
 
         <div class="ui-share__social-networks">
-            <nuxt-link class="btn ui-share__social-networks__el"
-                       :class="sn.name"
-                       v-for="sn of socialNetworks"
-                       target="_blank"
-                       :to="sn.url">
+            <div class="btn ui-share__social-networks__el"
+                 :class="sn.name"
+                 v-for="sn of socialNetworks"
+                 @click="shareTo(sn.url)">
                 <i class="fab" :class="sn.icon"></i>
-            </nuxt-link>
+            </div>
         </div>
     </div>
 </template>
@@ -47,7 +46,7 @@ export default {
                 {
                     name: 'facebook',
                     icon: 'fa-facebook',
-                    url: `https://www.facebook.com/sharer/sharer.php?u=http://${process.env.URL}/${this.link}`,
+                    url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`${process.env.URL}/${this.link}`)}`,
                 },
                 {
                     name: 'vk',
@@ -77,6 +76,10 @@ export default {
 
             // TODO: L10N
             this.$toast.info('Link copied to clipboard')
+        },
+
+        shareTo(url) {
+            window.open(url, '_blank')
         },
     },
 }

@@ -3,28 +3,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const Method_1 = require("@apps/base/Method");
 const pool_1 = require("@modules/db/pool");
-const errors_1 = require("@apps/base/errors");
 const sharp_1 = __importDefault(require("sharp"));
 const uuid_1 = require("uuid");
 const app_root_path_1 = __importDefault(require("app-root-path"));
-const accessibleRoles = ['admin', 'moderator'];
-class ChangeImage extends Method_1.Method {
-    async runFormData(req, user) {
+const modification_1 = require("@apps/project/api/v1/methods/modification");
+class ChangeImage extends modification_1.Modification {
+    async runFormData(req) {
         const { files, fields } = req.formData;
-        const { id: loggedInUserId } = user;
         const { id } = fields;
-        const role = await this.query('getRole', {
-            id,
-            loggedInUserId,
-        }, {
-            returnType: pool_1.QueryReturnType.Row,
-            returnField: 'role',
-        });
-        if (!accessibleRoles.includes(role)) {
-            throw new errors_1.AuthError('Not enough rights');
-        }
         const image = files.image;
         const tmpPath = image.path;
         const filename = uuid_1.v4();
@@ -47,4 +34,5 @@ class ChangeImage extends Method_1.Method {
 exports.default = new ChangeImage({
     name: 'changeImage',
     formData: true,
+    operation: modification_1.Operation.ChangeImage,
 });

@@ -1,4 +1,6 @@
-export class DBError extends Error {
+import {InternalError} from '@apps/base/errors'
+
+export class DBError extends InternalError {
     fatal: boolean
 
     constructor(message: string, fatal = true) {

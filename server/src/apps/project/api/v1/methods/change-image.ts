@@ -1,30 +1,15 @@
-import {AuthUser, FormDataReq, Method, MethodRes} from '@apps/base/Method'
+import {FormDataReq, MethodRes} from '@apps/base/Method'
 import {QueryReturnType} from '@modules/db/pool'
-import {AuthError} from '@apps/base/errors'
 import {File} from 'formidable'
 import sharp from 'sharp'
 import {v4 as uuidv4} from 'uuid'
 import appRootPath from 'app-root-path'
+import {Modification, Operation} from '@apps/project/api/v1/methods/modification'
 
-const accessibleRoles = ['admin', 'moderator']
-
-class ChangeImage extends Method {
-    async runFormData(req: FormDataReq, user: AuthUser): Promise<MethodRes> {
+class ChangeImage extends Modification {
+    async runFormData(req: FormDataReq): Promise<MethodRes> {
         const {files, fields} = req.formData
-        const {id: loggedInUserId} = user
         const {id} = fields
-
-        const role = await this.query('getRole', {
-            id,
-            loggedInUserId,
-        }, {
-            returnType: QueryReturnType.Row,
-            returnField: 'role',
-        })
-
-        if (!accessibleRoles.includes(role)) {
-            throw new AuthError('Not enough rights')
-        }
 
         const image: File = files.image as File
         const tmpPath = image.path
@@ -53,4 +38,5 @@ class ChangeImage extends Method {
 export default new ChangeImage({
     name: 'changeImage',
     formData: true,
+    operation: Operation.ChangeImage,
 })

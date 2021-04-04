@@ -16,7 +16,7 @@ class Edit extends Method_1.Method {
             returnField: 'id',
         });
         if (!checkAuthor) {
-            throw new errors_1.AuthError('You cannot edit idea that not belongs to you');
+            throw new errors_1.AccessDeniedError('You cannot edit idea that not belongs to you');
         }
         const ideaId = await this.query('edit', {
             id,

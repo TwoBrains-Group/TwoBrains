@@ -1,5 +1,5 @@
 import {InvalidParams, UnauthorizedError} from '@apps/base/errors'
-import {AuthUser, Method, MethodInitData, Req} from '@apps/base/Method'
+import {AuthUser, Method, METHOD_EVENTS, MethodInitData, Req} from '@apps/base/Method'
 import {getRes} from '@apps/base/templates'
 import {Query} from '@modules/db/pool'
 import Logger from '@modules/logger'
@@ -132,6 +132,8 @@ class Api {
 
         const method = this.getMethod(req)
 
+        method.emit(METHOD_EVENTS.BEFORE_AUTH_CHECK, req)
+
         let user: AuthUser | undefined = undefined
         if (method.auth) {
             let token: string
@@ -165,6 +167,8 @@ class Api {
             }
         }
 
+        method.emit(METHOD_EVENTS.BEFORE, req, user)
+
         if (method.formData) {
             const form = new formidable.IncomingForm()
 
@@ -181,11 +185,14 @@ class Api {
                     },
                 }, user)
 
+                method.emit(METHOD_EVENTS.AFTER, req, result)
                 return getRes(result)
             })
         } else {
             await method.validate(req.body)
             const result = await method.run(req.body, user)
+
+            method.emit(METHOD_EVENTS.AFTER, req, result)
             return getRes(result)
         }
     }

@@ -3,15 +3,22 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Method = void 0;
+exports.Method = exports.METHOD_EVENTS = void 0;
 const errors_1 = require("@utils/errors");
 const logger_1 = __importDefault(require("@modules/logger"));
 const db_1 = __importDefault(require("@modules/db"));
 const pool_1 = require("@modules/db/pool");
 const ajv_1 = __importDefault(require("@modules/ajv"));
 const errors_2 = require("@apps/base/errors");
-class Method {
+const events_1 = __importDefault(require("events"));
+exports.METHOD_EVENTS = {
+    BEFORE: 'before',
+    AFTER: 'after',
+    BEFORE_AUTH_CHECK: 'BEFORE_AUTH_CHECK',
+};
+class Method extends events_1.default {
     constructor(props) {
+        super();
         this.appName = '';
         this.name = props.name || this.getName();
         this.useDB = props.useDB || true;

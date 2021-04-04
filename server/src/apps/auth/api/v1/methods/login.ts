@@ -1,6 +1,6 @@
 import {MethodRes} from '@apps/base/Method'
 import {Req} from '@apps/base/templates'
-import {AuthError} from '@apps/base/errors'
+import {AccessDeniedError, InternalError, NotFoundError} from '@apps/base/errors'
 import {QueryReturnType} from '@modules/db/pool'
 import BaseAuth from './base-auth'
 
@@ -21,7 +21,7 @@ class Login extends BaseAuth {
         })
 
         if (!userId) {
-            throw new AuthError(`User with email '${email}' not found`)
+            throw new NotFoundError(`User with email '${email}' not found`)
         }
 
         const passwordVerified = await this.query('verifyPassword', {
@@ -33,7 +33,7 @@ class Login extends BaseAuth {
         })
 
         if (!passwordVerified) {
-            throw new AuthError('Invalid password')
+            throw new AccessDeniedError('Invalid password')
         }
 
         const {token, userData} = await this.getToken(userId)

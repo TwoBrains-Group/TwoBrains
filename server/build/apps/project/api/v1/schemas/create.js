@@ -6,6 +6,10 @@ exports.default = {
     additionalProperties: false,
     required: [
         'name',
+        'description',
+        'tags',
+        'plugins',
+        'visibility',
     ],
     properties: {
         name: {
@@ -27,6 +31,9 @@ exports.default = {
             items: {
                 type: 'string',
             },
+        },
+        visibility: {
+            type: 'boolean',
         },
     },
 };

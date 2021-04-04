@@ -1,6 +1,6 @@
 import {Client, QueryConfig, QueryResultRow} from 'pg'
 import PgPool from 'pg-pool'
-import {log} from 'util'
+import {BaseError, NotFoundError} from '@apps/base/errors'
 import {UnusedQueryParams} from './errors'
 
 // const strict: boolean = process.env.ENV.toLowerCase() === 'prod' || true
@@ -17,6 +17,8 @@ export type QueryOptions = {
     unusedToNull?: Array<string>
     queryDebugLog?: boolean
     args?: Record<string, any> // Must be passed if func-query was used
+    check?: boolean
+    checkError?: BaseError
 }
 
 export const queryDefaultOptions: QueryOptions = {
@@ -24,6 +26,8 @@ export const queryDefaultOptions: QueryOptions = {
     returnField: undefined,
     queryDebugLog: false,
     unusedToNull: [],
+    check: false,
+    checkError: new NotFoundError(),
 }
 
 export type Query = string | ((args: Record<string, any>) => any)
@@ -43,7 +47,7 @@ export const prepareQuery = (queryName: string, queryString: string, params: Que
 
     let text = queryString
     for (const param of Object.keys(params)) {
-        const pattern = new RegExp(`/\\*\\s*${param}:([^\\*]*)\\*/`, 'gm')
+        const pattern = new RegExp(`/\\*\\s*${param}:([^*]*)\\*/`, 'gm')
         text = text.replace(pattern, '$1')
     }
 

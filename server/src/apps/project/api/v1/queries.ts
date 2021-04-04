@@ -16,6 +16,16 @@ export default {
             GROUP BY
                 pt.project_id
             LIMIT :tagsLimit
+        ),
+        rights AS (
+            SELECT
+                 pu.project_id
+                ,pur."right"
+            FROM
+                main.projects_users AS pu
+                INNER JOIN main.projects_users_rights AS pur ON pur.role = pu.role
+            WHERE
+                pu.user_id = :loggedInUserId
         )
         SELECT
              p.project_id AS "id"
@@ -36,6 +46,7 @@ export default {
                 'uid', pls.uid
             )) AS "plugins"
             ,COALESCE(t.tags, '[]')::jsonb AS "tags"
+            ,array_agg(r."right") AS "rights"
         FROM
             main.projects AS p
             INNER JOIN main.users AS u ON u.user_id = p.user_id
@@ -44,6 +55,7 @@ export default {
             LEFT JOIN main.projects_plugins AS pp ON p.project_id = pp.project_id
             LEFT JOIN main.plugins AS pls ON pls.plugin_id = pp.plugin_id
             LEFT JOIN tags AS t ON t.project_id = p.project_id
+            LEFT JOIN rights AS r ON r.project_id = p.project_id
         WHERE
             p.uid = :uid
             AND u.uid = :userUid
@@ -71,9 +83,18 @@ export default {
             GROUP BY
                 pt.project_id
             LIMIT :tagsLimit
+        ),
+        rights AS (
+            SELECT
+                 pu.project_id
+                ,pur."right"
+            FROM
+                main.projects_users AS pu
+                INNER JOIN main.projects_users_rights AS pur ON pur.role = pu.role
+            WHERE
+                pu.user_id = :loggedInUserId
         )
-        SELECT
-            DISTINCT
+        SELECT DISTINCT ON (p.project_id, p.creation_datetime)
              p.project_id AS "id"
             ,p.user_id AS "userId"
             ,p.uid AS "uid"
@@ -88,12 +109,14 @@ export default {
                 'nickname', u.nickname
             ) AS "creator"
             ,COALESCE(t.tags, '[]')::jsonb AS "tags"
+            ,array_agg(r."right") AS "rights"
         FROM
             main.projects AS p
             INNER JOIN main.users AS u ON u.user_id = p.user_id
             LEFT JOIN main.projects_likes AS pl_liked ON p.project_id = pl_liked.project_id AND pl_liked.user_id = :loggedInUserId
             LEFT JOIN main.projects_likes AS pl ON p.project_id = pl.project_id
             LEFT JOIN tags AS t ON t.project_id = p.project_id
+            LEFT JOIN rights AS r ON r.project_id = p.project_id
         /*userUid:
         WHERE u.uid = :userUid
         */
@@ -130,9 +153,28 @@ export default {
             idea_id AS "id";`,
 
     create: `
-        INSERT INTO main.projects (name, uid, user_id)
-        VALUES (:name, :uid, :loggedInUserId)
+        INSERT INTO main.projects (name, uid, user_id, visibility)
+        VALUES (:name, :uid, :loggedInUserId, :visibility)
         RETURNING project_id AS "id";`,
+
+    addUser: `
+        INSERT INTO main.projects_users (project_id, user_id, "role")
+        VALUES (:id, :userId, :role::main.user_role);`,
+
+    checkRight: `
+        SELECT
+            TRUE
+        FROM
+            main.projects AS p
+            INNER JOIN main.projects_users AS pu ON pu.project_id = p.project_id
+            INNER JOIN main.projects_users_rights AS pur ON pur.role = pu.role
+        WHERE
+            p.project_id = :id
+            AND pu.user_id = :userId
+            AND (
+                pur."right" = :operation
+                OR pur."right" = '*'
+            );`,
 
     bindTags: `
         INSERT INTO main.projects_tags (project_id, tag_id)

@@ -1,8 +1,23 @@
 BEGIN TRANSACTION;
 SET search_path TO main;
 
--- project_user_role --
-CREATE TYPE main.project_user_role AS ENUM ('admin', 'moderator', 'party');
+-- project_state --
+CREATE TYPE main.project_state AS ENUM ('active', 'deleted', 'archived');
+
+-- projects_users_rights --
+CREATE TABLE main.projects_users_rights (
+    "role" main.user_role NOT NULL,
+    "right" TEXT NOT NULL
+);
+
+COMMENT ON TABLE main.projects_users_rights IS 'Projects users rights';
+COMMENT ON COLUMN main.projects_users_rights."role" IS 'Project user role';
+COMMENT ON COLUMN main.projects_users_rights."right" IS 'Project user right';
+
+INSERT INTO main.projects_users_rights (role, "right")
+VALUES
+       ('admin', '*'),
+       ('moderator', 'change_image');
 
 -- projects --
 CREATE TABLE main.projects (
@@ -14,7 +29,8 @@ CREATE TABLE main.projects (
     cover_image TEXT DEFAULT NULL,
     description TEXT NOT NULL DEFAULT '',
     creation_datetime TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
-    deleted TIMESTAMP WITH TIME ZONE DEFAULT NULL,
+    state main.project_state NOT NULL DEFAULT 'active'::main.project_state,
+    visibility main.content_visibility;
     CONSTRAINT projects_project_id_pkey PRIMARY KEY (project_id),
     CONSTRAINT projects_user_id_fkey FOREIGN KEY (user_id) REFERENCES main.users(user_id),
     CONSTRAINT projects_user_id_uid_ukey UNIQUE (user_id, uid)
@@ -29,13 +45,13 @@ COMMENT ON COLUMN main.projects.image IS 'Project image';
 COMMENT ON COLUMN main.projects.cover_image IS 'Project cover image';
 COMMENT ON COLUMN main.projects.description IS 'Project description';
 COMMENT ON COLUMN main.projects.creation_datetime IS 'Project creation timestamp';
-COMMENT ON COLUMN main.projects.deleted IS 'Project deletion timestamp';
+COMMENT ON COLUMN main.projects.state IS 'Project state';
 
 -- projects_users --
 CREATE TABLE main.projects_users (
     project_id INT8 NOT NULL,
     user_id INT4 NOT NULL,
-    role main.project_user_role NOT NULL DEFAULT 'party'::main.project_user_role,
+    role main.user_role NOT NULL,
     creation_datetime TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
     deleted TIMESTAMP WITH TIME ZONE DEFAULT NULL,
     CONSTRAINT projects_users_project_id_fkey FOREIGN KEY (project_id) REFERENCES main.projects(project_id),

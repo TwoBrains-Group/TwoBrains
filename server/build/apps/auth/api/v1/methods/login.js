@@ -19,7 +19,7 @@ class Login extends base_auth_1.default {
             returnField: 'userId',
         });
         if (!userId) {
-            throw new errors_1.AuthError(`User with email '${email}' not found`);
+            throw new errors_1.NotFoundError(`User with email '${email}' not found`);
         }
         const passwordVerified = await this.query('verifyPassword', {
             password,
@@ -29,7 +29,7 @@ class Login extends base_auth_1.default {
             returnField: 'passwordVerified',
         });
         if (!passwordVerified) {
-            throw new errors_1.AuthError('Invalid password');
+            throw new errors_1.AccessDeniedError('Invalid password');
         }
         const { token, userData } = await this.getToken(userId);
         return {

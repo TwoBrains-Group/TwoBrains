@@ -572,8 +572,8 @@
         "affectsGlobalScope": false
       },
       "../src/apps/base/errors.ts": {
-        "version": "1ce898b0d02c27a3cc33f20dca7db301dfbdc673959813caf442f1c97c6d5ea4",
-        "signature": "6a2fcdbf37ab4b7070eb5fb1f4224d52eb694a9febd7eb89fec3a0afe734b327",
+        "version": "aaa1632276e5314ccf98f758df1dda981cf56be63da62dae2d7349337588edeb",
+        "signature": "94dee63fc7a6d80fa4d3f6413f13b7c4d90a5a362bf1cec12aa42778c818290d",
         "affectsGlobalScope": false
       },
       "../src/utils/errors.ts": {
@@ -622,13 +622,13 @@
         "affectsGlobalScope": false
       },
       "../src/modules/db/errors.ts": {
-        "version": "d7a1d7a6d5473a309089708ee46147acc8fb58fd36b3e975d9e96e6b1d4d492f",
-        "signature": "93d363fd060de3c1dd4ae1f86c6c671b983a7514ee82cbe0e0b8c6c1ed572636",
+        "version": "9aab4c29875dbe556be6f73cbf9cb9d417f8af32f6c534fccb400357b16484a1",
+        "signature": "171ff303af222b61b7702aa5b30793016a1dc87b800739fa7ed40ce4d5682d42",
         "affectsGlobalScope": false
       },
       "../src/modules/db/pool.ts": {
-        "version": "db9b8cb6abec495e0b996ddb6cf1375ab05ec6f53c53a9f807ced4c80c9cc101",
-        "signature": "99f65718fc79a66ce3feb98b54b923205c5859f662446d29143b6906d9401808",
+        "version": "468283a4903774b3206ab167fb40535412c3ea8109401c93163191dd6387c021",
+        "signature": "06b44a62308781074df5a631a0fc3cc4854ad081257e68c82558f612753a5aaf",
         "affectsGlobalScope": false
       },
       "../node_modules/nanoid/index.d.ts": {
@@ -642,7 +642,7 @@
         "affectsGlobalScope": false
       },
       "../src/modules/db/instance.ts": {
-        "version": "f4cae8e1210ec33ea2f33d22df171e8e870bcb385464759c2a67ed4fd45a9297",
+        "version": "17e72543816569f591c836a331cb6eaf9caeb85d1e8ed29ae767628ecf8e81eb",
         "signature": "6be3058213e49928b95fdd2f558d0d5fff9107ee8aa643b04c5a8100e7da3862",
         "affectsGlobalScope": false
       },
@@ -707,8 +707,8 @@
         "affectsGlobalScope": false
       },
       "../src/apps/base/Method.ts": {
-        "version": "dbeab62ca496a6f6f5d19e19f7a8fb8fd4ba79afb0afa1929b3618b22b6429dc",
-        "signature": "406c74e9a841ad516cd662e59828a73d0d80eb7d895d9396740416538ef5c50e",
+        "version": "064f20b8e90a1f726a9fad4b45ac0bdf3a1a68dd1216b3c6b9a6e40dd36329ee",
+        "signature": "304ba4f3dcb81314d4c6c5ae89343f5b66a8a87cf6e7d38631c7d679aec90622",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/jsonwebtoken/index.d.ts": {
@@ -717,7 +717,7 @@
         "affectsGlobalScope": false
       },
       "../src/apps/base/api.ts": {
-        "version": "e457365a0f3f2f500491abda3740be8c06faa1f3a58dc3ed19ed4b332f812a08",
+        "version": "823ce6400ba18afb03899f6c90cd3bd7e6db769f2d9a50cf9d2a707ed39a9862",
         "signature": "af56f401f44cf23ec0426e6fe49db528ac9824fe3d4804af22fac6b0ba39ad95",
         "affectsGlobalScope": false
       },
@@ -822,7 +822,7 @@
         "affectsGlobalScope": false
       },
       "../src/apps/auth/api/v1/methods/login.ts": {
-        "version": "2a2a5c174ae87de704cd2a642087981005fdb9d174f9d845b2d9734bb235e163",
+        "version": "2f3b9dbaada44780f6a44da3714b0cfe5a1e357b9fef97814735ad32c973edfb",
         "signature": "7d282b640590ebbf0a0bbb0a3c0b4b54cc4fd4aea47ea1ffa6fbd0adf5dce96c",
         "affectsGlobalScope": false
       },
@@ -932,7 +932,7 @@
         "affectsGlobalScope": false
       },
       "../src/apps/idea/api/v1/methods/edit.ts": {
-        "version": "76bd109f6b6c69d5940a8c69b85b64ca6bf05db568542e22d9c5b4b63af5895e",
+        "version": "ef2e7e6c05274437df6d92b6f83918ce225274302c7ddc9ffcd66f0ce376ad11",
         "signature": "029e3130286e8794126666c29ae31377d7ba45e0174325fce4d8c3887c51493b",
         "affectsGlobalScope": false
       },
@@ -1107,7 +1107,7 @@
         "affectsGlobalScope": false
       },
       "../src/apps/project/api/v1/methods/create.ts": {
-        "version": "2a5fbc6de618c19328c3b2f24f380d864e8fe1cf39591b2b262fb0d73067996b",
+        "version": "341d7dd82cffe5e3d42de2e17d8d8e6f152fca8e77f93ee80fb942661bc48589",
         "signature": "8283cc05abd59551263118a8a2f134d7284d6f11465ec1e4d4c37fa9c21d474f",
         "affectsGlobalScope": false
       },
@@ -1116,9 +1116,19 @@
         "signature": "1d79e70c240a43b9b333f5143cfc9d78af0868e7d9a8d69e8b6e03e2153863a7",
         "affectsGlobalScope": false
       },
+      "../src/apps/project/api/v1/methods/modification.ts": {
+        "version": "2572c14a9ff1de31d934d41ee5171490f1cf99ba33c32c2d006db49962ea6e80",
+        "signature": "3769ad902c01e6ff09b35c40c4c426f105c4f487d67da1312c837e98b0685f6e",
+        "affectsGlobalScope": false
+      },
+      "../src/apps/project/api/v1/methods/archive.ts": {
+        "version": "3d8c245ca1565393a83e29cbed59da1369e833e387da640c6f057589a855dd9a",
+        "signature": "69446953df515dbb9647bdca66aabe01caf5b77458a073d50848bd70947dde12",
+        "affectsGlobalScope": false
+      },
       "../src/apps/project/api/v1/methods/index.ts": {
-        "version": "4a790e5634c3fe4e1686c7a0dd5ae9763a899f11bf1232ea925bbaee20592031",
-        "signature": "9fb06d88eb82efd228318e1c630d2f03756a7e1f77a9d89272cf9e401a0d042b",
+        "version": "640d9abe01335bfae7105b3ac761ca58e8adf76f710217b1ca6399cb6cf99cbb",
+        "signature": "0544abd834860bf01e3d0365bece8bcedcbd2e8c7ed78cf2b6b52b03368469ee",
         "affectsGlobalScope": false
       },
       "../src/apps/project/api/v1/schemas/get-by-uid.ts": {
@@ -1132,8 +1142,8 @@
         "affectsGlobalScope": false
       },
       "../src/apps/project/api/v1/schemas/create.ts": {
-        "version": "a3029f1ea9ca46301d2ae1829d0fa8553a7c6df74ef60a8e2eff5786740d16c6",
-        "signature": "986740b1351c6877b97e83f8b5a4e524e8f5bea425ef6aa55bd169ad60aeee2a",
+        "version": "6859b0558f390f5284071999bddaaa65d08c756171e38a6b6e8e6faf4f0f249c",
+        "signature": "57d060b4cdf506d728ec7335b794baa209bd08472b6fcc7770e84c4e3e09f2f4",
         "affectsGlobalScope": false
       },
       "../src/apps/project/api/v1/schemas/like.ts": {
@@ -1143,22 +1153,22 @@
       },
       "../src/apps/project/api/v1/schemas/index.ts": {
         "version": "4a790e5634c3fe4e1686c7a0dd5ae9763a899f11bf1232ea925bbaee20592031",
-        "signature": "ecd2bdec489f1b7f7a2739f1d59c0a6b5d9d8a25959b79c2888042b285a44b8a",
+        "signature": "91dc56813f6ab2ac16edb3f9cd4d768da667ed236eec52b4cd86ac1f8fc42bb7",
         "affectsGlobalScope": false
       },
       "../src/apps/project/api/v1/queries.ts": {
-        "version": "031819aadab14c6f76c336ffd77e18aed4098bb1e4a409ab969c5c35ae168d6d",
-        "signature": "e51a9e8ada82a02dd97c748e873c2d1ed6e8d4d10e4313d890a4cade10d86259",
+        "version": "e744f8d3deedbd279db62d3abe100ee34d081704ff43d54c3e4c79f513675cca",
+        "signature": "a9ea1a8bb1883463cb0f3b7898a5709510e81151f2e9bddbf40d7bc6a4a5a6ab",
         "affectsGlobalScope": false
       },
       "../src/apps/project/api/v1/index.ts": {
         "version": "c79574dc5ab8914852f522e39a70388a09d85522e4b3be1907b51149563f57a5",
-        "signature": "2dc971ad5f2cd2de054f792c03497bd8b11d27f24cd860704be18ffc3add4d4a",
+        "signature": "59e9cb0ebe01645559bf75289e79054fbbe96212cea183e7dfd7f9d2cb1292cb",
         "affectsGlobalScope": false
       },
       "../src/apps/project/api/index.ts": {
         "version": "d5b596dbfca3aab7ccf574e1370c25990ad5ba1378a43adcd1c4a11f34f00af4",
-        "signature": "c1afc93f6117ac3953c43020264901d2af8c807f7c0a18a43bd2f78680058ea3",
+        "signature": "da4b677d4c34575351ba4160caa7b7dd449cbd1b488ca4250ff83f57e4ec0306",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/sharp/index.d.ts": {
@@ -1172,8 +1182,13 @@
         "affectsGlobalScope": false
       },
       "../src/apps/project/api/v1/methods/change-image.ts": {
-        "version": "7512455198d732ff5efc1438d205b85dc819321f5221c18abbde3a36ad4032e0",
-        "signature": "b34dda98e839165a8bc4b396207e49e3c500e715c2439e674492208d931d2b53",
+        "version": "81bbdf2d8bdf6476ecb6aeafc435b8bff67aeb718f18cd236ed24a0e01336623",
+        "signature": "6b4be8c615fb87acd014cf2259a82e9199d0ec01c980b2b910b8a3f294e33921",
+        "affectsGlobalScope": false
+      },
+      "../src/apps/project/api/v1/schemas/archive.ts": {
+        "version": "e7a22d62a45726b37141f606dfd1ef6849f906b2f801d40ea479164ff74bef60",
+        "signature": "e99f3e3e513a286c93ebbd59bf87de36314ac401ad93b8ab11f9d956300aacd9",
         "affectsGlobalScope": false
       },
       "../src/apps/project/plugins/base/queries.ts": {
@@ -2337,6 +2352,7 @@
       ],
       "../src/apps/base/Method.ts": [
         "../node_modules/@types/express/index.d.ts",
+        "../node_modules/@types/node/events.d.ts",
         "../node_modules/ajv/dist/ajv.d.ts",
         "../src/apps/base/errors.ts",
         "../src/apps/base/templates.ts",
@@ -2527,13 +2543,17 @@
         "../src/apps/project/api/v1/queries.ts",
         "../src/apps/project/api/v1/schemas/index.ts"
       ],
+      "../src/apps/project/api/v1/methods/archive.ts": [
+        "../src/apps/base/Method.ts",
+        "../src/apps/project/api/v1/methods/modification.ts"
+      ],
       "../src/apps/project/api/v1/methods/change-image.ts": [
         "../node_modules/@types/app-root-path/index.d.ts",
         "../node_modules/@types/formidable/index.d.ts",
         "../node_modules/@types/sharp/index.d.ts",
         "../node_modules/@types/uuid/index.d.ts",
         "../src/apps/base/Method.ts",
-        "../src/apps/base/errors.ts",
+        "../src/apps/project/api/v1/methods/modification.ts",
         "../src/modules/db/pool.ts"
       ],
       "../src/apps/project/api/v1/methods/create.ts": [
@@ -2552,6 +2572,7 @@
         "../src/modules/db/pool.ts"
       ],
       "../src/apps/project/api/v1/methods/index.ts": [
+        "../src/apps/project/api/v1/methods/archive.ts",
         "../src/apps/project/api/v1/methods/create.ts",
         "../src/apps/project/api/v1/methods/get-by-uid.ts",
         "../src/apps/project/api/v1/methods/get-list.ts",
@@ -2559,6 +2580,11 @@
       ],
       "../src/apps/project/api/v1/methods/like.ts": [
         "../src/apps/base/Method.ts",
+        "../src/modules/db/pool.ts"
+      ],
+      "../src/apps/project/api/v1/methods/modification.ts": [
+        "../src/apps/base/Method.ts",
+        "../src/apps/base/errors.ts",
         "../src/modules/db/pool.ts"
       ],
       "../src/apps/project/api/v1/modules/prepare.ts": [
@@ -2716,6 +2742,9 @@
       "../src/modules/ajv/index.ts": [
         "../node_modules/ajv/dist/ajv.d.ts"
       ],
+      "../src/modules/db/errors.ts": [
+        "../src/apps/base/errors.ts"
+      ],
       "../src/modules/db/index.ts": [
         "../src/modules/BaseModule.ts",
         "../src/modules/db/instance.ts",
@@ -2724,6 +2753,7 @@
       "../src/modules/db/instance.ts": [
         "../node_modules/nanoid/index.d.ts",
         "../node_modules/sql-formatter/src/sqlFormatter.d.ts",
+        "../src/apps/base/errors.ts",
         "../src/modules/db/errors.ts",
         "../src/modules/db/index.ts",
         "../src/modules/db/pool.ts",
@@ -2731,9 +2761,9 @@
         "../src/utils/config.ts"
       ],
       "../src/modules/db/pool.ts": [
-        "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/pg-pool/index.d.ts",
         "../node_modules/@types/pg/index.d.ts",
+        "../src/apps/base/errors.ts",
         "../src/modules/db/errors.ts"
       ],
       "../src/modules/image-generator/index.ts": [
@@ -3432,6 +3462,7 @@
       ],
       "../src/apps/base/Method.ts": [
         "../node_modules/@types/express/index.d.ts",
+        "../node_modules/@types/node/events.d.ts",
         "../node_modules/ajv/dist/ajv.d.ts",
         "../src/apps/base/templates.ts",
         "../src/modules/db/instance.ts",
@@ -3515,8 +3546,13 @@
       "../src/apps/plugin/index.ts": [
         "../src/apps/base/index.ts"
       ],
+      "../src/apps/project/api/v1/methods/archive.ts": [
+        "../src/apps/base/Method.ts",
+        "../src/apps/project/api/v1/methods/modification.ts"
+      ],
       "../src/apps/project/api/v1/methods/change-image.ts": [
-        "../src/apps/base/Method.ts"
+        "../src/apps/base/Method.ts",
+        "../src/apps/project/api/v1/methods/modification.ts"
       ],
       "../src/apps/project/api/v1/methods/create.ts": [
         "../src/apps/base/Method.ts"
@@ -3528,6 +3564,9 @@
         "../src/apps/base/Method.ts"
       ],
       "../src/apps/project/api/v1/methods/like.ts": [
+        "../src/apps/base/Method.ts"
+      ],
+      "../src/apps/project/api/v1/methods/modification.ts": [
         "../src/apps/base/Method.ts"
       ],
       "../src/apps/project/index.ts": [
@@ -3588,6 +3627,9 @@
       "../src/modules/ajv/index.ts": [
         "../node_modules/ajv/dist/ajv.d.ts"
       ],
+      "../src/modules/db/errors.ts": [
+        "../src/apps/base/errors.ts"
+      ],
       "../src/modules/db/index.ts": [
         "../src/modules/BaseModule.ts",
         "../src/modules/db/instance.ts",
@@ -3600,7 +3642,8 @@
       ],
       "../src/modules/db/pool.ts": [
         "../node_modules/@types/pg-pool/index.d.ts",
-        "../node_modules/@types/pg/index.d.ts"
+        "../node_modules/@types/pg/index.d.ts",
+        "../src/apps/base/errors.ts"
       ],
       "../src/server/index.ts": [
         "../node_modules/@types/express/index.d.ts",
@@ -3866,14 +3909,17 @@
       "../src/apps/plugin/index.ts",
       "../src/apps/project/api/index.ts",
       "../src/apps/project/api/v1/index.ts",
+      "../src/apps/project/api/v1/methods/archive.ts",
       "../src/apps/project/api/v1/methods/change-image.ts",
       "../src/apps/project/api/v1/methods/create.ts",
       "../src/apps/project/api/v1/methods/get-by-uid.ts",
       "../src/apps/project/api/v1/methods/get-list.ts",
       "../src/apps/project/api/v1/methods/index.ts",
       "../src/apps/project/api/v1/methods/like.ts",
+      "../src/apps/project/api/v1/methods/modification.ts",
       "../src/apps/project/api/v1/modules/prepare.ts",
       "../src/apps/project/api/v1/queries.ts",
+      "../src/apps/project/api/v1/schemas/archive.ts",
       "../src/apps/project/api/v1/schemas/create.ts",
       "../src/apps/project/api/v1/schemas/get-by-uid.ts",
       "../src/apps/project/api/v1/schemas/get-list.ts",

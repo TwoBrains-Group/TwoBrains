@@ -8,22 +8,27 @@ class Create extends Method_1.Method {
     async run(req, user) {
         const { params } = req;
         const { id: loggedInUserId } = user;
-        const { tags } = params;
+        const { tags, visibility } = params;
         let { name, description = null, } = params;
         name = name.trim();
         description = description && description.trim();
         let { plugins } = params;
         plugins = [...defaultPlugins, ...plugins];
         const uid = `${name.replace(/\s+/, '_')}_${nanoid_1.nanoid(8)}`.toLowerCase();
-        console.log(`name ${name}, descr ${description}, plugins ${JSON.stringify(plugins, null, 2)}`);
         const id = await this.query('create', {
             name,
             description,
             uid,
             loggedInUserId,
+            visibility,
         }, {
             returnType: pool_1.QueryReturnType.Row,
             returnField: 'id',
+        });
+        await this.query('addUser', {
+            id,
+            userId: loggedInUserId,
+            role: 'admin',
         });
         if (tags.length) {
             await this.query('bindTags', {

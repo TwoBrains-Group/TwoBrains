@@ -14,8 +14,8 @@ class DB extends BaseModule {
         return instance
     }
 
-    async close(instance: Pool): Promise<void> {
-        await instance.end()
+    async close(instance: DBInstance): Promise<void> {
+        await instance.pool.end()
     }
 }
 

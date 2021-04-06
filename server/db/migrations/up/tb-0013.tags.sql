@@ -34,7 +34,7 @@ COMMENT ON COLUMN main.tag_groups_l10n.locale_id IS 'Tag group l10n locale id';
 CREATE INDEX tag_groups_tsv_idx ON main.tag_groups USING gin(tsv);
 
 -- tag_groups_tsv_update --
-CREATE FUNCTION tag_groups_tsv_update() RETURNS trigger AS $$
+CREATE FUNCTION main.tag_groups_tsv_update() RETURNS trigger AS $$
 BEGIN
     new.tsv = setweight(to_tsvector(new.label), 'A');
     return new;
@@ -43,7 +43,7 @@ $$ LANGUAGE plpgsql;
 
 -- tag_groups_tsv_update_trigger --
 CREATE TRIGGER tag_groups_tsv_update_trigger BEFORE INSERT OR UPDATE
-ON main.tag_groups FOR EACH ROW EXECUTE PROCEDURE tag_groups_tsv_update();
+ON main.tag_groups FOR EACH ROW EXECUTE PROCEDURE main.tag_groups_tsv_update();
 
 ----------
 -- tags --
@@ -80,7 +80,7 @@ COMMENT ON COLUMN main.tags_l10n.locale_id IS 'Tag l10n locale id';
 CREATE INDEX tags_tsv_idx ON main.tags USING gin(tsv);
 
 -- tags_tsv_update --
-CREATE FUNCTION tags_tsv_update() RETURNS trigger AS $$
+CREATE FUNCTION main.tags_tsv_update() RETURNS trigger AS $$
 BEGIN
     new.tsv = setweight(to_tsvector(new.label), 'A');
     return new;
@@ -89,7 +89,7 @@ $$ LANGUAGE plpgsql;
 
 -- tags_tsv_update_trigger --
 CREATE TRIGGER tags_tsv_update_trigger BEFORE INSERT OR UPDATE
-ON main.tags FOR EACH ROW EXECUTE PROCEDURE tags_tsv_update();
+ON main.tags FOR EACH ROW EXECUTE PROCEDURE main.tags_tsv_update();
 
 
 COMMIT;

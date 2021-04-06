@@ -19,9 +19,16 @@ class Simple extends Method_1.Method {
         }, {
             returnType: pool_1.QueryReturnType.Rows,
         });
+        const projects = await this.query('searchProjects', {
+            searchQuery,
+            limit,
+        }, {
+            returnType: pool_1.QueryReturnType.Rows,
+        });
         return {
             ideas,
             users,
+            projects,
         };
     }
 }

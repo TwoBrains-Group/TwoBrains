@@ -47,6 +47,7 @@ export default {
             )) AS "plugins"
             ,COALESCE(t.tags, '[]')::jsonb AS "tags"
             ,array_agg(r."right") AS "rights"
+            ,(u.user_id = :loggedInUserId)::BOOL AS "isMine"
         FROM
             main.projects AS p
             INNER JOIN main.users AS u ON u.user_id = p.user_id
@@ -61,6 +62,7 @@ export default {
             AND u.uid = :userUid
         GROUP BY
              p.project_id
+            ,u.user_id
             ,pl_liked.user_id
             ,u.uid
             ,u.nickname
@@ -110,6 +112,7 @@ export default {
             ) AS "creator"
             ,COALESCE(t.tags, '[]')::jsonb AS "tags"
             ,array_agg(r."right") AS "rights"
+            ,(u.user_id = :loggedInUserId)::BOOL AS "isMine"
         FROM
             main.projects AS p
             INNER JOIN main.users AS u ON u.user_id = p.user_id
@@ -123,6 +126,7 @@ export default {
         GROUP BY
             p.project_id,
             p.creation_datetime,
+            u.user_id,
             pl.user_id,
             u.uid,
             u.nickname,

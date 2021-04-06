@@ -16,6 +16,9 @@
                      @click="like">
                     <i class="fa-star" :class="liked ? 'fas' : 'far'"></i> <span>{{ likesCount }}</span>
                 </div>
+                <div class="btn project__header__btns__el project__header__btns__el--share">
+                    <i class="fas fa-share-alt"></i>
+                </div>
             </div>
 
             <div class="project__header__plugins" v-if="project.plugins.length">

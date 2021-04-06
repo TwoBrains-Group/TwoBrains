@@ -15,7 +15,8 @@
     }
 
     &.hover {
-        box-shadow: 0 3px 15px #f0f0f0;
+        box-shadow: 0 5px 15px #f0f0f0;
+        z-index: 1001;
 
         .idea__block__footer {
             .idea__block__footer__tags__hash {
@@ -43,7 +44,7 @@
 
         .idea__block__header {
             display: grid;
-            grid-template-columns: max-content auto;
+            grid-template-columns: max-content auto max-content;
             grid-template-rows: 100%;
             position: relative;
             padding: 5px;
@@ -98,6 +99,54 @@
 
                 &:hover {
                     color: #333;
+                }
+            }
+
+            .right {
+                display: grid;
+                grid-template-columns: 45px;
+                grid-template-rows: 45px;
+                padding: 0 0 5px 5px;
+                margin-left: auto;
+
+                .idea__block__header__options-btn {
+                    padding: 5px;
+                    line-height: 25px;
+                    margin: 0 0 10px 10px;
+                    vertical-align: middle;
+                    text-align: center;
+                    border-radius: 8px;
+                    color: #777;
+                    transition: .15s ease;
+
+                    &:hover {
+                        color: #333;
+                    }
+                }
+
+                .idea__block__header__options {
+                    display: grid;
+                    position: absolute;
+                    top: 40px;
+                    right: 5px;
+                    width: 100px;
+                    height: max-content;
+                    border-radius: 8px;
+                    overflow: hidden;
+
+                    grid-template-columns: 100%;
+                    grid-template-rows: 30px;
+
+                    background: #fff;
+                    box-shadow: 0 3px 5px -1px #ddd;
+                    z-index: 100;
+
+                    .idea__block__header__options__el {
+                        padding: 5px 10px;
+                        text-align: center;
+                        line-height: 20px;
+                        vertical-align: middle;
+                    }
                 }
             }
         }

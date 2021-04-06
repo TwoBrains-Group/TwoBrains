@@ -5,7 +5,7 @@ import Logger from '@modules/logger'
 import {nanoid} from 'nanoid'
 import {format as formatSql} from 'sql-formatter'
 import {config} from '@utils/config'
-import {InternalError} from '@apps/base/errors'
+import {NotFoundError} from '@apps/base/errors'
 
 const {db: {connection}} = config
 
@@ -52,7 +52,7 @@ class DBInstance {
         const {returnType, returnField, queryDebugLog, check} = options
         let {checkError} = options
         if (!(checkError instanceof Error)) {
-            checkError = new InternalError(checkError)
+            checkError = new NotFoundError(checkError)
         }
 
         if (queryDebugLog) {
@@ -105,14 +105,12 @@ class DBInstance {
 
             return rows
         } catch (error) {
-            if (!(error instanceof DBError)) {
-                this.log.warn('All errors thrown from DB module must be instances DBError')
-            }
-
             this.log.error(`[DB Error] (${queryName}) ${error}`)
 
-            if (error.fatal) {
+            if (error instanceof DBError && error.fatal) {
                 throw error.hide()
+            } else {
+                throw error
             }
         }
     }

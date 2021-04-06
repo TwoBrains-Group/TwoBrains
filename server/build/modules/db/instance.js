@@ -42,7 +42,7 @@ class DBInstance {
         const { returnType, returnField, queryDebugLog, check } = options;
         let { checkError } = options;
         if (!(checkError instanceof Error)) {
-            checkError = new errors_2.InternalError(checkError);
+            checkError = new errors_2.NotFoundError(checkError);
         }
         if (queryDebugLog) {
             this.log.debug(`(query debug log) ${queryName}: Full params: ${JSON.stringify(params, null, 2)}`);
@@ -85,12 +85,12 @@ class DBInstance {
             return rows;
         }
         catch (error) {
-            if (!(error instanceof errors_1.DBError)) {
-                this.log.warn('All errors thrown from DB module must be instances DBError');
-            }
             this.log.error(`[DB Error] (${queryName}) ${error}`);
-            if (error.fatal) {
+            if (error instanceof errors_1.DBError && error.fatal) {
                 throw error.hide();
+            }
+            else {
+                throw error;
             }
         }
     }

@@ -1,6 +1,6 @@
 import {MustBeOverridden} from '@utils/errors'
 import Logger from '@modules/logger'
-import {default as DB} from '@modules/db'
+import DB from '@modules/db'
 import {Query, queryDefaultOptions, QueryOptions, QueryParams} from '@modules/db/pool'
 import {Req, MethodRes, FormDataReq} from '@apps/base/templates'
 import DBInstance from '@modules/db/instance'

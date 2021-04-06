@@ -642,13 +642,13 @@
         "affectsGlobalScope": false
       },
       "../src/modules/db/instance.ts": {
-        "version": "17e72543816569f591c836a331cb6eaf9caeb85d1e8ed29ae767628ecf8e81eb",
+        "version": "11bb30f93da3da670802ba530f65ba9b669a644d31b1333b1d0967dee2d4de99",
         "signature": "6be3058213e49928b95fdd2f558d0d5fff9107ee8aa643b04c5a8100e7da3862",
         "affectsGlobalScope": false
       },
       "../src/modules/db/index.ts": {
-        "version": "bf68614d94cac680e79bd976517ebe7a4b3c5eb94c569cc74061e90c51b18d1a",
-        "signature": "91072c774f66d99c656ae626d55bd838429a12d87036b7a32415c45af42955cd",
+        "version": "41b787c2a7755ec4acb1215c33c63be2df5a7612426dad5776de62cb8789098b",
+        "signature": "fd170290fc6269da3b72b8e3b392b36452fb56e6d8976f8d59b796fd2fe0b778",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/formidable/index.d.ts": {
@@ -707,7 +707,7 @@
         "affectsGlobalScope": false
       },
       "../src/apps/base/Method.ts": {
-        "version": "064f20b8e90a1f726a9fad4b45ac0bdf3a1a68dd1216b3c6b9a6e40dd36329ee",
+        "version": "480e5fcada3e532ed3208b739876d3c1f4b9ef560c8fc838850bc536a86c6071",
         "signature": "304ba4f3dcb81314d4c6c5ae89343f5b66a8a87cf6e7d38631c7d679aec90622",
         "affectsGlobalScope": false
       },
@@ -1157,7 +1157,7 @@
         "affectsGlobalScope": false
       },
       "../src/apps/project/api/v1/queries.ts": {
-        "version": "e744f8d3deedbd279db62d3abe100ee34d081704ff43d54c3e4c79f513675cca",
+        "version": "52617494347aba93ac572cd7d28636c5b0503bd951ab7297ea6ee9052b4e834b",
         "signature": "a9ea1a8bb1883463cb0f3b7898a5709510e81151f2e9bddbf40d7bc6a4a5a6ab",
         "affectsGlobalScope": false
       },
@@ -1222,7 +1222,7 @@
         "affectsGlobalScope": false
       },
       "../src/apps/search/api/v1/methods/simple.ts": {
-        "version": "a92487f63f7a1979dce345bd652b4f548b976c3a95b8fca10006107eeec1b132",
+        "version": "dd907f5296aaa9dcb5e70d79f9fb0d17e0e0698c2dd432e17afc0db7556b6636",
         "signature": "4af5adae0899f1c87ade0d04c802fef00adecd1c8b8b5abc0e2392d693406f8d",
         "affectsGlobalScope": false
       },
@@ -1619,6 +1619,11 @@
       "../src/modules/yodl/index.ts": {
         "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "affectsGlobalScope": false
+      },
+      "../src/scripts/db/migrate.ts": {
+        "version": "6a014206b200753e71b5f1c4f05f50549f9b5a87f4997f89baade1c73212b004",
+        "signature": "142336091d093ceb2268a25d63638b5badf773ce5ac83c137f4f4dafb0d65f1e",
         "affectsGlobalScope": false
       }
     },
@@ -2773,6 +2778,14 @@
         "../node_modules/chalk/index.d.ts",
         "../src/utils/config.ts"
       ],
+      "../src/scripts/db/migrate.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/fs/promises.d.ts",
+        "../node_modules/@types/node/path.d.ts",
+        "../src/modules/db/index.ts",
+        "../src/modules/db/pool.ts",
+        "../src/utils/dotenv.ts"
+      ],
       "../src/server/index.ts": [
         "../node_modules/@types/app-root-path/index.d.ts",
         "../node_modules/@types/body-parser/index.d.ts",
@@ -3645,6 +3658,9 @@
         "../node_modules/@types/pg/index.d.ts",
         "../src/apps/base/errors.ts"
       ],
+      "../src/scripts/db/migrate.ts": [
+        "../src/utils/dotenv.ts"
+      ],
       "../src/server/index.ts": [
         "../node_modules/@types/express/index.d.ts",
         "../node_modules/@types/node/path.d.ts",
@@ -3979,6 +3995,7 @@
       "../src/modules/logger/index.ts",
       "../src/modules/pretty-time/index.ts",
       "../src/modules/yodl/index.ts",
+      "../src/scripts/db/migrate.ts",
       "../src/server/index.ts",
       "../src/server/mws/error.ts",
       "../src/server/mws/index.ts",

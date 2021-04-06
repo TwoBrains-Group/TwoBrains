@@ -21,6 +21,21 @@
                 }">
                     {{ prettyCreationDatetime }}
                 </nuxt-link>
+
+                <div class="right">
+                    <div class="btn idea__block__header__options-btn" @click="toggleOptions">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </div>
+
+                    <div class="idea__block__header__options" v-show="showOptions">
+                        <div class="btn idea__block__header__options__el">
+                            {{ l10n.edit }}
+                        </div>
+                        <div class="btn idea__block__header__options__el">
+                            {{ l10n.delete || 'delete' }}
+                        </div>
+                    </div>
+                </div>
             </header>
 
             <nuxt-link :to="'/idea/' + id"
@@ -65,8 +80,8 @@
                                :key="tag.id">
                         <span class="group" v-if="tag.groupLabel">{{ l10n.tagGroups.meow }}:</span>
                         {{ l10n.tags['lol'] }}
-<!--                        <span class="group" v-if="tag.groupLabel">{{ l10n.tagGroups[tag.groupLabel] }}:</span>-->
-<!--                        {{ l10n.tags[tag.label] }}-->
+                        <!--                        <span class="group" v-if="tag.groupLabel">{{ l10n.tagGroups[tag.groupLabel] }}:</span>-->
+                        <!--                        {{ l10n.tags[tag.label] }}-->
                     </nuxt-link>
                 </div>
             </footer>
@@ -139,6 +154,8 @@ export default {
             disliked$: this.likeExists && this.disliked,
             likesCount$: this.likesCount,
             dislikesCount$: this.dislikesCount,
+
+            showOptions: false,
 
             comments: [],
             showComments: false,
@@ -232,6 +249,10 @@ export default {
 
         getTagSearchUrl(tagId) {
             return `/idea/search?tags=[${tagId}]`
+        },
+
+        toggleOptions() {
+            this.showOptions = !this.showOptions
         },
     },
 }

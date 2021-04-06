@@ -30,7 +30,8 @@ CREATE TABLE main.projects (
     description TEXT NOT NULL DEFAULT '',
     creation_datetime TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
     state main.project_state NOT NULL DEFAULT 'active'::main.project_state,
-    visibility main.content_visibility;
+    visibility main.content_visibility,
+    tsv tsvector NOT NULL,
     CONSTRAINT projects_project_id_pkey PRIMARY KEY (project_id),
     CONSTRAINT projects_user_id_fkey FOREIGN KEY (user_id) REFERENCES main.users(user_id),
     CONSTRAINT projects_user_id_uid_ukey UNIQUE (user_id, uid)
@@ -46,6 +47,25 @@ COMMENT ON COLUMN main.projects.cover_image IS 'Project cover image';
 COMMENT ON COLUMN main.projects.description IS 'Project description';
 COMMENT ON COLUMN main.projects.creation_datetime IS 'Project creation timestamp';
 COMMENT ON COLUMN main.projects.state IS 'Project state';
+COMMENT ON COLUMN main.projects.tsv IS 'Project tsvector for search';
+
+-- projects_tsv_idx --
+CREATE INDEX projects_tsv_idx ON main.projects USING gin(tsv);
+
+-- projects_tsv_update --
+CREATE FUNCTION projects_tsv_update() RETURNS trigger AS $$
+BEGIN
+    new.tsv =
+        setweight(to_tsvector(new.name), 'A') ||
+        setweight(to_tsvector(new.uid),  'B') ||
+        setweight(to_tsvector(new.text), 'D');
+    return new;
+END
+$$ LANGUAGE plpgsql;
+
+-- projects_tsv_update_trigger --
+CREATE TRIGGER projects_tsv_update_trigger BEFORE INSERT OR UPDATE
+ON main.projects FOR EACH ROW EXECUTE PROCEDURE projects_tsv_update();
 
 -- projects_users --
 CREATE TABLE main.projects_users (

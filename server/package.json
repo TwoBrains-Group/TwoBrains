@@ -9,8 +9,8 @@
         "dev": "nodemon",
         "lint": "eslint src --quiet --ext .ts",
         "fix-lint": "eslint src --fix --ext .ts",
-        "img-test": "tsc && node build/modules/image-generator/index.js",
-        "gen-l10n": "node db/scripts/l10n.js"
+        "gen-l10n": "node db/scripts/l10n.js",
+        "migrate": "node build/scripts/db/migrate.js"
     },
     "_moduleAliases": {
         "@root": ".",

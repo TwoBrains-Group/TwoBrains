@@ -25,9 +25,17 @@ class Simple extends Method {
             returnType: QueryReturnType.Rows,
         })
 
+        const projects = await this.query('searchProjects', {
+            searchQuery,
+            limit,
+        }, {
+            returnType: QueryReturnType.Rows,
+        })
+
         return {
             ideas,
             users,
+            projects,
         }
     }
 }

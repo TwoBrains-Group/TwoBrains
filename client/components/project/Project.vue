@@ -20,22 +20,19 @@
                     </div>
                     <Share :link="url" v-show="showShare"/>
                     <div class="btn project__body__info__btns__el project__body__info__btns__options"
-                         @click="toggleOptions">
+                         @click="toggleOptions"
+                         v-if="isMine">
                         <i class="fas fa-ellipsis-h"></i>
                     </div>
-                    <div class="options">
-                        <nuxt-link v-if="isMine" class="options__el" :to="url + '/settings'">
-                            {{ l10n.settings }}
+                    <div class="options" v-if="isMine" v-show="showOptions">
+                        <nuxt-link v-if="isMine" class="btn options__el" :to="url + '/settings'">
+                            {{ l10n.settings || 'settings' }}
                         </nuxt-link>
                     </div>
                 </div>
 
-                <!--                <div class="project__body__info__options">-->
-                <!--                    <div class="btn project__body__info__options__el">Delete</div>-->
-                <!--                </div>-->
-
-                <nuxt-link :to="url">
-                    <p class="sb sb--small project__body__info__description">
+                <nuxt-link :to="url" class="sb sb--small project__body__info__description">
+                    <p>
                         {{ description.slice(0, descriptionLimit) }}
                         {{ description.length > descriptionLimit ? '...' : '' }}
                     </p>
@@ -78,6 +75,7 @@ import Share from '@/components/ui/Share'
 
 export default {
     name: 'project',
+
     components: {
         Share,
     },
@@ -102,7 +100,7 @@ export default {
             type: String,
         },
         creator: {
-            type: String,
+            type: Object,
         },
         tags: {
             type: Array,
@@ -111,10 +109,13 @@ export default {
             type: Boolean,
         },
         likesCount: {
-            type: Number,
+            type: [Number, String],
         },
         rights: {
-            type: Object,
+            type: Array,
+        },
+        isMine: {
+            type: Boolean,
         },
     },
 
@@ -162,11 +163,12 @@ export default {
 
         toggleOptions() {
             this.showOptions = !this.showOptions
-            this.$toast.info('TODO: Options menu')
+            this.showShare = false
         },
 
         share() {
             this.showShare = !this.showShare
+            this.showOptions = false
         },
     },
 }

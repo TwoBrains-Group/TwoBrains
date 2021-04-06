@@ -12,7 +12,7 @@
     .project__header {
         display: grid;
 
-        grid-template-columns: 150px auto 200px;
+        grid-template-columns: 150px minmax(auto, 775px) 75px;
         grid-template-rows: 150px max-content;
 
         box-shadow: 0 2px 5px -1px #dddd;
@@ -75,6 +75,8 @@
             vertical-align: middle;
             font-size: 30px;
             font-weight: 200;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .project__header__btns {
@@ -82,14 +84,16 @@
             grid-column: 3;
             grid-row: 1 / 2;
 
-            grid-template-columns: max-content;
-            grid-template-rows: 40px;
+            grid-template-columns: 65px;
+            grid-template-rows: repeat(2, 40px);
+            grid-gap: 5px;
             justify-content: right;
 
-            padding: 7px;
+            padding: 5px;
 
             .project__header__btns__el {
                 padding: 10px;
+                margin-left: 10px;
                 text-align: center;
                 line-height: 20px;
                 vertical-align: middle;

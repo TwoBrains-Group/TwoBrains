@@ -52,10 +52,10 @@
             }
 
             .project__body__info__btns {
+                display: grid;
                 grid-column: 2;
                 grid-row: 1;
 
-                display: grid;
                 grid-template-columns: repeat(2, 30px);
                 grid-template-rows: 30px;
 
@@ -75,10 +75,34 @@
                         color: #333;
                     }
                 }
+
+                .options {
+                    display: grid;
+                    position: absolute;
+                    top: 30px;
+                    right: 0;
+                    width: 120px;
+                    height: max-content;
+                    border-radius: 8px;
+                    overflow: hidden;
+
+                    grid-template-columns: 100%;
+                    grid-template-rows: 30px;
+
+                    background: #fff;
+                    box-shadow: 0 2px 5px -1px #ddd;
+
+                    .options__el {
+                        padding: 5px 10px;
+                        text-align: center;
+                        line-height: 20px;
+                        vertical-align: middle;
+                    }
+                }
             }
 
             .project__body__info__description {
-                grid-column: -1 / 1;
+                grid-column: 1 / -1;
                 padding: 5px;
                 font-size: 14px;
                 font-weight: 300;

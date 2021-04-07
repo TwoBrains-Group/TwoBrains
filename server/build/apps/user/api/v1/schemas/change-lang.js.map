@@ -1,1 +1,0 @@
-{"version":3,"file":"change-lang.js","sourceRoot":"","sources":["../../../../../../src/apps/user/api/v1/schemas/change-lang.ts"],"names":[],"mappings":";;AAAA,kBAAe;IACX,IAAI,EAAE,QAAQ;IACd,oBAAoB,EAAE,KAAK;IAC3B,QAAQ,EAAE,CAAC,QAAQ,CAAC;IACpB,UAAU,EAAE;QACR,MAAM,EAAE;YACJ,IAAI,EAAE,QAAQ;SACjB;KACJ;CACJ,CAAA"}

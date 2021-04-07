@@ -1,1 +1,0 @@
-{"version":3,"file":"get-locales.js","sourceRoot":"","sources":["../../../../../../src/apps/l10n/api/v1/schemas/get-locales.ts"],"names":[],"mappings":";;AAAA,kBAAe;IACX,IAAI,EAAE,QAAQ;IACd,oBAAoB,EAAE,KAAK;IAC3B,QAAQ,EAAE,CAAC,cAAc,CAAC;IAC1B,UAAU,EAAE;QACR,YAAY,EAAE;YACV,IAAI,EAAE,SAAS;SAClB;KACJ;CACJ,CAAA"}

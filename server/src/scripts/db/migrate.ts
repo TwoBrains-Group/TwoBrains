@@ -1,10 +1,11 @@
 import 'module-alias/register'
 import '@utils/dotenv'
-import {readdir, readFile} from 'fs/promises'
+import {readdir, readFile, writeFile} from 'fs/promises'
 import {existsSync} from 'fs'
 import path from 'path'
 import DB from '@modules/db'
 import {QueryReturnType} from '@modules/db/pool'
+import l10n from './l10n'
 
 const MIGRATIONS_PATH = 'db/migrations'
 
@@ -74,6 +75,10 @@ const migrate = async (where: string, count: number) => {
         returnField: 'names',
     })
 
+    // Create script migrations
+    const l10nQuery = await l10n(where)
+    await writeFile(path.join(MIGRATIONS_PATH, where, 'tb-script-l10n.sql'), l10nQuery)
+
     let migrations
     try {
         migrations = await loadMigrations(where, ranMigrations)
@@ -82,28 +87,36 @@ const migrate = async (where: string, count: number) => {
         return
     }
 
-    let counter = 0
-    for (const [name, query] of Object.entries(migrations)) {
-        if (counter > count) {
-            return
-        }
-
-        console.info(`Run ${where} migration ${name}`)
-
-        try {
-            await pool.query(name, query)
-
-            const queryFunc = up ? queries.up : queries.down
-            await pool.query(`${where}-migration`, queryFunc(name))
-        } catch (error) {
-            console.error(`An error occurred while running migration ${name}:`, error.message)
-            return
-        } finally {
-            counter++
-        }
+    if (!Object.keys(migrations).length) {
+        console.info('No migrations to run')
     }
 
-    await DB.close(pool)
+    try {
+        let counter = 0
+        for (const [name, query] of Object.entries(migrations)) {
+            if (counter >= count) {
+                console.info(`Ran ${count} migrations`)
+                break
+            }
+
+            console.info(`Run ${where} migration ${name}`)
+
+            try {
+                await pool.query(name, query)
+
+                const queryFunc = up ? queries.up : queries.down
+                await pool.query(`${where}-migration`, queryFunc(name))
+            } catch (error) {
+                console.log(error)
+                console.error(`An error occurred while running migration ${name}:`, error.message)
+                break
+            } finally {
+                counter++
+            }
+        }
+    } finally {
+        await DB.close(pool)
+    }
 }
 
 (async () => {
@@ -123,6 +136,7 @@ const migrate = async (where: string, count: number) => {
 
         await migrate(where, Number(count) || +Infinity)
     } catch (error) {
+        console.log(error)
         console.error('An error occurred:', error.message)
     }
 })()

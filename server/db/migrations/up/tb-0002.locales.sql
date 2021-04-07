@@ -24,13 +24,17 @@ COMMENT ON COLUMN main.locales.state IS 'Locale state - enabled/disabled';
 -- locales_l10n --
 CREATE TABLE main.locales_l10n (
     locale_id INT2 NOT NULL,
-    label TEXT NOT NULL,
+    localization_locale_id INT2 NOT NULL,
+    data JSONB NOT NULL,
     CONSTRAINT locales_l10n_locale_id_fkey FOREIGN KEY (locale_id) REFERENCES main.locales(locale_id),
+    CONSTRAINT locales_l10n_localization_locale_id FOREIGN KEY (localization_locale_id) REFERENCES main.locales(locale_id),
     CONSTRAINT locales_l10n_locale_id_ukey UNIQUE (locale_id)
 );
 
-COMMENT ON TABLE main.locales_l10n IS 'Locales l10n data';
-COMMENT ON COLUMN main.locales_l10n.label IS 'Locale localized label';
+COMMENT ON TABLE main.locales_l10n IS 'Locales localized data';
+COMMENT ON COLUMN main.locales_l10n.locale_id IS 'Locale id';
+COMMENT ON COLUMN main.locales_l10n.localization_locale_id IS 'Localization locale id';
+COMMENT ON COLUMN main.locales_l10n.data IS 'Locale l10n data';
 
 -- get_default_locale --
 CREATE OR REPLACE FUNCTION main.get_default_locale() RETURNS INT2

@@ -1,1 +1,0 @@
-//# sourceMappingURL=update-avatar.js.map

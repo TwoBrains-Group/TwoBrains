@@ -14,51 +14,357 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="edaaf9c1-6c17-4647-aa91-a795e595d129" name="Default Changelist" comment="Something...">
-      <change afterPath="$PROJECT_DIR$/server/db/migrations/up/tb-0000.extensions.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/db/migrations/up/tb-0001.types.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/db/migrations/up/tb-0002.locales.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/db/migrations/up/tb-0010.apps.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/db/migrations/up/tb-0011.pages.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/db/migrations/up/tb-0012.components.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/db/migrations/up/tb-0013.tags.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/db/migrations/up/tb-0014.l10n.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/db/migrations/up/tb-0100.users.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/db/migrations/up/tb-0200.ideas.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/db/migrations/up/tb-0300.projects.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/db/migrations/up/tb-0310.plugins.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/scripts/db/migrate.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/db/migrations/down/tb-script-l10n.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/db/migrations/up/tb-script-l10n.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/scripts/db/l10n/template.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/sass/components/common/Header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/components/common/Header.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/sass/components/idea/Idea.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/components/idea/Idea.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/sass/components/project/Project.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/components/project/Project.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/sass/components/project/ProjectList.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/components/project/ProjectList.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/sass/pages/project/single.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/pages/project/single.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/idea/Idea.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/idea/Idea.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/project/Project.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/project/Project.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/user/_uid/project/_projectUid.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/user/_uid/project/_projectUid.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/build/apps/project/api/v1/queries.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/apps/project/api/v1/queries.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/build/apps/search/api/v1/methods/simple.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/apps/search/api/v1/methods/simple.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/build/modules/db/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/modules/db/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/build/modules/db/instance.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/modules/db/instance.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/build/tsconfig.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/tsconfig.tsbuildinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/db/init/tb-0000.extensions.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/migrations/down/tb-0000.extensions.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/db/init/tb-0001.types.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/migrations/down/tb-0001.types.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/db/init/tb-0002.locales.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/migrations/down/tb-0002.locales.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/db/init/tb-0010.apps.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/migrations/down/tb-0010.apps.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/db/init/tb-0011.pages.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/migrations/down/tb-0011.pages.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/db/init/tb-0012.components.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/migrations/down/tb-0012.components.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/db/init/tb-0013.tags.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/migrations/down/tb-0013.tags.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/db/init/tb-0014.l10n.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/migrations/down/tb-0014.l10n.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/db/init/tb-0100.users.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/migrations/down/tb-0100.users.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/db/init/tb-0200.ideas.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/migrations/down/tb-0200.ideas.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/db/init/tb-0300.projects.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/migrations/down/tb-0300.projects.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/db/init/tb-0310.plugins.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/migrations/down/tb-0310.plugins.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/api/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/api/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/api/v1/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/api/v1/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/api/v1/methods/BaseAuth.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/api/v1/methods/BaseAuth.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/api/v1/methods/base-auth.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/api/v1/methods/base-auth.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/api/v1/methods/google.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/api/v1/methods/google.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/api/v1/methods/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/api/v1/methods/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/api/v1/methods/login.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/api/v1/methods/login.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/api/v1/methods/signup.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/api/v1/methods/signup.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/api/v1/queries.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/api/v1/queries.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/api/v1/schemas/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/api/v1/schemas/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/api/v1/schemas/login.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/api/v1/schemas/login.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/api/v1/schemas/signup.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/api/v1/schemas/signup.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/methods/google.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/methods/google.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/methods/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/methods/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/methods/login.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/methods/login.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/methods/queries.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/methods/queries.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/methods/v1/google.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/methods/v1/google.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/methods/v1/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/methods/v1/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/methods/v1/login.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/methods/v1/login.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/methods/v1/queries.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/methods/v1/queries.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/v1/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/v1/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/v1/methods/google.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/v1/methods/google.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/v1/methods/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/v1/methods/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/v1/methods/login.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/v1/methods/login.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/v1/methods/queries.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/v1/methods/queries.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/v1/methods/v1/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/v1/methods/v1/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/v1/queries.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/auth/v1/queries.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/base/Method.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/base/Method.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/base/Page.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/base/Page.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/base/api.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/base/errors.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/base/errors.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/base/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/base/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/base/templates.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/base/templates.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/comment.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/create.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/create.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/critique.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/delete-comment.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/deleteComment.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/edit.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/get-by-id.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/get-by-id.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/get-comments.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/get-comments.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/get-list.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/get-list.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/get-project-list.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/get-tags.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/get-user-ideas.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/get-user-ideas.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/getById.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/getById.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/getComments.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/getComments.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/like-comment.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/like-comment.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/like.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/like.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/likeComment.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/likeComment.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/new.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/methods/reply-to-comment.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/modules/prepare-ideas.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/modules/prepare-ideas.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/queries.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/queries.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/comment.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/create.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/critique.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/delete-comment.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/edit.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/get-by-id.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/get-by-id.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/get-comments.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/get-comments.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/get-list.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/get-list.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/get-tags.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/get-user-ideas.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/get-user-ideas.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/getById.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/getById.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/like-comment.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/like-comment.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/like.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/like.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/likeComment.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/likeComment.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/new.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/api/v1/schemas/reply-to-comment.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/idea/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/l10n/api/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/l10n/api/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/methods/component.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/methods/component.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/methods/get-locales.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/methods/get-locales.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/methods/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/methods/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/methods/load.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/methods/load.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/queries.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/queries.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/schemas/component.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/schemas/component.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/schemas/get-locales.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/schemas/get-locales.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/schemas/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/schemas/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/schemas/load.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/l10n/api/v1/schemas/load.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/l10n/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/l10n/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/localization/api/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/localization/api/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/localization/api/v1/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/localization/api/v1/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/localization/api/v1/methods/component.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/localization/api/v1/methods/component.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/localization/api/v1/methods/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/localization/api/v1/methods/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/localization/api/v1/queries.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/localization/api/v1/queries.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/localization/api/v1/schemas/component.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/localization/api/v1/schemas/component.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/localization/api/v1/schemas/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/localization/api/v1/schemas/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/localization/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/localization/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/main/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/main/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/main/pages.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/main/pages.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/main/queries.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/main/queries.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/main/v1/queries.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/main/v1/queries.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/plugin/api/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/plugin/api/v1/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/plugin/api/v1/methods/get-list.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/plugin/api/v1/methods/getList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/plugin/api/v1/methods/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/plugin/api/v1/queries.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/plugin/api/v1/schemas/get-list.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/plugin/api/v1/schemas/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/plugin/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/project/api/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/project/api/v1/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/project/api/v1/methods/change-image.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/project/api/v1/methods/create.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/project/api/v1/methods/get-by-uid.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/project/api/v1/methods/get-list.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/project/api/v1/methods/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/project/api/v1/queries.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/project/api/v1/schemas/create.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/project/api/v1/schemas/get-by-uid.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/project/api/v1/schemas/get-list.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/project/api/v1/schemas/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/project/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/project/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/project/plugins/base-plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/project/plugins/base/base-plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/project/plugins/base/collector.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/project/plugins/base/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/project/plugins/base/queries.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/project/plugins/collector.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/project/plugins/idea-plugin/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/project/plugins/project-plugins/idea-plugin/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/project/plugins/project-plugins/idea-plugin/queries.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/project/plugins/project-plugins/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/search/api/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/search/api/v1/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/search/api/v1/methods/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/search/api/v1/methods/simple.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/search/api/v1/modules/prepare.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/search/api/v1/queries.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/search/api/v1/schemas/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/search/api/v1/schemas/simple.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/search/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/tag/api/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/tag/api/v1/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/tag/api/v1/methods/get-tags.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/tag/api/v1/methods/get-top.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/tag/api/v1/methods/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/tag/api/v1/methods/search.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/tag/api/v1/queries.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/tag/api/v1/schemas/get-tags.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/tag/api/v1/schemas/get-top.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/tag/api/v1/schemas/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/tag/api/v1/schemas/search.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/tag/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/change-lang.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/change-lang.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/follow.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/get-by-id.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/get-by-id.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/get-by-uid.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/get-by-uid.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/get-locale.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/get-locale.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/get.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/get.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/getByUid.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/getByUid.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/save-settings.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/save-settings.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/saveSettings.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/saveSettings.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/update-avatar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/methods/update-avatar.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/modules/prepare-user.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/queries.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/queries.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/schemas/change-lang.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/schemas/change-lang.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/schemas/follow.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/schemas/get-by-id.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/schemas/get-by-id.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/schemas/get-by-uid.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/schemas/get-by-uid.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/schemas/get-locale.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/schemas/get-locale.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/schemas/getById.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/schemas/getById.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/schemas/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/schemas/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/schemas/save-settings.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/schemas/save-settings.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/schemas/saveSettings.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/schemas/saveSettings.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/schemas/update-avatar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/api/v1/schemas/update-avatar.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/queries.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/apps/user/queries.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/modules/BaseModule.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/modules/BaseModule.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/modules/ajv/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/modules/api.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/modules/api.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/modules/db/Pool.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/modules/db/Pool.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/modules/db/errors.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/modules/db/errors.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/modules/db/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/modules/db/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/modules/db/instance.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/modules/db/pool.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/modules/image-generator/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/modules/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/modules/logger/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/modules/logger/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/modules/pretty-time/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/modules/pretty-time/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/modules/pretty-time/pretty-time.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/modules/pretty-time/pretty-time.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/modules/pretty-time/queries.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/modules/yodl/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/server/RenderEngine.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/server/RenderEngine.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/server/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/server/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/server/mws/error.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/server/mws/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/server/mws/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/server/mws/jwt.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/server/mws/jwt.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/server/mws/not-supported.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/tsconfig.tsbuildinfo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/utils/ajv.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/utils/ajv.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/utils/config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/utils/config.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/utils/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/utils/data.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/utils/dotenv.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/utils/dotenv.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/utils/errors.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/utils/errors.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/utils/pp.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/utils/pp.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/utils/pretty-time.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/utils/pretty-time.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/utils/storage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/utils/storage.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/db/migrations/up/tb-0002.locales.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/migrations/up/tb-0002.locales.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/db/scripts/l10n.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/scripts/db/l10n.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/db/scripts/l10n/en.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/scripts/db/l10n/en.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/db/scripts/l10n/ru.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/scripts/db/l10n/ru.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/base/Method.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/base/Method.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/project/api/v1/queries.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/project/api/v1/queries.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/search/api/v1/methods/simple.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/search/api/v1/methods/simple.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/modules/db/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/modules/db/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/modules/db/instance.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/modules/db/instance.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/scripts/db/migrate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/scripts/db/migrate.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,15 +435,15 @@
     <property name="vuejs.nuxt.types-notification-shown" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/server/db/migrations/down" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/server/src/scripts/db" />
       <recent name="$PROJECT_DIR$/server/db/migrations/up" />
       <recent name="$PROJECT_DIR$/client/pages/user/_uid/_section" />
       <recent name="$PROJECT_DIR$/client/assets/sass/components" />
       <recent name="$PROJECT_DIR$/server" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server/db/migrations/down" />
     </key>
   </component>
   <component name="RunManager">
@@ -245,6 +551,7 @@
       <workItem from="1617593172796" duration="999000" />
       <workItem from="1617684403339" duration="3957000" />
       <workItem from="1617730558136" duration="12092000" />
+      <workItem from="1617815239080" duration="5309000" />
     </task>
     <task id="LOCAL-00001" summary=":bulb: Meow">
       <created>1612391364993</created>
@@ -566,14 +873,14 @@
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state x="0" y="0" width="2166" height="1032" key="dock-window-1/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1612652780293" />
-    <state x="2267" y="267" width="634" height="675" key="find.popup" timestamp="1617744387135">
+    <state x="2267" y="267" width="634" height="675" key="find.popup" timestamp="1617819242855">
       <screen x="1280" y="0" width="2560" height="1080" />
     </state>
     <state x="987" y="260" width="594" height="656" key="find.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1616280650639" />
     <state x="3054" y="246" width="555" height="622" key="find.popup/0.0.2560.1050/2560.0.1280.994@2560.0.1280.994" timestamp="1615672963356" />
     <state x="987" y="260" width="594" height="656" key="find.popup/0.0.2560.1050/2560.0.1680.1020/-1280.4.1280.994@0.0.2560.1050" timestamp="1616341956787" />
     <state x="987" y="260" width="585" height="534" key="find.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612145569091" />
-    <state x="2267" y="267" width="634" height="675" key="find.popup/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1617744387135" />
+    <state x="2267" y="267" width="634" height="675" key="find.popup/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1617819242855" />
     <state width="600" height="440" key="javadoc.popup" timestamp="1614281174337">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
@@ -585,11 +892,11 @@
     <state x="3031" y="227" width="336" height="641" key="run.anything.popup/0.0.2560.1050/2560.0.1280.994@2560.0.1280.994" timestamp="1615669619272" />
     <state x="942" y="240" key="run.anything.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612128644928" />
     <state x="2222" y="247" width="672" height="697" key="run.anything.popup/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1617742431463" />
-    <state x="2223" y="239" width="672" height="697" key="search.everywhere.popup" timestamp="1617736790355">
+    <state x="2223" y="239" width="672" height="697" key="search.everywhere.popup" timestamp="1617817249924">
       <screen x="1280" y="0" width="2560" height="1080" />
     </state>
     <state x="943" y="232" width="672" height="677" key="search.everywhere.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1616281564758" />
     <state x="943" y="232" width="672" height="678" key="search.everywhere.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612131512848" />
-    <state x="2223" y="239" width="672" height="697" key="search.everywhere.popup/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1617736790355" />
+    <state x="2223" y="239" width="672" height="697" key="search.everywhere.popup/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1617817249924" />
   </component>
 </project>

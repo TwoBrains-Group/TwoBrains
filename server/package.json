@@ -10,7 +10,8 @@
         "lint": "eslint src --quiet --ext .ts",
         "fix-lint": "eslint src --fix --ext .ts",
         "gen-l10n": "node src/scripts/db/l10n.js",
-        "migrate": "node build/scripts/db/migrate.js"
+        "migrate": "node build/scripts/db/migrate.js",
+        "make": "node build/scripts/make/index.js"
     },
     "_moduleAliases": {
         "@root": ".",

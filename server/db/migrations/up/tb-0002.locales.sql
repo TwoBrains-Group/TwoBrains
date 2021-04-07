@@ -28,7 +28,7 @@ CREATE TABLE main.locales_l10n (
     data JSONB NOT NULL,
     CONSTRAINT locales_l10n_locale_id_fkey FOREIGN KEY (locale_id) REFERENCES main.locales(locale_id),
     CONSTRAINT locales_l10n_localization_locale_id FOREIGN KEY (localization_locale_id) REFERENCES main.locales(locale_id),
-    CONSTRAINT locales_l10n_locale_id_ukey UNIQUE (locale_id)
+    CONSTRAINT locales_l10n_locale_id_localization_locale_id_ukey UNIQUE (locale_id, localization_locale_id),
 );
 
 COMMENT ON TABLE main.locales_l10n IS 'Locales localized data';
@@ -235,7 +235,8 @@ VALUES
     ('yo', 'Yoruba', false),
     ('za', 'Zhuang; Chuang', false),
     ('zh', 'Chinese', false),
-    ('zu', 'Zulu', false);
+    ('zu', 'Zulu', false)
+ON CONFLICT DO NOTHING;
 
 
 COMMIT;

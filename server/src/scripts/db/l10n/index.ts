@@ -1,6 +1,7 @@
-import en from './l10n/en'
-import ru from './l10n/ru'
-import queryTemplate from './l10n/template'
+import en from './en'
+import ru from './ru'
+import queryTemplate from './template'
+import {escapeNames} from '@utils/template-engine'
 
 const l10n: Record<string, any> = {
     en,
@@ -135,12 +136,7 @@ const up = async () => {
         cmpsQuery,
     }
 
-    return queryTemplate.replace(/{{(\w+)?}}/g, (text, variable) => {
-        if (variable in params) {
-            return params[variable]
-        }
-        return text
-    })
+    return escapeNames(queryTemplate, params)
         .trim()
         .replace(/"(.*)'(.*)"/gm, '"$1\'\'$2"')
         .replace(/}'\);/gm, '\t\t}\');')

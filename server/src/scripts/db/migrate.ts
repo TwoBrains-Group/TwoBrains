@@ -7,8 +7,9 @@ import {QueryReturnType} from '@modules/db/pool'
 import l10n from './l10n'
 import DBInstance from '@modules/db/instance'
 import minimist from 'minimist'
-import {Level} from '@modules/logger'
+import Logger, {Level} from '@modules/logger'
 import {log} from 'util'
+import {Script} from '../script'
 
 const MIGRATIONS_PATH = 'db/migrations'
 
@@ -36,7 +37,7 @@ const queries = {
 
 type Migrations = Record<string, string>
 
-class Migrate {
+class Migrate extends Script {
     ranMigrations: string[] = []
     migrations: {up: Migrations, down: Migrations} = {
         up: {},
@@ -49,6 +50,10 @@ class Migrate {
         up: this.migrate,
         down: this.migrate,
         check: this.check,
+    }
+
+    constructor() {
+        super('migrate')
     }
 
     async run() {
@@ -65,7 +70,7 @@ class Migrate {
         try {
             await this.loadMigrations()
         } catch (error) {
-            console.error('Failed to load migrations:', error.message)
+            this.log.error('Failed to load migrations:', error.message)
             await this.onError()
             return
         }
@@ -73,7 +78,7 @@ class Migrate {
         try {
             await this.commands[this.command].call(this)
         } catch (error) {
-            console.error('An error occurred:', error)
+            this.log.error('An error occurred:', error)
             await this.onError()
             return
         }
@@ -147,7 +152,7 @@ class Migrate {
         }
 
         if (!Object.keys(this.migrations.up).length && !Object.keys(this.migrations.down)) {
-            console.info('No migrations to run')
+            this.log.warn('No migrations to run')
         }
 
         // Ahah, killmepls
@@ -157,11 +162,11 @@ class Migrate {
         let counter = 0
         for (const [name, query] of Object.entries(this.migrations[where])) {
             if (counter >= this.count) {
-                console.info(`Ran ${this.count} migrations`)
+                this.log.debug(`Ran ${this.count} migrations`)
                 break
             }
 
-            console.info(`Run ${this.command} migration ${name}`)
+            console.debug(`Run ${this.command} migration ${name}`)
 
             try {
                 await this.db.query(name, query)
@@ -169,7 +174,7 @@ class Migrate {
                 const queryFunc = up ? queries.up : queries.down
                 await this.db.query(`${where}-migration`, queryFunc(name))
             } catch (error) {
-                console.error(`An error occurred while running migration ${name}:`, error.message)
+                this.log.error(`An error occurred while running migration ${name}:`, error.message)
                 break
             } finally {
                 counter++
@@ -178,14 +183,14 @@ class Migrate {
     }
 
     async check() {
-        console.log(`Migrated: ${this.ranMigrations.length}/${this.ranMigrations.length + Object.keys(this.migrations.up).length}`)
+        this.log.info(`Migrated: ${this.ranMigrations.length}/${this.ranMigrations.length + Object.keys(this.migrations.up).length}`)
 
         for (const migrationName of Object.keys(this.migrations.up)) {
-            console.log(`[-] ${migrationName}`)
+            this.log.info(`[-] ${migrationName}`)
         }
 
         for (const migrationName of Object.keys(this.migrations.down)) {
-            console.log(`[+] ${migrationName}`)
+            this.log.info(`[+] ${migrationName}`)
         }
     }
 }

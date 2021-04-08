@@ -34,6 +34,12 @@ const levelMap: Record<Level, string> = {
 
 type LoggerOptions = {
     owner: string,
+    printTime?: boolean
+}
+
+const defaultOptions: LoggerOptions = {
+    owner: 'UNKNOWN',
+    printTime: true,
 }
 
 type LogFunction = (...args: string[]) => void
@@ -100,7 +106,10 @@ export default class Logger implements ILogger {
     config: Config['log']
 
     constructor(options: LoggerOptions) {
-        this.options = options
+        this.options = {
+            ...defaultOptions,
+            ...options,
+        }
         this.config = loggerConfig
     }
 
@@ -111,8 +120,10 @@ export default class Logger implements ILogger {
     getMessagePrefix(level: string, levelOptions: Record<string, any> = {}): string {
         let prefix = ''
 
-        const time = (new Date()).toISOString().replace('T', ' ').replace('Z', '')
-        prefix += `${time} `
+        if (this.options.printTime) {
+            const time = (new Date()).toISOString().replace('T', ' ').replace('Z', '')
+            prefix += `${time} `
+        }
 
         if (this.options.owner) {
             prefix += `[${this.options.owner}] `
@@ -128,7 +139,7 @@ export default class Logger implements ILogger {
     _log(level: string, ...args: any[]): void {
         const levelOptions = LOG_SETTINGS[level]
 
-        if (levelOptions.priority > LOG_SETTINGS[this.config.level].priority) {
+        if (levelOptions.priority < LOG_SETTINGS[this.config.level].priority) {
             return
         }
 

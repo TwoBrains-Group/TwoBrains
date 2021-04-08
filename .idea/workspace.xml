@@ -13,8 +13,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="edaaf9c1-6c17-4647-aa91-a795e595d129" name="Default Changelist" comment=":sparkles: setLogLevel">
+    <list default="true" id="edaaf9c1-6c17-4647-aa91-a795e595d129" name="Default Changelist" comment="Yeps...">
+      <change afterPath="$PROJECT_DIR$/server/src/scripts/script.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/modules/logger/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/modules/logger/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/scripts/db/migrate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/scripts/db/migrate.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -204,7 +206,7 @@
       <workItem from="1617730558136" duration="12092000" />
       <workItem from="1617815239080" duration="9654000" />
       <workItem from="1617869966879" duration="48000" />
-      <workItem from="1617903291768" duration="9833000" />
+      <workItem from="1617903291768" duration="10492000" />
     </task>
     <task id="LOCAL-00001" summary=":bulb: Meow">
       <created>1612391364993</created>
@@ -416,7 +418,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617916658764</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Yeps...">
+      <created>1617916897542</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1617916897542</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -442,7 +451,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value=":sparkles: Beautify" />
     <MESSAGE value=":sparkles: Query params and more" />
     <MESSAGE value=":sparkles: DB strict mode" />
     <MESSAGE value=":poop: Save before move to Vue" />
@@ -467,7 +475,8 @@
     <MESSAGE value="Bad idea to save" />
     <MESSAGE value="Update migrate script" />
     <MESSAGE value=":sparkles: setLogLevel" />
-    <option name="LAST_COMMIT_MESSAGE" value=":sparkles: setLogLevel" />
+    <MESSAGE value="Yeps..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Yeps..." />
   </component>
   <component name="WindowStateProjectService">
     <state x="2289" y="243" width="936" height="707" key="#ESLint" timestamp="1616528827281">

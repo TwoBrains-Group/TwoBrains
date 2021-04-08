@@ -58,7 +58,7 @@ BEGIN
     new.tsv =
         setweight(to_tsvector(new.name), 'A') ||
         setweight(to_tsvector(new.uid),  'B') ||
-        setweight(to_tsvector(new.text), 'D');
+        setweight(to_tsvector(new.description), 'D');
     return new;
 END
 $$ LANGUAGE plpgsql;

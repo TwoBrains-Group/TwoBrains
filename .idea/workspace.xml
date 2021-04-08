@@ -13,16 +13,26 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="edaaf9c1-6c17-4647-aa91-a795e595d129" name="Default Changelist" comment="Move l10n script to migrate">
-      <change afterPath="$PROJECT_DIR$/server/src/scripts/make/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/scripts/make/struct/app-struct.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/scripts/make/struct/structs.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/utils/template-engine.ts" afterDir="false" />
+    <list default="true" id="edaaf9c1-6c17-4647-aa91-a795e595d129" name="Default Changelist" comment="Bad idea to save">
+      <change afterPath="$PROJECT_DIR$/server/src/utils/register.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/sass/components/common/Header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/components/common/Header.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/common/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/common/Header.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/ui/Input.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/ui/Input.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/ui/ToggleSwitch.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/ui/ToggleSwitch.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/project/create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/project/create.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/db/migrations/up/tb-0002.locales.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/migrations/up/tb-0002.locales.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/db/migrations/up/tb-0300.projects.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/migrations/up/tb-0300.projects.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/db/migrations/up/tb-script-l10n.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/migrations/up/tb-script-l10n.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/nodemon.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/nodemon.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/apps/auth/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/auth/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/scripts/db/l10n.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/scripts/db/l10n/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/project/api/v1/schemas/create.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/project/api/v1/schemas/create.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/search/api/v1/queries.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/search/api/v1/queries.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/modules/db/instance.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/modules/db/instance.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/scripts/db/l10n/en.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/scripts/db/l10n/en.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/scripts/db/migrate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/scripts/db/migrate.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +81,7 @@
     <property name="javascript.nodejs.core.library.configured.version" value="15.11.0" />
     <property name="javascript.nodejs.core.library.typings.version" value="14.14.35" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/server/db/migrations/down" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../services/translation-service" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.stylelint" value="true" />
@@ -209,7 +219,9 @@
       <workItem from="1617593172796" duration="999000" />
       <workItem from="1617684403339" duration="3957000" />
       <workItem from="1617730558136" duration="12092000" />
-      <workItem from="1617815239080" duration="7603000" />
+      <workItem from="1617815239080" duration="9654000" />
+      <workItem from="1617869966879" duration="48000" />
+      <workItem from="1617903291768" duration="9185000" />
     </task>
     <task id="LOCAL-00001" summary=":bulb: Meow">
       <created>1612391364993</created>
@@ -400,7 +412,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617821875933</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Bad idea to save">
+      <created>1617824164924</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1617824164924</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -426,7 +445,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value=":bulb: Meow" />
     <MESSAGE value=":package: pzdz" />
     <MESSAGE value=":alien: Fix circular import" />
     <MESSAGE value=":sparkles: Beautify" />
@@ -451,7 +469,8 @@
     <MESSAGE value=":ambulance: LOCALIZATION LAZY LOAD!!!" />
     <MESSAGE value="Something..." />
     <MESSAGE value="Move l10n script to migrate" />
-    <option name="LAST_COMMIT_MESSAGE" value="Move l10n script to migrate" />
+    <MESSAGE value="Bad idea to save" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bad idea to save" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2289" y="243" width="936" height="707" key="#ESLint" timestamp="1616528827281">
@@ -504,12 +523,12 @@
       <screen x="0" y="0" width="2560" height="1052" />
     </state>
     <state x="935" y="308" width="683" height="683" key="EditFileWatcherDialog/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612141018555" />
-    <state x="2274" y="256" width="541" height="617" key="FileChooserDialogImpl" timestamp="1617293391246">
+    <state x="2274" y="256" width="541" height="617" key="FileChooserDialogImpl" timestamp="1617870012369">
       <screen x="1280" y="0" width="2560" height="1080" />
     </state>
     <state x="1063" y="284" key="FileChooserDialogImpl/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1615319139228" />
     <state x="1063" y="285" width="428" height="484" key="FileChooserDialogImpl/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612140942406" />
-    <state x="2274" y="256" width="541" height="617" key="FileChooserDialogImpl/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1617293391246" />
+    <state x="2274" y="256" width="541" height="617" key="FileChooserDialogImpl/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1617870012369" />
     <state x="860" y="260" key="IDE.errors.dialog" timestamp="1614281611294">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
@@ -539,25 +558,25 @@
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state x="0" y="0" width="2166" height="1032" key="dock-window-1/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1612652780293" />
-    <state x="2267" y="267" width="634" height="675" key="find.popup" timestamp="1617819242855">
+    <state x="2267" y="267" width="634" height="675" key="find.popup" timestamp="1617825724217">
       <screen x="1280" y="0" width="2560" height="1080" />
     </state>
     <state x="987" y="260" width="594" height="656" key="find.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1616280650639" />
     <state x="3054" y="246" width="555" height="622" key="find.popup/0.0.2560.1050/2560.0.1280.994@2560.0.1280.994" timestamp="1615672963356" />
     <state x="987" y="260" width="594" height="656" key="find.popup/0.0.2560.1050/2560.0.1680.1020/-1280.4.1280.994@0.0.2560.1050" timestamp="1616341956787" />
     <state x="987" y="260" width="585" height="534" key="find.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612145569091" />
-    <state x="2267" y="267" width="634" height="675" key="find.popup/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1617819242855" />
+    <state x="2267" y="267" width="634" height="675" key="find.popup/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1617825724217" />
     <state width="600" height="440" key="javadoc.popup" timestamp="1614281174337">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state width="600" height="440" key="javadoc.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614281174337" />
-    <state x="2222" y="247" width="672" height="697" key="run.anything.popup" timestamp="1617823347954">
+    <state x="2222" y="247" width="672" height="697" key="run.anything.popup" timestamp="1617915019548">
       <screen x="1280" y="0" width="2560" height="1080" />
     </state>
     <state x="942" y="240" width="672" height="677" key="run.anything.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1616185594536" />
     <state x="3031" y="227" width="336" height="641" key="run.anything.popup/0.0.2560.1050/2560.0.1280.994@2560.0.1280.994" timestamp="1615669619272" />
     <state x="942" y="240" key="run.anything.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612128644928" />
-    <state x="2222" y="247" width="672" height="697" key="run.anything.popup/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1617823347954" />
+    <state x="2222" y="247" width="672" height="697" key="run.anything.popup/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1617915019548" />
     <state x="2223" y="239" width="672" height="697" key="search.everywhere.popup" timestamp="1617823263596">
       <screen x="1280" y="0" width="2560" height="1080" />
     </state>

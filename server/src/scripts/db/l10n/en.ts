@@ -84,6 +84,7 @@ export default {
                 search: 'Search...',
                 users: 'Users',
                 ideas: 'Ideas',
+                projects: 'Projects',
                 noSearchResult: 'No result',
             },
             InputFile: {
@@ -130,6 +131,8 @@ export default {
             IdeaList: {
                 noMore: 'No more...',
                 noResult: 'No ideas here',
+                noIdeasHere: 'No ideas here',
+                addOne: 'Add one',
                 failedToLoadIdeas: 'Failed to load ideas',
             },
         },

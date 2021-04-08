@@ -79,7 +79,7 @@ export default {
         },
         inputOnUnchanged: {
             type: Boolean,
-            default: true,
+            default: false,
         },
         keyHint: {
             type: String,
@@ -112,7 +112,8 @@ export default {
             lenError: false,
             ringError: false,
             warn: false,
-            oldValue: '',
+            oldEnterValue: '',
+            oldInputValue: '',
             preset$: null,
         }
     },
@@ -157,9 +158,9 @@ export default {
                 this.warn = !this.testRegexp()
             }
 
-            if (this.inputOnUnchanged || val !== this.oldValue) {
+            if (this.inputOnUnchanged || val !== this.oldInputValue) {
                 this.$emit('input', val)
-                this.oldValue = val
+                this.oldInputValue = val
             }
         },
 
@@ -208,10 +209,11 @@ export default {
         applyEnter() {
             if (this.enter) {
                 const value = this.$refs.input.value
-                if (this.enterOnUnchanged || value !== this.oldValue) {
+                console.log(value === this.oldEnterValue)
+                if (this.enterOnUnchanged || value !== this.oldEnterValue) {
                     this.enter(value)
                 }
-                this.oldValue = value
+                this.oldEnterValue = value
             }
         },
     },

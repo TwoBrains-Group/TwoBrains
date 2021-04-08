@@ -85,7 +85,7 @@ class DBInstance {
             }
 
             const result = await this.pool.exec(preparedQuery)
-            const {rows} = result
+            const {rows = []} = result
 
             this.log.debug(`DB result: ${JSON.stringify(rows, null, 2)}`)
 
@@ -93,13 +93,15 @@ class DBInstance {
                 if (!rows.length) {
                     if (check) {
                         throw checkError
+                    } else {
+                        return null
                     }
                 }
 
                 return returnField ? rows[0][returnField] : rows[0]
             }
 
-            if (check) {
+            if (!rows.length && check) {
                 throw checkError
             }
 

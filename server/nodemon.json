@@ -2,7 +2,8 @@
     "watch": [
         "src/**/*.ts",
         "config.dev.json",
-        "config.dev.js"
+        "config.dev.js",
+        "tsconfig.json"
     ],
     "ignore": [
         "src/**/*.spec.ts"

@@ -11,6 +11,7 @@
         "skipLibCheck": true,
         "incremental": true,
         "strictNullChecks": true,
+        "inlineSourceMap": true,
         "lib": [
             "es2016",
             "es2017",

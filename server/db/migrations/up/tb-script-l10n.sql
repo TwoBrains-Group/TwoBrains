@@ -247,6 +247,7 @@ $$
 			"search": "Search...",
 			"users": "Users",
 			"ideas": "Ideas",
+			"projects": "Projects",
 			"noSearchResult": "No result"
 		}');
 
@@ -323,6 +324,8 @@ $$
 		VALUES (idea_app_IdeaList_cmp, en_locale, '{
 			"noMore": "No more...",
 			"noResult": "No ideas here",
+			"noIdeasHere": "No ideas here",
+			"addOne": "Add one",
 			"failedToLoadIdeas": "Failed to load ideas"
 		}');
 

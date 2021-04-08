@@ -1,5 +1,4 @@
-import 'module-alias/register'
-import '@utils/dotenv'
+import './utils/register'
 import server from './server'
 
 (async () => {

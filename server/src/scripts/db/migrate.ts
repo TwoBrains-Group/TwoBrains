@@ -1,11 +1,12 @@
-import 'module-alias/register'
-import '@utils/dotenv'
+import '../../utils/register'
 import {readdir, readFile, writeFile} from 'fs/promises'
 import {existsSync} from 'fs'
 import path from 'path'
 import DB from '@modules/db'
 import {QueryReturnType} from '@modules/db/pool'
 import l10n from './l10n'
+import DBInstance from '@modules/db/instance'
+import minimist from 'minimist'
 
 const MIGRATIONS_PATH = 'db/migrations'
 
@@ -23,89 +24,147 @@ const queries = {
     `,
     dropMigrations: 'DROP TABLE main.migrations;',
 
-    getMigrations: (up: boolean) => `
+    getMigrations: `
         SELECT COALESCE(array_agg(m.name), '{}') AS "names"
-        FROM main.migrations AS m
-        ORDER BY MAX(m.datetime) ${up ? 'ASC' : 'DESC'};`,
+        FROM main.migrations AS m;`,
 
     up: (name: string) => `INSERT INTO main.migrations (name) VALUES ('${name}');`,
     down: (name: string) => `DELETE FROM main.migrations WHERE name = '${name}'`,
 }
 
-const loadMigrations = async (where: string, ranMigrations: string[]): Promise<Record<string, any>> => {
-    const p = path.join(MIGRATIONS_PATH, where)
+type Migrations = Record<string, string>
 
-    const migrationsFiles = await readdir(p)
-    migrationsFiles.sort()
-
-    if (where === 'down') {
-        migrationsFiles.reverse()
+class Migrate {
+    ranMigrations: string[] = []
+    migrations: {up: Migrations, down: Migrations} = {
+        up: {},
+        down: {},
+    }
+    db: DBInstance
+    count: number
+    command: string
+    commands: Record<string, () => void> = {
+        up: this.migrate,
+        down: this.migrate,
+        check: this.check,
     }
 
-    const migrations: Record<string, any> = {}
-    for (const filename of migrationsFiles) {
-        if (where === 'up' && ranMigrations.includes(filename)) {
-            continue
+    async run() {
+        if (!existsSync(MIGRATIONS_PATH)) {
+            throw new Error(`DB path not found (${MIGRATIONS_PATH})`)
         }
 
-        if (where === 'down' && !ranMigrations.includes(filename)) {
-            continue
+        this.applyArgs()
+
+        this.db = await DB.getInstance()
+        await this.db.query('createMigrations', queries.createMigrations)
+
+        try {
+            await this.loadMigrations()
+        } catch (error) {
+            console.error('Failed to load migrations:', error.message)
+            await this.onError()
+            return
         }
 
-        migrations[filename] = await readFile(path.join(MIGRATIONS_PATH, where, filename), {
-            encoding: 'utf8',
+        try {
+            await this.commands[this.command]()
+        } catch (error) {
+            console.error('An error occurred:', error)
+            await this.onError()
+            return
+        }
+    }
+
+    async onError() {
+        await DB.close(this.db)
+    }
+
+    applyArgs() {
+        const args = minimist(process.argv.slice(2), {
+            string: ['count'],
+            alias: {
+                c: 'count',
+            },
         })
+
+        this.count = Number(args.count)
+        this.command = args._[0]
+
+        if (!Object.keys(this.commands).includes(this.command)) {
+            throw new Error(`Invalid command ${this.command}`)
+        }
     }
 
-    return migrations
-}
-
-const migrate = async (where: string, count: number) => {
-    if (!existsSync(MIGRATIONS_PATH)) {
-        throw new Error(`DB path not found (${MIGRATIONS_PATH})`)
+    async loadScripts(): Promise<void> {
+        await writeFile(path.join(MIGRATIONS_PATH, 'up/tb-script-l10n.sql'), await l10n('up'))
+        await writeFile(path.join(MIGRATIONS_PATH, 'down/tb-script-l10n.sql'), await l10n('down'))
     }
 
-    const up = where === 'up'
+    async loadMigrations(): Promise<void> {
+        const upMigrationsPath = path.join(MIGRATIONS_PATH, 'up')
+        const downMigrationsPath = path.join(MIGRATIONS_PATH, 'down')
 
-    const pool = await DB.getInstance()
-    await pool.query('createMigrations', queries.createMigrations)
+        const upMigrationsFiles = await readdir(upMigrationsPath)
+        const downMigrationsFiles = await readdir(downMigrationsPath)
+        upMigrationsFiles.sort()
+        downMigrationsFiles.sort().reverse()
 
-    const ranMigrations = await pool.query('getMigrations', queries.getMigrations(up), {}, {
-        returnType: QueryReturnType.Row,
-        returnField: 'names',
-    })
+        this.ranMigrations = await this.db.query('getMigrations', queries.getMigrations, {}, {
+            returnType: QueryReturnType.Row,
+            returnField: 'names',
+        })
 
-    // Create script migrations
-    const l10nQuery = await l10n(where)
-    await writeFile(path.join(MIGRATIONS_PATH, where, 'tb-script-l10n.sql'), l10nQuery)
+        await this.loadScripts()
 
-    let migrations
-    try {
-        migrations = await loadMigrations(where, ranMigrations)
-    } catch (error) {
-        console.error('Failed to load migrations:', error.message)
-        return
+        for (const filename of upMigrationsFiles) {
+            if (this.ranMigrations.includes(filename)) {
+                continue
+            }
+
+            this.migrations.up[filename] = await readFile(path.join(MIGRATIONS_PATH, 'up', filename), {
+                encoding: 'utf8',
+            })
+        }
+
+        for (const filename of downMigrationsFiles) {
+            if (!this.ranMigrations.includes(filename)) {
+                continue
+            }
+
+            this.migrations.down[filename] = await readFile(path.join(MIGRATIONS_PATH, 'down', filename), {
+                encoding: 'utf8',
+            })
+        }
     }
 
-    if (!Object.keys(migrations).length) {
-        console.info('No migrations to run')
-    }
+    async migrate() {
+        if (!['up', 'down'].includes(this.command)) {
+            throw new Error('Invalid migrate command')
+        }
 
-    try {
+        if (!Object.keys(this.migrations.up).length && !Object.keys(this.migrations.down)) {
+            console.info('No migrations to run')
+        }
+
+        // Ahah, killmepls
+        const up = this.command === 'up'
+        const where = up ? 'up' : 'down'
+
         let counter = 0
-        for (const [name, query] of Object.entries(migrations)) {
-            if (counter >= count) {
-                console.info(`Ran ${count} migrations`)
+        for (const [name, query] of Object.entries(this.migrations[where])) {
+            if (counter >= this.count) {
+                console.info(`Ran ${this.count} migrations`)
                 break
             }
 
-            console.info(`Run ${where} migration ${name}`)
+            console.info(`Run ${this.command} migration ${name}`)
 
             try {
-                await pool.query(name, query)
+                await this.db.query(name, query)
 
                 const queryFunc = up ? queries.up : queries.down
-                await pool.query(`${where}-migration`, queryFunc(name))
+                await this.db.query(`${where}-migration`, queryFunc(name))
             } catch (error) {
                 console.log(error)
                 console.error(`An error occurred while running migration ${name}:`, error.message)
@@ -114,27 +173,27 @@ const migrate = async (where: string, count: number) => {
                 counter++
             }
         }
-    } finally {
-        await DB.close(pool)
+    }
+
+    async check() {
+        console.log('migrations', this.migrations.up, this.migrations.down)
+
+        console.log(`Migrated: ${this.ranMigrations.length}/${this.ranMigrations.length + Object.keys(this.migrations.up).length}`)
+
+        for (const migrationName of Object.keys(this.migrations.down)) {
+            console.log(`[-] ${migrationName}`)
+        }
+
+        for (const migrationName of Object.keys(this.migrations.down)) {
+            console.log(`[+] ${migrationName}`)
+        }
     }
 }
 
 (async () => {
     try {
-        const where = process.argv[2]
-        const count = process.argv[3]
-
-        if (!where) {
-            console.error('Usage: npm run migrate up/down [count]')
-            return
-        }
-
-        if (!['up', 'down'].includes(where)) {
-            console.error('Migration type must be \'up\' or \'down\'')
-            return
-        }
-
-        await migrate(where, Number(count) || +Infinity)
+        const migrate = new Migrate()
+        await migrate.run()
     } catch (error) {
         console.log(error)
         console.error('An error occurred:', error.message)

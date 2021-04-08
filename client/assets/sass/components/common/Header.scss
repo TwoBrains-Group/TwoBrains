@@ -122,7 +122,7 @@
                 display: block;
                 position: fixed;
                 top: 45px;
-                right: 295px;
+                right: 305px;
                 width: 280px;
                 height: max-content;
                 max-height: 200px;
@@ -182,7 +182,7 @@
                         }
                     }
 
-                    &.ideas {
+                    &.ideas, &.projects {
                         display: grid;
                         grid-template-columns: 100%;
                         grid-template-rows: auto;
@@ -191,7 +191,8 @@
                             margin-bottom: 5px;
                         }
 
-                        .main-header__search__results__section__el--idea {
+                        .main-header__search__results__section__el--idea,
+                        .main-header__search__results__section__el--project {
                             display: block;
                             padding: 5px;
                             margin: 0;

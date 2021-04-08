@@ -15,7 +15,10 @@
                       :min-len="1"
                       :max-len="5000"/>
 
-            <ToggleSwitch :left-label="l10n.private" :right-label="l10n.public" outlined/>
+            <ToggleSwitch :left-label="l10n.public"
+                          :right-label="l10n.private"
+                          @toggle="toggleVisibility"
+                          outlined/>
 
             <div class="project-create__plugins">
                 <h6 class="project-create__plugins__header" @click="showPlugins = !showPlugins">
@@ -96,6 +99,7 @@ export default {
             plugins: [],
             showPlugins: false,
             doneDisabled: true,
+            isPrivate: false,
         }
     },
 
@@ -129,6 +133,7 @@ export default {
                 description: this.description.length ? this.description : null,
                 tags: [...this.$refs.tagSearch.addedTags].map(t => t.toString()),
                 plugins: [...this.addedPlugins].map(p => p.toString()),
+                visibility: this.isPrivate ? 'private' : 'public',
             }
 
             try {
@@ -149,6 +154,10 @@ export default {
             this.addedPlugins.has(id) ? this.addedPlugins.delete(id) : this.addedPlugins.add(id)
             this.addedPluginsUids.has(uid) ? this.addedPluginsUids.delete(uid) : this.addedPluginsUids.add(uid)
             this.$forceUpdate()
+        },
+
+        toggleVisibility(isPrivate) {
+            this.isPrivate = isPrivate
         },
     },
 }

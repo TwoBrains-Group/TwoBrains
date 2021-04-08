@@ -32,7 +32,8 @@ export default {
             },
         },
         visibility: {
-            type: 'boolean',
+            type: 'string',
+            enum: ['private', 'public'],
         },
     },
 }

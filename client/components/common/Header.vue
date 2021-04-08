@@ -62,6 +62,21 @@
                                 </span>
                             </nuxt-link>
                         </section>
+
+
+                        <section class="main-header__search__results__section projects"
+                                 v-if="Object.keys(searchResults.projects).length">
+                            <div class="main-header__search__results__section__name">{{ l10n.projects }}</div>
+
+                            <nuxt-link :to="projectUrl(project)"
+                                       class="btn main-header__search__results__section__el main-header__search__results__section__el--project"
+                                       v-for="project of searchResults.projects"
+                                       :key="project.id">
+                                <span class="preview">
+                                    {{ project.name }}
+                                </span>
+                            </nuxt-link>
+                        </section>
                     </div>
                 </div>
 
@@ -126,6 +141,7 @@ export default {
             searchResults: {
                 users: {},
                 ideas: {},
+                projects: {},
             },
             noSearchResult: true,
         }
@@ -166,6 +182,7 @@ export default {
                 this.searchResults = {
                     users: {},
                     ideas: {},
+                    projects: {},
                 }
             }
         },
@@ -198,6 +215,10 @@ export default {
             return `/idea/${idea.id}`
         },
 
+        projectUrl(project) {
+            return `/user/${project.userUid}/project/${project.uid}`
+        },
+
         async search(value) {
             if (!value.length) {
                 return
@@ -216,7 +237,8 @@ export default {
                 })
 
                 this.noSearchResult = !Object.keys(searchResults.ideas).length &&
-                                      !Object.keys(searchResults.users).length
+                                      !Object.keys(searchResults.users).length &&
+                                      !Object.keys(searchResults.projects).length
 
                 this.searchResults = searchResults
             } catch (error) {

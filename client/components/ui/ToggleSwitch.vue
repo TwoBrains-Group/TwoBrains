@@ -40,6 +40,8 @@ export default {
     methods: {
         toggle() {
             this.checked = !this.checked
+
+            this.$emit('toggle', this.checked)
         },
     },
 }

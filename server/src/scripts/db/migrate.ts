@@ -8,6 +8,7 @@ import l10n from './l10n'
 import DBInstance from '@modules/db/instance'
 import minimist from 'minimist'
 import {Level} from '@modules/logger'
+import {log} from 'util'
 
 const MIGRATIONS_PATH = 'db/migrations'
 
@@ -70,7 +71,7 @@ class Migrate {
         }
 
         try {
-            await this.commands[this.command]()
+            await this.commands[this.command].call(this)
         } catch (error) {
             console.error('An error occurred:', error)
             await this.onError()
@@ -168,7 +169,6 @@ class Migrate {
                 const queryFunc = up ? queries.up : queries.down
                 await this.db.query(`${where}-migration`, queryFunc(name))
             } catch (error) {
-                console.log(error)
                 console.error(`An error occurred while running migration ${name}:`, error.message)
                 break
             } finally {
@@ -178,11 +178,9 @@ class Migrate {
     }
 
     async check() {
-        console.log('migrations', this.migrations.up, this.migrations.down)
-
         console.log(`Migrated: ${this.ranMigrations.length}/${this.ranMigrations.length + Object.keys(this.migrations.up).length}`)
 
-        for (const migrationName of Object.keys(this.migrations.down)) {
+        for (const migrationName of Object.keys(this.migrations.up)) {
             console.log(`[-] ${migrationName}`)
         }
 

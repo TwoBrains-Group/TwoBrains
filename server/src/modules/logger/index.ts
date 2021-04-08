@@ -18,6 +18,20 @@ const loggerConfig: Config['log'] = {
  * - Improve prettifier
  */
 
+export const enum Level {
+    Debug,
+    Info,
+    Warn,
+    Error,
+}
+
+const levelMap: Record<Level, string> = {
+    [Level.Debug]: 'debug',
+    [Level.Info]: 'info',
+    [Level.Warn]: 'warn',
+    [Level.Error]: 'error',
+}
+
 type LoggerOptions = {
     owner: string,
 }
@@ -83,9 +97,15 @@ export const lf = (strings: TemplateStringsArray, ...ipValues: any[]): string =>
  */
 export default class Logger implements ILogger {
     options: LoggerOptions
+    config: Config['log']
 
     constructor(options: LoggerOptions) {
         this.options = options
+        this.config = loggerConfig
+    }
+
+    setLevel(level: Level): void {
+        this.config.level = levelMap[level]
     }
 
     getMessagePrefix(level: string, levelOptions: Record<string, any> = {}): string {
@@ -108,7 +128,7 @@ export default class Logger implements ILogger {
     _log(level: string, ...args: any[]): void {
         const levelOptions = LOG_SETTINGS[level]
 
-        if (levelOptions.priority > LOG_SETTINGS[loggerConfig.level].priority) {
+        if (levelOptions.priority > LOG_SETTINGS[this.config.level].priority) {
             return
         }
 

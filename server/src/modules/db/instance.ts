@@ -1,7 +1,7 @@
 import {DBError} from '@modules/db/errors'
 import {Pool} from '@modules/db'
 import {prepareQuery, queryDefaultOptions, QueryOptions, QueryParams, QueryReturnType} from '@modules/db/pool'
-import Logger from '@modules/logger'
+import Logger, {Level} from '@modules/logger'
 import {nanoid} from 'nanoid'
 import {format as formatSql} from 'sql-formatter'
 import {config} from '@utils/config'
@@ -33,6 +33,11 @@ class DBInstance {
         this.pool.on('error', async error => {
             this.log.error(`Pool ${this.id} error: ${error}`)
         })
+    }
+
+    setLogLevel(level: Level): this {
+        this.log.setLevel(level)
+        return this
     }
 
     async end(): Promise<void> {

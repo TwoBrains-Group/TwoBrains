@@ -7,6 +7,7 @@ import {QueryReturnType} from '@modules/db/pool'
 import l10n from './l10n'
 import DBInstance from '@modules/db/instance'
 import minimist from 'minimist'
+import {Level} from '@modules/logger'
 
 const MIGRATIONS_PATH = 'db/migrations'
 
@@ -57,6 +58,7 @@ class Migrate {
         this.applyArgs()
 
         this.db = await DB.getInstance()
+        this.db.setLogLevel(Level.Error)
         await this.db.query('createMigrations', queries.createMigrations)
 
         try {

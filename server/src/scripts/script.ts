@@ -12,5 +12,4 @@ export class Script {
             printTime: false,
         })
     }
-
 }

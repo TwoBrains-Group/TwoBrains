@@ -285,7 +285,7 @@
     }
 
     .main-header__user-menu {
-        width: 180px;
+        width: 200px;
         right: -250px;
 
         &.show {
@@ -299,6 +299,7 @@
         position: relative;
         height: 20px;
         padding: 6px 0;
+        font-size: 17px;
         line-height: 20px;
         vertical-align: middle;
         overflow: hidden;

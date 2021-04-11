@@ -1,6 +1,6 @@
-import {MethodProps, MethodRes, Req} from '@apps/base/Method'
+import {MethodProps, MethodRes, Req} from '@apps/_base/Method'
 import {QueryReturnType} from '@modules/db/pool'
-import {InvalidParams, BaseError} from '@apps/base/errors'
+import {InvalidParams, BaseError} from '@apps/_base/errors'
 import {nanoid} from 'nanoid'
 import BaseAuth from './base-auth'
 

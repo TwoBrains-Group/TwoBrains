@@ -5,7 +5,7 @@ import Logger, {Level} from '@modules/logger'
 import {nanoid} from 'nanoid'
 import {format as formatSql} from 'sql-formatter'
 import {config} from '@utils/config'
-import {NotFoundError} from '@apps/base/errors'
+import {NotFoundError} from '@apps/_base/errors'
 
 const {db: {connection}} = config
 

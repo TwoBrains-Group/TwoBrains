@@ -1,4 +1,4 @@
-import {AppProps, BaseApp} from '@apps/base'
+import {AppProps, BaseApp} from '@apps/_base'
 
 class Tag extends BaseApp {
     constructor(props: AppProps) {

@@ -29,7 +29,7 @@ Usage:
 const APPS_PATH = `${appRootPath.toString()}/src/apps`
 
 const getFileName = (name: string) =>
-    name.replace(/([a-z0-9])([A-Z0-9])/g, text => `${text[0]}-${text[1].toLowerCase()}`).split('.')[0]
+    name.replace(/([a-z])([A-Z])/g, text => `${text[0]}-${text[1].toLowerCase()}`).split('.')[0]
 
 const getNameFromFile = (filename: string) =>
     filename.replace(/(\w-\w)/g, text => `${text[0]}${text[2].toUpperCase()}`).split('.')[0]
@@ -138,9 +138,11 @@ const updateIndex = (dirPath: string): void => {
         return
     }
 
-    files = files.filter(file => file !== 'index.ts')
+    files = files.filter(file => file !== 'index.ts' && !file.startsWith('_'))
 
     const names = files.map(filename => getNameFromFile(filename))
+
+    names.sort()
 
     const imports = names.reduce((acc, el) => {
         return `${acc}${escapeNames(templates.importDefault, {
@@ -171,9 +173,9 @@ const makeApp = async (name: string) => {
     const newAppPath = path.join(APPS_PATH, name)
     name = name.toLowerCase()
 
-    if (existsSync(newAppPath)) {
-        throw new Error('App with this name already exists')
-    }
+    // if (existsSync(newAppPath)) {
+    //     throw new Error('App with this name already exists')
+    // }
 
     const namePC = `${name[0].toUpperCase()}${name.slice(1)}`
 
@@ -183,6 +185,12 @@ const makeApp = async (name: string) => {
     }
 
     const bus = await genStruct(APPS_PATH, appStruct, params)
+
+    bus.push({
+        instr: Instruction.UpdInd,
+        func: updateIndex,
+        args: [APPS_PATH],
+    })
 
     await execBus(bus)
 }
@@ -214,8 +222,6 @@ const makeMethod = async (app: string, name: string) => {
     }
 
     const bus = await genStruct(APPS_PATH, methodStruct, params)
-
-    console.log('bus', JSON.stringify(bus, null, 2))
 
     await execBus(bus)
 }

@@ -1,4 +1,4 @@
-import api from '@apps/base/api'
+import api from '@apps/_base/api'
 import express from 'express'
 import Logger from '@modules/logger'
 

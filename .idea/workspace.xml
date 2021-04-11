@@ -13,36 +13,68 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="edaaf9c1-6c17-4647-aa91-a795e595d129" name="Default Changelist" comment="Yeps...">
-      <change afterPath="$PROJECT_DIR$/client/assets/sass/components/common/LogoText.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/common/LogoText.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/_docs/scripts/make.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/_docs/scripts/migrate.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/email/api/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/email/api/v1/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/email/api/v1/methods/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/email/api/v1/methods/send.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/email/api/v1/queries.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/email/api/v1/schemas/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/email/api/v1/schemas/send.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/apps/email/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/scripts/make/struct/method-struct.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="edaaf9c1-6c17-4647-aa91-a795e595d129" name="Default Changelist" comment=":ambulance: make script">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/sass/common/common.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/common/common.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/common/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/common/Header.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/common/SimpleHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/common/SimpleHeader.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/.eslintrc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/server/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/config.dev.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/config.dev.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/nodemon.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/nodemon.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/modules/logger/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/modules/logger/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/scripts/db/migrate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/scripts/db/migrate.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/auth/api/v1/methods/base-auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/auth/api/v1/methods/base-auth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/auth/api/v1/methods/google.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/auth/api/v1/methods/google.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/auth/api/v1/methods/login.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/auth/api/v1/methods/login.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/auth/api/v1/methods/signup.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/auth/api/v1/methods/signup.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/auth/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/auth/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/base/Method.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/_base/Method.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/base/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/_base/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/base/errors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/_base/errors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/base/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/_base/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/base/templates.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/_base/templates.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/email/api/v1/methods/send.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/email/api/v1/methods/send.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/email/api/v1/schemas/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/email/api/v1/schemas/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/email/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/email/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/comment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/comment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/create.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/create.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/delete-comment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/delete-comment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/edit.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/edit.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-by-id.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-by-id.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-comments.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-comments.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-list.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/get-list.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/like-comment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/like-comment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/like.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/like.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/reply-to-comment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/api/v1/methods/reply-to-comment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/idea/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/idea/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/l10n/api/v1/methods/get-locales.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/l10n/api/v1/methods/get-locales.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/l10n/api/v1/methods/load.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/l10n/api/v1/methods/load.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/l10n/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/l10n/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/main/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/main/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/plugin/api/v1/methods/get-list.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/plugin/api/v1/methods/get-list.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/plugin/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/plugin/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/project/api/v1/methods/archive.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/project/api/v1/methods/archive.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/project/api/v1/methods/change-image.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/project/api/v1/methods/change-image.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/project/api/v1/methods/create.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/project/api/v1/methods/create.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/project/api/v1/methods/get-by-uid.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/project/api/v1/methods/get-by-uid.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/project/api/v1/methods/get-list.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/project/api/v1/methods/get-list.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/project/api/v1/methods/like.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/project/api/v1/methods/like.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/project/api/v1/methods/modification.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/project/api/v1/methods/modification.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/project/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/project/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/search/api/v1/methods/simple.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/search/api/v1/methods/simple.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/search/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/search/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/tag/api/v1/methods/get-tags.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/tag/api/v1/methods/get-tags.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/tag/api/v1/methods/get-top.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/tag/api/v1/methods/get-top.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/tag/api/v1/methods/search.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/tag/api/v1/methods/search.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/tag/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/tag/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/user/api/v1/methods/change-lang.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/user/api/v1/methods/change-lang.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/user/api/v1/methods/follow.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/user/api/v1/methods/follow.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/user/api/v1/methods/get-by-uid.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/user/api/v1/methods/get-by-uid.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/user/api/v1/methods/save-settings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/user/api/v1/methods/save-settings.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/user/api/v1/methods/update-avatar.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/user/api/v1/methods/update-avatar.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/apps/user/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/apps/user/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/modules/db/errors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/modules/db/errors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/modules/db/instance.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/modules/db/instance.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/modules/db/pool.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/modules/db/pool.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/scripts/make/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/scripts/make/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/scripts/make/struct/app-struct.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/scripts/make/struct/app-struct.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/scripts/make/struct/structs.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/scripts/make/struct/templates.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/utils/template-engine.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/template-engine.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/scripts/make/struct/method-struct.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/scripts/make/struct/method-struct.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/server/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/server/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/server/mws/error.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/server/mws/error.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/server/mws/not-supported.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/server/mws/not-supported.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,7 +266,7 @@
       <workItem from="1617903291768" duration="10492000" />
       <workItem from="1617990509570" duration="6226000" />
       <workItem from="1618057868856" duration="4263000" />
-      <workItem from="1618073019855" duration="25265000" />
+      <workItem from="1618073019855" duration="33654000" />
     </task>
     <task id="LOCAL-00001" summary=":bulb: Meow">
       <created>1612391364993</created>
@@ -453,7 +485,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617916897542</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary=":ambulance: make script">
+      <created>1618109798424</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1618109798424</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -479,7 +518,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value=":sparkles: Query params and more" />
     <MESSAGE value=":sparkles: DB strict mode" />
     <MESSAGE value=":poop: Save before move to Vue" />
     <MESSAGE value="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" />
@@ -504,7 +542,8 @@
     <MESSAGE value="Update migrate script" />
     <MESSAGE value=":sparkles: setLogLevel" />
     <MESSAGE value="Yeps..." />
-    <option name="LAST_COMMIT_MESSAGE" value="Yeps..." />
+    <MESSAGE value=":ambulance: make script" />
+    <option name="LAST_COMMIT_MESSAGE" value=":ambulance: make script" />
   </component>
   <component name="WindowStateProjectService">
     <state x="904" y="220" width="565" height="516" key="#ESLint" timestamp="1618074167631">

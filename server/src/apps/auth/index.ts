@@ -1,4 +1,4 @@
-import {AppProps, BaseApp} from '@apps/base'
+import {AppProps, BaseApp} from '@apps/_base'
 import express from 'express'
 
 class Auth extends BaseApp {

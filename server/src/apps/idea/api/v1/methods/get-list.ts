@@ -1,4 +1,4 @@
-import {Method, MethodRes, Req} from '@apps/base/Method'
+import {Method, MethodRes, Req} from '@apps/_base/Method'
 import {QueryReturnType} from '@modules/db/pool'
 import {prepareIdeas} from '@apps/idea/api/v1/modules/prepare-ideas'
 

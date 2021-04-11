@@ -1,5 +1,5 @@
-import {BaseError} from '@apps/base/errors'
-import {AuthUser, Method, MethodRes, Req} from '@apps/base/Method'
+import {BaseError} from '@apps/_base/errors'
+import {AuthUser, Method, MethodRes, Req} from '@apps/_base/Method'
 import {QueryReturnType} from '@modules/db/pool'
 
 class ReplyToComment extends Method {

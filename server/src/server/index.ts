@@ -1,4 +1,4 @@
-import api from '@apps/base/api'
+import api from '@apps/_base/api'
 import express, {RequestHandler} from 'express'
 import 'path'
 import appRootPath from 'app-root-path'

@@ -2,11 +2,11 @@ import {MustBeOverridden} from '@utils/errors'
 import Logger from '@modules/logger'
 import DB from '@modules/db'
 import {Query, queryDefaultOptions, QueryOptions, QueryParams} from '@modules/db/pool'
-import {Req, MethodRes, FormDataReq} from '@apps/base/templates'
+import {Req, MethodRes, FormDataReq} from '@apps/_base/templates'
 import DBInstance from '@modules/db/instance'
 import ajv from '@modules/ajv'
 import {JSONSchemaType, ValidateFunction} from 'ajv'
-import {InvalidParams} from '@apps/base/errors'
+import {InvalidParams} from '@apps/_base/errors'
 import {Request} from 'express'
 import EventEmitter from 'events'
 
@@ -146,4 +146,4 @@ export abstract class Method extends EventEmitter {
     }
 }
 
-export {Req, FormDataReq, Res, MethodRes} from '@apps/base/templates'
+export {Req, FormDataReq, Res, MethodRes} from '@apps/_base/templates'

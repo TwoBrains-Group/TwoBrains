@@ -1,4 +1,4 @@
-import {BaseApp} from '@apps/base'
+import {BaseApp} from '@apps/_base'
 
 class Plugin extends BaseApp {}
 

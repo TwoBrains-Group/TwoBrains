@@ -1,6 +1,6 @@
-import {Method, MethodRes, Req} from '@apps/base/Method'
+import {Method, MethodRes, Req} from '@apps/_base/Method'
 import {QueryReturnType} from '@modules/db/pool'
-import {BaseError} from '@apps/base/errors'
+import {BaseError} from '@apps/_base/errors'
 
 class ChangeLang extends Method {
     async run(req: Req, user?: any): Promise<MethodRes> {

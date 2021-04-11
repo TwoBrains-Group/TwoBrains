@@ -1,4 +1,4 @@
-import {FormDataReq, MethodRes} from '@apps/base/Method'
+import {FormDataReq, MethodRes} from '@apps/_base/Method'
 import {QueryReturnType} from '@modules/db/pool'
 import {File} from 'formidable'
 import sharp from 'sharp'

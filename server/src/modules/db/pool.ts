@@ -1,6 +1,6 @@
 import {Client, QueryConfig, QueryResultRow} from 'pg'
 import PgPool from 'pg-pool'
-import {BaseError, NotFoundError} from '@apps/base/errors'
+import {BaseError, NotFoundError} from '@apps/_base/errors'
 import {UnusedQueryParams} from './errors'
 
 // const strict: boolean = process.env.ENV.toLowerCase() === 'prod' || true

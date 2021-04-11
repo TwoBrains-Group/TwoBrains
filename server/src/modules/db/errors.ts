@@ -1,4 +1,4 @@
-import {InternalError} from '@apps/base/errors'
+import {InternalError} from '@apps/_base/errors'
 
 export class DBError extends InternalError {
     fatal: boolean

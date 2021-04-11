@@ -1,5 +1,5 @@
-import {Method, MethodProps, MethodRes} from '@apps/base/Method'
-import {Req} from '@apps/base/templates'
+import {Method, MethodProps, MethodRes} from '@apps/_base/Method'
+import {Req} from '@apps/_base/templates'
 
 class Google extends Method {
     constructor(props: MethodProps) {

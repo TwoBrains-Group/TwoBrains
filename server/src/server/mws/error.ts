@@ -1,5 +1,5 @@
 import {NextFunction, Request, Response} from 'express'
-import {BaseError} from '@apps/base/errors'
+import {BaseError} from '@apps/_base/errors'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default (err: unknown, req: Request, res: Response, next: NextFunction): void => {

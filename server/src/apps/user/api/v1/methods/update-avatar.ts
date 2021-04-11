@@ -1,4 +1,4 @@
-import {FormDataReq, Method, MethodRes} from '@apps/base/Method'
+import {FormDataReq, Method, MethodRes} from '@apps/_base/Method'
 import {File} from 'formidable'
 import {v4 as uuidv4} from 'uuid'
 import appRootPath from 'app-root-path'

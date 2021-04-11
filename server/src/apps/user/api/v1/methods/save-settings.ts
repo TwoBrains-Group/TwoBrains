@@ -1,4 +1,4 @@
-import {Method, MethodProps, MethodRes, Req} from '@apps/base/Method'
+import {Method, MethodProps, MethodRes, Req} from '@apps/_base/Method'
 import {QueryReturnType} from '@modules/db/pool'
 
 class SaveSettings extends Method {

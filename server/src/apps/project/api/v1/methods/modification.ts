@@ -1,6 +1,6 @@
-import {AuthUser, Method, METHOD_EVENTS, MethodProps, Req} from '@apps/base/Method'
+import {AuthUser, Method, METHOD_EVENTS, MethodProps, Req} from '@apps/_base/Method'
 import {QueryReturnType} from '@modules/db/pool'
-import {AccessDeniedError} from '@apps/base/errors'
+import {AccessDeniedError} from '@apps/_base/errors'
 
 export enum Operation {
     ChangeImage = 'change_image',

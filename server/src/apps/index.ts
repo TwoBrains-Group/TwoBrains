@@ -1,21 +1,23 @@
-import main from './main'
-import user from './user'
 import auth from './auth'
+import email from './email'
 import idea from './idea'
 import l10n from './l10n'
-import project from './project'
-import tag from './tag'
-import search from './search'
+import main from './main'
 import plugin from './plugin'
+import project from './project'
+import search from './search'
+import tag from './tag'
+import user from './user'
 
 export default {
-    main,
-    user,
     auth,
+    email,
     idea,
     l10n,
-    project,
-    tag,
-    search,
+    main,
     plugin,
+    project,
+    search,
+    tag,
+    user,
 }

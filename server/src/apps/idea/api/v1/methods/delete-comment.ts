@@ -1,6 +1,6 @@
-import {AuthUser, Method, MethodRes, Req} from '@apps/base/Method'
+import {AuthUser, Method, MethodRes, Req} from '@apps/_base/Method'
 import {QueryReturnType} from '@modules/db/pool'
-import {BaseError} from '@apps/base/errors'
+import {BaseError} from '@apps/_base/errors'
 
 class DeleteComment extends Method {
     async run(req: Req, user: AuthUser): Promise<MethodRes> {

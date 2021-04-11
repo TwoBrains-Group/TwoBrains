@@ -1,4 +1,4 @@
-import {AppProps, BaseApp} from '@apps/base'
+import {AppProps, BaseApp} from '@apps/_base'
 
 class L10N extends BaseApp {
     constructor(props: AppProps) {

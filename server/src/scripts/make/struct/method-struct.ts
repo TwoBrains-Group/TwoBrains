@@ -5,7 +5,7 @@ export default {
                 __updateIndex_methods: {
                     '$name.ts': '$method',
                 },
-                schemas: {
+                __updateIndex_schemas: {
                     '$name.ts': '$schema',
                 },
             },

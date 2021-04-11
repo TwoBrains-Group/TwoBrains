@@ -1,4 +1,4 @@
-import {MethodRes, Req} from '@apps/base/Method'
+import {MethodRes, Req} from '@apps/_base/Method'
 import {Modification, Operation} from '@apps/project/api/v1/methods/modification'
 
 class Archive extends Modification {

@@ -1,6 +1,6 @@
-import {AuthUser, Method, MethodProps, MethodRes, Req} from '@apps/base/Method'
+import {AuthUser, Method, MethodProps, MethodRes, Req} from '@apps/_base/Method'
 import {QueryReturnType} from '@modules/db/pool'
-import {BaseError} from '@apps/base/errors'
+import {BaseError} from '@apps/_base/errors'
 import {prepareFollowingStatus} from '../modules/prepare-user'
 
 class GetByUid extends Method {

@@ -1,6 +1,6 @@
-import {MethodRes} from '@apps/base/Method'
-import {Req} from '@apps/base/templates'
-import {AccessDeniedError, InternalError, NotFoundError} from '@apps/base/errors'
+import {MethodRes} from '@apps/_base/Method'
+import {Req} from '@apps/_base/templates'
+import {AccessDeniedError, InternalError, NotFoundError} from '@apps/_base/errors'
 import {QueryReturnType} from '@modules/db/pool'
 import BaseAuth from './base-auth'
 

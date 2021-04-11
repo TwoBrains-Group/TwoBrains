@@ -1,7 +1,7 @@
-import {Method, MethodProps} from '@apps/base/Method'
+import {Method, MethodProps} from '@apps/_base/Method'
 import jwt from 'jsonwebtoken'
 import {QueryReturnType} from '@modules/db/pool'
-import {BaseError} from '@apps/base/errors'
+import {BaseError} from '@apps/_base/errors'
 
 type getTokenResult = {
     token: string

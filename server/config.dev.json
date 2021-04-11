@@ -4,7 +4,7 @@
             "host": "localhost",
             "database": "tb",
             "user": "postgres",
-            "password": "1",
+            "password": "agvin",
             "port": 5432
         }
     },

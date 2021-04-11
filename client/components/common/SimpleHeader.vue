@@ -3,14 +3,16 @@
         <div class="main-header__back"></div>
 
         <nuxt-link to="/" class="main-header__logo btn">
-            <img class="main-header__logo__img" src="~static/img/logo.png" alt="TwoBrains">
+            <LogoText/>
         </nuxt-link>
 
     </header>
 </template>
 
 <script>
+import LogoText from "@/components/common/LogoText";
 export default {
     name: 'SimpleHeader',
+    components: {LogoText},
 }
 </script>

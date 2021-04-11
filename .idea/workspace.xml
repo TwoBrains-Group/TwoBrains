@@ -14,17 +14,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="edaaf9c1-6c17-4647-aa91-a795e595d129" name="Default Changelist" comment="Yeps...">
-      <change afterPath="$PROJECT_DIR$/client/_docs/conventions/component.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/_docs/conventions/css.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/_docs/conventions/page.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/assets/sass/components/user/User.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/assets/sass/components/user/UserList.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/user/User.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/user/UserList.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/assets/sass/components/common/LogoText.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/common/LogoText.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/_docs/scripts/make.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/_docs/scripts/migrate.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/email/api/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/email/api/v1/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/email/api/v1/methods/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/email/api/v1/methods/send.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/email/api/v1/queries.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/email/api/v1/schemas/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/email/api/v1/schemas/send.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/apps/email/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/scripts/make/struct/method-struct.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/sass/components/common/Header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/components/common/Header.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/sass/ui/_common.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/ui/_common.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/scripts/script.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/scripts/script.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/sass/common/common.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/sass/common/common.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/common/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/common/Header.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/common/SimpleHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/common/SimpleHeader.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/.eslintrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/server/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/config.dev.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/config.dev.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/nodemon.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/nodemon.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/modules/logger/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/modules/logger/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/scripts/db/migrate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/scripts/db/migrate.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/scripts/make/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/scripts/make/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/scripts/make/struct/app-struct.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/scripts/make/struct/app-struct.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/scripts/make/struct/structs.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/scripts/make/struct/templates.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/utils/template-engine.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/template-engine.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,27 +88,27 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable" value="ALL" />
-    <property name="javascript.nodejs.core.library.configured.version" value="15.11.0" />
-    <property name="javascript.nodejs.core.library.typings.version" value="14.14.35" />
+    <property name="javascript.nodejs.core.library.configured.version" value="10.13.0" />
+    <property name="javascript.nodejs.core.library.typings.version" value="10.17.56" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../services/translation-service" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../TwoBrains_group" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.stylelint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="/opt/node/bin/node" />
+    <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.standard" value="project" />
     <property name="node.js.path.for.package.stylelint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.eslint" value="F:\Projects\TwoBrains\server\node_modules\eslint" />
     <property name="node.js.selected.package.standard" value="" />
     <property name="node.js.selected.package.stylelint" value="" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_interpreter_path" value="/opt/node/bin/node" />
+    <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.prettier.on.save" value="true" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
-    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="ts.external.directory.path" value="C:\Users\PYJOHN\AppData\Local\JetBrains\Toolbox\apps\WebStorm\ch-0\202.7660.23\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
     <property name="vuejs.nuxt.types-notification-shown" value="true" />
   </component>
@@ -216,6 +234,7 @@
       <workItem from="1617903291768" duration="10492000" />
       <workItem from="1617990509570" duration="6226000" />
       <workItem from="1618057868856" duration="4263000" />
+      <workItem from="1618073019855" duration="25265000" />
     </task>
     <task id="LOCAL-00001" summary=":bulb: Meow">
       <created>1612391364993</created>
@@ -488,10 +507,11 @@
     <option name="LAST_COMMIT_MESSAGE" value="Yeps..." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2289" y="243" width="936" height="707" key="#ESLint" timestamp="1616528827281">
-      <screen x="1280" y="0" width="2560" height="1080" />
+    <state x="904" y="220" width="565" height="516" key="#ESLint" timestamp="1618074167631">
+      <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state x="1009" y="236" key="#ESLint/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1615152242649" />
+    <state x="904" y="220" width="565" height="516" key="#ESLint/0.0.2560.1050/2560.26.1680.1020/-1280.17.1280.994@0.0.2560.1050" timestamp="1618074167631" />
     <state x="2289" y="243" width="936" height="707" key="#ESLint/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1616528827281" />
     <state x="1168" y="364" width="223" height="326" key="#File_Watchers" timestamp="1612140945966">
       <screen x="0" y="0" width="2560" height="1052" />
@@ -528,30 +548,34 @@
       <screen x="0" y="0" width="2560" height="1052" />
     </state>
     <state x="738" y="185" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612125479031" />
-    <state x="2314" y="328" width="536" height="426" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1617823487335">
-      <screen x="1280" y="0" width="2560" height="1080" />
+    <state x="1034" y="319" width="536" height="426" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1618108295486">
+      <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state x="1034" y="319" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1616008611627" />
+    <state x="1034" y="319" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1050/2560.26.1680.1020/-1280.17.1280.994@0.0.2560.1050" timestamp="1618108295486" />
     <state x="1034" y="320" width="508" height="414" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612140347437" />
     <state x="2314" y="328" width="536" height="426" key="#com.intellij.fileTypes.FileTypeChooser/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1617823487335" />
     <state x="935" y="308" width="683" height="683" key="EditFileWatcherDialog" timestamp="1612141018555">
       <screen x="0" y="0" width="2560" height="1052" />
     </state>
     <state x="935" y="308" width="683" height="683" key="EditFileWatcherDialog/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612141018555" />
-    <state x="2274" y="256" width="541" height="617" key="FileChooserDialogImpl" timestamp="1617870012369">
-      <screen x="1280" y="0" width="2560" height="1080" />
+    <state x="994" y="249" width="541" height="617" key="FileChooserDialogImpl" timestamp="1618083475590">
+      <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state x="1063" y="284" key="FileChooserDialogImpl/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1615319139228" />
+    <state x="994" y="249" key="FileChooserDialogImpl/0.0.2560.1050/2560.26.1680.1020/-1280.17.1280.994@0.0.2560.1050" timestamp="1618083475590" />
     <state x="1063" y="285" width="428" height="484" key="FileChooserDialogImpl/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612140942406" />
     <state x="2274" y="256" width="541" height="617" key="FileChooserDialogImpl/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1617870012369" />
-    <state x="860" y="260" key="IDE.errors.dialog" timestamp="1614281611294">
+    <state x="860" y="260" key="IDE.errors.dialog" timestamp="1618073032657">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state x="860" y="260" key="IDE.errors.dialog/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614281611294" />
-    <state x="2064" y="167" key="SettingsEditor" timestamp="1617215754124">
-      <screen x="1280" y="0" width="2560" height="1080" />
+    <state x="860" y="260" key="IDE.errors.dialog/0.0.2560.1050/2560.26.1680.1020/-1280.17.1280.994@0.0.2560.1050" timestamp="1618073032657" />
+    <state x="784" y="162" key="SettingsEditor" timestamp="1618109776460">
+      <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state x="784" y="162" key="SettingsEditor/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1615927135129" />
+    <state x="784" y="162" key="SettingsEditor/0.0.2560.1050/2560.26.1680.1020/-1280.17.1280.994@0.0.2560.1050" timestamp="1618109776460" />
     <state x="784" y="162" key="SettingsEditor/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612147345234" />
     <state x="2064" y="167" key="SettingsEditor/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1617215754124" />
     <state width="498" height="459" key="SwitcherDM" timestamp="1616512597431">
@@ -569,16 +593,21 @@
     </state>
     <state x="880" y="135" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1614106952315" />
     <state x="2160" y="139" width="770" height="770" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1616942192680" />
+    <state x="1097" y="435" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1618077916812">
+      <screen x="0" y="0" width="2560" height="1050" />
+    </state>
+    <state x="1097" y="435" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1050/2560.26.1680.1020/-1280.17.1280.994@0.0.2560.1050" timestamp="1618077916812" />
     <state x="0" y="0" width="2166" height="1032" key="dock-window-1" timestamp="1612652780293">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state x="0" y="0" width="2166" height="1032" key="dock-window-1/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1612652780293" />
-    <state x="2267" y="267" width="634" height="675" key="find.popup" timestamp="1617992105164">
-      <screen x="1280" y="0" width="2560" height="1080" />
+    <state x="987" y="260" width="634" height="657" key="find.popup" timestamp="1618078065547">
+      <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state x="987" y="260" width="594" height="656" key="find.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1616280650639" />
     <state x="3054" y="246" width="555" height="622" key="find.popup/0.0.2560.1050/2560.0.1280.994@2560.0.1280.994" timestamp="1615672963356" />
     <state x="987" y="260" width="594" height="656" key="find.popup/0.0.2560.1050/2560.0.1680.1020/-1280.4.1280.994@0.0.2560.1050" timestamp="1616341956787" />
+    <state x="987" y="260" width="634" height="657" key="find.popup/0.0.2560.1050/2560.26.1680.1020/-1280.17.1280.994@0.0.2560.1050" timestamp="1618078065547" />
     <state x="987" y="260" width="585" height="534" key="find.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612145569091" />
     <state x="2267" y="267" width="634" height="675" key="find.popup/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1617992105164" />
     <state width="600" height="440" key="javadoc.popup" timestamp="1614281174337">
@@ -592,10 +621,11 @@
     <state x="3031" y="227" width="336" height="641" key="run.anything.popup/0.0.2560.1050/2560.0.1280.994@2560.0.1280.994" timestamp="1615669619272" />
     <state x="942" y="240" key="run.anything.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612128644928" />
     <state x="2222" y="247" width="672" height="697" key="run.anything.popup/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1617916345692" />
-    <state x="2223" y="239" width="672" height="697" key="search.everywhere.popup" timestamp="1618063822372">
-      <screen x="1280" y="0" width="2560" height="1080" />
+    <state x="943" y="232" width="672" height="678" key="search.everywhere.popup" timestamp="1618104064577">
+      <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state x="943" y="232" width="672" height="677" key="search.everywhere.popup/0.0.2560.1050/2560.0.1280.994@0.0.2560.1050" timestamp="1616281564758" />
+    <state x="943" y="232" width="672" height="678" key="search.everywhere.popup/0.0.2560.1050/2560.26.1680.1020/-1280.17.1280.994@0.0.2560.1050" timestamp="1618104064577" />
     <state x="943" y="232" width="672" height="678" key="search.everywhere.popup/0.0.2560.1052/2560.27.1280.1024@0.0.2560.1052" timestamp="1612131512848" />
     <state x="2223" y="239" width="672" height="697" key="search.everywhere.popup/1280.0.2560.1080/3840.0.1680.1050/0.0.1280.1024@1280.0.2560.1080" timestamp="1618063822372" />
   </component>

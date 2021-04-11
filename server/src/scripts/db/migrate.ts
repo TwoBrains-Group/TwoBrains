@@ -1,14 +1,12 @@
 import '../../utils/register'
-import {readdir, readFile, writeFile} from 'fs/promises'
-import {existsSync} from 'fs'
+import {existsSync, readFileSync, writeFileSync, readdirSync} from 'fs'
 import path from 'path'
 import DB from '@modules/db'
 import {QueryReturnType} from '@modules/db/pool'
 import l10n from './l10n'
 import DBInstance from '@modules/db/instance'
 import minimist from 'minimist'
-import Logger, {Level} from '@modules/logger'
-import {log} from 'util'
+import {Level} from '@modules/logger'
 import {Script} from '../script'
 
 const MIGRATIONS_PATH = 'db/migrations'
@@ -71,7 +69,7 @@ class Migrate extends Script {
             await this.loadMigrations()
         } catch (error) {
             this.log.error('Failed to load migrations:', error.message)
-            await this.onError()
+            await this.closeConnection()
             return
         }
 
@@ -79,12 +77,14 @@ class Migrate extends Script {
             await this.commands[this.command].call(this)
         } catch (error) {
             this.log.error('An error occurred:', error)
-            await this.onError()
+            await this.closeConnection()
             return
         }
+
+        await this.closeConnection()
     }
 
-    async onError() {
+    async closeConnection() {
         await DB.close(this.db)
     }
 
@@ -105,16 +105,16 @@ class Migrate extends Script {
     }
 
     async loadScripts(): Promise<void> {
-        await writeFile(path.join(MIGRATIONS_PATH, 'up/tb-script-l10n.sql'), await l10n('up'))
-        await writeFile(path.join(MIGRATIONS_PATH, 'down/tb-script-l10n.sql'), await l10n('down'))
+        writeFileSync(path.join(MIGRATIONS_PATH, 'up/tb-script-l10n.sql'), await l10n('up'))
+        writeFileSync(path.join(MIGRATIONS_PATH, 'down/tb-script-l10n.sql'), await l10n('down'))
     }
 
     async loadMigrations(): Promise<void> {
         const upMigrationsPath = path.join(MIGRATIONS_PATH, 'up')
         const downMigrationsPath = path.join(MIGRATIONS_PATH, 'down')
 
-        const upMigrationsFiles = await readdir(upMigrationsPath)
-        const downMigrationsFiles = await readdir(downMigrationsPath)
+        const upMigrationsFiles = readdirSync(upMigrationsPath)
+        const downMigrationsFiles = readdirSync(downMigrationsPath)
         upMigrationsFiles.sort()
         downMigrationsFiles.sort().reverse()
 
@@ -130,7 +130,7 @@ class Migrate extends Script {
                 continue
             }
 
-            this.migrations.up[filename] = await readFile(path.join(MIGRATIONS_PATH, 'up', filename), {
+            this.migrations.up[filename] = readFileSync(path.join(MIGRATIONS_PATH, 'up', filename), {
                 encoding: 'utf8',
             })
         }
@@ -140,7 +140,7 @@ class Migrate extends Script {
                 continue
             }
 
-            this.migrations.down[filename] = await readFile(path.join(MIGRATIONS_PATH, 'down', filename), {
+            this.migrations.down[filename] = readFileSync(path.join(MIGRATIONS_PATH, 'down', filename), {
                 encoding: 'utf8',
             })
         }

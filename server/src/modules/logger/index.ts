@@ -61,19 +61,19 @@ interface LogSetting {
 const LOG_SETTINGS: LogSetting = {
     debug: {
         color: 'cyan',
-        priority: 4,
+        priority: 2,
     },
     info: {
         color: 'green',
-        priority: 3,
+        priority: 4,
     },
     warn: {
         color: 'yellow',
-        priority: 2,
+        priority: 6,
     },
     error: {
         color: 'red',
-        priority: 1,
+        priority: 10,
     },
 }
 
@@ -139,7 +139,7 @@ export default class Logger implements ILogger {
     _log(level: string, ...args: any[]): void {
         const levelOptions = LOG_SETTINGS[level]
 
-        if (levelOptions.priority < LOG_SETTINGS[this.config.level].priority) {
+        if (levelOptions.priority <= LOG_SETTINGS[this.config.level].priority) {
             return
         }
 

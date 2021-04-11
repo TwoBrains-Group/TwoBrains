@@ -23,24 +23,6 @@ html, body {
     padding: 0;
 }
 
-.logo-text {
-    color: #333;
-    font-family: 'Maven Pro', sans-serif;
-    font-weight: 500;
-
-    * {
-        font-family: 'Maven Pro', sans-serif;
-    }
-
-    .T {
-        color: darken(#9aa6ce, 10%);
-    }
-
-    .B {
-        color: #f25959;
-    }
-}
-
 #__nuxt,
 #__layout {
     width: 100%;

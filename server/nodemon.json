@@ -2,8 +2,9 @@
     "watch": [
         "src/**/*.ts",
         "config.dev.json",
-        "config.dev.js",
-        "tsconfig.json"
+        "tsconfig.json",
+        ".eslint.js",
+        ".eslint.json"
     ],
     "ignore": [
         "src/**/*.spec.ts"

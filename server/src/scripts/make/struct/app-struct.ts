@@ -1,16 +1,18 @@
 export default {
-    api: {
-        v1: {
-            methods: {
-                index: 'export default {}',
+    $name: {
+        api: {
+            v1: {
+                methods: {
+                    'index.ts': '$emptyExportDefault',
+                },
+                schemas: {
+                    'index.ts': '$emptyExportDefault',
+                },
+                'queries.ts': '$emptyExportDefault',
+                'index.ts': '$versionIndex',
             },
-            schemas: {
-                index: 'export default {}',
-            },
-            queries: 'export default {}',
-            index: '@versionIndex',
+            'index.ts': '$apiIndex',
         },
-        index: 'import v1 from \'./v1\'\n\n export default {\nv1,\n}',
+        'index.ts': '$appIndex',
     },
-    index: '@appIndex',
 }

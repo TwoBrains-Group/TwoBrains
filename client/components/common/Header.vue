@@ -7,9 +7,7 @@
         </div>
 
         <nuxt-link to="/" class="main-header__logo btn">
-            <span class="logo-text">
-                <span class="T">T</span><span>wo</span><span class="B">B</span><span>rains</span>
-            </span>
+            <LogoText/>
 <!--            <img class="main-header__logo__img" src="~static/img/TwoBrains.svg" alt="TwoBrains">-->
         </nuxt-link>
 
@@ -120,6 +118,7 @@
 <script>
 import Input from '@/components/ui/Input'
 import {mapGetters, mapMutations} from 'vuex'
+import LogoText from "@/components/common/LogoText";
 
 const cookie = process.client ? require('js-cookie') : undefined
 
@@ -127,6 +126,7 @@ export default {
     name: 'Header',
 
     components: {
+        LogoText,
         Input,
     },
 

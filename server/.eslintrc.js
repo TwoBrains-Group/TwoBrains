@@ -19,7 +19,9 @@ module.exports = {
         // Common //
         quotes: ['error', 'single'],
         semi: ['error', 'never'],
-        indent: ['error', 4],
+        '@typescript-eslint/indent': ['error', 4, {
+            SwitchCase: 1,
+        }],
         'comma-dangle': ['error', 'always-multiline'],
         'keyword-spacing': ['error', {
             before: true,
@@ -34,6 +36,7 @@ module.exports = {
             ImportDeclaration: 'never',
         }],
         'quote-props': ['error', 'as-needed'],
+        // 'require-await': 'error',
 
         // TS //
         '@typescript-eslint/no-non-null-assertion': 'off',

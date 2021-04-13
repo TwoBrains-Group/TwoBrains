@@ -1,17 +1,17 @@
 <template>
-    <form class="ui-input-file" ref="form" @drop.prevent="drop" @dragover.prevent>
-        <div class="btn ui-input-file__container" @click="$refs.input.click()">
+    <form class="ui-InputFile" ref="form" @drop.prevent="drop" @dragover.prevent>
+        <div class="btn ui-InputFile_container" @click="$refs.input.click()">
             <input type="file" ref="input" :accept="accept" @change="updateChosen">
-            <span class="ui-input-file__container__text"
+            <span class="ui-InputFile_container_text"
                   :class="{skeleton: !l10n.chooseFile.length}" ref="text">{{ l10n.chooseFile }}</span>
-            <span class="ui-input-file__container__chosen" v-show="chosen.length">{{ chosen }}</span>
+            <span class="ui-InputFile_container_chosen" v-show="chosen.length">{{ chosen }}</span>
         </div>
 
-        <div class="btn ui-input-file__remove" v-show="chosen.length" @click="clear">
+        <div class="btn ui-InputFile_remove" v-show="chosen.length" @click="clear">
             <i class="fas fa-times"></i>
         </div>
 
-        <div class="ui-input-file__preview" v-if="preview">
+        <div class="ui-InputFile_preview" v-if="preview">
             <img src="" alt="" ref="previewImage">
         </div>
     </form>

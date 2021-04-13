@@ -1,7 +1,7 @@
-#page-idea-create {
+.page-idea-create {
     padding: 10px 0;
 
-    .new-idea-form {
+    &_Form {
         display: grid;
         position: relative;
         width: 600px;
@@ -15,40 +15,40 @@
         border-radius: 10px;
         box-shadow: 0 3px 5px -1px #f0f0f0;
 
-        .new-idea-form__name > input,
-        .new-idea-form__text {
+        &_name > input,
+        &_text {
             width: 100%;
             box-sizing: border-box;
         }
 
-        .new-idea-form__name > input {
+        &_name > input {
             height: 40px;
             padding: 5px 15px;
             font-size: 20px;
         }
 
-        .new-idea-form__tags {
-            display: flex;
-            height: max-content;
-            padding: 5px;
-            flex-direction: row;
+        //&_tags {
+        //    display: flex;
+        //    height: max-content;
+        //    padding: 5px;
+        //    flex-direction: row;
+        //
+        //    &_el {
+        //        display: block;
+        //        width: max-content;
+        //        height: 20px;
+        //        padding: 5px 10px;
+        //        margin-right: 5px;
+        //
+        //        line-height: 20px;
+        //        vertical-align: middle;
+        //        text-align: center;
+        //        box-shadow: 0 3px 5px -1px #f0f0f0;
+        //        border-radius: 5px;
+        //    }
+        //}
 
-            .new-idea-form__tags__el {
-                display: block;
-                width: max-content;
-                height: 20px;
-                padding: 5px 10px;
-                margin-right: 5px;
-
-                line-height: 20px;
-                vertical-align: middle;
-                text-align: center;
-                box-shadow: 0 3px 5px -1px #f0f0f0;
-                border-radius: 5px;
-            }
-        }
-
-        .new-idea-form__text {
+        &_text {
             display: block;
             position: relative;
             padding: 0;
@@ -61,7 +61,7 @@
             }
         }
 
-        .new-idea-form__done {
+        &_done {
             padding: 10px 20px;
             font-size: 18px;
         }

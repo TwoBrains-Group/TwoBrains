@@ -1,7 +1,7 @@
 <template>
-    <div class="ui-checkbox" :class="{checked, outlined}" @click="toggle">
+    <div class="ui-Checkbox" :class="{_checked: checked, _outlined: outlined}" @click="toggle">
         <label>{{ label }}</label>
-        <div class="ui-checkbox__box">
+        <div class="ui-Checkbox_box">
             <i class="fas" :class="{'fa-check': checked}"></i>
         </div>
     </div>

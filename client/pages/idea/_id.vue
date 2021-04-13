@@ -1,11 +1,11 @@
 <template>
     <Spinner v-if="$fetchState.pending"/>
-    <div v-else id="page-idea-_id">
+    <div v-else class="page-idea-_id">
         <Idea v-bind="idea" :is-page="true"/>
     </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '~assets/sass/pages/idea/single';
 </style>
 

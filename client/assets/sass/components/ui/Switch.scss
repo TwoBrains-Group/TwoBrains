@@ -1,4 +1,4 @@
-.ui-switch {
+.ui-Switch {
     display: flex;
     width: max-content;
     height: 20px;
@@ -7,17 +7,17 @@
     gap: 6px;
     cursor: pointer;
 
-    &.outlined {
+    &._outlined {
         box-shadow: 0 0 0 1px #f0f0f0;
         border-radius: 5px;
     }
 
-    &.checked {
-        .ui-switch__box {
+    &._checked {
+        &_box {
             box-shadow: 0 0 0 1px #9aa6cecc;
             background: #9aa6ce66;
 
-            .ui-switch__box__thumb {
+            &_thumb {
                 background: #fff;
                 left: 24px;
             }
@@ -25,26 +25,26 @@
     }
 
     &:hover {
-        .ui-switch__box {
+        &_box {
             box-shadow: 0 0 0 1px #9aa6ceaa;
 
-            .ui-switch__box__thumb {
+            &_thumb {
                 left: 5px;
             }
         }
 
-        &.checked {
-            .ui-switch__box {
+        &._checked {
+            &_box {
                 box-shadow: 0 0 0 1px #9aa6ceff;
 
-                .ui-switch__box__thumb {
+                &_thumb {
                     left: 23px;
                 }
             }
         }
     }
 
-    .ui-switch__box {
+    &_box {
         display: block;
         position: relative;
         width: 30px;
@@ -55,7 +55,7 @@
 
         transition: .2s ease;
 
-        .ui-switch__box__thumb {
+        &_thumb {
             display: block;
             position: absolute;
             top: 4px;

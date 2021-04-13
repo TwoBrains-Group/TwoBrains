@@ -1,9 +1,9 @@
-#page-user-_uid-_section {
+.page-userProfile {
     display: grid;
     width: 100%;
     grid-template-columns: 200px auto;
-
     grid-gap: 8px;
-
     padding: 10px 0;
+
+    &_wall {}
 }

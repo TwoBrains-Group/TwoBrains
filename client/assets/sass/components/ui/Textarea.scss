@@ -1,11 +1,11 @@
 @import '../../ui/anim';
 
-.ui-textarea {
+.ui-Textarea {
     display: block;
     position: relative;
     margin: 0 auto;
 
-    &.ringError {
+    &._ringError {
         textarea {
             animation: ring .1s;
             animation-iteration-count: 3;
@@ -14,7 +14,7 @@
             color: #fff;
         }
 
-        .ui-textarea__len-info {
+        &_lenInfo {
             padding: 0 5px;
             font-size: 14px;
             bottom: 5px;
@@ -47,7 +47,7 @@
         }
     }
 
-    .ui-textarea__len-info {
+    &_lenInfo {
         display: block;
         position: absolute;
         bottom: 0;
@@ -65,15 +65,15 @@
         opacity: 0;
         transition: opacity .2s ease;
 
-        &.show {
+        &._show {
             opacity: 1;
         }
 
-        &.warn {
+        &._warn {
             color: #FFA500;
         }
 
-        &.error {
+        &._error {
             color: #f25959;
             font-weight: 900;
         }

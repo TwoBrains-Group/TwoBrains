@@ -1,30 +1,30 @@
 <template>
-    <Form id="page-idea-create" @apply="done">
-        <div class="new-idea-form">
+    <div class="page-idea-create">
+        <Form class="page-idea-create_Form" @apply="done">
             <Input type="text"
-                   class="new-idea-form__name"
+                   class="page-idea-create_Form_name"
                    :placeholder="l10n.nameYourIdea"
                    v-model="name"
                    :max-len="120"
                    :min-len="5"/>
 
-            <Textarea class="new-idea-form__text"
+            <Textarea class="page-idea-create_Form_text"
                       v-model="text"
                       :max-len="5000"
                       :min-len="50"
                       :warn-len="4000"
                       :placeholder="l10n.myIdeaIsAbout"/>
 
-            <TagSearch :header="l10n.addTags"/>
+            <TagSearch class="page-idea-create_Form_TagSearch" :header="l10n.addTags"/>
 
-            <div class="material-btn new-idea-form__done" @click="done">
+            <Btn class="page-idea-create_Form_done" @click="done">
                 {{ l10n.done }}
-            </div>
-        </div>
-    </Form>
+            </Btn>
+        </Form>
+    </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '~assets/sass/pages/idea/create';
 </style>
 
@@ -33,11 +33,13 @@ import TagSearch from '@/components/tag/TagSearch'
 import Input from '@/components/ui/Input'
 import Textarea from '@/components/ui/Textarea'
 import Form from '@/components/ui/Form'
+import Btn from "@/components/ui/Btn";
 
 export default {
     name: 'create',
 
     components: {
+        Btn,
         Form,
         TagSearch,
         Input,

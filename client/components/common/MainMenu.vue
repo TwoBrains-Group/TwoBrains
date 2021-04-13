@@ -1,31 +1,31 @@
 <template>
-    <div class="main-menu" :class="show ? 'show' : ''" ref="main-menu">
-        <nuxt-link to="/" class="btn main-menu__btn">
+    <div class="MainMenu" :class="show ? 'show' : ''" ref="MainMenu">
+        <nuxt-link to="/" class="btn MainMenu_btn">
             {{ l10n.home }}
         </nuxt-link>
 
         <hr>
 
-        <nuxt-link to="/idea" class="btn main-menu__btn">
+        <nuxt-link to="/idea" class="btn MainMenu_btn">
             {{ l10n.ideas }}
         </nuxt-link>
 
-        <nuxt-link to="/project" class="btn main-menu__btn">
+        <nuxt-link to="/project" class="btn MainMenu_btn">
             {{ l10n.projects }}
         </nuxt-link>
 
-        <div class="main-menu__bottom">
-            <nuxt-link to="/info/about" class="material-btn anti main-menu__bottom__about">
+        <div class="MainMenu_bottom">
+            <nuxt-link to="/info/about" class="ui-materialBtn anti MainMenu_bottom_about">
                 {{ l10n.about }}
             </nuxt-link>
-            <h6 class="main-menu__bottom__copyright">
+            <h6 class="MainMenu_bottom_copyright">
                 <i class="far fa-copyright"></i> TwoBrains 2021
             </h6>
         </div>
     </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '~assets/sass/components/common/MainMenu';
 </style>
 

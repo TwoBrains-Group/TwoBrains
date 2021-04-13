@@ -1,4 +1,4 @@
-.tag-search {
+.tag-TagSearch {
     box-sizing: border-box;
 
     display: grid;
@@ -12,12 +12,12 @@
     box-shadow: 0 0 0 1px #f0f0f0;
     border-radius: 5px;
 
-    .tag-search__header {
+    &_header {
         text-align: center;
         padding: 5px 0;
     }
 
-    .tag-search__list {
+    &_list {
         display: grid;
         position: relative;
         height: max-content;
@@ -26,7 +26,7 @@
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 8px;
 
-        .tag-search__list__el {
+        &_el {
             display: block;
             position: relative;
             padding: 5px 10px;
@@ -35,7 +35,7 @@
             text-align: center;
             font-size: 15px;
 
-            .group {
+            &_group {
                 font-size: 16px;
                 font-weight: 500;
             }

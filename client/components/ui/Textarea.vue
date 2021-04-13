@@ -1,14 +1,18 @@
 <template>
-    <div class="ui-textarea" :class="{ringError}">
+    <div class="ui-Textarea" :class="{_ringError: ringError}">
         <textarea @focusin="focused = true"
                   @focusout="focused = false"
-                  class="sb sb--round"
+                  class="u-sb u-sb--round"
                   @input="changed"
                   :placeholder="placeholder"
                   ref="textarea"></textarea>
 
-        <div class="ui-textarea__len-info"
-             :class="{warn, error: error || ringError, show: focused || ringError}">{{ lenInfo }}
+        <div class="ui-Textarea_lenInfo"
+             :class="{
+                 _warn: warn,
+                 _error: error || ringError,
+                 _show: focused || ringError
+             }">{{ lenInfo }}
         </div>
     </div>
 </template>

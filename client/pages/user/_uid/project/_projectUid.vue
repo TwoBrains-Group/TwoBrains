@@ -1,28 +1,28 @@
 <template>
     <Spinner v-if="$fetchState.pending"/>
-    <div v-else id="page-user-_uid-project-_projectUid">
-        <header class="project__header">
-            <div class="project__header__image">
+    <div v-else class="page-userProject">
+        <header class="page-userProject_header">
+            <div class="page-userProject_header_image">
                 <img :src="project.image" alt="project image">
             </div>
 
-            <div class="project__header__name">
+            <div class="page-userProject_header_name">
                 {{ project.name }}
             </div>
 
-            <div class="project__header__btns">
-                <div class="btn project__header__btns__el project__header__btns__el--star"
-                     :class="{liked}"
+            <div class="page-userProject_header_btns">
+                <div class="btn page-userProject_header_btns_el _star"
+                     :class="{_liked: liked}"
                      @click="like">
                     <i class="fa-star" :class="liked ? 'fas' : 'far'"></i> <span>{{ likesCount }}</span>
                 </div>
-                <div class="btn project__header__btns__el project__header__btns__el--share">
+                <div class="btn page-userProject_header_btns_el _share">
                     <i class="fas fa-share-alt"></i>
                 </div>
             </div>
 
-            <div class="project__header__plugins" v-if="project.plugins.length">
-                <div class="btn project__header__plugins__el"
+            <div class="page-userProject_header_plugins" v-if="project.plugins.length">
+                <div class="btn page-userProject_header_plugins_el"
                      v-for="plugin in [{name: 'home'}, ...project.plugins]"
                      :key="plugin.id"
                      @click="goto(plugin.name)">{{ l10n.sections[plugin.name] }}
@@ -30,16 +30,16 @@
             </div>
         </header>
 
-        <div class="project__body">
-            <div class="project__body__section project__body__section--ideas" v-if="section === 'idea'">
+        <div class="page-userProject_body">
+            <div class="page-userProject_body_section _ideas" v-if="section === 'idea'">
                 <IdeaList relation="user"/>
             </div>
 
-            <div class="project__body__section project__body__section--main"
+            <div class="page-userProject_body_section _main"
                  v-else-if="!section.length || section === 'home'">
-                <div class="project__body__section--main__descr">
-                    <h3 class="project__body__section--main__descr__h">{{ l10n.description }}</h3>
-                    <p class="project__body__section--main__descr__p">
+                <div class="page-userProject_body_section_description">
+                    <h3 class="page-userProject_body_section_description_h">{{ l10n.description }}</h3>
+                    <p class="page-userProject_body_section_description_p">
                         {{ project.description }}
                     </p>
                 </div>
@@ -48,7 +48,7 @@
     </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '~assets/sass/pages/project/single';
 </style>
 

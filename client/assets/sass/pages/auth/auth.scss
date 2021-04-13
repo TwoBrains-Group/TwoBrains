@@ -1,6 +1,6 @@
 @import '../../common/common';
 
-#page-auth {
+.page-auth {
     display: block;
     position: relative;
     width: 500px;
@@ -11,86 +11,83 @@
     background: #fff;
     box-shadow: 0 3px 5px -1px #f0f0f0;
     border-radius: 10px;
-}
 
-.auth-window__header {
-    display: block;
-    position: relative;
-    width: 100%;
-    height: max-content;
-    margin: 0 auto;
+    &_header {
+        display: block;
+        position: relative;
+        width: 100%;
+        height: max-content;
+        margin: 0 auto;
 
-    &:hover {
-        .auth-window__header_h--other {
-            opacity: 0.8;
+        &:hover {
+            &._other {
+                opacity: 0.8;
+            }
+        }
+
+        &_h {
+            display: inline-block;
+            width: 100%;
+            position: relative;
+            text-align: center;
+
+            padding-bottom: 5px;
+
+            transition: font-size .1s, left .25s, right .25s;
+            font-size: 24px;
+
+            &._other {
+                position: absolute;
+                top: -10px;
+                left: 0;
+                padding: 10px 0;
+                opacity: 0.5;
+                font-size: 14px;
+                transition: .2s ease;
+            }
         }
     }
 
-    .auth-window__header_h {
-        display: inline-block;
-        width: 100%;
-        position: relative;
-        text-align: center;
+    &_body {
+        margin: 5px auto;
 
-        padding-bottom: 5px;
+        label {
+            display: none;
+        }
 
-        transition: font-size .1s, left .25s, right .25s;
-        font-size: 24px;
+        &_accept {
+            font-size: 17px;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
     }
 
-    .auth-window__header_h--other {
-        position: absolute;
-        top: -10px;
-        left: 0;
-        padding: 10px 0;
-        opacity: 0.5;
-        font-size: 14px;
-        transition: .2s ease;
-    }
-}
+    &_footer {
+        padding-top: 5px;
 
-.auth-window__body {
-    margin: 5px auto;
+        h6 {
+            text-align: center;
+        }
 
-    label {
-        display: none;
-    }
+        &_servicesButtons {
+            display: block;
+            position: relative;
+            width: max-content;
+            margin: 5px auto;
 
-    .auth-window__body__accept {
-        font-size: 17px;
-        margin-top: 15px;
-        margin-bottom: 10px;
-    }
-}
+            transition: opacity .2s;
 
-.auth-window__footer {
-    padding-top: 5px;
-    h6 {
-        text-align: center;
-    }
-}
+            &:hover {
+                opacity: 0.75;
+            }
 
-.auth-window__footer__services-buttons {}
+            &:active {
+                opacity: 0.5;
+            }
 
-.auth-window__footer__services-buttons__btn {
-    display: block;
-    position: relative;
-    width: max-content;
-    margin: 5px auto;
-
-    transition: opacity .2s;
-
-    &:hover {
-        opacity: 0.75;
-    }
-
-    &:active {
-        opacity: 0.5;
-    }
-
-    img {
-        width: 185px;
+            img {
+                width: 185px;
+            }
+        }
     }
 }
-
-

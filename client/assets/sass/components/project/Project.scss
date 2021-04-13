@@ -1,4 +1,4 @@
-.project {
+.project-Project {
     display: grid;
     position: relative;
     width: 100%;
@@ -16,12 +16,12 @@
         box-shadow: 0 5px 15px #f0f0f0;
     }
 
-    .project__body {
+    &_body {
         display: grid;
 
         grid-template-columns: 100px auto;
 
-        .project__body__image {
+        &_image {
             padding: 5px;
 
             img {
@@ -34,13 +34,13 @@
             }
         }
 
-        .project__body__info {
+        &_info {
             display: grid;
 
             grid-template-columns: auto max-content;
             grid-template-rows: 30px auto;
 
-            .project__body__info__name {
+            &_name {
                 grid-column: 1;
                 margin-left: 5px;
                 font-size: 18px;
@@ -51,7 +51,7 @@
                 box-shadow: inset 0 -1px #f0f0f0;
             }
 
-            .project__body__info__btns {
+            &_btns {
                 display: grid;
                 grid-column: 2;
                 grid-row: 1;
@@ -61,7 +61,7 @@
 
                 box-shadow: inset 0 -1px #f0f0f0;
 
-                .project__body__info__btns__el {
+                &_el {
                     border-radius: 0 5px 0 5px;
                     font-size: 14px;
                     line-height: 30px;
@@ -75,33 +75,33 @@
                         color: #333;
                     }
                 }
+            }
 
-                .options {
-                    display: grid;
-                    position: absolute;
-                    top: 30px;
-                    right: 0;
-                    width: 120px;
-                    height: max-content;
-                    border-radius: 8px;
-                    overflow: hidden;
+            &_options {
+                display: grid;
+                position: absolute;
+                top: 30px;
+                right: 0;
+                width: 120px;
+                height: max-content;
+                border-radius: 8px;
+                overflow: hidden;
 
-                    grid-template-columns: 100%;
-                    grid-template-rows: 30px;
+                grid-template-columns: 100%;
+                grid-template-rows: 30px;
 
-                    background: #fff;
-                    box-shadow: 0 2px 5px -1px #ddd;
+                background: #fff;
+                box-shadow: 0 2px 5px -1px #ddd;
 
-                    .options__el {
-                        padding: 5px 10px;
-                        text-align: center;
-                        line-height: 20px;
-                        vertical-align: middle;
-                    }
+                &_el {
+                    padding: 5px 10px;
+                    text-align: center;
+                    line-height: 20px;
+                    vertical-align: middle;
                 }
             }
 
-            .project__body__info__description {
+            &_description {
                 grid-column: 1 / -1;
                 padding: 5px;
                 font-size: 14px;
@@ -110,7 +110,7 @@
         }
     }
 
-    .project__footer {
+    &_footer {
         display: grid;
         padding: 5px 0;
 
@@ -119,7 +119,7 @@
 
         box-shadow: 0 -1px 1px -1px #aaa;
 
-        .project__footer__like {
+        &_like {
             width: max-content;
             font-size: 14px;
             padding: 0 10px;
@@ -155,13 +155,13 @@
             }
         }
 
-        .project__footer__tags {
+        &_tags {
             display: grid;
 
             grid-template-columns: max-content;
             grid-template-rows: 100%;
 
-            .project__footer__tags__el {
+            &_el {
                 padding: 0 10px;
                 font-size: 14px;
                 line-height: 20px;
@@ -173,20 +173,20 @@
                     box-shadow: 0 2px 4px -1px #ddd;
                 }
 
-                .group {
+                .tag-TagSearch_list_el_group {
                     font-weight: 500;
                 }
             }
         }
 
-        .project__footer__creator {
+        &_creator {
             padding: 0 10px;
             line-height: 20px;
             vertical-align: middle;
             font-size: 14px;
             color: #666;
 
-            .project__footer__creator__link {
+            .project-Project_footer_creator_link {
                 font-weight: 600;
 
                 transition: color .15s ease;

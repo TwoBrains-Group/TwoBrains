@@ -1,15 +1,16 @@
 <template>
-    <Form id="page-project-create" @apply="done">
-        <div class="project-create__wrapper">
-            <h3 class="project-create__header">{{ l10n.createProject }}</h3>
+    <Form class="page-project-create" @apply="done">
+        <div class="page-project-create_wrapper">
+            <h3 class="page-project-create_wrapper_header">{{ l10n.createProject }}</h3>
 
             <Input v-model="name"
-                   class="project-create__wrapper__name"
+                   class="page-project-create_wrapper_name"
                    :placeholder="l10n.nameYourProject"
                    ref="name"
                    :min-len="1" :max-len="128"/>
 
-            <Textarea v-model="description"
+            <Textarea class="page-project-create_wrapper_description"
+                      v-model="description"
                       :placeholder="l10n.description"
                       ref="description"
                       :min-len="1"
@@ -20,27 +21,29 @@
                           @toggle="toggleVisibility"
                           outlined/>
 
-            <div class="project-create__plugins">
-                <h6 class="project-create__plugins__header" @click="showPlugins = !showPlugins">
+            <div class="page-project-create_wrapper_plugins">
+                <h6 class="page-project-create_wrapper_plugins_header"
+                    @click="showPlugins = !showPlugins">
                     {{ l10n.addPlugins }}
                     <!--                    {{addedPluginsUids.size > 0 ? ':' : ''}}-->
-                    <!--                    <span class="added-plugin" v-for="puid of addedPluginsUids">-->
+                    <!--                    <span class="page-project-create_wrapper_plugins_header_addedPlugins" v-for="puid of addedPluginsUids">-->
                     <!--                        {{ $t(`entities.plugins.${puid}.name`) }}-->
                     <!--                    </span>-->
                     <i class="fas" :class="{'fa-plus': !showPlugins, 'fa-minus': showPlugins}"></i>
                 </h6>
 
-                <Debounce class="sb sb--small list" :class="{show: showPlugins}">
-                    <div class="project-create__plugins__el"
+                <Debounce class="u-sb u-sb--small page-project-create_wrapper_plugins_list"
+                          :class="{_show: showPlugins}">
+                    <div class="page-project-create_wrapper_plugins_list_el"
                          v-for="plugin of plugins"
-                         :class="{active: addedPlugins.has(plugin.id)}"
+                         :class="{_active: addedPlugins.has(plugin.id)}"
                          @click="togglePlugin(plugin.id, plugin.uid)">
-                        <span class="project-create__plugins__el__name">
+                        <span class="page-project-create_wrapper_plugins_list_el_name">
                             {{ $t(`entities.plugins.${plugin.uid}.name`) }}
                             <i class="fas fa-check"></i>
                         </span>
 
-                        <p class="project-create__plugins__el__description">
+                        <p class="page-project-create_wrapper_plugins_list_el_description">
                             {{ $t(`entities.plugins.${plugin.uid}.shortDescription`) }}
                         </p>
                     </div>
@@ -50,7 +53,7 @@
             <TagSearch ref="tagSearch" :header="l10n.addTags"/>
         </div>
 
-        <Btn class="material-btn material-btn--flat project-create__done"
+        <Btn class="material-btn--flat page-project-create_done"
              @click.native="done"
              :disabled="doneDisabled">
             {{ l10n.done }}
@@ -58,7 +61,7 @@
     </Form>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '~assets/sass/pages/project/create';
 </style>
 

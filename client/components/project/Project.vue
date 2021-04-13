@@ -1,37 +1,40 @@
 <template>
-    <div class="project"
+    <div class="project-Project"
          :class="{hover}"
          @mouseover="hover = true"
          @mouseleave="hover = false">
-        <div class="project__body">
-            <div class="project__body__image">
+        <div class="project-Project_body">
+            <div class="project-Project_body_image">
                 <img :src="image" alt="Project image">
             </div>
 
-            <div class="project__body__info">
-                <nuxt-link :to="url" class="project__body__info__name">
+            <div class="project-Project_body_info">
+                <nuxt-link :to="url" class="project-Project_body_info_name">
                     {{ name }}
                 </nuxt-link>
 
-                <div class="project__body__info__btns">
-                    <div class="btn project__body__info__btns__el project__body__info__btns__share"
+                <div class="project-Project_body_info_btns">
+                    <div class="btn project-Project_body_info_btns_el project-Project_body_info_btns_share"
                          @click="share">
                         <i class="fas fa-share-alt"></i>
                     </div>
                     <Share :link="url" v-show="showShare"/>
-                    <div class="btn project__body__info__btns__el project__body__info__btns__options"
+                    <div class="btn project-Project_body_info_btns_el project-Project_body_info_btns_options"
                          @click="toggleOptions"
                          v-if="isMine">
                         <i class="fas fa-ellipsis-h"></i>
                     </div>
-                    <div class="options" v-if="isMine" v-show="showOptions">
-                        <nuxt-link v-if="isMine" class="btn options__el" :to="url + '/settings'">
-                            {{ l10n.settings || 'settings' }}
-                        </nuxt-link>
-                    </div>
                 </div>
 
-                <nuxt-link :to="url" class="sb sb--small project__body__info__description">
+                <div class="project-Project_body_info_options" v-if="isMine" v-show="showOptions">
+                    <nuxt-link v-if="isMine"
+                               class="btn project-Project_body_info_options_el"
+                               :to="url + '/settings'">
+                        {{ l10n.settings || 'settings' }}
+                    </nuxt-link>
+                </div>
+
+                <nuxt-link :to="url" class="u-sb u-sb--small project-Project_body_info_description">
                     <p>
                         {{ description.slice(0, descriptionLimit) }}
                         {{ description.length > descriptionLimit ? '...' : '' }}
@@ -40,25 +43,25 @@
             </div>
         </div>
 
-        <div class="project__footer" @mouseover.stop @mouseover="hover = false">
-            <div class="btn project__footer__like"
+        <div class="project-Project_footer" @mouseover.stop @mouseover="hover = false">
+            <div class="btn project-Project_footer_like"
                  :class="{liked: liked$}"
                  @click="like">
                 <i class="fa-star" :class="liked$ ? 'fas' : 'far'"></i> <span>{{ likesCount$ }}</span>
             </div>
 
-            <div class="project__footer__tags">
-                <div class="btn project__footer__tags__el"
+            <div class="project-Project_footer_tags">
+                <div class="btn project-Project_footer_tags_el"
                      v-for="tag of tags"
                      :key="tag.id">
-                    <span class="group">{{ tag.groupLabel }}:</span>
+                    <span class="tag-TagSearch_list_el_group">{{ tag.groupLabel }}:</span>
                     {{ tag.label }}
                 </div>
             </div>
 
-            <div class="project__footer__creator">
+            <div class="project-Project_footer_creator">
                 {{ `${l10n.createdBy} ` }}
-                <nuxt-link class="project__footer__creator__link" :to="'/user/' + creator.uid">
+                <nuxt-link class="project-Project_footer_creator_link" :to="'/user/' + creator.uid">
                     {{ creator.nickname }}
                 </nuxt-link>
             </div>
@@ -66,7 +69,7 @@
     </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '~assets/sass/components/project/Project';
 </style>
 

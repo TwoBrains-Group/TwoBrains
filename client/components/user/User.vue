@@ -1,15 +1,15 @@
 <template>
-    <div class="user">
-        <div class="user__avatar">
+    <div class="user-User">
+        <div class="user-User_avatar">
             <img :src="avatar">
         </div>
-        <div class="user__nickname">
+        <div class="user-User_nickname">
             <span>{{ nickname }}</span>
         </div>
     </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '~assets/sass/components/user/User';
 </style>
 

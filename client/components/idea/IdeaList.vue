@@ -1,5 +1,5 @@
 <template>
-    <div class="idea-list">
+    <div class="idea-IdeaList">
         <Idea v-for="idea in ideas" :key="idea.id" v-bind="idea"/>
 
         <InfiniteScroll :no-result="l10n.noIdeasHere + ' 😞'"
@@ -9,7 +9,7 @@
     </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '~assets/sass/components/idea/IdeaList';
 </style>
 

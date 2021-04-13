@@ -1,4 +1,4 @@
-.ui-share {
+.ui-Share {
     display: grid;
     position: absolute;
     top: 30px;
@@ -14,7 +14,7 @@
     z-index: 100;
     overflow: hidden;
 
-    .ui-share__link {
+    &_link {
         display: grid;
         box-shadow: inset 0 -1px 3px -2px #aaa;
         font-size: 14px;
@@ -27,7 +27,7 @@
             padding: 0 5px;
         }
 
-        .ui-share__link__copy {
+        &_copy {
             line-height: 30px;
             vertical-align: middle;
             text-align: center;
@@ -35,7 +35,7 @@
         }
     }
 
-    .ui-share__social-networks {
+    &_socialNetworks {
         display: grid;
         padding: 5px;
 
@@ -44,7 +44,7 @@
         grid-gap: 8px;
         justify-content: center;
 
-        .ui-share__social-networks__el {
+        &_el {
             display: block;
             position: relative;
             padding: 5px;
@@ -70,20 +70,20 @@
                 transform: translateY(-50%);
             }
 
-            &.facebook {
+            &._facebook {
                 color: #4267B2;
                 font-size: 22px;
             }
 
-            &.vk {
+            &._vk {
                 color: #1A4B78;
             }
 
-            &.twitter {
+            &._twitter {
                 color: #1DA1F2;
             }
 
-            &.google-plus {
+            &._googlePlus {
                 color: #db4a39;
                 font-size: 17px;
             }

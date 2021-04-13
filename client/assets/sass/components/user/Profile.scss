@@ -1,6 +1,6 @@
 @import '../../common/common';
 
-.user-profile {
+.user-Profile {
     display: grid;
     height: max-content;
 
@@ -9,7 +9,7 @@
 
     grid-gap: 10px;
 
-    .user-profile__aside {
+    &_aside {
         display: grid;
         padding: 15px 5px 12px 5px;
         grid-template-columns: 1fr;
@@ -22,7 +22,7 @@
             margin: 10px auto;
         }
 
-        .user-profile__aside__avatar {
+        &_avatar {
             display: block;
             position: relative;
             width: 175px;
@@ -33,9 +33,15 @@
                 height: 100%;
                 border-radius: 10px;
                 box-shadow: 0 3px 5px -1px #ddd;
+                cursor: pointer;
+                transition: .2s ease-in;
+
+                &:hover {
+                    box-shadow: 0 3px 7px -1px #ccc;
+                }
             }
 
-            .user-profile__aside__avatar__online {
+            &_online {
                 display: block;
                 position: absolute;
                 bottom: 12px;
@@ -48,14 +54,14 @@
             }
         }
 
-        .user-profile__aside__nickname {
+        &_nickname {
             display: block;
             position: relative;
             font-size: 25px;
             text-align: center;
             padding: 10px 0 0 0;
 
-            .user-profile__aside__nickname__was-online {
+            &_wasOnline {
                 display: block;
                 position: absolute;
                 bottom: 35px;
@@ -69,7 +75,7 @@
             }
         }
 
-        .user-profile__aside__btns {
+        &_btns {
             display: grid;
             width: 175px;
             margin: 0 auto;
@@ -77,19 +83,19 @@
             grid-template-rows: 1fr;
             grid-gap: 3px;
 
-            .user-profile__aside__btns__el {
+            &_el {
                 padding: 10px 0;
                 line-height: 20px;
                 vertical-align: middle;
                 text-align: center;
                 font-size: 17px;
-            }
 
-            .user-profile__aside__btns__el--following-you {
-                display: block;
-                font-size: 12px;
-                height: 20px;
-                padding: 0 0 5px;
+                ._followingYou {
+                    display: block;
+                    font-size: 12px;
+                    height: 20px;
+                    padding: 0 0 5px;
+                }
             }
         }
     }

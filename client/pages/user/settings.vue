@@ -1,14 +1,15 @@
 <template>
-    <div id="page-user-settings">
-        <div class="user-settings__blocks">
-            <div class="user-settings__block">
-                <div class="user-settings__block__element">
-                    <h3 class="user-settings__block__element__name"
+    <div class="page-user-settings">
+        <div class="page-user-settings_blocks">
+            <div class="page-user-settings_blocks_block">
+                <div class="page-user-settings_blocks_block_el">
+                    <h3 class="page-user-settings_blocks_block_el_name"
                         :class="!l10n.changeNickname ? 'skeleton' : ''">
                         {{ l10n.changeNickname }}
                     </h3>
-                    <div class="user-settings__block__element__body">
-                        <Input v-model="fields.nickname"
+                    <div class="page-user-settings_blocks_block_el_body">
+                        <Input class="page-user-settings_blocks_block_el_body_Input"
+                               v-model="fields.nickname"
                                :min-len="1"
                                :max-len="64"
                                ref="nickname"/>
@@ -17,12 +18,12 @@
 
                 <hr>
 
-                <div class="user-settings__block__element">
-                    <h3 class="user-settings__block__element__name"
+                <div class="page-user-settings_blocks_block_el">
+                    <h3 class="page-user-settings_blocks_block_el_name"
                         :class="{skeleton: !l10n.changeAvatar}">
                         {{ l10n.changeAvatar }}
                     </h3>
-                    <div class="user-settings__block__element__body">
+                    <div class="page-user-settings_blocks_block_el_body">
                         <InputFile accept="image/png, image/jpeg"
                                    :change="avatarChanged"
                                    :preview="true"
@@ -32,17 +33,17 @@
 
                 <hr>
 
-                <div class="user-settings__block__element">
-                    <h3 class="user-settings__block__element__name"
+                <div class="page-user-settings_blocks_block_el">
+                    <h3 class="page-user-settings_blocks_block_el_name"
                         :class="!l10n.changeUid ? 'skeleton' : ''">
                         {{ l10n.changeUid }}
                     </h3>
 
-                    <span class="user-settings__block__element__descr">{{ l10n.uidDescription }} - /user/{{
+                    <span class="page-user-settings_blocks_block_el_description">{{ l10n.uidDescription }} - /user/{{
                             fields.uid
                         }}</span>
 
-                    <div class="user-settings__block__element__body">
+                    <div class="page-user-settings_blocks_block_el_body">
                         <Input v-model="fields.uid"
                                type="text"
                                :placeholder="l10n.newUniqueIdentifier"
@@ -54,15 +55,15 @@
 
                 <hr>
 
-                <div class="user-settings__block__element">
-                    <h4 class="user-settings__block__element__name"
+                <div class="page-user-settings_blocks_block_el">
+                    <h4 class="page-user-settings_blocks_block_el_name"
                         :class="{skeleton: !l10n.changeLang}">
                         {{ l10n.changeLang }}
                     </h4>
 
-                    <div class="user-settings__block__element__body">
-                        <div class="hor-list" :class="{skeleton: !locales.length}">
-                            <div class="btn hor-list__el" v-for="loc of availableLocales"
+                    <div class="page-user-settings_blocks_block_el_body">
+                        <div class="u-horList" :class="{skeleton: !locales.length}">
+                            <div class="btn hor-list_el" v-for="loc of availableLocales"
                                  @click="changeLocale(loc.code)"
                                  :key="loc.code">
                                 {{ loc.name }}
@@ -73,13 +74,13 @@
 
                 <hr>
 
-                <div class="user-settings__block__element">
-                    <h3 class="user-settings__block__element__name"
+                <div class="page-user-settings_blocks_block_el">
+                    <h3 class="page-user-settings_blocks_block_el_name"
                         :class="{skeleton: !l10n.changePassword}">
                         {{ l10n.changePassword }}
                     </h3>
 
-                    <div class="user-settings__block__element__body">
+                    <div class="page-user-settings_blocks_block_el_body">
                         <Input v-model="fields.password"
                                type="password"
                                :placeholder="l10n.newPassword"
@@ -91,29 +92,29 @@
             </div>
         </div>
 
-        <div class="user-settings__changed">
-            <div class="user-settings__changed__changelist">
-                <div class="user-settings__changed__changelist__list">
+        <div class="page-user-settings_changed">
+            <div class="page-user-settings_changed_changeList">
+                <div class="page-user-settings_changed_changeList_list">
                     <div v-for="[name, value] of Object.entries(fields)"
-                         class="user-settings__changed__changelist__list__el"
+                         class="page-user-settings_changed_changeList_list_el"
                          v-show="isChanged(name)"
                          v-if="allowedFields.includes(name)">
 
-                        <span class="user-settings__changed__changelist__list__el__name">- {{ name }}: </span>
-                        <span class="user-settings__changed__changelist__list__el__value">{{ getField(name) }}</span>
-                        <span class="user-settings__changed__changelist__list__el__warning" v-show="warn(name)">Cannot be empty</span>
+                        <span class="page-user-settings_changed_changeList_list_el_name">- {{ name }}: </span>
+                        <span class="page-user-settings_changed_changeList_list_el_value">{{ getField(name) }}</span>
+                        <span class="page-user-settings_changed_changeList_list_el_warning" v-show="warn(name)">Cannot be empty</span>
                     </div>
                 </div>
             </div>
 
-            <div @click="save" class="material-btn user-settings__changed__save-btn" v-show="isChanged">
+            <Btn @click="save" class="page-user-settings_changed_saveBtn" v-show="isChanged">
                 Save
-            </div>
+            </Btn>
         </div>
     </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '~assets/sass/pages/user/settings';
 </style>
 
@@ -122,11 +123,13 @@ import Input from '@/components/ui/Input'
 import {mapGetters} from 'vuex'
 import InputFile from '@/components/ui/InputFile'
 import Spinner from '@/components/ui/Spinner'
+import Btn from "@/components/ui/Btn";
 
 export default {
     name: 'settings',
 
     components: {
+        Btn,
         Input,
         InputFile,
         Spinner,

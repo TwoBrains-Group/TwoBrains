@@ -1,10 +1,10 @@
 <template>
-    <div class="user-list">
-        <User v-for="user of users" v-bind="user"/>
+    <div class="user-UserList">
+        <User v-for="user of users" v-bind="user" :key="user.id"/>
     </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '~assets/sass/components/user/UserList';
 </style>
 

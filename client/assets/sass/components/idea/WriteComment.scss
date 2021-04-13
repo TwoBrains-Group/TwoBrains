@@ -1,48 +1,44 @@
-.idea {
-    .idea__comments {
-        .idea__comments__write-comment {
-            display: grid;
-            box-sizing: border-box;
-            width: 100%;
-            height: max-content;
-            padding-right: 10px;
-            padding-bottom: 5px;
+.idea-WriteComment {
+    display: grid;
+    box-sizing: border-box;
+    width: 100%;
+    height: max-content;
+    padding-right: 10px;
+    padding-bottom: 5px;
 
-            grid-template-columns: auto max-content;
-            grid-template-rows: max-content;
-            grid-gap: 5px;
+    grid-template-columns: auto max-content;
+    grid-template-rows: max-content;
+    grid-gap: 5px;
 
-            .idea__comments__write-comment__text {
-                padding: 5px 5px 5px 10px;
+    &_text {
+        padding: 5px 5px 5px 10px;
 
-                .ui-textarea {
-                    textarea {
-                        resize: none;
-                        height: 50px;
+        &_Textarea {
+            textarea {
+                resize: none;
+                height: 50px;
 
-                        &:focus {
-                            height: 100px;
-                        }
-                    }
+                &:focus {
+                    height: 100px;
                 }
             }
+        }
+    }
 
-            .idea__comments__write-comment__done {
-                width: 20px;
-                height: 20px;
-                padding: 10px;
-                margin-top: 10px;
+    &_done {
+        width: 20px;
+        height: 20px;
+        padding: 10px;
+        margin-top: 10px;
 
-                border-radius: 7px;
-                line-height: 20px;
-                vertical-align: middle;
-                text-align: center;
+        border-radius: 7px;
+        line-height: 20px;
+        vertical-align: middle;
+        text-align: center;
 
-                box-shadow: 0 0 2px -1px #888;
-                &:hover {
-                    box-shadow: 0 3px 5px -1px #ddd;
-                }
-            }
+        box-shadow: 0 0 2px -1px #888;
+        &:hover {
+            box-shadow: 0 3px 5px -1px #ddd;
         }
     }
 }

@@ -1,12 +1,12 @@
 <template>
-    <div class="project-list">
+    <div class="project-ProjectList">
         <Project v-for="project in projects"
                  v-bind="project"
                  :key="project.id"/>
     </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '~assets/sass/components/project/ProjectList';
 </style>
 

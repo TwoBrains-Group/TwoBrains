@@ -1,16 +1,16 @@
 <template>
-    <div id="page-auth">
-        <header class="base-btn auth-window__header"
+    <div class="page-auth">
+        <header class="base-btn page-auth_header"
                 @click="switchAuthType()">
-            <h3 class="auth-window__header_h">
+            <h3 class="page-auth_header_h">
                 {{ login ? l10n.login : l10n.signup }}
             </h3>
-            <h6 class="auth-window__header_h auth-window__header_h--other">
+            <h6 class="page-auth_header_h _other">
                 {{ login ? l10n.signup : l10n.login }}
             </h6>
         </header>
 
-        <div class="auth-window__body auth-window__body--login" v-if="login">
+        <div class="page-auth_body _login" v-if="login">
             <Input type="email"
                    placeholder="email"
                    v-model="fields.loginEmail"
@@ -28,10 +28,10 @@
                    :max-len="64"
                    ref="loginPassword"/>
 
-            <div class="material-btn auth-window__body__accept" @click="loginLocal()">{{ l10n.loginApply }}</div>
+            <div class="ui-materialBtn page-auth_body_accept" @click="loginLocal()">{{ l10n.loginApply }}</div>
         </div>
 
-        <div class="auth-window__body auth-window__body--signup" v-if="!login">
+        <div class="page-auth_body _signup" v-if="!login">
             <Input type="email"
                    placeholder="email"
                    v-model="fields.signupEmail"
@@ -59,15 +59,15 @@
                    :max-len="64"
                    ref="signupRepeatPassword"/>
 
-            <div class="material-btn auth-window__body__accept" @click="signup()">{{ l10n.signupApply }}</div>
+            <div class="ui-materialBtn page-auth_body_accept" @click="signup()">{{ l10n.signupApply }}</div>
         </div>
 
-        <footer class="auth-window__footer">
+        <footer class="page-auth_footer">
             <h6>{{ l10n.orUseOtherAuthMethods }}</h6>
 
-            <div class="auth-window__footer__services-buttons">
+            <div class="page-auth_footer_servicesButtons">
                 <div @click="loginWithGoogle()"
-                     class="base-btn auth-window__footer__services-buttons__btn auth-window__footer__services-buttons--google">
+                     class="base-btn page-auth_footer_servicesButtons _google">
                     <img src="/img/auth/google/btn_google_signin_light_normal_web@2x.png" alt="Sign in with Google">
                 </div>
             </div>
@@ -75,7 +75,7 @@
     </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '~assets/sass/pages/auth/auth';
 </style>
 

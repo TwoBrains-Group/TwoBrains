@@ -1,41 +1,40 @@
 <template>
-    <header id="main-header">
-        <div class="main-header__back"></div>
+    <header class="Header">
+        <div class="Header_back"></div>
 
-        <div class="btn main-header__menu-btn" @click="toggleMainMenu()">
+        <div class="btn Header_menuBtn" @click="toggleMainMenu()">
             <i class="fas fa-bars"></i>
         </div>
 
-        <nuxt-link to="/" class="main-header__logo btn">
-            <LogoText/>
-<!--            <img class="main-header__logo__img" src="~static/img/TwoBrains.svg" alt="TwoBrains">-->
+        <nuxt-link to="/" class="Header_logo btn">
+            <LogoText class="Header_logo_LogoText"/>
+<!--            <img class="Header_logo_img" src="~static/img/TwoBrains.svg" alt="TwoBrains">-->
         </nuxt-link>
 
         <client-only>
-            <div class="right">
-                <div class="main-header__search"
-                     :class="{open: showSearch}">
+            <div class="u-right">
+                <div class="Header_search" :class="{open: showSearch}">
                     <Input type="text"
-                           class="main-header__search__input"
+                           class="Header_search_Input"
                            ref="search"
                            :placeholder="l10n.search"
                            :enter="search"/>
 
-                    <div class="btn main-header__search__btn" @click="toggleSearch">
+                    <div class="btn Header_search_searchBtn" @click="toggleSearch">
                         <i class="fas fa-search"></i>
                     </div>
 
-                    <div class="sb sb--small main-header__search__results" v-if="showSearch">
-                        <span class="main-header__search__results__no-result" v-if="noSearchResult">
+                    <div class="u-sb u-sb--small Header_search_searchResults" v-if="showSearch">
+                        <span class="Header_search_searchResults_noResult" v-if="noSearchResult">
                             {{ l10n.noSearchResult }}
                         </span>
 
-                        <section class="main-header__search__results__section users"
+                        <section class="Header_search_searchResults_section users"
                                  v-if="Object.keys(searchResults.users).length">
-                            <div class="main-header__search__results__section__name">{{ l10n.users }}</div>
+                            <div class="Header_search_searchResults_section_name">{{ l10n.users }}</div>
 
                             <nuxt-link :to="userUrl(user)"
-                                       class="btn main-header__search__results__section__el main-header__search__results__section__el--user"
+                                       class="btn Header_search_searchResults_section_el _user"
                                        v-for="user of searchResults.users"
                                        :key="user.uid">
                                 <div class="avatar">
@@ -47,12 +46,12 @@
                             </nuxt-link>
                         </section>
 
-                        <section class="main-header__search__results__section ideas"
+                        <section class="Header_search_searchResults_section ideas"
                                  v-if="Object.keys(searchResults.ideas).length">
-                            <div class="main-header__search__results__section__name">{{ l10n.ideas }}</div>
+                            <div class="Header_search_searchResults_section_name">{{ l10n.ideas }}</div>
 
                             <nuxt-link :to="ideaUrl(idea)"
-                                       class="btn main-header__search__results__section__el main-header__search__results__section__el--idea"
+                                       class="btn Header_search_searchResults_section_el _idea"
                                        v-for="idea of searchResults.ideas"
                                        :key="idea.id">
                                 <span class="preview">
@@ -61,13 +60,12 @@
                             </nuxt-link>
                         </section>
 
-
-                        <section class="main-header__search__results__section projects"
+                        <section class="Header_search_searchResults_section projects"
                                  v-if="Object.keys(searchResults.projects).length">
-                            <div class="main-header__search__results__section__name">{{ l10n.projects }}</div>
+                            <div class="Header_search_searchResults_section_name">{{ l10n.projects }}</div>
 
                             <nuxt-link :to="projectUrl(project)"
-                                       class="btn main-header__search__results__section__el main-header__search__results__section__el--project"
+                                       class="btn Header_search_searchResults_section_el _project"
                                        v-for="project of searchResults.projects"
                                        :key="project.id">
                                 <span class="preview">
@@ -78,40 +76,40 @@
                     </div>
                 </div>
 
-                <div class="btn main-header__plus" @click="togglePlusMenu">
+                <div class="btn Header_plusBtn" @click="togglePlusMenu">
                     <i class="fas fa-plus"></i>
                 </div>
 
-                <div class="main-header__user-btn btn" @click="toggleUserMenu">
-                    <div class="main-header__user-btn__avatar">
+                <div class="btn Header_userBtn" @click="toggleUserMenu">
+                    <div class="Header_userBtn_avatar">
                         <img :src="loggedInUser.avatar" alt="avatar">
                     </div>
-                    <div class="main-header__user-btn__nickname">
+                    <div class="Header_userBtn_nickname">
                         {{ loggedInUser.nickname }}
                     </div>
                 </div>
             </div>
         </client-only>
 
-        <div class="main-header__plus-menu" :class="{show: showPlusMenu}">
-            <nuxt-link to="/idea/create" class="btn main-header__plus-menu__btn">Create idea</nuxt-link>
-            <nuxt-link to="/project/create" class="btn main-header__plus-menu__btn">Create project</nuxt-link>
+        <div class="Header_plusMenu" :class="{show: showPlusMenu}">
+            <nuxt-link to="/idea/create" class="btn Header_plusMenu_btn">Create idea</nuxt-link>
+            <nuxt-link to="/project/create" class="btn Header_plusMenu_btn">Create project</nuxt-link>
         </div>
 
-        <div class="main-header__user-menu" :class="{show: showUserMenu}">
-            <nuxt-link to="/profile" class="btn main-header__user-menu__btn">{{ l10n.profile }}</nuxt-link>
-            <nuxt-link to="/user/settings" class="btn main-header__user-menu__btn">{{ l10n.settings }}</nuxt-link>
+        <div class="Header_userMenu" :class="{show: showUserMenu}">
+            <nuxt-link to="/profile" class="btn Header_userMenu_btn">{{ l10n.profile }}</nuxt-link>
+            <nuxt-link to="/user/settings" class="btn Header_userMenu_btn">{{ l10n.settings }}</nuxt-link>
 
             <hr>
 
-            <div class="btn main-header__user-menu__btn main-header__user-menu__btn--log-out" @click="logout">
+            <div class="btn Header_userMenu_btn _logOut" @click="logout">
                 {{ l10n.logout }}
             </div>
         </div>
     </header>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '~assets/sass/components/common/Header';
 </style>
 

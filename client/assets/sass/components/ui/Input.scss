@@ -1,7 +1,7 @@
 @import '../../ui/anim';
 
 
-.ui-input {
+.ui-Input {
     display: block;
     position: relative;
     width: max-content;
@@ -36,29 +36,29 @@
         }
     }
 
-    &.small {
+    &._small {
         input {
             height: 28px;
         }
 
-        .ui-input__hint {
+        .ui-Input_hint {
             height: 18px;
         }
     }
 
-    &.normal {}
+    &._normal {}
 
-    &.big {
+    &._big {
         input {
             height: 40px;
         }
 
-        .ui-input__hint {
+        &_hint {
             height: 30px;
         }
     }
 
-    &.warn {
+    &._warn {
         input {
             &:focus {
                 box-shadow: inset 0 0 0 1px #ffa500,  0 4px 10px -1px #f0f0f0;
@@ -66,7 +66,7 @@
         }
     }
 
-    &.ringError {
+    &._ringError {
         input {
             animation: ring .1s;
             animation-iteration-count: 3;
@@ -79,19 +79,19 @@
             }
         }
 
-        .ui-input__len-info {
+        &_lenInfo {
             font-size: 14px;
             bottom: -20px;
         }
     }
 
-    &.focused {
-        .ui-input__hint {
+    &._focused {
+        &_hint {
             opacity: 1;
         }
     }
 
-    .ui-input__hint {
+    &_hint {
         display: block;
         position: absolute;
         top: 6px;
@@ -111,7 +111,7 @@
         transition: .15s ease;
     }
 
-    .ui-input__len-info {
+    &_lenInfo {
         display: block;
         position: absolute;
         bottom: -18px;
@@ -132,15 +132,15 @@
 
         z-index: 100;
 
-        &.show {
+        &._show {
             opacity: 1;
         }
 
-        &.warn {
+        &._warn {
             color: #ffa500;
         }
 
-        &.error {
+        &._error {
             color: #f25959;
             font-weight: 900;
         }

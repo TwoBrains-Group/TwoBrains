@@ -1,4 +1,4 @@
-#page-project-create {
+.page-project-create {
     display: block;
     position: relative;
     width: 600px;
@@ -9,12 +9,7 @@
 
     box-shadow: -1px 0 #f0f0f0, 1px 0 #f0f0f0;
 
-    .project-create__header {
-        text-align: center;
-        padding: 8px 0;
-    }
-
-    .project-create__wrapper {
+    .project-create_wrapper {
         display: grid;
         position: relative;
         width: 500px;
@@ -25,12 +20,17 @@
         grid-template-rows: max-content;
         grid-gap: 10px;
 
-        .project-create__wrapper__name {
+        &_header {
+            text-align: center;
+            padding: 8px 0;
+        }
+
+        &_name {
             width: 500px;
             margin: 0 auto;
         }
 
-        .ui-textarea {
+        &_description {
             width: 500px;
             margin: 0 auto;
 
@@ -40,135 +40,135 @@
                 max-height: 500px;
             }
         }
-    }
 
-    .project-create__plugins {
-        width: 100%;
-        //padding: 10px;
-        box-sizing: border-box;
+        &_plugins {
+            width: 100%;
+            //padding: 10px;
+            box-sizing: border-box;
 
-        box-shadow: 0 0 0 1px #f0f0f0;
-        border-radius: 10px;
-        overflow: hidden;
+            box-shadow: 0 0 0 1px #f0f0f0;
+            border-radius: 10px;
+            overflow: hidden;
 
-        .project-create__plugins__header {
-            display: block;
-            position: relative;
-            padding: 10px 0 5px;
-            text-indent: 15px;
-            cursor: pointer;
-
-            .added-plugin {
-                font-size: 14px;
-                font-weight: normal;
-                box-shadow: inset 0 -1px 1px -1px #333;
-            }
-
-            i {
-                position: absolute;
-                width: max-content;
-                top: 0;
-                right: 10px;
-                height: 20px;
-                line-height: 30px;
-                vertical-align: middle;
-                font-size: 12px;
-            }
-        }
-
-        .list {
-            display: grid;
-            height: 0;
-            max-height: 160px;
-            padding: 0 10px;
-
-            grid-template-columns: 100%;
-            grid-template-rows: max-content;
-            grid-gap: 6px;
-
-            transition: .15s ease;
-            box-shadow: inset 0 3px 3px -1px #f0f0f0;
-
-            &[data-debounce='true'] {
-                box-shadow: inset 0 1px 2px -1px #ccc;
-            }
-
-            &:after {
-                content: '';
-                height: 5px;
-            }
-
-            &.show {
-                height: max-content;
-                padding: 10px;
-            }
-
-            .project-create__plugins__el {
-                display: grid;
-                padding: 5px 10px;
-
-                grid-template-columns: subgrid;
-                grid-template-rows: 20px max-content;
-                grid-gap: 5px;
-
-                border-radius: 5px;
-                box-shadow: 0 0 0 1px #f0f0f0;
-                transition: .15s ease;
+            &_header {
+                display: block;
+                position: relative;
+                padding: 10px 0 5px;
+                text-indent: 15px;
                 cursor: pointer;
 
-                &:hover {
-                    box-shadow: 0 4px 6px -1px #dfdfdf, 0 0 0 1px #f0f0f0;
+                &_addedPlugins {
+                    font-size: 14px;
+                    font-weight: normal;
+                    box-shadow: inset 0 -1px 1px -1px #333;
                 }
 
-                &.active {
-                    box-shadow: 0 0 0 1px #9aa6ceaa;
+                i {
+                    position: absolute;
+                    width: max-content;
+                    top: 0;
+                    right: 10px;
+                    height: 20px;
+                    line-height: 30px;
+                    vertical-align: middle;
+                    font-size: 12px;
+                }
+            }
 
-                    .project-create__plugins__el__name {
-                        box-shadow: 0 1px #ccc;
-                        font-size: 1em;
+            &_list {
+                display: grid;
+                height: 0;
+                max-height: 160px;
+                padding: 0 10px;
 
-                        i {
-                            color: #333;
+                grid-template-columns: 100%;
+                grid-template-rows: max-content;
+                grid-gap: 6px;
+
+                transition: .15s ease;
+                box-shadow: inset 0 3px 3px -1px #f0f0f0;
+
+                &[data-debounce='true'] {
+                    box-shadow: inset 0 1px 2px -1px #ccc;
+                }
+
+                &:after {
+                    content: '';
+                    height: 5px;
+                }
+
+                &._show {
+                    height: max-content;
+                    padding: 10px;
+                }
+
+                &_el {
+                    display: grid;
+                    padding: 5px 10px;
+
+                    grid-template-columns: subgrid;
+                    grid-template-rows: 20px max-content;
+                    grid-gap: 5px;
+
+                    border-radius: 5px;
+                    box-shadow: 0 0 0 1px #f0f0f0;
+                    transition: .15s ease;
+                    cursor: pointer;
+
+                    &:hover {
+                        box-shadow: 0 4px 6px -1px #dfdfdf, 0 0 0 1px #f0f0f0;
+                    }
+
+                    &._active {
+                        box-shadow: 0 0 0 1px #9aa6ceaa;
+
+                        &_name {
+                            box-shadow: 0 1px #ccc;
+                            font-size: 1em;
+
+                            i {
+                                color: #333;
+                            }
+                        }
+
+                        &:hover {
+                            box-shadow: 0 0 0 1px #9aa6ceaa, 0 1px 5px #ddd;
                         }
                     }
 
-                    &:hover {
-                        box-shadow: 0 0 0 1px #9aa6ceaa, 0 1px 5px #ddd;
-                    }
-                }
-
-                .project-create__plugins__el__name {
-                    position: relative;
-                    line-height: 20px;
-                    vertical-align: middle;
-                    box-shadow: 0 1px #f0f0f0;
-                    transition: .15s ease;
-
-                    i {
-                        display: inline-block;
-                        position: absolute;
-                        right: -5px;
-                        bottom: 3px;
-                        width: 12px;
-                        height: 12px;
-                        margin: 0 5px;
-                        font-size: 12px;
-                        opacity: 1;
+                    &_name {
+                        position: relative;
+                        line-height: 20px;
+                        vertical-align: middle;
+                        box-shadow: 0 1px #f0f0f0;
                         transition: .15s ease;
-                        border-radius: 50%;
-                        color: transparent;
-                        box-shadow: inset 0 0 0 1px #f0f0f0;
-                    }
-                }
 
-                .project-create__plugins__el__description {
-                    font-size: 14px;
+                        i {
+                            display: inline-block;
+                            position: absolute;
+                            right: -5px;
+                            bottom: 3px;
+                            width: 12px;
+                            height: 12px;
+                            margin: 0 5px;
+                            font-size: 12px;
+                            opacity: 1;
+                            transition: .15s ease;
+                            border-radius: 50%;
+                            color: transparent;
+                            box-shadow: inset 0 0 0 1px #f0f0f0;
+                        }
+                    }
+
+                    &_description {
+                        font-size: 14px;
+                    }
                 }
             }
         }
     }
 
-    .project-create__done {
+    &_done {
         margin: 25px auto 0;
         padding: 8px 20px;
         font-size: 19px;

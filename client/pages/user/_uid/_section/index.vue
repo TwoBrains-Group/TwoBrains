@@ -1,14 +1,14 @@
 <template>
-    <div id="page-user-_uid-_section">
+    <div class="page-userProfile">
         <Profile/>
-        <div class="wall">
+        <div class="page-userProfile_wall">
             <ProjectList :user-uid="uid" v-if="section === 'projects'"/>
             <IdeaList :user-uid="uid" relation="user" v-if="section === 'ideas'"/>
         </div>
     </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '~assets/sass/pages/user/profile';
 </style>
 
@@ -30,6 +30,5 @@ export default {
             uid: this.$route.params.uid,
         }
     },
-
 }
 </script>

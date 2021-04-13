@@ -48,7 +48,7 @@
     }
 }
 
-.material-btn {
+.ui-materialBtn {
     @extend .btn;
 
     width: max-content;
@@ -61,7 +61,7 @@
 
     box-shadow: 0 2px 4px 1px #f0f0f0;
 
-    &.material-btn--flat {
+    &.materialBtn--flat {
         box-shadow: 0 0 0 1px #f0f0f0;
     }
 

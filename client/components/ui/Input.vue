@@ -1,12 +1,12 @@
 <template>
-    <div class="ui-input"
+    <div class="ui-Input"
          :class="{
-            ringError,
-            warn,
-            small: size === 'small',
-            normal: size === 'normal',
-            big: size === 'big',
-            focused,
+            _ringError: ringError,
+            _warn: warn,
+            _small: size === 'small',
+            _normal: size === 'normal',
+            _big: size === 'big',
+            _focused: focused,
          }">
         <input :type="type"
                @focusin="focused = true"
@@ -17,12 +17,16 @@
                :value="value"
                @keyup.enter="applyEnter">
 
-        <div class="ui-input__hint" v-if="keyHint">
+        <div class="ui-Input_hint" v-if="keyHint">
             {{ keyHint }}
         </div>
 
-        <div class="ui-input__len-info"
-             :class="{warn: lenWarn, error: lenError || ringError, show: focused && lenInfo.length}">{{ lenInfo }}
+        <div class="ui-Input_lenInfo"
+             :class="{
+                 _warn: lenWarn,
+                 _error: lenError || ringError,
+                 _show: focused && lenInfo.length
+             }">{{ lenInfo }}
         </div>
 
     </div>

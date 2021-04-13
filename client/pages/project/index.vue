@@ -1,10 +1,10 @@
 <template>
-    <div id="page-project">
+    <div class="page-project">
         <ProjectList/>
     </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '~assets/sass/pages/project/list';
 </style>
 

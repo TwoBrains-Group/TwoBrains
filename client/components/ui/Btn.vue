@@ -1,5 +1,5 @@
 <template>
-    <div class="material-btn"
+    <div class="ui-materialBtn"
          :class="{
             'material-btn--flat': flat,
             disabled,

@@ -1,4 +1,4 @@
-.main-menu {
+.MainMenu {
     display: block;
     position: fixed;
     top: 40px;
@@ -10,12 +10,13 @@
     z-index: 2;
 
     transition: left .15s ease-in, box-shadow .75s ease-out .15s;
+
     &.show {
         left: 0;
         box-shadow: 1px 0 5px -2px #ccca;
     }
 
-    .main-menu__btn {
+    &_btn {
         display: block;
         position: relative;
         width: 100%;
@@ -27,7 +28,7 @@
         text-align: center;
     }
 
-    .main-menu__bottom {
+    &_bottom {
         display: block;
         position: absolute;
         bottom: 0;
@@ -38,7 +39,7 @@
 
         box-shadow: 0 -2px 1px -1px #f0f0f0;
 
-        .main-menu__bottom__about {
+        &_about {
             display: block;
             position: relative;
             width: max-content;
@@ -52,7 +53,7 @@
             }
         }
 
-        .main-menu__bottom__copyright {
+        &_copyright {
             display: block;
             position: relative;
             height: 20px;
@@ -62,10 +63,6 @@
             text-align: center;
             color: #ddd;
             font-size: 14px;
-
-            .copyright {
-                font-size: 20px;
-            }
         }
     }
 }

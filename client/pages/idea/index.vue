@@ -1,10 +1,10 @@
 <template>
-    <div id="page-idea">
+    <div class="page-idea">
         <IdeaList/>
     </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '~assets/sass/pages/idea/index';
 </style>
 

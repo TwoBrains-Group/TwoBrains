@@ -1,40 +1,40 @@
 <template>
-    <div class="idea__comments__comment"
+    <div class="idea-IdeaComment"
          :class="{reply: isReply}"
          v-bind:isReply="false">
-        <header class="idea__comments__comment__header">
-            <nuxt-link :to="'/user/' + user.uid" class="btn idea__comments_comment__user">
-                <div class="idea__comments__comment__user__avatar">
+        <header class="idea-IdeaComment_header">
+            <nuxt-link :to="'/user/' + user.uid" class="btn idea-IdeaComment_header_user">
+                <div class="idea-IdeaComment_user_avatar">
                     <img :src="user.avatar" alt="avatar">
                 </div>
-                <span class="idea__comments__comment__user__nickname">{{ user.nickname }}</span>
-                <span class="idea__comments__comment__date"> - {{ creationDatetime }}</span>
+                <span class="idea-IdeaComment_user_nickname">{{ user.nickname }}</span>
+                <span class="idea-IdeaComment_user_date"> - {{ creationDatetime }}</span>
             </nuxt-link>
 
-            <div class="idea__comments__comment__header__options">
-                <div class="btn idea__comments__comment__header__options__el"
+            <div class="idea-IdeaComment_header_options">
+                <div class="btn idea-IdeaComment_header_options_el"
                      @click="deleteComment"
                      v-show="showOptions">{{ l10n.delete }}
                 </div>
             </div>
 
-            <div class="right">
-                <div class="btn idea__comments__comment__user__options-btn" @click="showOptions = !showOptions">
+            <div class="u-right">
+                <div class="btn idea-IdeaComment_headerBtn" @click="showOptions = !showOptions">
                     <i class="fas fa-ellipsis-h"></i>
                 </div>
             </div>
         </header>
 
-        <div class="idea__comments__comment__content">
+        <div class="idea-IdeaComment_content">
             <nuxt-link v-if="isReply"
                        :to="'/user/' + rootCommentUserUid"
-                       class="idea__comments__comment__content__reply-to">@{{ rootCommentUserNickname }},
+                       class="idea-IdeaComment_content_reply-to">@{{ rootCommentUserNickname }},
             </nuxt-link>
             {{ text }}
         </div>
 
-        <footer class="idea__comments__comment__footer">
-            <div class="base-btn idea__comments__comment__footer__btn idea__comments__comment__footer__btn--like"
+        <footer class="idea-IdeaComment_footer">
+            <div class="base-btn idea-IdeaComment_footer_btn _like"
                  :class="liked$ ? 'liked' : ''"
                  @click="like">
                 <i :class="liked$ ? 'fas' : 'far'" class="fa-heart"></i>
@@ -42,21 +42,21 @@
             </div>
 
             <div v-if="!isReply"
-                 class="idea__comments__comment__footer__btn idea__comments__comment__footer__btn--replies"
+                 class="idea-IdeaComment_footer_btn _openReplies"
                  @click="toggleReplies">
                 <span v-if="!showReplies">{{ l10n.showReplies }}</span>
                 <span v-else>{{ l10n.closeReplies }}</span>
             </div>
 
-            <div class="idea__comments__comment__footer__btn idea__comments__comment__footer__btn--reply"
+            <div class="idea-IdeaComment_footer_btn _reply"
                  @click="beginReply">
                 {{ l10n.reply }}
             </div>
         </footer>
 
-        <div class="idea__comments__comment__replies" v-if="showReplies">
-            <div class="idea__comments__comment__replies__line"></div>
-            <div class="idea__comments__comment__replies__list">
+        <div class="idea-IdeaComment_replies" v-if="showReplies">
+            <div class="idea-IdeaComment_replies_line"></div>
+            <div class="idea-IdeaComment_replies_list">
                 <WriteComment v-if="showReplies" ref="writeReply" type="comment" :id="id" @done="replied"/>
 
                 <IdeaComment v-for="reply of replies"
@@ -67,17 +67,17 @@
 
                 <div v-if="!allRepliesFetched && showReplies"
                      @click="fetchReplies"
-                     class="base-btn idea__comments__comment__replies__list__load-more">Load more
+                     class="base-btn idea-IdeaComment_replies_list_loadMore">Load more
                 </div>
             </div>
 
             <!--            <InfiniteScroll @fetch="fetchReplies"/>-->
         </div>
-<!--        <div class="idea__comments__comment__replies_stub" v-else></div>-->
+<!--        <div class="idea-IdeaComment_repliesStub" v-else></div>-->
     </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '~assets/sass/components/idea/IdeaComment';
 </style>
 
@@ -92,6 +92,7 @@ export default {
         WriteComment,
         InfiniteScroll,
     },
+
     props: [
         'id',
         'user',

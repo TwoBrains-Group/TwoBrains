@@ -1,49 +1,51 @@
 <template>
-    <div class="user-profile">
-        <aside class="user-profile__aside">
-            <div class="user-profile__aside__avatar">
-                <img :src="user.avatar" alt="avatar">
-                <!--        <div class="user-profile__aside__avatar__online"></div>-->
+    <div class="user-Profile">
+        <aside class="user-Profile_aside">
+            <div class="user-Profile_aside_avatar">
+                <nuxt-link :to="'/user/' + user.uid">
+                    <img :src="user.avatar" alt="avatar">
+                </nuxt-link>
+                <!--        <div class="user-Profile_aside_avatar_online"></div>-->
             </div>
 
-            <div class="user-profile__aside__nickname">
+            <div class="user-Profile_aside_nickname">
                 <span>{{ user.nickname }}</span>
 
-                <!--        <div class="user-profile__aside__nickname__was-online">{{page.user.wasOnline}}</div>-->
+<!--                        <div class="user-Profile_aside_nickname_wasOnline">{{page.user.wasOnline}}</div>-->
             </div>
 
             <hr>
 
-            <div class="user-profile__aside__btns">
+            <div class="user-Profile_aside_btns">
                 <nuxt-link v-if="user.isMe"
                            to="/user/settings"
-                           class="flat-btn user-profile__aside__btns__el">{{ l10n.settings }}
+                           class="flat-btn user-Profile_aside_btns_el">{{ l10n.settings }}
                 </nuxt-link>
 
-                <div class="user-profile__aside__btns__el user-profile__aside__btns__el--following-you"
+                <div class="user-Profile_aside_btns_el _followingYou"
                      v-if="!user.isMe && (user.followingStatus === 'following_you' || user.followingStatus === 'mutual_following')">
                     - {{l10n[user.followingStatus] }} -
                 </div>
 
                 <div v-if="!user.isMe"
                      @click="follow"
-                     class="flat-btn user-profile__aside__btns__el">
+                     class="flat-btn user-Profile_aside_btns_el">
                     <span>{{l10n[user.followingAction]}}</span>
                 </div>
 
                 <nuxt-link :to="'/user/' + user.uid + '/ideas'"
-                           class="flat-btn user-profile__aside__btns__el">{{ l10n.ideas }}
+                           class="flat-btn user-Profile_aside_btns_el">{{ l10n.ideas }}
                 </nuxt-link>
 
                 <nuxt-link :to="'/user/' + user.uid + '/projects'"
-                           class="flat-btn user-profile__aside__btns__el">{{ l10n.projects }}
+                           class="flat-btn user-Profile_aside_btns_el">{{ l10n.projects }}
                 </nuxt-link>
             </div>
         </aside>
     </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '~assets/sass/components/user/Profile';
 </style>
 

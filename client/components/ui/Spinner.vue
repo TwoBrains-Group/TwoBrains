@@ -1,7 +1,7 @@
 <template>
-    <div class="spinner"></div>
+    <div class="ui-Spinner"></div>
 </template>
 
 <style lang="scss">
-@import '~assets/sass/components/ui/Spinner.scss';
+@import '~assets/sass/components/ui/Spinner';
 </style>

@@ -8,7 +8,7 @@
     }
 }
 
-.ui-checkbox {
+.ui-Checkbox {
     display: flex;
     width: max-content;
     height: 25px;
@@ -17,8 +17,8 @@
     flex-direction: row;
     cursor: pointer;
 
-    &.checked {
-        .ui-checkbox__box {
+    &._checked {
+        &_box {
             i {
                 opacity: 1;
                 transform: scale(1, 1);
@@ -28,7 +28,7 @@
         }
     }
 
-    &.outlined {
+    &._outlined {
         box-shadow: 0 0 0 1px #f0f0f0;
         border-radius: 5px;
         padding: 5px 10px;
@@ -36,14 +36,14 @@
     }
 
     &:hover {
-        .ui-checkbox__box {
+        &_box {
             background: #f0f0f0;
             box-shadow: 0 2px 5px -1px #f0f0f0;
         }
     }
 
     &:active {
-        .ui-checkbox__box {
+        &_box {
             border-radius: 50%;
         }
     }
@@ -59,7 +59,7 @@
         cursor: pointer;
     }
 
-    .ui-checkbox__box {
+    &_box {
         width: 15px;
         height: 15px;
         padding: 5px;

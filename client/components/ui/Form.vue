@@ -1,11 +1,10 @@
 <template>
-    <div class="ui-form" @keyup.ctrl.enter="apply">
+    <div class="ui-Form" @keyup.ctrl.enter="apply">
         <slot/>
     </div>
 </template>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>
 
 <script>
 export default {

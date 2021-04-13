@@ -1,7 +1,8 @@
 <template>
-    <Form class="idea__comments__write-comment" @apply="done">
-        <div class="idea__comments__write-comment__text">
-            <Textarea v-model="text"
+    <Form class="idea-WriteComment" @apply="done">
+        <div class="idea-WriteComment_text">
+            <Textarea class="idea-WriteComment_text_Textarea"
+                      v-model="text"
                       ref="textarea"
                       :placeholder="l10n.writeAComment"
                       :min-len="15"
@@ -9,14 +10,14 @@
                       :warn-len="450"/>
         </div>
 
-        <div class="btn idea__comments__write-comment__done"
+        <div class="btn idea-WriteComment_done"
              @click="done">
             <i class="fas fa-paper-plane"></i>
         </div>
     </Form>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '~assets/sass/components/idea/WriteComment';
 </style>
 

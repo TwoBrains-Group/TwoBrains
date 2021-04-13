@@ -1,6 +1,4 @@
-@import '../../common/common';
-
-#page-user-settings {
+.page-user-settings {
     display: grid;
     position: relative;
     width: 800px;
@@ -8,111 +6,111 @@
     padding-top: 10px;
     grid-template-columns: 65% 35%;
     grid-template-rows: 100%;
-}
 
-.user-settings__blocks {
-    padding: 10px;
-    box-shadow: 2px 0 1px -1px #f0f0f0;
-}
+    &_blocks {
+        padding: 10px;
+        box-shadow: 2px 0 1px -1px #f0f0f0;
 
-.user-settings__block {
-    display: block;
-    position: relative;
-    padding: 10px 0;
-    border-radius: 8px;
-    box-shadow: 0 0 0 1px #f0f0f0;
+        &_block {
+            display: block;
+            position: relative;
+            padding: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 0 1px #f0f0f0;
 
-    hr {
-        height: 1px;
-        width: calc(100% - 50px);
-    }
-}
-
-.user-settings__block__element {
-    display: block;
-    position: relative;
-    padding: 10px 0;
-
-    .user-settings__block__element__body {
-        .ui-input > input {
-            width: 300px;
-        }
-
-        .hor-list {
-            width: 400px;
-
-            .hor-list__el {
-                font-size: 18px;
+            hr {
+                height: 1px;
+                width: calc(100% - 50px);
             }
-        }
-    }
 
-    .user-settings__block__element__descr {
-        display: block;
-        position: relative;
-        max-width: 90%;
-        height: max-content;
-        padding: 5px 0;
-        margin: 0 auto;
-        text-align: center;
-        font-size: 14px;
-        word-wrap: break-word;
-    }
-}
+            &_el {
+                display: block;
+                position: relative;
+                padding: 10px 0;
 
-.user-settings__block__element__name {
-    display: block;
-    position: relative;
-    width: max-content;
-    height: 20px;
-    margin: 0 auto;
-}
+                &_body {
+                    &_Input > input {
+                        width: 300px;
+                    }
 
-.user-settings__changed {
-    padding: 10px 0;
+                    .u-horList {
+                        width: 400px;
 
-    .user-settings__changed__changelist {
-        display: block;
-        position: relative;
-
-        padding-bottom: 10px;
-
-        h4 {
-            margin: 5px auto;
-            text-indent: 10px;
-        }
-
-        .user-settings__changed__changelist__list {
-            padding: 0 5px;
-
-            .user-settings__changed__changelist__list__el {
-                padding: 5px;
-                margin: 0 auto;
-                line-height: 20px;
-                vertical-align: middle;
-                overflow-x: hidden;
-                white-space: nowrap;
-                //text-overflow: ellipsis;
-
-                .user-settings__changed__changelist__list__el__name {
-                    display: inline-block;
+                        .hor-list_el {
+                            font-size: 18px;
+                        }
+                    }
                 }
 
-                .user-settings__changed__changelist__list__el__value {
-                    display: inline-block;
+                &_name {
+                    display: block;
+                    position: relative;
+                    width: max-content;
+                    height: 20px;
+                    margin: 0 auto;
                 }
 
-                .user-settings__changed__changelist__list__el__warning {
-                    display: inline-block;
-                    color: #bbaa22;
+                &_description {
+                    display: block;
+                    position: relative;
+                    max-width: 90%;
+                    height: max-content;
+                    padding: 5px 0;
+                    margin: 0 auto;
+                    text-align: center;
+                    font-size: 14px;
+                    word-wrap: break-word;
                 }
             }
         }
     }
 
-    .user-settings__changed__save-btn {
-        padding: 7px 25px;
-        border-radius: 8px;
-        font-size: 17px;
+    &_changed {
+        padding: 10px 0;
+
+        &_changelist {
+            display: block;
+            position: relative;
+
+            padding-bottom: 10px;
+
+            h4 {
+                margin: 5px auto;
+                text-indent: 10px;
+            }
+
+            &_list {
+                padding: 0 5px;
+
+                &_el {
+                    padding: 5px;
+                    margin: 0 auto;
+                    line-height: 20px;
+                    vertical-align: middle;
+                    overflow-x: hidden;
+                    white-space: nowrap;
+                    //text-overflow: ellipsis;
+
+                    &_name {
+                        display: inline-block;
+                    }
+
+                    &_value {
+                        display: inline-block;
+                    }
+
+                    &_warning {
+                        display: inline-block;
+                        color: #bbaa22;
+                    }
+                }
+            }
+        }
+
+        &_saveBtn {
+            padding: 7px 25px;
+            border-radius: 8px;
+            font-size: 17px;
+        }
     }
 }

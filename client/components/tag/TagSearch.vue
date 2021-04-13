@@ -1,16 +1,16 @@
 <template>
-    <div class="tag-search">
-        <h6 class="tag-search__header" v-if="header">{{ header || l10n.defaultHeader }}</h6>
-        <div class="tag-search__search-bar">
+    <div class="tag-TagSearch">
+        <h6 class="tag-TagSearch_header" v-if="header">{{ header || l10n.defaultHeader }}</h6>
+        <div class="tag-TagSearch_searchBar">
             <Input type="text" @input="search" size="small" :input-on-unchanged="false"/>
         </div>
 
-        <div class="tag-search__list">
-            <div class="btn tag-search__list__el"
+        <div class="tag-TagSearch_list">
+            <div class="btn tag-TagSearch_list_el"
                  v-for="tag of tags"
                  @click="toggleTag(tag.id)"
                  :class="{active: addedTags.has(tag.id)}">
-                <span class="group" v-if="tag.groupLabel">{{ tag.groupLabel }}:</span>
+                <span class="tag-TagSearch_list_el_group" v-if="tag.groupLabel">{{ tag.groupLabel }}:</span>
                 {{ tag.label }}
                 <i class="fas fa-check"></i>
             </div>
@@ -18,7 +18,7 @@
     </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '~assets/sass/components/tag/TagSearch';
 </style>
 

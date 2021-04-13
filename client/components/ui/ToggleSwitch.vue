@@ -1,8 +1,8 @@
 <template>
-    <div class="ui-switch" :class="{checked, outlined}" @click="toggle">
+    <div class="ui-Switch" :class="{_checked: checked, _outlined: outlined}" @click="toggle">
         <label>{{ leftLabel }}</label>
-        <div class="ui-switch__box">
-            <div class="ui-switch__box__thumb"></div>
+        <div class="ui-Switch_box">
+            <div class="ui-Switch_box_thumb"></div>
         </div>
         <label>{{ rightLabel }}</label>
     </div>

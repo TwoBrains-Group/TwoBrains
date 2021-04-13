@@ -1,6 +1,6 @@
 @import '../../ui/btn';
 
-.idea__comments__comment {
+.idea-IdeaComment {
     display: grid;
     position: relative;
 
@@ -23,11 +23,11 @@
         box-shadow: none;
     }
 
-    .idea__comments__comment__header {
+    &_header {
         display: flex;
         flex-direction: row;
 
-        .idea__comments_comment__user {
+        &_user {
             display: grid;
             position: relative;
             grid-template-columns: 25px max-content max-content;
@@ -39,7 +39,7 @@
 
             grid-area: header;
 
-            .idea__comments__comment__user__avatar {
+            &_avatar {
                 display: inline-block;
                 width: 25px;
                 height: 25px;
@@ -50,13 +50,13 @@
                 }
             }
 
-            .idea__comments__comment__user__nickname {
+            &_nickname {
                 padding-left: 5px;
                 line-height: 25px;
                 vertical-align: middle;
             }
 
-            .idea__comments__comment__date {
+            &_date {
                 font-size: 12px;
                 line-height: 25px;
                 vertical-align: middle;
@@ -64,7 +64,7 @@
             }
         }
 
-        .idea__comments__comment__header__options {
+        &_options {
             display: block;
             position: absolute;
             top: 50px;
@@ -79,7 +79,7 @@
 
             z-index: 10;
 
-            .idea__comments__comment__header__options__el {
+            &_el {
                 display: block;
                 position: relative;
                 width: max-content;
@@ -92,31 +92,30 @@
             }
         }
 
-        .right {
+        .u-right {
             display: flex;
             flex-direction: row;
-            margin-left: auto;
+        }
 
-            .idea__comments__comment__user__options-btn {
-                width: 25px;
-                height: 25px;
-                padding: 5px;
-                font-size: 15px;
-                text-align: center;
-                line-height: 26px;
-                vertical-align: middle;
-                border-radius: 10px;
-                color: #aaa;
-                transition: .2s ease;
+        &_headerBtn {
+            width: 25px;
+            height: 25px;
+            padding: 5px;
+            font-size: 15px;
+            text-align: center;
+            line-height: 26px;
+            vertical-align: middle;
+            border-radius: 10px;
+            color: #aaa;
+            transition: .2s ease;
 
-                &:hover {
-                    color: #333;
-                }
+            &:hover {
+                color: #333;
             }
         }
     }
 
-    .idea__comments__comment__content {
+    &_content {
         display: block;
         position: relative;
         padding: 5px 10px;
@@ -124,7 +123,7 @@
         word-wrap: break-word;
         grid-area: body;
 
-        .idea__comments__comment__content__reply-to {
+        &_reply-to {
             color: #9aa6ce;
             transition: color .15s ease;
 
@@ -138,78 +137,79 @@
         }
     }
 
-    .idea__comments__comment__footer {
+    &_footer {
         display: flex;
         padding: 0 5px;
         grid-area: footer;
 
-        .idea__comments__comment__footer__btn {
+        &_btn {
             padding: 0 5px;
             line-height: 28px;
             vertical-align: middle;
             font-size: 14px;
             text-align: center;
-        }
 
-        .idea__comments__comment__footer__btn--like {
-            transition: color .15s ease;
-            //box-shadow: inset 0 0 0 1px #f6f6f6;
-            //border-radius: 5px;
+            ._like {
+                transition: color .15s ease;
+                //box-shadow: inset 0 0 0 1px #f6f6f6;
+                //border-radius: 5px;
 
-            .count {
-                padding: 0 2px;
-            }
-
-            &:hover {
-                color: #f25959cc;
-                text-shadow: 0 1px 5px -1px #f0f0f0;
-            }
-
-            &:active {
-                i {
-                    transform: scale(1.2);
+                .count {
+                    padding: 0 2px;
                 }
-            }
-
-            &.liked {
-                color: #f25959cc;
 
                 &:hover {
-                    color: #333;
+                    color: #f25959cc;
+                    text-shadow: 0 1px 5px -1px #f0f0f0;
                 }
 
                 &:active {
                     i {
-                        transform: rotate(15deg);
+                        transform: scale(1.2);
+                    }
+                }
+
+                &.liked {
+                    color: #f25959cc;
+
+                    &:hover {
+                        color: #333;
+                    }
+
+                    &:active {
+                        i {
+                            transform: rotate(15deg);
+                        }
                     }
                 }
             }
-        }
 
-        .idea__comments__comment__footer__btn--replies,
-        .idea__comments__comment__footer__btn--reply {
-            @extend .base-btn;
 
-            transition: box-shadow .15s ease, color .15s ease;
+            ._openReplies,
+            ._reply {
+                cursor: pointer;
 
-            color: #888;
-            &:hover {
-                color: #555;
-                box-shadow: inset 0 -2px 1px -1px #333;
+                transition: box-shadow .15s ease, color .15s ease;
+
+                color: #888;
+                &:hover {
+                    color: #555;
+                    box-shadow: inset 0 -2px 1px -1px #333;
+                }
+
+                &:active {
+                    color: #333;
+                }
+
+                padding: 0;
+                margin: 0 5px;
+                height: 20px;
             }
-
-            &:active {
-                color: #333;
-            }
-
-            padding: 0;
-            margin: 0 5px;
-            height: 20px;
         }
     }
 
-    .idea__comments__comment__replies,
-    .idea__comments__comment__replies_stub {
+    &_replies,
+    &_repliesStub {
         grid-area: replies;
     }
 }

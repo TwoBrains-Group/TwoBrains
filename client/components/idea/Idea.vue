@@ -1,37 +1,37 @@
 <template>
-    <div class="idea"
+    <div class="idea-Idea"
          :class="{
             'comments-open': showComments,
             page: isPage,
             hover
          }">
 
-        <div class="idea__block">
-            <header class="idea__block__header">
-                <nuxt-link :to="'/user/' + user.uid" class="btn idea__block__header__user">
-                    <div class="idea__block__header__user__avatar">
+        <div class="idea-Idea_block">
+            <header class="idea-Idea_block_header">
+                <nuxt-link :to="'/user/' + user.uid" class="btn idea-Idea_block_header_user">
+                    <div class="idea-Idea_block_header_user_avatar">
                         <img :src="user.avatar" alt="avatar">
                     </div>
-                    <span class="idea__block__header__user__nickname">{{ user.nickname }}</span>
+                    <span class="idea-Idea_block_header_user_nickname">{{ user.nickname }}</span>
                 </nuxt-link>
 
-                <nuxt-link :to="'/idea/' + id" class="idea__block__creation-datetime" v-tooltip="{
+                <nuxt-link :to="'/idea/' + id" class="idea-Idea_block_creation-datetime" v-tooltip="{
                     content: creationDatetime,
                     offset: 0
                 }">
                     {{ prettyCreationDatetime }}
                 </nuxt-link>
 
-                <div class="right">
-                    <div class="btn idea__block__header__options-btn" @click="toggleOptions">
+                <div class="u-right">
+                    <div class="btn idea-Idea_block_header_options-btn" @click="toggleOptions">
                         <i class="fas fa-ellipsis-h"></i>
                     </div>
 
-                    <div class="idea__block__header__options" v-show="showOptions">
-                        <div class="btn idea__block__header__options__el">
+                    <div class="idea-Idea_block_header_options" v-show="showOptions">
+                        <div class="btn idea-Idea_block_header_options_el">
                             {{ l10n.edit }}
                         </div>
-                        <div class="btn idea__block__header__options__el">
+                        <div class="btn idea-Idea_block_header_options_el">
                             {{ l10n.delete || 'delete' }}
                         </div>
                     </div>
@@ -39,46 +39,46 @@
             </header>
 
             <nuxt-link :to="'/idea/' + id"
-                       class="idea__block__body"
+                       class="idea-Idea_block_body"
                        @mouseover.native="hover = true"
                        @mouseleave.native="hover = false">
 
-                <h3 class="idea__block__body__name">
+                <h3 class="idea-Idea_block_body_name">
                     {{ name }}
                 </h3>
-                <p class="idea__block__body__text">
+                <p class="idea-Idea_block_body_text">
                     {{ text }}
                 </p>
             </nuxt-link>
 
-            <footer class="idea__block__footer">
-                <div class="base-btn idea__block__footer__btn idea__block__footer__btn--like"
+            <footer class="idea-Idea_block_footer">
+                <div class="base-btn idea-Idea_block_footer_btn _like"
                      :class="liked$ ? 'liked' : ''"
                      @click="like(false)">
                     <i :class="liked$ ? 'fas' : 'far'" class="fa-heart"></i>
                     <span class="count">{{ likesCount$ }}</span>
                 </div>
 
-                <div class="base-btn idea__block__footer__btn idea__block__footer__btn--dislike"
+                <div class="base-btn idea-Idea_block_footer_btn _dislike"
                      :class="disliked$ ? 'disliked' : ''"
                      @click="like(true)">
                     <i :class="disliked$ ? 'fas' : 'far'" class="fa-frown-open"></i>
                     <span class="count">{{ dislikesCount$ }}</span>
                 </div>
 
-                <div class="base-btn idea__block__footer__btn idea__block__footer__btn--comments"
+                <div class="base-btn idea-Idea_block_footer_btn _comments"
                      @click="toggleComments"
                      v-if="!isPage">
                     <i :class="showComments ? 'fas' : 'far'" class="fa-comments"></i>
                 </div>
 
-                <div class="idea__block__footer__tags" v-if="Object.keys(tags).length">
-                    <span class="idea__block__footer__tags__hash">#</span>
+                <div class="idea-Idea_block_footer_tags" v-if="Object.keys(tags).length">
+                    <span class="idea-Idea_block_footer_tags_hash">#</span>
                     <nuxt-link :to="getTagSearchUrl(tag.id)"
-                               class="btn idea__block__footer__tags__el"
+                               class="btn idea-Idea_block_footer_tags_el"
                                v-for="tag of tags"
                                :key="tag.id">
-                        <span class="group" v-if="tag.groupLabel">{{ l10n.tagGroups.meow }}:</span>
+                        <span class="tag-TagSearch_list_el_group" v-if="tag.groupLabel">{{ l10n.tagGroups.meow }}:</span>
                         {{ l10n.tags['lol'] }}
                         <!--                        <span class="group" v-if="tag.groupLabel">{{ l10n.tagGroups[tag.groupLabel] }}:</span>-->
                         <!--                        {{ l10n.tags[tag.label] }}-->
@@ -87,18 +87,21 @@
             </footer>
         </div>
 
-        <Debounce class="sb debounce-shadow idea__comments" :class="{show: showComments}">
+        <Debounce class="u-sb debounce-shadow idea-Idea_comments" :class="{show: showComments}">
+            <WriteComment class="idea-Idea_comments_WriteComment" type="idea" :id="id" @done="commented"/>
 
-            <WriteComment type="idea" :id="id" @done="commented"/>
-
-            <IdeaComment v-for="cmt of comments" :key="cmt.id" v-bind="cmt" :is-reply="false"/>
+            <IdeaComment class="idea-Idea_comments_IdeaComment"
+                         v-for="cmt of comments"
+                         :key="cmt.id"
+                         v-bind="cmt"
+                         :is-reply="false"/>
 
             <InfiniteScroll ref="infiniteScroll" @fetch="commentsInfiniteScroll"/>
         </Debounce>
     </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '~assets/sass/components/idea/Idea';
 </style>
 

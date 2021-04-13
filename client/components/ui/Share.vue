@@ -1,8 +1,8 @@
 <template>
-    <div class="ui-share">
-        <div v-if="link" class="ui-share__link">
+    <div class="ui-Share">
+        <div v-if="link" class="ui-Share_link">
             <input class="" readonly :value="url" ref="link">
-            <div class="btn ui-share__link__copy"
+            <div class="btn ui-Share_link_copy"
                  v-tooltip="{
                     content: 'copy',
                  }"
@@ -11,9 +11,9 @@
             </div>
         </div>
 
-        <div class="ui-share__social-networks">
-            <div class="btn ui-share__social-networks__el"
-                 :class="sn.name"
+        <div class="ui-Share_socialNetworks">
+            <div class="btn ui-Share_socialNetworks_el"
+                 :class="'_' + sn.name"
                  v-for="sn of socialNetworks"
                  @click="shareTo(sn.url)">
                 <i class="fab" :class="sn.icon"></i>
@@ -59,7 +59,7 @@ export default {
                     url: '',
                 },
                 {
-                    name: 'google-plus',
+                    name: 'googlePlus',
                     icon: 'fa-google-plus-g',
                     url: '',
                 },
